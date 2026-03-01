@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./client/src/*"]
+    },
+    "types": ["vite/client"]
+  },
+  "include": ["client/src/**/*.ts", "client/src/**/*.tsx", "client/vite.config.ts"]
+}
