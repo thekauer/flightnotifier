@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useCallback, useState, type ReactNode } from 'react';
+import { createContext, useContext, useCallback, useRef, useState, type ReactNode } from 'react';
 
 export interface ZoneBounds {
   south: number;
@@ -22,41 +22,112 @@ interface NotificationZoneContextValue {
 
 const NotificationZoneContext = createContext<NotificationZoneContextValue | null>(null);
 
+const ZONE_STORAGE_KEY = 'flightnotifier-notification-zone';
+const VISIBLE_STORAGE_KEY = 'flightnotifier-notification-zone-visible';
+
+interface StoredZoneState {
+  zone: ZoneBounds | null;
+  visible: boolean;
+}
+
+function readStoredState(): StoredZoneState {
+  try {
+    const zoneRaw = localStorage.getItem(ZONE_STORAGE_KEY);
+    const visibleRaw = localStorage.getItem(VISIBLE_STORAGE_KEY);
+    return {
+      zone: zoneRaw ? (JSON.parse(zoneRaw) as ZoneBounds) : null,
+      visible: visibleRaw !== null ? visibleRaw === 'true' : true,
+    };
+  } catch {
+    return { zone: null, visible: true };
+  }
+}
+
+function writeZone(zone: ZoneBounds | null) {
+  try {
+    if (zone) {
+      localStorage.setItem(ZONE_STORAGE_KEY, JSON.stringify(zone));
+    } else {
+      localStorage.removeItem(ZONE_STORAGE_KEY);
+    }
+  } catch {
+    // Ignore storage write failures.
+  }
+}
+
+function writeVisible(visible: boolean) {
+  try {
+    localStorage.setItem(VISIBLE_STORAGE_KEY, String(visible));
+  } catch {
+    // Ignore storage write failures.
+  }
+}
+
 export function NotificationZoneProvider({ children }: { children: ReactNode }) {
-  const [zone, setZoneState] = useState<ZoneBounds | null>(null);
-  const [visible, setVisible] = useState(true);
+  const [zone, setZoneRaw] = useState<ZoneBounds | null>(null);
+  const [visible, setVisibleRaw] = useState(true);
   const [zoneVersion, setZoneVersion] = useState(0);
+  const hasSynced = useRef(false);
+
+  const syncFromStorage = useCallback(() => {
+    if (!hasSynced.current && typeof window !== 'undefined') {
+      hasSynced.current = true;
+      const stored = readStoredState();
+      if (stored.zone) {
+        setZoneRaw(stored.zone);
+        setZoneVersion((v) => v + 1);
+      }
+      if (!stored.visible) {
+        setVisibleRaw(false);
+      }
+      return stored;
+    }
+    return null;
+  }, []);
+
+  // Lazy-sync on first render (avoids hydration mismatch)
+  const synced = syncFromStorage();
+  const currentZone = synced ? synced.zone : zone;
+  const currentVisible = synced ? synced.visible : visible;
 
   const setZone = useCallback((bounds: ZoneBounds) => {
-    setZoneState(bounds);
+    hasSynced.current = true;
+    setZoneRaw(bounds);
     setZoneVersion((v) => v + 1);
+    writeZone(bounds);
   }, []);
 
   const clearZone = useCallback(() => {
-    setZoneState(null);
+    hasSynced.current = true;
+    setZoneRaw(null);
     setZoneVersion((v) => v + 1);
+    writeZone(null);
   }, []);
 
   const toggleVisible = useCallback(() => {
-    setVisible((v) => !v);
+    setVisibleRaw((v) => {
+      const next = !v;
+      writeVisible(next);
+      return next;
+    });
   }, []);
 
   const isInZone = useCallback(
     (lat: number, lng: number): boolean => {
-      if (!zone) return false;
+      if (!currentZone) return false;
       return (
-        lat >= zone.south &&
-        lat <= zone.north &&
-        lng >= zone.west &&
-        lng <= zone.east
+        lat >= currentZone.south &&
+        lat <= currentZone.north &&
+        lng >= currentZone.west &&
+        lng <= currentZone.east
       );
     },
-    [zone],
+    [currentZone],
   );
 
   return (
     <NotificationZoneContext.Provider
-      value={{ zone, visible, zoneVersion, setZone, clearZone, toggleVisible, isInZone }}
+      value={{ zone: currentZone, visible: currentVisible, zoneVersion, setZone, clearZone, toggleVisible, isInZone }}
     >
       {children}
     </NotificationZoneContext.Provider>

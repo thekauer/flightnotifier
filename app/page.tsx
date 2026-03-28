@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { useFlightEvents } from '@/hooks/useFlightEvents';
+import { useNotificationZone } from '@/lib/notificationZoneContext';
 import { StatusBanner } from '@/components/StatusBanner';
 import { FlightMap } from '@/components/FlightMap';
 import { FlightList } from '@/components/FlightList';
@@ -30,11 +31,16 @@ const DASHBOARD_TABS: { id: DashboardTab; label: string }[] = [
 
 export default function Home() {
   const { state, connected, requestNotificationPermission } = useFlightEvents();
+  const { zone, isInZone } = useNotificationZone();
   const [topTab, setTopTab] = useState<TopTab>('dashboard');
   const [dashboardTab, setDashboardTab] = useState<DashboardTab>('overview');
   const approachingIds = useMemo(
     () => new Set(state.approachingFlights.map((f) => f.id)),
     [state.approachingFlights],
+  );
+  const zoneFlights = useMemo(
+    () => (zone ? state.allFlights.filter((f) => !f.onGround && isInZone(f.lat, f.lon)) : []),
+    [zone, isInZone, state.allFlights],
   );
 
   return (
@@ -113,6 +119,13 @@ export default function Home() {
           <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
             {dashboardTab === 'overview' && (
               <>
+                {zone && (
+                  <ConeFlightsTable
+                    flights={zoneFlights}
+                    title="Aircraft Visible"
+                    emptyLabel="No aircraft currently inside the zone"
+                  />
+                )}
                 <ConeFlightsTable flights={state.approachingFlights} />
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-xl border bg-card shadow-sm">
@@ -139,6 +152,13 @@ export default function Home() {
 
             {dashboardTab === 'airborne' && (
               <>
+              {zone && (
+                <ConeFlightsTable
+                  flights={zoneFlights}
+                  title="Aircraft Visible"
+                  emptyLabel="No aircraft currently inside the zone"
+                />
+              )}
               <ConeFlightsTable flights={state.approachingFlights} />
               <div className="rounded-xl border bg-card shadow-sm">
                 <div className="border-b px-5 py-3 flex items-center justify-between">
@@ -163,6 +183,13 @@ export default function Home() {
               Live cone traffic and scheduled arrivals to Amsterdam, with historical paths per scheduled flight
             </p>
           </div>
+          {zone && (
+            <ConeFlightsTable
+              flights={zoneFlights}
+              title="Aircraft Visible"
+              emptyLabel="No aircraft currently inside the zone"
+            />
+          )}
           <ConeFlightsTable flights={state.approachingFlights} />
           <ScheduledArrivalsTable />
         </main>

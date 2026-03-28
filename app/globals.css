@@ -121,3 +121,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Runway label tooltips on the Leaflet map */
+.runway-label {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #aaa;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding: 0 !important;
+}
+.runway-label::before {
+  display: none !important;
+}

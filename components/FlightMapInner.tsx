@@ -1,28 +1,86 @@
 'use client';
 
 import { useMemo, useCallback, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, Tooltip, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
+import { APPROACH_CONE_27 } from '@/lib/approachCone';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { getAirportInfo, countryCodeToFlag } from '@/lib/airports';
 
 const SCHIPHOL_POS: [number, number] = [52.3105, 4.7683];
 
-const APPROACH_CONE_27: [number, number][] = [
-  [52.322, 4.78],
-  [52.34, 5.1],
-  [52.286, 5.1],
-  [52.304, 4.78],
+/**
+ * EHAM runway data from OurAirports.
+ * Each runway is defined by low-end (LE) and high-end (HE) coordinates plus width in feet.
+ */
+const EHAM_RUNWAYS: {
+  le: [number, number]; // [lat, lon]
+  he: [number, number];
+  widthFt: number;
+  leIdent: string;
+  heIdent: string;
+}[] = [
+  { le: [52.30040, 4.78348], he: [52.31400, 4.80302], widthFt: 148, leIdent: '04', heIdent: '22' },
+  { le: [52.28790, 4.73402], he: [52.30460, 4.77752], widthFt: 148, leIdent: '06', heIdent: '24' },
+  { le: [52.31660, 4.74635], he: [52.31840, 4.79689], widthFt: 148, leIdent: '09', heIdent: '27' },
+  { le: [52.33140, 4.74003], he: [52.30180, 4.73750], widthFt: 148, leIdent: '18C', heIdent: '36C' },
+  { le: [52.32130, 4.77996], he: [52.29080, 4.77735], widthFt: 148, leIdent: '18L', heIdent: '36R' },
+  { le: [52.36270, 4.71193], he: [52.32860, 4.70884], widthFt: 198, leIdent: '18R', heIdent: '36L' },
 ];
 
-const schipholIcon = L.divIcon({
-  html: '<div style="font-size:20px;text-align:center;">&#x2708;&#xFE0F;</div>',
-  iconSize: [24, 24],
-  iconAnchor: [12, 12],
-  className: '',
-});
+/** Convert feet to meters. */
+const FT_TO_M = 0.3048;
+
+/** Metres per degree of latitude (roughly constant). */
+const M_PER_DEG_LAT = 111_320;
+
+/**
+ * Compute the 4 corners of a runway rectangle from its centerline endpoints and width.
+ * Returns corners in order suitable for a Leaflet Polygon: LE-left, LE-right, HE-right, HE-left.
+ */
+function runwayPolygon(
+  le: [number, number],
+  he: [number, number],
+  widthFt: number,
+): [number, number][] {
+  const halfWidthM = (widthFt * FT_TO_M) / 2;
+
+  // Direction vector from LE to HE
+  const dLat = he[0] - le[0];
+  const dLon = he[1] - le[1];
+
+  // Perpendicular unit vector (rotated 90 degrees clockwise)
+  // We need to work in meters for correct proportions
+  const midLat = (le[0] + he[0]) / 2;
+  const mPerDegLon = M_PER_DEG_LAT * Math.cos((midLat * Math.PI) / 180);
+
+  const dLatM = dLat * M_PER_DEG_LAT;
+  const dLonM = dLon * mPerDegLon;
+  const length = Math.sqrt(dLatM * dLatM + dLonM * dLonM);
+
+  // Perpendicular direction (rotate 90 deg): (dy, -dx) normalized
+  const perpLatM = dLonM / length;
+  const perpLonM = -dLatM / length;
+
+  // Convert perpendicular offset back to degrees
+  const offsetLat = (perpLatM * halfWidthM) / M_PER_DEG_LAT;
+  const offsetLon = (perpLonM * halfWidthM) / mPerDegLon;
+
+  return [
+    [le[0] + offsetLat, le[1] + offsetLon],
+    [le[0] - offsetLat, le[1] - offsetLon],
+    [he[0] - offsetLat, he[1] - offsetLon],
+    [he[0] + offsetLat, he[1] + offsetLon],
+  ];
+}
+
+/** Pre-compute all runway polygons (static data, never changes). */
+const EHAM_RUNWAY_POLYGONS = EHAM_RUNWAYS.map((rwy) => ({
+  ...rwy,
+  corners: runwayPolygon(rwy.le, rwy.he, rwy.widthFt),
+}));
 
 function createFlightIcon(track: number, isApproaching: boolean): L.DivIcon {
   const color = isApproaching ? '#16a34a' : '#2563eb';
@@ -326,13 +384,23 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
           </>
         )}
 
-        <Marker position={SCHIPHOL_POS} icon={schipholIcon}>
-          <Popup>
-            <strong>Schiphol Airport (AMS)</strong>
-            <br />
-            Buitenveldertbaan
-          </Popup>
-        </Marker>
+        {/* EHAM runway polygons */}
+        {EHAM_RUNWAY_POLYGONS.map((rwy) => (
+          <Polygon
+            key={`${rwy.leIdent}/${rwy.heIdent}`}
+            positions={rwy.corners}
+            pathOptions={{
+              color: '#555',
+              fillColor: '#333',
+              fillOpacity: 0.7,
+              weight: 1,
+            }}
+          >
+            <Tooltip permanent direction="center" className="runway-label">
+              {rwy.leIdent}/{rwy.heIdent}
+            </Tooltip>
+          </Polygon>
+        ))}
 
         {airborneFlights.map((flight) => (
           <FlightMarker key={flight.id} flight={flight} isApproaching={approachingIds.has(flight.id)} />

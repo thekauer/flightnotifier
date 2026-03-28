@@ -1,6 +1,6 @@
 import type { HistoricalFlightPath, HistoricalTrackPoint } from '@/lib/types';
 import { getOpenSkyClient } from '@/server/singleton';
-import { pathIntersectsApproachCone27 } from './detector';
+import { pathIntersectsApproachCone27 } from '@/lib/approachCone';
 
 const SCHIPHOL_LAT = 52.3105;
 const SCHIPHOL_LON = 4.7683;

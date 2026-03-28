@@ -1,4 +1,4 @@
-import { APPROACH_CONE_27, RWY27_THRESHOLD } from '@/server/opensky/detector';
+import { APPROACH_CONE_27, RWY27_THRESHOLD } from '@/lib/approachCone';
 
 export function buildConeResponse() {
   return {

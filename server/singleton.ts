@@ -2,12 +2,63 @@ import { FlightStateManager } from './state';
 import { OpenSkyClient } from './opensky/client';
 import { OpenSkyPoller } from './opensky/poller';
 import { AdsbdbClient } from './adsbdb/client';
-import type { BoundingBox } from './opensky/types';
+import type { BoundingBox, Flight } from './opensky/types';
 import { fetchMetar, type MetarData } from '@/lib/api/weather';
 import { RunwayHistoryStore } from './runway/historyStore';
 import { predictRunways } from './runway/predictor';
+import { getFlightyArrivals } from './arrivals/flightyClient';
+import { resolveIcaoFromIata } from '@/lib/airports';
 
 const APPROACH_BOUNDS: BoundingBox = { lamin: 52.2, lomin: 4.6, lamax: 52.45, lomax: 5.1 };
+
+// --- Flighty callsign matching (mirrors scheduleService logic) ----------------
+
+function callsignMatchesFlighty(openskyCallsign: string, airlineIata: string, flightNum: string): boolean {
+  const cs = openskyCallsign.toUpperCase().replace(/\s+/g, '');
+  const rawNum = flightNum.toUpperCase();
+  const num = rawNum.replace(/^0+/, '') || '0';
+  if (!cs.endsWith(rawNum) && !cs.endsWith(num)) return false;
+
+  const tailLen = cs.endsWith(rawNum) ? rawNum.length : num.length;
+  const prefix = cs.slice(0, Math.max(0, cs.length - tailLen));
+  const ia = airlineIata.toUpperCase();
+  if (prefix === ia) return true;
+  if (prefix.startsWith(ia)) return true;
+  if (ia === 'KL' && prefix.startsWith('KLM')) return true;
+  return false;
+}
+
+/** Try to resolve origin for flights using cached Flighty arrivals data. */
+async function enrichOriginsFromFlighty(flights: Flight[]): Promise<void> {
+  let flighty;
+  try {
+    flighty = await getFlightyArrivals();
+  } catch {
+    return; // Flighty unavailable, skip silently
+  }
+  if (!flighty || flighty.rows.length === 0) return;
+
+  const needOrigin = flights.filter((f) => !f.onGround && f.callsign && !f.origin);
+  if (needOrigin.length === 0) return;
+
+  for (const flight of needOrigin) {
+    const cs = flight.callsign;
+    const match = flighty.rows.find((row) =>
+      callsignMatchesFlighty(cs, row.airline.iata, row.flightNumber),
+    );
+    if (!match) continue;
+
+    const depIata = match.departure.iata.toUpperCase();
+    if (!depIata) continue;
+
+    const originIcao = resolveIcaoFromIata(depIata);
+    if (originIcao) {
+      flight.origin = originIcao;
+      flight.destination = 'EHAM';
+      flight.route = `${originIcao} -> EHAM`;
+    }
+  }
+}
 
 // --- Weather cache with 5-minute TTL ----------------------------------------
 
@@ -137,7 +188,10 @@ export function getPoller(): OpenSkyPoller {
           }
         }
 
-        // Enrich flights with route info by callsign
+        // Enrich flights with origin from Flighty arrivals (primary source)
+        await enrichOriginsFromFlighty(flights);
+
+        // Enrich remaining flights with route info from ADSBDB (fallback)
         const needRoutes = flights.filter(
           (f) => !f.onGround && f.callsign && !f.origin,
         );
@@ -145,6 +199,7 @@ export function getPoller(): OpenSkyPoller {
           const callsigns = needRoutes.map((f) => f.callsign);
           const routeMap = await adsbdb.enrichRoutes(callsigns);
           for (const flight of flights) {
+            if (flight.origin) continue; // already enriched (e.g. by Flighty)
             const routeInfo = routeMap.get(flight.callsign.toUpperCase().trim());
             if (routeInfo) {
               flight.origin = routeInfo.origin ?? undefined;

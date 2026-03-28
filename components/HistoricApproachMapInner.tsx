@@ -4,14 +4,9 @@ import { useMemo } from 'react';
 import { MapContainer, Marker, Polygon, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { HistoricalFlightPath } from '@/lib/types';
+import { APPROACH_CONE_27 } from '@/lib/approachCone';
 
 const SCHIPHOL_POS: [number, number] = [52.3105, 4.7683];
-const APPROACH_CONE_27: [number, number][] = [
-  [52.322, 4.78],
-  [52.34, 5.1],
-  [52.286, 5.1],
-  [52.304, 4.78],
-];
 
 const schipholIcon = L.divIcon({
   html: '<div style="font-size:20px;text-align:center;">&#x2708;&#xFE0F;</div>',

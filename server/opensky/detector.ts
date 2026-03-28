@@ -1,85 +1,42 @@
 import type { Flight } from './types';
 import type { RunwayDirection } from '@/server/runway/types';
+import {
+  APPROACH_CONE_27,
+  APPROACH_CONE_09,
+  APPROACH_CONE,
+  RWY27_THRESHOLD,
+  RWY09_THRESHOLD,
+  RWY27_MIN_HEADING,
+  RWY27_MAX_HEADING,
+  RWY09_MIN_HEADING,
+  RWY09_MAX_HEADING,
+  RWY27_CORRIDOR_LAT_MIN,
+  RWY27_CORRIDOR_LAT_MAX,
+  RWY27_CORRIDOR_LON_MIN,
+  RWY27_CORRIDOR_LON_MAX,
+  RWY09_CORRIDOR_LAT_MIN,
+  RWY09_CORRIDOR_LAT_MAX,
+  RWY09_CORRIDOR_LON_MIN,
+  RWY09_CORRIDOR_LON_MAX,
+  isInsideApproachCone27,
+  pathIntersectsApproachCone27,
+} from '@/lib/approachCone';
 
-// --- RWY 27 (planes approach from the east heading ~267° true) ---------------
-
-const RWY27_MIN_HEADING = 257;
-const RWY27_MAX_HEADING = 277;
-
-// --- RWY 09 (planes approach from the west heading ~087° true) ---------------
-
-const RWY09_MIN_HEADING = 77;
-const RWY09_MAX_HEADING = 97;
+// Re-export everything that other modules previously imported from here
+export {
+  APPROACH_CONE_27,
+  APPROACH_CONE_09,
+  APPROACH_CONE,
+  RWY27_THRESHOLD,
+  RWY09_THRESHOLD,
+  isInsideApproachCone27,
+  pathIntersectsApproachCone27,
+};
 
 // --- Common altitude limits --------------------------------------------------
 
 const MIN_ALTITUDE_FT = 200;
 const MAX_ALTITUDE_FT = 3000;
-
-// --- RWY 27 approach corridor (east of airport) -----------------------------
-
-const RWY27_CORRIDOR_LAT_MIN = 52.29;
-const RWY27_CORRIDOR_LAT_MAX = 52.34;
-const RWY27_CORRIDOR_LON_MIN = 4.7;  // near threshold
-const RWY27_CORRIDOR_LON_MAX = 5.15; // ~15km east
-
-// --- RWY 09 approach corridor (west of airport) -----------------------------
-
-const RWY09_CORRIDOR_LAT_MIN = 52.29;
-const RWY09_CORRIDOR_LAT_MAX = 52.34;
-const RWY09_CORRIDOR_LON_MIN = 4.4;  // ~15km west
-const RWY09_CORRIDOR_LON_MAX = 4.78; // near threshold
-
-// --- Threshold coordinates ---------------------------------------------------
-
-export const RWY27_THRESHOLD: [number, number] = [52.3128, 4.7839];
-export const RWY09_THRESHOLD: [number, number] = [52.3092, 4.8356];
-
-// --- Approach cone polygons for map visualization ----------------------------
-
-export const APPROACH_CONE_27: [number, number][] = [
-  [52.322, 4.78],  // near-north (close to threshold)
-  [52.34, 5.1],    // far-north (~12km east)
-  [52.286, 5.1],   // far-south
-  [52.304, 4.78],  // near-south
-];
-
-export const APPROACH_CONE_09: [number, number][] = [
-  [52.322, 4.835], // near-north (close to threshold)
-  [52.34, 4.5],    // far-north (~12km west)
-  [52.286, 4.5],   // far-south
-  [52.304, 4.835], // near-south
-];
-
-// Keep legacy export for backward compatibility
-export const APPROACH_CONE = APPROACH_CONE_27;
-
-function pointInPolygon(lat: number, lon: number, polygon: [number, number][]): boolean {
-  let inside = false;
-
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const [latI, lonI] = polygon[i]!;
-    const [latJ, lonJ] = polygon[j]!;
-
-    const intersects =
-      lonI > lon !== lonJ > lon &&
-      lat < ((latJ - latI) * (lon - lonI)) / (lonJ - lonI || Number.EPSILON) + latI;
-
-    if (intersects) {
-      inside = !inside;
-    }
-  }
-
-  return inside;
-}
-
-export function isInsideApproachCone27(lat: number, lon: number): boolean {
-  return pointInPolygon(lat, lon, APPROACH_CONE_27);
-}
-
-export function pathIntersectsApproachCone27(points: Array<{ lat: number; lon: number }>): boolean {
-  return points.some((point) => isInsideApproachCone27(point.lat, point.lon));
-}
 
 /**
  * Detect if a flight is on approach to the Buitenveldertbaan (either direction).
