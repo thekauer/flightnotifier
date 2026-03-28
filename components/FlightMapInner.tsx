@@ -337,7 +337,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         )}
       </div>
 
-      <MapContainer center={SCHIPHOL_POS} zoom={11} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+      <MapContainer center={SCHIPHOL_POS} zoom={11} style={{ height: '100%', width: '100%' }} scrollWheelZoom={false} dragging={false} zoomControl={false} doubleClickZoom={false} touchZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
