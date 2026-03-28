@@ -6,6 +6,7 @@ import { PredictionHorizonCard } from './settings/PredictionHorizonCard';
 import { SpottingModeCard } from './settings/SpottingModeCard';
 import { StaggerCard } from './settings/StaggerCard';
 import { EtaFormatCard } from './settings/EtaFormatCard';
+import { AnimateCard } from './settings/AnimateCard';
 
 export function SettingsPage() {
   return (
@@ -14,6 +15,7 @@ export function SettingsPage() {
       <PredictionSettingsCard />
       <AircraftTypeFilter />
       <SpottingModeCard />
+      <AnimateCard />
       <StaggerCard />
       <EtaFormatCard />
     </div>

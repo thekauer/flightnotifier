@@ -6,6 +6,7 @@ import L from 'leaflet';
 import NumberFlow from '@number-flow/react';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
+import { useAnimate } from '@/lib/animateContext';
 import { APPROACH_CONE_27 } from '@/lib/approachCone';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { VsCell } from './VsCell';
@@ -747,30 +748,7 @@ interface FlightMapInnerProps {
 export default function FlightMapInner({ airborneFlights, approachingIds, weather }: FlightMapInnerProps) {
   const isDark = useIsDarkMode();
   const { zone, visible, setZone, clearZone, toggleVisible, isInZone } = useNotificationZone();
-  // --- Animate toggle (persisted to localStorage) ---
-  const ANIMATE_KEY = 'flightnotifier-animate';
-  const [animateState, setAnimateState] = useState(false);
-  const hasSyncedAnimate = useRef(false);
-
-  const getAnimate = useCallback((): boolean => {
-    if (!hasSyncedAnimate.current && typeof window !== 'undefined') {
-      hasSyncedAnimate.current = true;
-      try {
-        const stored = localStorage.getItem(ANIMATE_KEY) === 'true';
-        if (stored) setAnimateState(true);
-        return stored;
-      } catch { return false; }
-    }
-    return animateState;
-  }, [animateState]);
-
-  const setAnimate = useCallback((v: boolean) => {
-    hasSyncedAnimate.current = true;
-    setAnimateState(v);
-    try { localStorage.setItem(ANIMATE_KEY, String(v)); } catch {}
-  }, []);
-
-  const animate = getAnimate();
+  const { animateEnabled: animate } = useAnimate();
 
   // --- Label mode toggle (persisted to localStorage) ---
   const LABEL_MODE_KEY = 'flightnotifier-label-mode';
@@ -1161,16 +1139,6 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       <div className="border-t px-3 py-2 text-xs space-y-1.5">
         {/* Row 1: View toggles — filled pills */}
         <div className="flex items-center gap-1.5">
-          <button
-            onClick={() => setAnimate(!animate)}
-            className={`flex-1 rounded-md py-1 text-xs font-medium transition-colors select-none border ${
-              animate
-                ? 'bg-blue-600 text-white border-blue-600'
-                : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
-            }`}
-          >
-            Animate
-          </button>
           <button
             onClick={() => setLabelMode(!labelMode)}
             className={`flex-1 rounded-md py-1 text-xs font-medium transition-colors select-none border ${
