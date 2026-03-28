@@ -1,3 +1,5 @@
+import imageInventoryData from '@/data/spotting/image-inventory.json';
+
 export interface QuizAircraft {
   id: string;
   name: string;
@@ -32,29 +34,42 @@ export const QUIZ_AIRCRAFT: QuizAircraft[] = [
   { id: 'bombardier-crj', name: 'Bombardier CRJ', category: 'Regional' },
 ];
 
-/**
- * Explicit quiz image inventory.
- *
- * Keep this list aligned with files that actually exist under
- * public/assets/aircraft/{id}/ so the client never probes random filenames.
- */
-const AIRCRAFT_IMAGE_ASSETS: Record<string, readonly QuizImageAsset[]> = {
-  'boeing-747': [],
-  'boeing-777': [],
-  'boeing-787': [],
-  'airbus-a330': [],
-  'airbus-a340': [],
-  'airbus-a350': [],
-  'airbus-a380': [],
-  'boeing-737': [],
-  'boeing-757': [],
-  'boeing-767': [],
-  'airbus-a320': [],
-  'embraer-ejet': [],
-  'atr-72': [],
-  'dash-8': [],
-  'bombardier-crj': [],
-};
+function normalizeInventory(data: unknown): Record<string, readonly QuizImageAsset[]> {
+  const inventory: Record<string, readonly QuizImageAsset[]> = {};
+  if (!data || typeof data !== 'object') {
+    return inventory;
+  }
+
+  for (const [familyId, value] of Object.entries(data)) {
+    if (!Array.isArray(value)) {
+      continue;
+    }
+
+    const assets = value
+      .map((entry) => {
+        if (!entry || typeof entry !== 'object') {
+          return null;
+        }
+        const number = (entry as { number?: unknown }).number;
+        const format = (entry as { format?: unknown }).format;
+        if (typeof number !== 'number') {
+          return null;
+        }
+        if (format !== 'webp' && format !== 'jpg' && format !== 'png') {
+          return null;
+        }
+        return { number, format } satisfies QuizImageAsset;
+      })
+      .filter((entry): entry is QuizImageAsset => entry !== null)
+      .sort((a, b) => a.number - b.number || a.format.localeCompare(b.format));
+
+    inventory[familyId] = assets;
+  }
+
+  return inventory;
+}
+
+const AIRCRAFT_IMAGE_ASSETS = normalizeInventory(imageInventoryData);
 
 /** Get a random integer between min (inclusive) and max (exclusive). */
 function randInt(min: number, max: number): number {

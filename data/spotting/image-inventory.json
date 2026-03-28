@@ -1,0 +1,14 @@
+{
+  "boeing-737": [
+    {
+      "number": 1,
+      "format": "webp"
+    }
+  ],
+  "dash-8": [
+    {
+      "number": 1,
+      "format": "webp"
+    }
+  ]
+}

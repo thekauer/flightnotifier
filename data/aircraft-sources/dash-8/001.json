@@ -1,0 +1,47 @@
+{
+  "id": "dash-8-001",
+  "familyId": "dash-8",
+  "familyName": "Dash 8 / Q400",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036152",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036152",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/334307_1772810930.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Bombardier+Dash+8%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Bombardier Dash 8;",
+    "photographer": "Cristian Kencki 98",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036152"
+  },
+  "aircraft": {
+    "exactType": "Bombardier Dash 8-Q402",
+    "normalizedFamily": "Dash 8 / Q400",
+    "registration": "LX-LGG",
+    "serialNumber": null,
+    "airline": "Luxair - Luxembourg Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Krakow John Paul II Balice Int'l - EPKK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/dash-8/001.jpg",
+    "sidecar": "data/aircraft-sources/dash-8/001.json",
+    "publicWebp": "public/assets/aircraft/dash-8/001.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1f264bd479c2997ed06a4abcdf8124b67658f1ff7a83722072c88781e3c97ceb",
+    "sizeBytes": 443168
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-28T16:25:06.036Z"
+}

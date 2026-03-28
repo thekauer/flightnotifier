@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "assets:webp": "python3 scripts/convert_aircraft_webp.py"
+    "assets:import:jetphotos": "bun run scripts/aircraft/import-jetphotos.ts",
+    "assets:webp": "bun run scripts/aircraft/publish-assets.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.67.2",

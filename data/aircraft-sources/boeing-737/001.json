@@ -1,0 +1,46 @@
+{
+  "id": "boeing-737-001",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037269",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037269",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1150427_1774712141.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Jet City Connor",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037269"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "N4026F",
+    "serialNumber": null,
+    "airline": "Boeing Company"
+  },
+  "photo": {
+    "photoDate": "Mar 27, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Seattle Boeing Field/King County - KBFI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/001.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/001.json"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1e235a5a2e22c1d26ba472e04184e4a93028228803f0f4cf76ea3b1b4b5c1a7b",
+    "sizeBytes": 1141985
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-28T16:19:16.468Z"
+}
