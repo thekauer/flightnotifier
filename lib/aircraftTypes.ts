@@ -14,6 +14,13 @@ export interface AircraftCategory {
   families: AircraftFamily[];
 }
 
+export interface AircraftFamilyInfo {
+  family: string;
+  name: string;
+  category: string;
+  variants: AircraftVariant[];
+}
+
 export const AIRCRAFT_TYPE_HIERARCHY: AircraftCategory[] = [
   {
     category: 'Wide Body',
@@ -312,4 +319,93 @@ export function getCodesForCategory(categoryName: string): string[] {
     }
   }
   return codes;
+}
+
+/** Look up the family/category metadata for an ICAO type code. */
+export function getAircraftFamilyInfo(typeCode: string | null | undefined): AircraftFamilyInfo | null {
+  if (!typeCode) return null;
+
+  const upper = typeCode.toUpperCase().trim();
+
+  for (const cat of AIRCRAFT_TYPE_HIERARCHY) {
+    for (const fam of cat.families) {
+      if (fam.variants.some((variant) => variant.code === upper)) {
+        return {
+          family: fam.family,
+          name: fam.name,
+          category: cat.category,
+          variants: fam.variants,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+export interface SpottingOption {
+  id: string;
+  label: string;
+  category: string;
+}
+
+function shuffle<T>(items: T[]): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+/** Build multiple-choice spotting options for a given aircraft type code. */
+export function getSpottingOptions(
+  typeCode: string | null | undefined,
+  totalOptions = 4,
+): { correctOption: SpottingOption; options: SpottingOption[] } | null {
+  if (!typeCode) return null;
+
+  const familyInfo = getAircraftFamilyInfo(typeCode);
+  const allFamilies: SpottingOption[] = AIRCRAFT_TYPE_HIERARCHY.flatMap((cat) =>
+    cat.families.map((fam) => ({
+      id: fam.family,
+      label: fam.name,
+      category: cat.category,
+    })),
+  );
+
+  const correctOption: SpottingOption = familyInfo
+    ? {
+        id: familyInfo.family,
+        label: familyInfo.name,
+        category: familyInfo.category,
+      }
+    : {
+        id: typeCode.toUpperCase().trim(),
+        label: typeCode.toUpperCase().trim(),
+        category: 'Unknown',
+      };
+
+  const sameCategory = allFamilies.filter(
+    (family) => family.category === correctOption.category && family.id !== correctOption.id,
+  );
+  const otherCategories = allFamilies.filter((family) => family.id !== correctOption.id);
+
+  const distractors: SpottingOption[] = [];
+  for (const option of shuffle(sameCategory)) {
+    if (distractors.length >= totalOptions - 1) break;
+    distractors.push(option);
+  }
+
+  for (const option of shuffle(otherCategories)) {
+    if (distractors.length >= totalOptions - 1) break;
+    if (!distractors.some((existing) => existing.id === option.id)) {
+      distractors.push(option);
+    }
+  }
+
+  return {
+    correctOption,
+    options: shuffle([correctOption, ...distractors.slice(0, totalOptions - 1)]),
+  };
 }

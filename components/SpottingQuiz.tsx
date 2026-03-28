@@ -1,51 +1,26 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
 import {
   generateRound,
-  getImageNumbers,
-  getImageUrl,
-  pickAlternateImageNumber,
-  QUIZ_IMAGE_FORMAT_PRIORITY,
+  getImagePath,
   type QuizQuestion,
 } from '@/lib/spotting/quizData';
 import { cn } from '@/lib/utils';
 
 function QuizQuestionImage({
-  aircraftId,
-  initialNumber,
+  src,
 }: {
-  aircraftId: string;
-  initialNumber: number;
+  src: string;
 }) {
-  const [imageNumber, setImageNumber] = useState(initialNumber);
-  /** Index into QUIZ_IMAGE_FORMAT_PRIORITY for the current basename. */
-  const [formatIndex, setFormatIndex] = useState(0);
-  const exhaustedNumbers = useRef(new Set<number>());
   const [unavailable, setUnavailable] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
-
-  const currentFormat = QUIZ_IMAGE_FORMAT_PRIORITY[formatIndex] ?? 'webp';
-  const src = getImageUrl(aircraftId, imageNumber, currentFormat);
 
   function handleImageError() {
     if (unavailable) return;
     setImgLoaded(false);
-
-    const nextFormat = formatIndex + 1;
-    if (nextFormat < QUIZ_IMAGE_FORMAT_PRIORITY.length) {
-      setFormatIndex(nextFormat);
-      return;
-    }
-
-    exhaustedNumbers.current.add(imageNumber);
-    const next = pickAlternateImageNumber(aircraftId, exhaustedNumbers.current);
-    if (next === null) {
-      setUnavailable(true);
-      return;
-    }
-    setImageNumber(next);
-    setFormatIndex(0);
+    setUnavailable(true);
   }
 
   if (unavailable) {
@@ -59,35 +34,23 @@ function QuizQuestionImage({
     );
   }
 
-  const nums = getImageNumbers(aircraftId);
-  if (nums.length === 0) {
-    return (
-      <div className="flex h-80 w-full flex-col items-center justify-center gap-2 bg-muted px-6 text-center text-muted-foreground">
-        <span className="text-sm font-medium">No images for this type yet</span>
-        <span className="text-xs">Answer from the choices below.</span>
-      </div>
-    );
-  }
-
   const imgClass = cn(
-    'h-80 w-full object-cover transition-opacity duration-200',
+    'object-cover transition-opacity duration-200',
     imgLoaded ? 'opacity-100' : 'opacity-0',
   );
 
-  const imgProps = {
-    alt: 'Identify this aircraft' as const,
-    decoding: 'async' as const,
-    onLoad: () => setImgLoaded(true),
-    onError: handleImageError,
-    className: imgClass,
-  };
-
   return (
     <div className="relative h-80 w-full bg-muted">
-      <img
-        key={`${aircraftId}-${imageNumber}-${currentFormat}`}
+      <Image
+        key={src}
         src={src}
-        {...imgProps}
+        alt="Identify this aircraft"
+        fill
+        sizes="(min-width: 1024px) 768px, 100vw"
+        priority
+        onLoad={() => setImgLoaded(true)}
+        onError={() => handleImageError()}
+        className={imgClass}
       />
     </div>
   );
@@ -118,6 +81,21 @@ export function SpottingQuiz() {
   const [game, setGame] = useState<GameState>(createNewGame);
 
   const { questions, currentIndex, score, answerState } = game;
+  const hasQuestions = questions.length > 0;
+  if (!hasQuestions) {
+    return (
+      <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
+        <div className="rounded-2xl border bg-card p-10 text-center shadow-sm">
+          <h2 className="text-xl font-semibold tracking-tight">No spotting images loaded yet</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Add aircraft photos to `public/assets/aircraft` and register them in the quiz image inventory
+            before starting the spotting quiz.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const isFinished = currentIndex >= questions.length;
   const question = isFinished ? null : questions[currentIndex];
 
@@ -195,8 +173,11 @@ export function SpottingQuiz() {
       <div className="rounded-2xl border bg-card shadow-sm overflow-hidden">
         <QuizQuestionImage
           key={currentIndex}
-          aircraftId={question!.correctAircraft.id}
-          initialNumber={question!.imageNumber}
+          src={getImagePath(
+            question!.correctAircraft.id,
+            question!.image.number,
+            question!.image.format,
+          )}
         />
       </div>
 

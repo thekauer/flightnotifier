@@ -43,7 +43,7 @@ export class OpenSkyPoller {
     if (!this.running) return;
     this.timeoutId = setTimeout(async () => {
       await this.poll();
-      this.scheduleNext(this.intervalMs);
+      this.scheduleNext(this.client.getNextPollDelayMs(this.intervalMs));
     }, delayMs);
   }
 
@@ -55,6 +55,9 @@ export class OpenSkyPoller {
 
     try {
       const flights = await this.client.fetchStates(this.bounds);
+      if (!flights) {
+        return;
+      }
       console.log(`[OpenSky] Fetched ${flights.length} flights`);
       await this.onUpdate(flights);
     } catch (err) {

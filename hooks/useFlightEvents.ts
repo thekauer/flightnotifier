@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import type { FlightState, StateChangeEvent, Flight, VisibilityPrediction, RunwayPrediction } from '@/lib/types';
-import { fetchStateVectors } from '@/lib/api/opensky';
+import { fetchStateVectors, OpenSkyHttpError } from '@/lib/api/opensky';
 import { fetchMetar } from '@/lib/api/weather';
 import { useDataSource } from '@/lib/dataSourceContext';
 import { useNotificationZone } from '@/lib/notificationZoneContext';
@@ -19,6 +19,8 @@ const INITIAL_STATE: FlightState = {
 
 const FLIGHT_STATE_KEY = ['flightState'] as const;
 export const RUNWAY_PREDICTIONS_KEY = ['runwayPredictions'] as const;
+const FALLBACK_POLL_INTERVAL_MS = 90_000;
+const FALLBACK_RATE_LIMIT_BACKOFF_MS = 5 * 60_000;
 
 // Schiphol approach bounding box (same as server)
 const APPROACH_BOUNDS = { lamin: 52.2, lomin: 4.6, lamax: 52.45, lomax: 5.1 };
@@ -65,12 +67,21 @@ export function useFlightEvents() {
   // when the user draws/clears a notification zone, passing bounds as query params.
   useEffect(() => {
     if (dataSource === 'fallback') {
-      // Direct polling mode -- poll OpenSky every 15s
+      // Direct polling mode -- poll OpenSky much less aggressively.
       let cancelled = false;
+      let timeoutId: ReturnType<typeof setTimeout> | null = null;
       connectedRef.current = false;
       setConnected(false);
 
+      const scheduleNext = (delayMs: number) => {
+        if (cancelled) return;
+        timeoutId = setTimeout(() => {
+          void poll();
+        }, delayMs);
+      };
+
       const poll = async () => {
+        let nextDelayMs = FALLBACK_POLL_INTERVAL_MS;
         try {
           const [flights, weather] = await Promise.all([
             fetchOpenSkyDirect(),
@@ -87,18 +98,27 @@ export function useFlightEvents() {
           queryClient.setQueryData<FlightState>(FLIGHT_STATE_KEY, state);
           setConnected(true);
           connectedRef.current = true;
-        } catch {
+        } catch (error) {
+          if (error instanceof OpenSkyHttpError && error.status === 429) {
+            nextDelayMs = Math.max(
+              (error.retryAfterSeconds ?? 0) * 1000,
+              FALLBACK_RATE_LIMIT_BACKOFF_MS,
+            );
+          }
           setConnected(false);
           connectedRef.current = false;
         }
+
+        scheduleNext(nextDelayMs);
       };
 
-      poll();
-      const interval = setInterval(poll, 15_000);
+      scheduleNext(0);
 
       return () => {
         cancelled = true;
-        clearInterval(interval);
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
       };
     }
 
@@ -197,8 +217,9 @@ export function useFlightEvents() {
     },
     staleTime: Infinity,
     refetchOnWindowFocus: false,
-    // Only use the REST fallback when SSE hasn't delivered data yet
-    enabled: !connectedRef.current,
+    // Backend mode can bootstrap from /api/state while SSE connects.
+    // In fallback mode the polling effect already owns OpenSky fetching.
+    enabled: dataSource !== 'fallback' && !connectedRef.current,
   });
 
   const requestNotificationPermission = useCallback(() => {

@@ -23,6 +23,30 @@ export interface OpenSkyTokenResponse {
   expires_in?: number;
 }
 
+export class OpenSkyHttpError extends Error {
+  status: number;
+  retryAfterSeconds: number | null;
+  remainingCredits: number | null;
+
+  constructor(
+    status: number,
+    message: string,
+    options?: { retryAfterSeconds?: number | null; remainingCredits?: number | null },
+  ) {
+    super(message);
+    this.name = 'OpenSkyHttpError';
+    this.status = status;
+    this.retryAfterSeconds = options?.retryAfterSeconds ?? null;
+    this.remainingCredits = options?.remainingCredits ?? null;
+  }
+}
+
+function parseNumberHeader(value: string | null): number | null {
+  if (!value) return null;
+  const parsed = parseInt(value, 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 /**
  * Parse an OpenSky state vector array into a Flight object.
  */
@@ -77,7 +101,14 @@ export async function fetchStateVectors(
 
   const res = await fetch(url.toString(), { headers });
   if (!res.ok) {
-    throw new Error(`OpenSky HTTP ${res.status}: ${res.statusText}`);
+    const retryAfterSeconds =
+      parseNumberHeader(res.headers.get('x-rate-limit-retry-after-seconds')) ??
+      parseNumberHeader(res.headers.get('retry-after'));
+    const remainingCredits = parseNumberHeader(res.headers.get('x-rate-limit-remaining'));
+    throw new OpenSkyHttpError(res.status, `OpenSky HTTP ${res.status}: ${res.statusText}`, {
+      retryAfterSeconds,
+      remainingCredits,
+    });
   }
 
   const data: OpenSkyResponse = await res.json();

@@ -1,4 +1,4 @@
-import { fetchStateVectors, fetchOpenSkyToken } from '@/lib/api/opensky';
+import { fetchStateVectors, fetchOpenSkyToken, OpenSkyHttpError } from '@/lib/api/opensky';
 import type { BoundingBox, Flight } from './types';
 
 export class OpenSkyClient {
@@ -6,14 +6,18 @@ export class OpenSkyClient {
   private clientSecret: string | null;
   private token: string | null = null;
   private tokenExpiresAt = 0;
-  private lastFlights: Flight[] = [];
+  private rateLimitUntil = 0;
 
   constructor(clientId: string | null, clientSecret: string | null) {
     this.clientId = clientId;
     this.clientSecret = clientSecret;
   }
 
-  async fetchStates(bounds: BoundingBox): Promise<Flight[]> {
+  async fetchStates(bounds: BoundingBox): Promise<Flight[] | null> {
+    if (Date.now() < this.rateLimitUntil) {
+      return null;
+    }
+
     let token: string | null = null;
     if (this.clientId && this.clientSecret) {
       token = await this.getToken();
@@ -21,12 +25,27 @@ export class OpenSkyClient {
 
     try {
       const flights = await fetchStateVectors(bounds, token);
-      this.lastFlights = flights;
+      this.rateLimitUntil = 0;
       return flights;
     } catch (err) {
-      console.error(`[OpenSky]`, err);
-      return this.lastFlights;
+      if (err instanceof OpenSkyHttpError && err.status === 429) {
+        const retryAfterMs = Math.max((err.retryAfterSeconds ?? 300) * 1000, 60_000);
+        this.rateLimitUntil = Date.now() + retryAfterMs;
+        console.warn(
+          `[OpenSky] Rate limited. Backing off for ${Math.round(retryAfterMs / 1000)}s`,
+        );
+      } else {
+        console.error('[OpenSky]', err);
+      }
+      return null;
     }
+  }
+
+  getNextPollDelayMs(baseIntervalMs: number): number {
+    if (Date.now() < this.rateLimitUntil) {
+      return Math.max(baseIntervalMs, this.rateLimitUntil - Date.now());
+    }
+    return baseIntervalMs;
   }
 
   private async getToken(): Promise<string | null> {

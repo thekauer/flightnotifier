@@ -3,6 +3,7 @@
 import { DataSourceCard } from './settings/DataSourceCard';
 import { PredictionSettingsCard } from './settings/PredictionSettingsCard';
 import { PredictionHorizonCard } from './settings/PredictionHorizonCard';
+import { SpottingModeCard } from './settings/SpottingModeCard';
 
 export function SettingsPage() {
   return (
@@ -41,6 +42,9 @@ export function SettingsPage() {
 
       {/* Data Source */}
       <DataSourceCard />
+
+      {/* Spotting Mode */}
+      <SpottingModeCard />
 
       {/* Display */}
       <div className="rounded-xl border bg-card shadow-sm">

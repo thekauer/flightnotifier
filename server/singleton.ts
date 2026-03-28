@@ -164,7 +164,7 @@ export function getPoller(): OpenSkyPoller {
 
         stateManager.update(flights, predictions);
       },
-      intervalMs: parseInt(process.env.OPENSKY_POLL_INTERVAL_MS || '15000', 10),
+      intervalMs: parseInt(process.env.OPENSKY_POLL_INTERVAL_MS || '90000', 10),
       hasClients: () => (globalForApp.sseClientCount ?? 0) > 0,
     });
     globalForApp.poller.start();
