@@ -501,12 +501,14 @@ function DrawZoneHandler({
   onFirstClick,
   onSecondClick,
   onMapClick,
+  onMouseMove,
 }: {
   drawing: boolean;
   firstCorner: L.LatLng | null;
   onFirstClick: (latlng: L.LatLng) => void;
   onSecondClick: (latlng: L.LatLng) => void;
   onMapClick?: () => void;
+  onMouseMove?: (latlng: L.LatLng) => void;
 }) {
   useMapEvents({
     click(e) {
@@ -520,8 +522,28 @@ function DrawZoneHandler({
         onMapClick?.();
       }
     },
+    mousemove(e) {
+      if (drawing && firstCorner) {
+        onMouseMove?.(e.latlng);
+      }
+    },
   });
   return null;
+}
+
+/** Small circle marker to show where the first corner was placed. */
+function FirstCornerMarker({ position }: { position: L.LatLng }) {
+  const icon = useMemo(
+    () =>
+      L.divIcon({
+        html: '<div style="width:10px;height:10px;background:#3b82f6;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>',
+        iconSize: [10, 10],
+        iconAnchor: [5, 5],
+        className: '',
+      }),
+    [],
+  );
+  return <Marker position={position} icon={icon} interactive={false} />;
 }
 
 /** Drag handle marker for resizing the notification zone. */
@@ -700,13 +722,62 @@ interface FlightMapInnerProps {
 export default function FlightMapInner({ airborneFlights, approachingIds, weather }: FlightMapInnerProps) {
   const isDark = useIsDarkMode();
   const { zone, visible, setZone, clearZone, toggleVisible } = useNotificationZone();
-  const [animate, setAnimate] = useState(false);
-  const [labelMode, setLabelMode] = useState(false);
+  // --- Animate toggle (persisted to localStorage) ---
+  const ANIMATE_KEY = 'flightnotifier-animate';
+  const [animateState, setAnimateState] = useState(false);
+  const hasSyncedAnimate = useRef(false);
+
+  const getAnimate = useCallback((): boolean => {
+    if (!hasSyncedAnimate.current && typeof window !== 'undefined') {
+      hasSyncedAnimate.current = true;
+      try {
+        const stored = localStorage.getItem(ANIMATE_KEY) === 'true';
+        if (stored) setAnimateState(true);
+        return stored;
+      } catch { return false; }
+    }
+    return animateState;
+  }, [animateState]);
+
+  const setAnimate = useCallback((v: boolean) => {
+    hasSyncedAnimate.current = true;
+    setAnimateState(v);
+    try { localStorage.setItem(ANIMATE_KEY, String(v)); } catch {}
+  }, []);
+
+  const animate = getAnimate();
+
+  // --- Label mode toggle (persisted to localStorage) ---
+  const LABEL_MODE_KEY = 'flightnotifier-label-mode';
+  const [labelModeState, setLabelModeState] = useState(false);
+  const hasSyncedLabelMode = useRef(false);
+
+  const getLabelMode = useCallback((): boolean => {
+    if (!hasSyncedLabelMode.current && typeof window !== 'undefined') {
+      hasSyncedLabelMode.current = true;
+      try {
+        const stored = localStorage.getItem(LABEL_MODE_KEY) === 'true';
+        if (stored) setLabelModeState(true);
+        return stored;
+      } catch { return false; }
+    }
+    return labelModeState;
+  }, [labelModeState]);
+
+  const setLabelMode = useCallback((v: boolean) => {
+    hasSyncedLabelMode.current = true;
+    setLabelModeState(v);
+    try { localStorage.setItem(LABEL_MODE_KEY, String(v)); } catch {}
+  }, []);
+
+  const labelMode = getLabelMode();
   const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   const [drawing, setDrawing] = useState(false);
   const firstCornerRef = useRef<L.LatLng | null>(null);
   const [firstCorner, setFirstCorner] = useState<L.LatLng | null>(null);
+  const [mousePosition, setMousePosition] = useState<L.LatLng | null>(null);
   const [zoneEditing, setZoneEditing] = useState(false);
+  const zoneClickedRef = useRef(false);
 
   const handleSelectFlight = useCallback((flightId: string) => {
     setSelectedFlightId((prev) => (prev === flightId ? null : flightId));
@@ -721,6 +792,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
     setDrawing(true);
     firstCornerRef.current = null;
     setFirstCorner(null);
+    setMousePosition(null);
   }, []);
 
   const handleFirstClick = useCallback((latlng: L.LatLng) => {
@@ -743,6 +815,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       setDrawing(false);
       firstCornerRef.current = null;
       setFirstCorner(null);
+      setMousePosition(null);
     },
     [setZone]
   );
@@ -752,7 +825,12 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
     setDrawing(false);
     firstCornerRef.current = null;
     setFirstCorner(null);
+    setMousePosition(null);
   }, [clearZone]);
+
+  const handleMouseMove = useCallback((latlng: L.LatLng) => {
+    setMousePosition(latlng);
+  }, []);
 
   const handleDragSW = useCallback(
     (latlng: L.LatLng) => {
@@ -808,6 +886,14 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         [zone.north, zone.east],
       ]
     : null;
+
+  const ghostBounds: L.LatLngBoundsExpression | null =
+    drawing && firstCorner && mousePosition
+      ? [
+          [Math.min(firstCorner.lat, mousePosition.lat), Math.min(firstCorner.lng, mousePosition.lng)],
+          [Math.max(firstCorner.lat, mousePosition.lat), Math.max(firstCorner.lng, mousePosition.lng)],
+        ]
+      : null;
 
   const selectedFlightDistance = useMemo(() => {
     if (!selectedFlight) return null;
@@ -877,7 +963,15 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           firstCorner={firstCorner}
           onFirstClick={handleFirstClick}
           onSecondClick={handleSecondClick}
-          onMapClick={() => setZoneEditing(false)}
+          onMouseMove={handleMouseMove}
+          onMapClick={() => {
+            // Don't dismiss editing if the click was on the zone rectangle itself
+            if (zoneClickedRef.current) {
+              zoneClickedRef.current = false;
+              return;
+            }
+            setZoneEditing(false);
+          }}
         />
 
         {/* Approach detection cones */}
@@ -905,8 +999,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
                 dashArray: '8 4',
               }}
               eventHandlers={{
-                click: (e) => {
-                  L.DomEvent.stopPropagation(e.originalEvent);
+                click: () => {
+                  // Flag that zone was clicked so the map click handler won't dismiss editing
+                  zoneClickedRef.current = true;
                   setZoneEditing((v) => !v);
                 },
               }}
@@ -922,6 +1017,23 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             )}
           </>
         )}
+
+        {/* Ghost rectangle preview while drawing */}
+        {ghostBounds && (
+          <Rectangle
+            bounds={ghostBounds}
+            pathOptions={{
+              color: '#3b82f6',
+              fillColor: '#3b82f6',
+              fillOpacity: 0.05,
+              weight: 2,
+              dashArray: '4 4',
+            }}
+          />
+        )}
+
+        {/* First corner marker while drawing */}
+        {drawing && firstCorner && <FirstCornerMarker position={firstCorner} />}
 
         {/* EHAM runway polygons */}
         {EHAM_RUNWAY_POLYGONS.map((rwy) => (
@@ -963,7 +1075,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       {/* Controls below map */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
         <button
-          onClick={() => setAnimate((v) => !v)}
+          onClick={() => setAnimate(!animate)}
           className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
             animate
               ? 'bg-blue-600 text-white'
@@ -973,7 +1085,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           Animate
         </button>
         <button
-          onClick={() => setLabelMode((v) => !v)}
+          onClick={() => setLabelMode(!labelMode)}
           className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
             labelMode
               ? 'bg-blue-600 text-white'

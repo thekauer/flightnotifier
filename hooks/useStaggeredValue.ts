@@ -7,21 +7,32 @@ import { useStagger } from '@/lib/staggerContext';
  * Returns `value` with a per-instance random delay when stagger mode is enabled.
  * Each hook instance picks a stable random fraction on mount; the actual delay
  * is fraction * staggerMaxDelayMs from the context (so the slider adjusts live).
- * When disabled, returns the raw value immediately with zero overhead.
+ * When disabled, returns the raw value immediately.
  */
 export function useStaggeredValue(value: number, _maxDelayMs?: number): number {
   const { staggerEnabled, staggerMaxDelayMs } = useStagger();
   const fractionRef = useRef(Math.random());
   const delayRef = useRef(fractionRef.current * staggerMaxDelayMs);
-  // Update delay when max changes (slider adjustment)
-  delayRef.current = fractionRef.current * staggerMaxDelayMs;
   const [displayedValue, setDisplayedValue] = useState(value);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevValueRef = useRef(value);
   const isFirstRenderRef = useRef(true);
 
+  // Update delay when max changes (slider adjustment)
+  delayRef.current = fractionRef.current * staggerMaxDelayMs;
+
+  // useEffect for setTimeout cleanup (timer management) — must always be called
+  useEffect(() => {
+    return () => {
+      if (timerRef.current !== null) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
+  }, []);
+
   if (!staggerEnabled) {
-    // Zero overhead path: clear any pending timer and return raw value.
+    // Clear any pending timer and return raw value.
     if (timerRef.current !== null) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
@@ -34,7 +45,7 @@ export function useStaggeredValue(value: number, _maxDelayMs?: number): number {
     return value;
   }
 
-  // On first render, return value immediately (no delay).
+  // On first render with stagger enabled, return value immediately (no delay).
   if (isFirstRenderRef.current) {
     isFirstRenderRef.current = false;
     prevValueRef.current = value;
@@ -58,16 +69,6 @@ export function useStaggeredValue(value: number, _maxDelayMs?: number): number {
       setDisplayedValue(value);
     }, delayRef.current);
   }
-
-  // useEffect for setTimeout cleanup (timer management)
-  useEffect(() => {
-    return () => {
-      if (timerRef.current !== null) {
-        clearTimeout(timerRef.current);
-        timerRef.current = null;
-      }
-    };
-  }, []);
 
   return displayedValue;
 }

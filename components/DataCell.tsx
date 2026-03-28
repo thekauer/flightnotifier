@@ -210,50 +210,49 @@ function DistanceCell({ value, className }: { value: number; className?: string 
 
 function EtaCell({ value: rawMinutes, className }: { value: number; className?: string }) {
   const staggeredMinutes = useStaggeredValue(rawMinutes, 6000);
+  const valid = Number.isFinite(staggeredMinutes) && staggeredMinutes >= 0;
 
-  if (!Number.isFinite(staggeredMinutes) || staggeredMinutes < 0) {
-    return (
-      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-        <span className="text-muted-foreground">—</span>
-      </td>
-    );
+  // Compute display values — always compute both major and minor to keep a stable render tree
+  let major = 0;
+  let minor = 0;
+  let majorSuffix = ' min';
+  let minorSuffix = '';
+  let showMinor = false;
+
+  if (valid) {
+    if (staggeredMinutes < 1) {
+      major = Math.round(staggeredMinutes * 60);
+      majorSuffix = 's';
+    } else if (staggeredMinutes < 5) {
+      major = Math.floor(staggeredMinutes);
+      minor = Math.round((staggeredMinutes - major) * 60);
+      majorSuffix = 'm ';
+      minorSuffix = 's';
+      showMinor = true;
+    } else if (staggeredMinutes < 60) {
+      major = Math.round(staggeredMinutes);
+      majorSuffix = ' min';
+    } else {
+      major = Math.floor(staggeredMinutes / 60);
+      minor = Math.round(staggeredMinutes % 60);
+      majorSuffix = 'h ';
+      minorSuffix = 'm';
+      showMinor = true;
+    }
   }
 
-  if (staggeredMinutes < 1) {
-    const seconds = Math.round(staggeredMinutes * 60);
-    return (
-      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-        <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="s" />
-      </td>
-    );
-  }
-
-  if (staggeredMinutes < 5) {
-    const m = Math.floor(staggeredMinutes);
-    const s = Math.round((staggeredMinutes - m) * 60);
-    return (
-      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-        <NumberFlow value={m} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="m " />
-        <NumberFlow value={s} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="s" />
-      </td>
-    );
-  }
-
-  if (staggeredMinutes < 60) {
-    const rounded = Math.round(staggeredMinutes);
-    return (
-      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-        <NumberFlow value={rounded} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix=" min" />
-      </td>
-    );
-  }
-
-  const h = Math.floor(staggeredMinutes / 60);
-  const m = Math.round(staggeredMinutes % 60);
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-      <NumberFlow value={h} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="h " />
-      <NumberFlow value={m} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="m" />
+      {!valid ? (
+        <span className="text-muted-foreground">—</span>
+      ) : (
+        <>
+          <NumberFlow value={major} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={majorSuffix} />
+          {showMinor && (
+            <NumberFlow value={minor} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={minorSuffix} />
+          )}
+        </>
+      )}
     </td>
   );
 }
