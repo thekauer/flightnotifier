@@ -123,9 +123,8 @@ function CallsignCell({ value, isExpanded, isApproaching, isInZone, className }:
   isInZone?: boolean;
   className?: string;
 }) {
-  const borderColor = isInZone ? 'border-l-2 border-blue-500' : isApproaching ? 'border-l-2 border-emerald-500' : '';
   return (
-    <td className={`px-3 py-1.5 whitespace-nowrap ${borderColor} ${className ?? ''}`.trim()}>
+    <td className={`px-3 py-1.5 whitespace-nowrap ${className ?? ''}`.trim()}>
       {isExpanded !== undefined && (
         <span className="mr-1.5 text-[10px] text-muted-foreground/60">{isExpanded ? '\u25BC' : '\u25B6'}</span>
       )}

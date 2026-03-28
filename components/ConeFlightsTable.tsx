@@ -117,7 +117,7 @@ export function ConeFlightsTable({
                     zoneFlightIds?.has(flight.id)
                       ? 'bg-blue-50/40 dark:bg-blue-950/20'
                       : 'bg-emerald-50/40 dark:bg-emerald-950/20'
-                  } ${selectedFlightId === flight.id ? 'ring-1 ring-inset ring-orange-300/50 dark:ring-orange-500/30 bg-orange-50/30 dark:bg-orange-950/15' : ''}`}
+                  } ${selectedFlightId === flight.id ? 'border-l-2 border-l-orange-500' : ''}`}
                 >
                   <DataCell
                     type="callsign"
