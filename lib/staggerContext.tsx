@@ -13,13 +13,15 @@ const StaggerContext = createContext<StaggerContextValue | null>(null);
 
 const ENABLED_KEY = 'flightnotifier-stagger-enabled';
 const DELAY_KEY = 'flightnotifier-stagger-max-delay-ms';
-const DEFAULT_MAX_DELAY_MS = 6000;
+const DEFAULT_MAX_DELAY_MS = 10000;
 
 function readStoredEnabled(): boolean {
   try {
-    return localStorage.getItem(ENABLED_KEY) === 'true';
+    const stored = localStorage.getItem(ENABLED_KEY);
+    if (stored === null) return true; // enabled by default
+    return stored === 'true';
   } catch {
-    return false;
+    return true;
   }
 }
 
@@ -37,7 +39,7 @@ function readStoredDelay(): number {
 }
 
 export function StaggerProvider({ children }: { children: ReactNode }) {
-  const [staggerEnabled, setStaggerState] = useState(false);
+  const [staggerEnabled, setStaggerState] = useState(true);
   const [staggerMaxDelayMs, setDelayState] = useState(DEFAULT_MAX_DELAY_MS);
   const hasSynced = useRef(false);
 
