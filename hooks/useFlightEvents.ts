@@ -8,6 +8,7 @@ import { fetchMetar } from '@/lib/api/weather';
 import { useDataSource } from '@/lib/dataSourceContext';
 import { useNotificationZone } from '@/lib/notificationZoneContext';
 import { useVisibilitySettings } from '@/lib/visibilitySettingsContext';
+import { SCHEDULE_KEY } from './useScheduleData';
 import { PREDICTIONS_KEY } from './useVisibilityPredictions';
 
 const INITIAL_STATE: FlightState = {
@@ -61,10 +62,8 @@ export function useFlightEvents() {
   zoneRef.current = zone;
   visibilitySettingsRef.current = visibilitySettings;
 
-  // Existing useEffect: manages SSE connection in backend mode,
-  // or direct polling in fallback mode.
-  // NOTE(predictive-visibility): zone is included in deps so SSE reconnects
-  // when the user draws/clears a notification zone, passing bounds as query params.
+  // Manages backend SSE in server mode, or direct polling in fallback mode.
+  // Zone is included in deps so the combined SSE stream reconnects with fresh bounds.
   useEffect(() => {
     if (dataSource === 'fallback') {
       // Direct polling mode -- poll OpenSky much less aggressively.
@@ -133,6 +132,8 @@ export function useFlightEvents() {
         east: String(currentZone.east),
       });
       sseUrl = `/api/events?${params.toString()}`;
+    } else {
+      queryClient.setQueryData<VisibilityPrediction[]>(PREDICTIONS_KEY, []);
     }
 
     const es = new EventSource(sseUrl);
@@ -171,7 +172,7 @@ export function useFlightEvents() {
           case 'visibility_predictions': {
             const vs = visibilitySettingsRef.current;
             const filtered = vs.predictionEnabled
-              ? parsed.predictions.filter((p) => {
+              ? parsed.predictions.filter((p: VisibilityPrediction) => {
                   if (p.predictedVisibility === 'visible') return true;
                   if (p.predictedVisibility === 'partially_visible') return vs.notifyPartialVisibility;
                   if (p.predictedVisibility === 'obscured') return vs.notifyObscured;
@@ -184,6 +185,24 @@ export function useFlightEvents() {
             );
             break;
           }
+          case 'schedule_updated':
+            queryClient.setQueryData(SCHEDULE_KEY, parsed.schedule);
+            break;
+          case 'weather_updated':
+            queryClient.setQueryData<FlightState>(FLIGHT_STATE_KEY, (current) => {
+              if (!current) {
+                return {
+                  ...INITIAL_STATE,
+                  weather: parsed.weather ?? null,
+                };
+              }
+
+              return {
+                ...current,
+                weather: parsed.weather ?? null,
+              };
+            });
+            break;
         }
       } catch {
         // ignore malformed messages

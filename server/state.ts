@@ -1,3 +1,4 @@
+import type { ScheduledArrival } from '@/lib/types';
 import type { Flight } from './opensky/types';
 import { isBuitenveldertbaanApproach, detectApproachDirection } from './opensky/detector';
 import type { RunwayDirection, RunwayPrediction } from './runway/types';
@@ -18,7 +19,9 @@ export type StateChangeEvent =
   | { type: 'buitenveldertbaan_deactivated' }
   | { type: 'new_approach'; flight: Flight }
   | { type: 'runway_predictions'; predictions: RunwayPrediction[] }
-  | { type: 'visibility_predictions'; predictions: import('./visibility/types').VisibilityPrediction[] };
+  | { type: 'visibility_predictions'; predictions: import('./visibility/types').VisibilityPrediction[] }
+  | { type: 'schedule_updated'; schedule: ScheduledArrival[]; fetchedAt: number }
+  | { type: 'weather_updated'; weather: import('@/lib/api/weather').MetarData | null; fetchedAt: number };
 
 export type EventCallback = (event: StateChangeEvent) => void;
 

@@ -1,4 +1,5 @@
-import { fetchArrivals, type OpenSkyArrival } from '@/lib/api/opensky';
+import type { OpenSkyArrival } from '@/lib/api/opensky';
+import { getOpenSkyClient } from '@/server/singleton';
 import type { ArrivalRecord } from './types';
 
 const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
@@ -18,9 +19,7 @@ let cache: CacheEntry | null = null;
  * typically from the previous day or earlier. This is useful for building up
  * the runway history store but NOT for real-time predictions.
  */
-export async function fetchRecentArrivals(
-  token?: string | null,
-): Promise<ArrivalRecord[]> {
+export async function fetchRecentArrivals(): Promise<ArrivalRecord[]> {
   if (cache && Date.now() - cache.fetchedAt < CACHE_TTL_MS) {
     return cache.data;
   }
@@ -30,7 +29,7 @@ export async function fetchRecentArrivals(
     const end = Math.floor(Date.now() / 1000);
     const begin = end - 24 * 60 * 60;
 
-    const raw = await fetchArrivals('EHAM', begin, end, token);
+    const raw = await getOpenSkyClient().fetchArrivals('EHAM', begin, end);
     const records: ArrivalRecord[] = raw.map((a: OpenSkyArrival) => ({
       icao24: a.icao24,
       callsign: (a.callsign ?? '').trim(),

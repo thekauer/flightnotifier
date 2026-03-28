@@ -52,6 +52,7 @@ export class WeatherCache {
 const globalForApp = globalThis as unknown as {
   stateManager: FlightStateManager | undefined;
   poller: OpenSkyPoller | undefined;
+  openskyClient: OpenSkyClient | undefined;
   adsbdbClient: AdsbdbClient | undefined;
   weatherCache: WeatherCache | undefined;
   weatherInterval: ReturnType<typeof setInterval> | undefined;
@@ -109,10 +110,7 @@ export function getStateManager(): FlightStateManager {
 export function getPoller(): OpenSkyPoller {
   if (!globalForApp.poller) {
     const stateManager = getStateManager();
-    const client = new OpenSkyClient(
-      process.env.OPENSKY_CLIENT_ID || null,
-      process.env.OPENSKY_CLIENT_SECRET || null,
-    );
+    const client = getOpenSkyClient();
     globalForApp.sseClientCount = 0;
 
     const adsbdb = getAdsbdbClient();
@@ -170,6 +168,16 @@ export function getPoller(): OpenSkyPoller {
     globalForApp.poller.start();
   }
   return globalForApp.poller;
+}
+
+export function getOpenSkyClient(): OpenSkyClient {
+  if (!globalForApp.openskyClient) {
+    globalForApp.openskyClient = new OpenSkyClient(
+      process.env.OPENSKY_CLIENT_ID || null,
+      process.env.OPENSKY_CLIENT_SECRET || null,
+    );
+  }
+  return globalForApp.openskyClient;
 }
 
 export function incrementSSEClients(): void {

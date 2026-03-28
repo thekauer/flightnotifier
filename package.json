@@ -11,6 +11,7 @@
     "assets:webp": "bun run scripts/aircraft/publish-assets.ts"
   },
   "dependencies": {
+    "@asteasolutions/zod-to-openapi": "^8.5.0",
     "@tanstack/react-query": "^5.67.2",
     "@tailwindcss/postcss": "^4.0.14",
     "class-variance-authority": "^0.7.1",
@@ -24,7 +25,8 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.14",
     "tailwindcss-animate": "^1.0.7",
-    "tw-animate-css": "^1.2.5"
+    "tw-animate-css": "^1.2.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.17",

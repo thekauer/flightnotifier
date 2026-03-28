@@ -420,3 +420,18 @@ const AIRPORTS: Record<string, AirportInfo> = {
   LQSA: { city: 'Sarajevo', country: 'Bosnia and Herzegovina', countryCode: 'BA', iata: 'SJJ' },
   LYPG: { city: 'Podgorica', country: 'Montenegro', countryCode: 'ME', iata: 'TGD' },
 };
+
+let iataToIcaoCache: Map<string, string> | undefined;
+
+/** Resolve ICAO from IATA when the airport exists in {@link AIRPORTS}. */
+export function resolveIcaoFromIata(iata: string): string | undefined {
+  if (!iataToIcaoCache) {
+    iataToIcaoCache = new Map();
+    for (const [icao, info] of Object.entries(AIRPORTS)) {
+      if (info.iata) {
+        iataToIcaoCache.set(info.iata.toUpperCase(), icao);
+      }
+    }
+  }
+  return iataToIcaoCache.get(iata.toUpperCase());
+}

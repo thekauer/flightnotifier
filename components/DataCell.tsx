@@ -160,6 +160,14 @@ function HeadingCell({ value, className }: { value: number; className?: string }
 }
 
 function DistanceCell({ value, className }: { value: number; className?: string }) {
+  if (value <= 0) {
+    return (
+      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+        <span className="text-muted-foreground">-</span>
+      </td>
+    );
+  }
+
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">

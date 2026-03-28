@@ -1,11 +1,7 @@
-import { NextResponse } from 'next/server';
-import { getStateManager, getPoller, getWeatherCache } from '@/server/singleton';
+import { handleStateGet } from '@/server/http/controllers/stateController';
 
 export const dynamic = 'force-dynamic';
 
 export function GET() {
-  getPoller(); // ensure poller is started
-  const state = getStateManager().getState();
-  const weather = getWeatherCache().getCached();
-  return NextResponse.json({ ...state, weather });
+  return handleStateGet();
 }

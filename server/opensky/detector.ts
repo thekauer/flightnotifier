@@ -54,6 +54,33 @@ export const APPROACH_CONE_09: [number, number][] = [
 // Keep legacy export for backward compatibility
 export const APPROACH_CONE = APPROACH_CONE_27;
 
+function pointInPolygon(lat: number, lon: number, polygon: [number, number][]): boolean {
+  let inside = false;
+
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [latI, lonI] = polygon[i]!;
+    const [latJ, lonJ] = polygon[j]!;
+
+    const intersects =
+      lonI > lon !== lonJ > lon &&
+      lat < ((latJ - latI) * (lon - lonI)) / (lonJ - lonI || Number.EPSILON) + latI;
+
+    if (intersects) {
+      inside = !inside;
+    }
+  }
+
+  return inside;
+}
+
+export function isInsideApproachCone27(lat: number, lon: number): boolean {
+  return pointInPolygon(lat, lon, APPROACH_CONE_27);
+}
+
+export function pathIntersectsApproachCone27(points: Array<{ lat: number; lon: number }>): boolean {
+  return points.some((point) => isInsideApproachCone27(point.lat, point.lon));
+}
+
 /**
  * Detect if a flight is on approach to the Buitenveldertbaan (either direction).
  * Returns true for BOTH RWY 27 and RWY 09 approaches.

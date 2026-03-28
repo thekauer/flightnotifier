@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
+import { handleHealthGet } from '@/server/http/controllers/healthController';
 
 export function GET() {
-  return NextResponse.json({ status: 'ok', timestamp: new Date().toISOString() });
+  return handleHealthGet();
 }

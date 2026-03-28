@@ -1,6 +1,11 @@
 import type { Flight } from '@/lib/types';
 
-const OPENSKY_BASE_URL = 'https://opensky-network.org/api';
+export const OPENSKY_BASE_URL = 'https://opensky-network.org/api';
+export const OPENSKY_AUTH_URL =
+  'https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token';
+
+/** Endpoints tried in order for historical track lookup (OpenSky docs vary). */
+export const OPENSKY_TRACK_ENDPOINTS = ['/tracks', '/tracks/all'] as const;
 
 const METERS_TO_FEET = 3.28084;
 const MS_TO_KNOTS = 1.94384;
@@ -79,27 +84,16 @@ export function parseStateVector(
   };
 }
 
-/**
- * Fetch state vectors from OpenSky Network within a bounding box.
- * Optionally pass a Bearer token for authenticated requests.
- * Returns raw parsed Flight objects.
- */
-export async function fetchStateVectors(
-  bounds: OpenSkyBoundingBox,
-  token?: string | null,
-): Promise<Flight[]> {
+export function buildStateVectorsUrl(bounds: OpenSkyBoundingBox): string {
   const url = new URL(`${OPENSKY_BASE_URL}/states/all`);
   url.searchParams.set('lamin', String(bounds.lamin));
   url.searchParams.set('lomin', String(bounds.lomin));
   url.searchParams.set('lamax', String(bounds.lamax));
   url.searchParams.set('lomax', String(bounds.lomax));
+  return url.toString();
+}
 
-  const headers: Record<string, string> = {};
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
-  const res = await fetch(url.toString(), { headers });
+export async function parseStateVectorsResponse(res: Response): Promise<Flight[]> {
   if (!res.ok) {
     const retryAfterSeconds =
       parseNumberHeader(res.headers.get('x-rate-limit-retry-after-seconds')) ??
@@ -119,6 +113,24 @@ export async function fetchStateVectors(
     .map((s) => parseStateVector(s, data.time));
 }
 
+/**
+ * Fetch state vectors from OpenSky Network within a bounding box.
+ * Optionally pass a Bearer token for authenticated requests.
+ * Returns raw parsed Flight objects.
+ */
+export async function fetchStateVectors(
+  bounds: OpenSkyBoundingBox,
+  token?: string | null,
+): Promise<Flight[]> {
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  const res = await fetch(buildStateVectorsUrl(bounds), { headers });
+  return parseStateVectorsResponse(res);
+}
+
 // --- Arrivals endpoint -------------------------------------------------------
 
 export interface OpenSkyArrival {
@@ -128,6 +140,30 @@ export interface OpenSkyArrival {
   lastSeen: number;
   estDepartureAirport: string | null;
   estArrivalAirport: string | null;
+}
+
+export interface OpenSkyTrackResponse {
+  icao24: string;
+  startTime: number;
+  endTime: number;
+  callsign: string | null;
+  path: [number, number | null, number | null, number | null, number | null, boolean][];
+}
+
+export function buildArrivalsUrl(airport: string, begin: number, end: number): string {
+  const url = new URL(`${OPENSKY_BASE_URL}/flights/arrival`);
+  url.searchParams.set('airport', airport);
+  url.searchParams.set('begin', String(begin));
+  url.searchParams.set('end', String(end));
+  return url.toString();
+}
+
+export async function parseArrivalsResponse(res: Response): Promise<OpenSkyArrival[]> {
+  if (!res.ok) {
+    throw new OpenSkyHttpError(res.status, `OpenSky arrivals HTTP ${res.status}: ${res.statusText}`);
+  }
+  const data: OpenSkyArrival[] = await res.json();
+  return data ?? [];
 }
 
 /**
@@ -141,23 +177,59 @@ export async function fetchArrivals(
   end: number,
   token?: string | null,
 ): Promise<OpenSkyArrival[]> {
-  const url = new URL(`${OPENSKY_BASE_URL}/flights/arrival`);
-  url.searchParams.set('airport', airport);
-  url.searchParams.set('begin', String(begin));
-  url.searchParams.set('end', String(end));
-
   const headers: Record<string, string> = {};
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const res = await fetch(url.toString(), { headers });
-  if (!res.ok) {
-    throw new Error(`OpenSky arrivals HTTP ${res.status}: ${res.statusText}`);
+  const res = await fetch(buildArrivalsUrl(airport, begin, end), { headers });
+  return parseArrivalsResponse(res);
+}
+
+export function buildTrackUrl(
+  endpoint: (typeof OPENSKY_TRACK_ENDPOINTS)[number],
+  icao24: string,
+  time: number,
+): string {
+  const url = new URL(`${OPENSKY_BASE_URL}${endpoint}`);
+  url.searchParams.set('icao24', icao24.toLowerCase());
+  url.searchParams.set('time', String(time));
+  return url.toString();
+}
+
+export async function parseTrackOkResponse(res: Response): Promise<OpenSkyTrackResponse | null> {
+  const data: OpenSkyTrackResponse = await res.json();
+  return data ?? null;
+}
+
+/**
+ * Fetch a historical track for one aircraft near a given time.
+ * OpenSky docs have historically shown both `/tracks` and `/tracks/all` examples,
+ * so we try the canonical endpoint first and fall back once on 404.
+ */
+export async function fetchTrack(
+  icao24: string,
+  time: number,
+  token?: string | null,
+): Promise<OpenSkyTrackResponse | null> {
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const data: OpenSkyArrival[] = await res.json();
-  return data ?? [];
+  for (let i = 0; i < OPENSKY_TRACK_ENDPOINTS.length; i++) {
+    const endpoint = OPENSKY_TRACK_ENDPOINTS[i];
+    const res = await fetch(buildTrackUrl(endpoint, icao24, time), { headers });
+    if (res.ok) {
+      return parseTrackOkResponse(res);
+    }
+    if (res.status === 404 && i < OPENSKY_TRACK_ENDPOINTS.length - 1) {
+      continue;
+    }
+    throw new OpenSkyHttpError(res.status, `OpenSky track HTTP ${res.status}: ${res.statusText}`);
+  }
+
+  return null;
 }
 
 /**
@@ -168,7 +240,7 @@ export async function fetchOpenSkyToken(
   clientId: string,
   clientSecret: string,
 ): Promise<OpenSkyTokenResponse> {
-  const res = await fetch(`${OPENSKY_BASE_URL}/auth/token`, {
+  const res = await fetch(OPENSKY_AUTH_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({

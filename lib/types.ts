@@ -28,6 +28,45 @@ export interface FlightState {
   runwayPredictions?: RunwayPrediction[];
 }
 
+export interface ScheduledArrival {
+  id: string;
+  callsign: string;
+  aircraftType: string | null;
+  manufacturer: string | null;
+  registration: string | null;
+  owner: string | null;
+  originCountry: string;
+  origin?: string;
+  destination?: string;
+  route?: string;
+  altitude: number;
+  speed: number;
+  verticalRate: number;
+  distanceToAmsKm: number;
+  estimatedMinutes: number;
+  isBuitenveldertbaan: boolean;
+}
+
+export interface HistoricalTrackPoint {
+  time: number;
+  lat: number;
+  lon: number;
+  altitude: number | null;
+  heading: number | null;
+  onGround: boolean;
+}
+
+export interface HistoricalFlightPath {
+  icao24: string;
+  callsign: string;
+  firstSeen: number;
+  lastSeen: number;
+  origin: string | null;
+  destination: string | null;
+  interceptedCone: boolean;
+  path: HistoricalTrackPoint[];
+}
+
 export interface VisibilityPrediction {
   flightId: string;
   callsign: string;
@@ -67,4 +106,6 @@ export type StateChangeEvent =
   | { type: 'buitenveldertbaan_deactivated' }
   | { type: 'new_approach'; flight: Flight }
   | { type: 'runway_predictions'; predictions: RunwayPrediction[] }
-  | { type: 'visibility_predictions'; predictions: VisibilityPrediction[] };
+  | { type: 'visibility_predictions'; predictions: VisibilityPrediction[] }
+  | { type: 'schedule_updated'; schedule: ScheduledArrival[]; fetchedAt: number }
+  | { type: 'weather_updated'; weather: import('@/lib/api/weather').MetarData | null; fetchedAt: number };

@@ -5,19 +5,20 @@ import { useFlightEvents } from '@/hooks/useFlightEvents';
 import { StatusBanner } from '@/components/StatusBanner';
 import { FlightMap } from '@/components/FlightMap';
 import { FlightList } from '@/components/FlightList';
-import { LandingTable } from '@/components/LandingTable';
-import { Timetable } from '@/components/Timetable';
+import { ConeFlightsTable } from '@/components/ConeFlightsTable';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { SettingsPage } from '@/components/SettingsPage';
 import { WeatherCard } from '@/components/WeatherCard';
 import { SpottingQuiz } from '@/components/SpottingQuiz';
+import { ScheduledArrivalsTable } from '@/components/ScheduledArrivalsTable';
 
-type TopTab = 'dashboard' | 'spotting' | 'settings';
-type DashboardTab = 'overview' | 'airborne' | 'timetable';
+type TopTab = 'dashboard' | 'predictions' | 'spotting' | 'settings';
+type DashboardTab = 'overview' | 'airborne';
 
 const TOP_TABS: { id: TopTab; label: string }[] = [
   { id: 'dashboard', label: 'Dashboard' },
+  { id: 'predictions', label: 'Predictions' },
   { id: 'spotting', label: 'Spotting' },
   { id: 'settings', label: 'Settings' },
 ];
@@ -25,7 +26,6 @@ const TOP_TABS: { id: TopTab; label: string }[] = [
 const DASHBOARD_TABS: { id: DashboardTab; label: string }[] = [
   { id: 'overview', label: 'Overview' },
   { id: 'airborne', label: 'Airborne Flights' },
-  { id: 'timetable', label: 'Timetable' },
 ];
 
 export default function Home() {
@@ -113,7 +113,7 @@ export default function Home() {
           <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
             {dashboardTab === 'overview' && (
               <>
-                <LandingTable flights={state.allFlights} weather={state.weather ?? null} />
+                <ConeFlightsTable flights={state.approachingFlights} />
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3">
@@ -134,18 +134,12 @@ export default function Home() {
                   </div>
                   <WeatherCard weather={state.weather ?? null} />
                 </div>
-                <div className="rounded-xl border bg-card shadow-sm">
-                  <div className="border-b px-5 py-3 flex items-center justify-between">
-                    <h2 className="text-sm font-semibold">Upcoming Arrivals</h2>
-                  </div>
-                  <Timetable />
-                </div>
               </>
             )}
 
             {dashboardTab === 'airborne' && (
               <>
-              <LandingTable flights={state.allFlights} weather={state.weather ?? null} />
+              <ConeFlightsTable flights={state.approachingFlights} />
               <div className="rounded-xl border bg-card shadow-sm">
                 <div className="border-b px-5 py-3 flex items-center justify-between">
                   <h2 className="text-sm font-semibold">Airborne Flights</h2>
@@ -157,17 +151,21 @@ export default function Home() {
               </div>
               </>
             )}
-
-            {dashboardTab === 'timetable' && (
-              <div className="rounded-xl border bg-card shadow-sm">
-                <div className="border-b px-5 py-3 flex items-center justify-between">
-                  <h2 className="text-sm font-semibold">Upcoming Arrivals</h2>
-                </div>
-                <Timetable />
-              </div>
-            )}
           </main>
         </>
+      )}
+
+      {topTab === 'predictions' && (
+        <main className="flex flex-1 flex-col gap-5 px-6 py-6">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">Predictions Inputs</h2>
+            <p className="text-sm text-muted-foreground">
+              Live cone traffic and scheduled arrivals to Amsterdam, with historical paths per scheduled flight
+            </p>
+          </div>
+          <ConeFlightsTable flights={state.approachingFlights} />
+          <ScheduledArrivalsTable />
+        </main>
       )}
 
       {/* Spotting content */}
