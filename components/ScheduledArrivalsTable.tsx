@@ -8,6 +8,7 @@ import { DataCell } from './DataCell';
 import { HistoricApproachMap } from './HistoricApproachMap';
 import { usePredictionHorizon } from '@/lib/predictionHorizonContext';
 import { useScheduleData } from '@/hooks/useScheduleData';
+import { useSelectedFlight } from '@/lib/selectedFlightContext';
 
 function formatTimestamp(seconds: number): string {
   return new Date(seconds * 1000).toLocaleString([], {
@@ -165,13 +166,14 @@ function HistoricalFlightDetails({ arrival }: { arrival: ScheduledArrival }) {
 
 export function ScheduledArrivalsTable() {
   const { horizonMinutes } = usePredictionHorizon();
+  const { selectedFlightId } = useSelectedFlight();
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const { arrivals, isLoading } = useScheduleData(horizonMinutes);
 
   return (
     <div className="rounded-xl border bg-card shadow-sm">
       <div className="border-b px-5 py-3 flex items-center justify-between">
-        <h2 className="text-sm font-semibold">Scheduled Arrivals To Amsterdam</h2>
+        <h2 className="text-sm font-semibold">Arrivals</h2>
         <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
           {arrivals.length}
         </span>
@@ -218,7 +220,7 @@ export function ScheduledArrivalsTable() {
                     <tr
                       className={`border-b border-border/50 transition-colors hover:bg-muted/50 ${
                         arrival.isBuitenveldertbaan ? 'bg-emerald-50/40 dark:bg-emerald-950/20' : ''
-                      }`}
+                      } ${selectedFlightId === arrival.id ? 'outline outline-2 outline-dashed outline-orange-500' : ''}`}
                     >
                       <td className="px-3 py-1.5">
                         <button

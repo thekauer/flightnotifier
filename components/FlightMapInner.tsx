@@ -11,6 +11,7 @@ import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { VsCell } from './VsCell';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { getAirportInfo, countryCodeToFlag } from '@/lib/airports';
+import { useSelectedFlight } from '@/lib/selectedFlightContext';
 
 // ---------------------------------------------------------------------------
 // Color palette
@@ -605,7 +606,7 @@ function InlineAltitude({ value }: { value: number }) {
   const staggered = useStaggeredValue(value, 6000);
   return (
     <div className="flex flex-col leading-tight">
-      <span className="text-[10px] text-muted-foreground">Alt</span>
+      <span className="text-sm text-muted-foreground">Alt</span>
       <div className="flex items-baseline gap-1">
         <NumberFlow
           value={staggered}
@@ -613,9 +614,9 @@ function InlineAltitude({ value }: { value: number }) {
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
-          className="text-sm font-semibold text-foreground"
+          className="text-lg font-bold text-foreground"
         />
-        <span className="text-[10px] text-muted-foreground">ft</span>
+        <span className="text-xs text-muted-foreground">ft</span>
       </div>
     </div>
   );
@@ -626,16 +627,16 @@ function InlineSpeed({ value }: { value: number }) {
   const staggered = useStaggeredValue(value, 6000);
   return (
     <div className="flex flex-col leading-tight">
-      <span className="text-[10px] text-muted-foreground">Speed</span>
+      <span className="text-sm text-muted-foreground">Speed</span>
       <div className="flex items-baseline gap-1">
         <NumberFlow
           value={staggered}
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
-          className="text-sm font-semibold text-foreground"
+          className="text-lg font-bold text-foreground"
         />
-        <span className="text-[10px] text-muted-foreground">kts</span>
+        <span className="text-xs text-muted-foreground">kts</span>
       </div>
     </div>
   );
@@ -646,14 +647,14 @@ function InlineHeading({ value }: { value: number }) {
   const staggered = useStaggeredValue(value, 6000);
   return (
     <div className="flex flex-col leading-tight">
-      <span className="text-[10px] text-muted-foreground">Hdg</span>
+      <span className="text-sm text-muted-foreground">Hdg</span>
       <NumberFlow
         value={staggered}
         willChange
         trend={0}
         style={{ fontVariantNumeric: 'tabular-nums' }}
         suffix="°"
-        className="text-sm font-semibold text-foreground"
+        className="text-lg font-bold text-foreground"
       />
     </div>
   );
@@ -663,8 +664,8 @@ function InlineHeading({ value }: { value: number }) {
 function InlineVs({ value }: { value: number }) {
   return (
     <div className="flex flex-col leading-tight">
-      <span className="text-[10px] text-muted-foreground">V/S</span>
-      <div className="text-sm font-semibold">
+      <span className="text-sm text-muted-foreground">V/S</span>
+      <div className="text-lg font-bold">
         <VsCell value={value} asTableCell={false} />
       </div>
     </div>
@@ -676,13 +677,13 @@ function AirportBadge({ label, iata }: { label: string; iata: string }) {
   const info = getAirportInfo(iata);
   return (
     <div className="flex flex-col leading-tight">
-      <span className="text-[10px] text-muted-foreground">{label}</span>
+      <span className="text-sm text-muted-foreground">{label}</span>
       {info ? (
-        <span className="text-sm font-semibold text-foreground" title={info.city}>
+        <span className="text-lg font-bold text-foreground" title={info.city}>
           {countryCodeToFlag(info.countryCode)} {info.iata}
         </span>
       ) : (
-        <span className="text-sm font-semibold text-foreground">{iata}</span>
+        <span className="text-lg font-bold text-foreground">{iata}</span>
       )}
     </div>
   );
@@ -691,25 +692,16 @@ function AirportBadge({ label, iata }: { label: string; iata: string }) {
 /** Selected flight detail panel — two-column grid layout. */
 function SelectedFlightPanel({
   flight,
-  onClose,
 }: {
   flight: Flight;
-  onClose: () => void;
 }) {
   return (
-    <div className="border-t bg-muted/40 px-6 py-4 text-sm">
-      {/* Header row: aircraft type + close button */}
-      <div className="flex items-center justify-between mb-3">
-        <div className="text-lg font-semibold">
+    <div className="border-t bg-muted/40 px-6 py-4 text-base">
+      {/* Header row: aircraft type */}
+      <div className="mb-3">
+        <div className="text-xl font-bold">
           <AircraftTypeBadge typeCode={flight.aircraftType} />
         </div>
-        <button
-          onClick={onClose}
-          className="rounded-full w-7 h-7 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors text-base font-bold"
-          title="Deselect"
-        >
-          &times;
-        </button>
       </div>
       {/* Two-column data grid */}
       <div className="grid grid-cols-2 gap-x-8 gap-y-3 place-items-center text-center">
@@ -825,7 +817,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
   const showArea = getShowArea();
 
-  const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
+  const { selectedFlightId, setSelectedFlightId } = useSelectedFlight();
   const [drawing, setDrawing] = useState(false);
   const firstCornerRef = useRef<L.LatLng | null>(null);
   const [firstCorner, setFirstCorner] = useState<L.LatLng | null>(null);
@@ -834,8 +826,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const zoneClickedRef = useRef(false);
 
   const handleSelectFlight = useCallback((flightId: string) => {
-    setSelectedFlightId((prev) => (prev === flightId ? null : flightId));
-  }, []);
+    setSelectedFlightId(selectedFlightId === flightId ? null : flightId);
+  }, [selectedFlightId, setSelectedFlightId]);
 
   const selectedFlight = useMemo(
     () => (selectedFlightId ? airborneFlights.find((f) => f.id === selectedFlightId) ?? null : null),
@@ -996,7 +988,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       <div className="relative flex-1 min-h-0">
       <MapContainer
         center={SCHIPHOL_POS}
-        zoom={13}
+        zoom={14}
         minZoom={9}
         maxZoom={16}
         maxBounds={[[52.0, 4.2], [52.6, 5.5]]}
@@ -1224,7 +1216,6 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         {selectedFlight ? (
           <SelectedFlightPanel
             flight={selectedFlight}
-            onClose={() => setSelectedFlightId(null)}
           />
         ) : (
           <div className="flex items-center justify-center h-[120px] border-t text-xs text-muted-foreground/50 font-mono select-none">
