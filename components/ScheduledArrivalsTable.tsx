@@ -186,9 +186,9 @@ export function ScheduledArrivalsTable() {
           No scheduled arrivals
         </div>
       ) : (
-        <div className="overflow-auto">
+        <div className="max-h-[400px] overflow-auto">
           <table className="w-full text-sm">
-            <thead className="bg-muted/80 backdrop-blur-sm">
+            <thead className="sticky top-0 bg-muted/80 backdrop-blur-sm z-10">
               <tr className="border-b">
                 <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">
                   Callsign

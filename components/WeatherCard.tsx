@@ -358,7 +358,7 @@ export function WeatherCard({ weather }: WeatherCardProps) {
   const summary = buildSummary(weather, condition);
 
   return (
-    <div className="rounded-2xl border bg-card shadow-sm overflow-hidden flex flex-col">
+    <div className="rounded-2xl border bg-card shadow-sm overflow-auto max-h-[700px] flex flex-col">
       {/* ---- Header: condition + temp + flight category ---- */}
       <div className="px-5 pt-5 pb-4">
         {/* Top row: title + flight category badge */}
