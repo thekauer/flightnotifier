@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import * as Collapsible from '@radix-ui/react-collapsible';
 import type { Flight } from '@/lib/types';
 import { DataCell } from './DataCell';
 import { VsCell } from './VsCell';
@@ -82,8 +81,8 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
               </tr>
               <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
                 <td colSpan={8} className="p-0">
-                  <Collapsible.Root open={isExpanded}>
-                    <Collapsible.Content className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+                  <div className="grid transition-[grid-template-rows] duration-200 ease-out" style={{ gridTemplateRows: isExpanded ? '1fr' : '0fr' }}>
+                    <div className="overflow-hidden min-h-0">
                       <div className="px-3 py-3">
                         {(f.manufacturer || f.owner || f.registration || f.route) && (
                           <>
@@ -127,8 +126,8 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
                           {JSON.stringify(f, null, 2)}
                         </pre>
                       </div>
-                    </Collapsible.Content>
-                  </Collapsible.Root>
+                    </div>
+                  </div>
                 </td>
               </tr>
             </tbody>

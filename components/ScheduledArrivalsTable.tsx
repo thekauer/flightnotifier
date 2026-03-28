@@ -2,7 +2,6 @@
 
 import { Fragment, useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import * as Collapsible from '@radix-ui/react-collapsible';
 import type { HistoricalFlightPath, ScheduledArrival } from '@/lib/types';
 import { AirportCell } from './AirportCell';
 import { DataCell } from './DataCell';
@@ -239,11 +238,11 @@ export function ScheduledArrivalsTable() {
                     </tr>
                     <tr className="border-b border-border/50 bg-muted/20">
                       <td colSpan={6} className="p-0">
-                        <Collapsible.Root open={isExpanded}>
-                          <Collapsible.Content className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+                        <div className="grid transition-[grid-template-rows] duration-200 ease-out" style={{ gridTemplateRows: isExpanded ? '1fr' : '0fr' }}>
+                          <div className="overflow-hidden min-h-0">
                             <HistoricalFlightDetails arrival={arrival} />
-                          </Collapsible.Content>
-                        </Collapsible.Root>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   </Fragment>
