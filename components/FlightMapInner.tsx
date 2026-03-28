@@ -1135,20 +1135,20 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
         <button
           onClick={() => setAnimate(!animate)}
-          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
+          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
             animate
-              ? 'bg-blue-600 text-white'
-              : 'border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+              ? 'bg-blue-600 text-white border-blue-600'
+              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
           }`}
         >
           Animate
         </button>
         <button
           onClick={() => setLabelMode(!labelMode)}
-          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
+          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
             labelMode
-              ? 'bg-blue-600 text-white'
-              : 'border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+              ? 'bg-blue-600 text-white border-blue-600'
+              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
           }`}
         >
           Labels
