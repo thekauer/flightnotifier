@@ -110,7 +110,7 @@ function AirlineLogo({ callsign }: { callsign: string }) {
       alt=""
       width={20}
       height={20}
-      className="inline-block mr-1.5 rounded-full border border-border/40 object-contain bg-white"
+      className="inline-block mr-1.5 rounded-full border border-border/40 object-contain bg-transparent"
       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
     />
   );
