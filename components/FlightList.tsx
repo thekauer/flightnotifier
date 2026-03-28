@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import * as Collapsible from '@radix-ui/react-collapsible';
 import type { Flight } from '@/lib/types';
 import { DataCell } from './DataCell';
 import { VsCell } from './VsCell';
@@ -79,53 +80,57 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
                 <VsCell value={f.verticalRate} />
                 <DataCell type="heading" value={f.track} />
               </tr>
-              {isExpanded && (
-                <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
-                  <td colSpan={8} className="px-3 py-3">
-                    {(f.manufacturer || f.owner || f.registration || f.route) && (
-                      <>
-                        <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Aircraft Info</div>
-                        <div className="bg-muted/40 p-3 text-xs rounded-lg mb-3 grid grid-cols-2 gap-x-6 gap-y-1.5">
-                          {f.manufacturer && (
-                            <>
-                              <span className="text-muted-foreground">Manufacturer</span>
-                              <span className="font-medium">{f.manufacturer}</span>
-                            </>
-                          )}
-                          {f.aircraftType && (
-                            <>
-                              <span className="text-muted-foreground">Type</span>
-                              <span className="font-medium"><AircraftTypeBadge typeCode={f.aircraftType} /></span>
-                            </>
-                          )}
-                          {f.registration && (
-                            <>
-                              <span className="text-muted-foreground">Registration</span>
-                              <span className="font-medium">{f.registration}</span>
-                            </>
-                          )}
-                          {f.owner && (
-                            <>
-                              <span className="text-muted-foreground">Owner</span>
-                              <span className="font-medium">{f.owner}</span>
-                            </>
-                          )}
-                          {f.route && (
-                            <>
-                              <span className="text-muted-foreground">Route</span>
-                              <span className="font-medium">{f.route}</span>
-                            </>
-                          )}
-                        </div>
-                      </>
-                    )}
-                    <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Flight State</div>
-                    <pre className="bg-muted/40 p-3 text-xs font-mono overflow-x-auto rounded-lg">
-                      {JSON.stringify(f, null, 2)}
-                    </pre>
-                  </td>
-                </tr>
-              )}
+              <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
+                <td colSpan={8} className="p-0">
+                  <Collapsible.Root open={isExpanded}>
+                    <Collapsible.Content className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
+                      <div className="px-3 py-3">
+                        {(f.manufacturer || f.owner || f.registration || f.route) && (
+                          <>
+                            <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Aircraft Info</div>
+                            <div className="bg-muted/40 p-3 text-xs rounded-lg mb-3 grid grid-cols-2 gap-x-6 gap-y-1.5">
+                              {f.manufacturer && (
+                                <>
+                                  <span className="text-muted-foreground">Manufacturer</span>
+                                  <span className="font-medium">{f.manufacturer}</span>
+                                </>
+                              )}
+                              {f.aircraftType && (
+                                <>
+                                  <span className="text-muted-foreground">Type</span>
+                                  <span className="font-medium"><AircraftTypeBadge typeCode={f.aircraftType} /></span>
+                                </>
+                              )}
+                              {f.registration && (
+                                <>
+                                  <span className="text-muted-foreground">Registration</span>
+                                  <span className="font-medium">{f.registration}</span>
+                                </>
+                              )}
+                              {f.owner && (
+                                <>
+                                  <span className="text-muted-foreground">Owner</span>
+                                  <span className="font-medium">{f.owner}</span>
+                                </>
+                              )}
+                              {f.route && (
+                                <>
+                                  <span className="text-muted-foreground">Route</span>
+                                  <span className="font-medium">{f.route}</span>
+                                </>
+                              )}
+                            </div>
+                          </>
+                        )}
+                        <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Flight State</div>
+                        <pre className="bg-muted/40 p-3 text-xs font-mono overflow-x-auto rounded-lg">
+                          {JSON.stringify(f, null, 2)}
+                        </pre>
+                      </div>
+                    </Collapsible.Content>
+                  </Collapsible.Root>
+                </td>
+              </tr>
             </tbody>
           );
         })}
