@@ -1152,64 +1152,69 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       </MapContainer>
       </div>
       {/* Controls bar */}
-      <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
-        <button
-          onClick={() => setAnimate(!animate)}
-          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
-            animate
-              ? 'bg-blue-600 text-white border-blue-600'
-              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Animate
-        </button>
-        <button
-          onClick={() => setLabelMode(!labelMode)}
-          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
-            labelMode
-              ? 'bg-blue-600 text-white border-blue-600'
-              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Labels
-        </button>
-        <button
-          onClick={() => setShowArea(!showArea)}
-          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
-            showArea
-              ? 'bg-blue-600 text-white border-blue-600'
-              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Area
-        </button>
-        <span className="text-muted-foreground/30">|</span>
-        <button
-          onClick={drawing ? handleReset : handleStartDraw}
-          className={`rounded px-2 py-1 font-medium transition-colors ${
-            drawing
-              ? 'bg-amber-500 text-white hover:bg-amber-600'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-          }`}
-        >
-          {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}
-        </button>
-        {zone && (
-          <>
-            <button
-              onClick={toggleVisible}
-              className="rounded px-2 py-1 font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            >
-              {visible ? 'Hide Zone' : 'Show Zone'}
-            </button>
-            <button
-              onClick={handleReset}
-              className="rounded px-2 py-1 font-medium text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950 transition-colors"
-            >
-              Reset Zone
-            </button>
-          </>
-        )}
+      <div className="border-t px-3 py-2 text-xs space-y-1.5">
+        {/* Row 1: View toggles */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setAnimate(!animate)}
+            className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
+              animate
+                ? 'bg-blue-600 text-white border-blue-600'
+                : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            Animate
+          </button>
+          <button
+            onClick={() => setLabelMode(!labelMode)}
+            className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
+              labelMode
+                ? 'bg-blue-600 text-white border-blue-600'
+                : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            Labels
+          </button>
+          <button
+            onClick={() => setShowArea(!showArea)}
+            className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
+              showArea
+                ? 'bg-blue-600 text-white border-blue-600'
+                : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            Area
+          </button>
+        </div>
+        {/* Row 2: Zone controls */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={drawing ? handleReset : handleStartDraw}
+            className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
+              drawing
+                ? 'bg-amber-500 text-white border-amber-500'
+                : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}
+          </button>
+          {zone && (
+            <>
+              <button
+                onClick={toggleVisible}
+                className="rounded-md px-2.5 py-1 text-xs font-medium border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground transition-colors select-none"
+              >
+                {visible ? 'Hide Zone' : 'Show Zone'}
+              </button>
+              <button
+                onClick={handleReset}
+                className="rounded-md px-2.5 py-1 text-xs font-medium border border-red-300 dark:border-red-800 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950 transition-colors select-none"
+              >
+                Reset Zone
+              </button>
+            </>
+          )}
+        </div>
       </div>
       {/* Selected flight detail panel — always reserves space below controls */}
       <div className="min-h-[120px] shrink-0">
