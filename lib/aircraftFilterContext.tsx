@@ -13,6 +13,8 @@ interface AircraftFilterContextValue {
   toggleFamily: (family: string) => void;
   toggleCategory: (category: string) => void;
   isTypeEnabled: (code: string) => boolean;
+  selectAll: () => void;
+  deselectAll: () => void;
 }
 
 const AircraftFilterContext = createContext<AircraftFilterContextValue | null>(null);
@@ -69,9 +71,17 @@ export function AircraftFilterProvider({ children }: { children: ReactNode }) {
     [enabledTypes],
   );
 
+  const selectAll = useCallback(() => {
+    setEnabledTypes(new Set(getAllTypeCodes()));
+  }, []);
+
+  const deselectAll = useCallback(() => {
+    setEnabledTypes(new Set());
+  }, []);
+
   return (
     <AircraftFilterContext.Provider
-      value={{ enabledTypes, toggleType, toggleFamily, toggleCategory, isTypeEnabled }}
+      value={{ enabledTypes, toggleType, toggleFamily, toggleCategory, isTypeEnabled, selectAll, deselectAll }}
     >
       {children}
     </AircraftFilterContext.Provider>

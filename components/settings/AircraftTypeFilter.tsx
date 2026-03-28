@@ -231,7 +231,7 @@ function CategoryRow({
 }
 
 export function AircraftTypeFilter() {
-  const { enabledTypes, toggleType, toggleFamily, toggleCategory } =
+  const { enabledTypes, toggleType, toggleFamily, toggleCategory, selectAll, deselectAll } =
     useAircraftFilter();
 
   return (
@@ -246,6 +246,22 @@ export function AircraftTypeFilter() {
         <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
           {enabledTypes.size} types
         </span>
+      </div>
+      <div className="mb-2 flex gap-2">
+        <button
+          type="button"
+          onClick={selectAll}
+          className="rounded px-2 py-0.5 text-xs font-medium border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Select All
+        </button>
+        <button
+          type="button"
+          onClick={deselectAll}
+          className="rounded px-2 py-0.5 text-xs font-medium border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          Deselect All
+        </button>
       </div>
       <div className="max-h-[400px] space-y-0.5 overflow-y-auto pr-1">
         {AIRCRAFT_TYPE_HIERARCHY.map((cat) => (
