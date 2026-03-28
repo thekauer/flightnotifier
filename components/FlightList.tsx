@@ -3,16 +3,21 @@
 import { useMemo, useState } from 'react';
 import type { Flight } from '@/lib/types';
 import { DataCell } from './DataCell';
+import { VsCell } from './VsCell';
+import { AircraftTypeBadge } from './AircraftTypeBadge';
+import { AirportCell } from './AirportCell';
 
 interface FlightListProps {
   flights: Flight[];
   approachingIds: Set<string>;
 }
 
+function isRwy27Approach(f: Flight): boolean {
+  return f.track >= 260 && f.track <= 280 && f.alt < 5000 && !f.onGround;
+}
+
 export function FlightList({ flights, approachingIds }: FlightListProps) {
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const [aircraftInfo, setAircraftInfo] = useState<Record<string, unknown>>({});
-  const [loading, setLoading] = useState<Set<string>>(new Set());
 
   const airborne = useMemo(
     () =>
@@ -32,82 +37,92 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
     setExpanded(newExpanded);
   };
 
-  const fetchAircraftInfo = async (icao24: string) => {
-    setLoading(prev => new Set(prev).add(icao24));
-    try {
-      const res = await fetch(`https://hexdb.io/api/v1/aircraft/${icao24}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      setAircraftInfo(prev => ({ ...prev, [icao24]: data }));
-    } catch (err) {
-      setAircraftInfo(prev => ({ ...prev, [icao24]: { error: String(err) } }));
-    } finally {
-      setLoading(prev => { const next = new Set(prev); next.delete(icao24); return next; });
-    }
-  };
-
   if (airborne.length === 0) {
-    return <p className="text-sm text-muted-foreground">No airborne flights</p>;
+    return (
+      <div className="flex items-center justify-center py-12 text-sm text-muted-foreground">
+        No airborne flights
+      </div>
+    );
   }
 
   return (
-    <div className="max-h-[400px] overflow-auto rounded border">
+    <div className="max-h-[500px] overflow-auto">
       <table className="w-full text-sm">
-        <thead className="sticky top-0 bg-muted">
-          <tr>
-            <th className="px-3 py-2 text-left font-medium">Callsign</th>
-            <th className="px-3 py-2 text-left font-medium">Type</th>
-            <th className="px-3 py-2 text-left font-medium">Country</th>
-            <th className="px-3 py-2 text-right font-medium">Alt</th>
-            <th className="px-3 py-2 text-right font-medium">Speed</th>
-            <th className="px-3 py-2 text-right font-medium">V/S</th>
-            <th className="px-3 py-2 text-right font-medium">Hdg</th>
-            <th className="px-3 py-2 text-center font-medium">Info</th>
+        <thead className="sticky top-0 bg-muted/80 backdrop-blur-sm z-10">
+          <tr className="border-b">
+            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Callsign</th>
+            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Type</th>
+            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">From</th>
+            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">To</th>
+            <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">Alt</th>
+            <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">Speed</th>
+            <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">V/S</th>
+            <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">Hdg</th>
+            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Reg</th>
           </tr>
         </thead>
         {airborne.map((f) => {
           const isApproaching = approachingIds.has(f.id);
           const isExpanded = expanded.has(f.id);
+          const onRwy27 = isRwy27Approach(f);
           return (
             <tbody key={f.id}>
               <tr
                 onClick={() => toggleExpanded(f.id)}
-                className={`cursor-pointer ${isApproaching ? 'bg-green-50 dark:bg-green-950' : ''}`}
+                className={`cursor-pointer border-b border-border/50 transition-colors hover:bg-muted/50 ${onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30 border-l-3 border-l-amber-500' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}`}
               >
                 <DataCell type="callsign" value={f.callsign || f.id} isExpanded={isExpanded} isApproaching={isApproaching} />
                 <DataCell type="aircraftType" value={f.aircraftType} />
-                <DataCell type="country" value={f.originCountry} />
+                <AirportCell icaoCode={f.origin} />
+                <AirportCell icaoCode={f.destination} />
                 <DataCell type="altitude" value={f.alt} />
                 <DataCell type="speed" value={f.speed} />
-                <DataCell type="verticalSpeed" value={f.verticalRate} />
+                <VsCell value={f.verticalRate} />
                 <DataCell type="heading" value={f.track} />
-                <td className="px-3 py-1.5 text-center">
-                  {aircraftInfo[f.id] ? (
-                    <span className="text-green-500 text-xs">✓</span>
-                  ) : (
-                    <button
-                      onClick={(e) => { e.stopPropagation(); fetchAircraftInfo(f.id); }}
-                      disabled={loading.has(f.id)}
-                      className="rounded bg-primary/20 px-2 py-0.5 text-xs text-primary hover:bg-primary/30 disabled:opacity-50"
-                    >
-                      {loading.has(f.id) ? '...' : 'Info'}
-                    </button>
-                  )}
-                </td>
+                <DataCell type="text" value={f.registration || '-'} />
               </tr>
               {isExpanded && (
-                <tr className={isApproaching ? 'bg-green-50 dark:bg-green-950' : ''}>
-                  <td colSpan={8} className="px-3 py-3">
-                    {aircraftInfo[f.id] != null && (
+                <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
+                  <td colSpan={9} className="px-3 py-3">
+                    {(f.manufacturer || f.owner || f.registration || f.route) && (
                       <>
-                        <div className="text-xs font-semibold mb-1 text-muted-foreground">Aircraft Metadata</div>
-                        <pre className="bg-muted/50 p-3 text-xs font-mono overflow-x-auto rounded mb-2">
-                          {JSON.stringify(aircraftInfo[f.id], null, 2)}
-                        </pre>
+                        <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Aircraft Info</div>
+                        <div className="bg-muted/40 p-3 text-xs rounded-lg mb-3 grid grid-cols-2 gap-x-6 gap-y-1.5">
+                          {f.manufacturer && (
+                            <>
+                              <span className="text-muted-foreground">Manufacturer</span>
+                              <span className="font-medium">{f.manufacturer}</span>
+                            </>
+                          )}
+                          {f.aircraftType && (
+                            <>
+                              <span className="text-muted-foreground">Type</span>
+                              <span className="font-medium"><AircraftTypeBadge typeCode={f.aircraftType} /></span>
+                            </>
+                          )}
+                          {f.registration && (
+                            <>
+                              <span className="text-muted-foreground">Registration</span>
+                              <span className="font-medium">{f.registration}</span>
+                            </>
+                          )}
+                          {f.owner && (
+                            <>
+                              <span className="text-muted-foreground">Owner</span>
+                              <span className="font-medium">{f.owner}</span>
+                            </>
+                          )}
+                          {f.route && (
+                            <>
+                              <span className="text-muted-foreground">Route</span>
+                              <span className="font-medium">{f.route}</span>
+                            </>
+                          )}
+                        </div>
                       </>
                     )}
-                    <div className="text-xs font-semibold mb-1 text-muted-foreground">Flight State</div>
-                    <pre className="bg-muted/50 p-3 text-xs font-mono overflow-x-auto rounded">
+                    <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Flight State</div>
+                    <pre className="bg-muted/40 p-3 text-xs font-mono overflow-x-auto rounded-lg">
                       {JSON.stringify(f, null, 2)}
                     </pre>
                   </td>

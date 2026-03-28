@@ -1,3 +1,6 @@
+import { VsCell } from './VsCell';
+import { AircraftTypeBadge } from './AircraftTypeBadge';
+
 const COUNTRY_CODES: Record<string, string> = {
   'Kingdom of the Netherlands': 'NL',
   'Netherlands': 'NL',
@@ -145,18 +148,7 @@ function SpeedCell({ value, className }: { value: number; className?: string }) 
 }
 
 function VerticalSpeedCell({ value, className }: { value: number; className?: string }) {
-  return (
-    <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-      <div className="flex flex-col items-end leading-tight">
-        <span>
-          {value > 0 && <span className="text-green-500 mr-0.5">↑</span>}
-          {value < 0 && <span className="text-red-500 mr-0.5">↓</span>}
-          {value}
-        </span>
-        <span className="text-muted-foreground text-[10px]">ft/m</span>
-      </div>
-    </td>
-  );
+  return <VsCell value={value} className={className} />;
 }
 
 function HeadingCell({ value, className }: { value: number; className?: string }) {
@@ -183,7 +175,11 @@ function EtaCell({ value, className }: { value: string; className?: string }) {
 }
 
 function AircraftTypeCell({ value, className }: { value: string | null; className?: string }) {
-  return <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>{value ?? '-'}</td>;
+  return (
+    <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>
+      <AircraftTypeBadge typeCode={value} />
+    </td>
+  );
 }
 
 export function DataCell(props: DataCellProps) {

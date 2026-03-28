@@ -2,17 +2,18 @@ import { OpenSkyClient } from './client';
 import type { BoundingBox, Flight } from './types';
 
 export class OpenSkyPoller {
-  private intervalId: ReturnType<typeof setInterval> | null = null;
+  private timeoutId: ReturnType<typeof setTimeout> | null = null;
+  private running = false;
   private client: OpenSkyClient;
   private bounds: BoundingBox;
-  private onUpdate: (flights: Flight[]) => void;
+  private onUpdate: (flights: Flight[]) => void | Promise<void>;
   private intervalMs: number;
   private hasClients: () => boolean;
 
   constructor(config: {
     client: OpenSkyClient;
     bounds: BoundingBox;
-    onUpdate: (flights: Flight[]) => void;
+    onUpdate: (flights: Flight[]) => void | Promise<void>;
     intervalMs: number;
     hasClients: () => boolean;
   }) {
@@ -24,16 +25,26 @@ export class OpenSkyPoller {
   }
 
   start(): void {
+    if (this.running) return;
+    this.running = true;
     console.log(`[OpenSky] Polling every ${this.intervalMs / 1000}s`);
-    this.poll();
-    this.intervalId = setInterval(() => this.poll(), this.intervalMs);
+    this.scheduleNext(0);
   }
 
   stop(): void {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
+    this.running = false;
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
     }
+  }
+
+  private scheduleNext(delayMs: number): void {
+    if (!this.running) return;
+    this.timeoutId = setTimeout(async () => {
+      await this.poll();
+      this.scheduleNext(this.intervalMs);
+    }, delayMs);
   }
 
   private async poll(): Promise<void> {
@@ -45,7 +56,7 @@ export class OpenSkyPoller {
     try {
       const flights = await this.client.fetchStates(this.bounds);
       console.log(`[OpenSky] Fetched ${flights.length} flights`);
-      this.onUpdate(flights);
+      await this.onUpdate(flights);
     } catch (err) {
       console.error('[OpenSky] Poll error:', err);
     }

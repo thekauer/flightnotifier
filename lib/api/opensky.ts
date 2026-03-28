@@ -1,0 +1,155 @@
+import type { Flight } from '@/lib/types';
+
+const OPENSKY_BASE_URL = 'https://opensky-network.org/api';
+
+const METERS_TO_FEET = 3.28084;
+const MS_TO_KNOTS = 1.94384;
+const MS_TO_FTMIN = 196.85;
+
+export interface OpenSkyBoundingBox {
+  lamin: number; // south
+  lomin: number; // west
+  lamax: number; // north
+  lomax: number; // east
+}
+
+export interface OpenSkyResponse {
+  time: number;
+  states: (string | number | boolean | number[] | null)[][] | null;
+}
+
+export interface OpenSkyTokenResponse {
+  access_token: string;
+  expires_in?: number;
+}
+
+/**
+ * Parse an OpenSky state vector array into a Flight object.
+ */
+export function parseStateVector(
+  s: (string | number | boolean | number[] | null)[],
+  responseTime: number,
+): Flight {
+  const baroAlt = s[7] as number | null;
+  const geoAlt = s[13] as number | null;
+  const altMeters = baroAlt ?? geoAlt ?? 0;
+  const velocityMs = (s[9] as number | null) ?? 0;
+  const vertRateMs = (s[11] as number | null) ?? 0;
+
+  return {
+    id: (s[0] as string).trim(),
+    callsign: ((s[1] as string | null) ?? '').trim(),
+    lat: s[6] as number,
+    lon: s[5] as number,
+    alt: Math.round(altMeters * METERS_TO_FEET),
+    speed: Math.round(velocityMs * MS_TO_KNOTS),
+    track: Math.round((s[10] as number | null) ?? 0),
+    verticalRate: Math.round(vertRateMs * MS_TO_FTMIN),
+    onGround: (s[8] as boolean) ?? false,
+    timestamp: (s[3] as number | null) ?? responseTime,
+    aircraftType: null,
+    manufacturer: null,
+    registration: null,
+    owner: null,
+    originCountry: (s[2] as string) ?? '',
+  };
+}
+
+/**
+ * Fetch state vectors from OpenSky Network within a bounding box.
+ * Optionally pass a Bearer token for authenticated requests.
+ * Returns raw parsed Flight objects.
+ */
+export async function fetchStateVectors(
+  bounds: OpenSkyBoundingBox,
+  token?: string | null,
+): Promise<Flight[]> {
+  const url = new URL(`${OPENSKY_BASE_URL}/states/all`);
+  url.searchParams.set('lamin', String(bounds.lamin));
+  url.searchParams.set('lomin', String(bounds.lomin));
+  url.searchParams.set('lamax', String(bounds.lamax));
+  url.searchParams.set('lomax', String(bounds.lomax));
+
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  const res = await fetch(url.toString(), { headers });
+  if (!res.ok) {
+    throw new Error(`OpenSky HTTP ${res.status}: ${res.statusText}`);
+  }
+
+  const data: OpenSkyResponse = await res.json();
+  if (!data.states) return [];
+
+  return data.states
+    .filter((s) => s[5] != null && s[6] != null)
+    .map((s) => parseStateVector(s, data.time));
+}
+
+// --- Arrivals endpoint -------------------------------------------------------
+
+export interface OpenSkyArrival {
+  icao24: string;
+  callsign: string | null;
+  firstSeen: number;
+  lastSeen: number;
+  estDepartureAirport: string | null;
+  estArrivalAirport: string | null;
+}
+
+/**
+ * Fetch historical arrivals at an airport from OpenSky Network.
+ * NOTE: OpenSky arrivals are batch-processed — only past data is available.
+ * `begin` and `end` are unix timestamps in seconds.
+ */
+export async function fetchArrivals(
+  airport: string,
+  begin: number,
+  end: number,
+  token?: string | null,
+): Promise<OpenSkyArrival[]> {
+  const url = new URL(`${OPENSKY_BASE_URL}/flights/arrival`);
+  url.searchParams.set('airport', airport);
+  url.searchParams.set('begin', String(begin));
+  url.searchParams.set('end', String(end));
+
+  const headers: Record<string, string> = {};
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  const res = await fetch(url.toString(), { headers });
+  if (!res.ok) {
+    throw new Error(`OpenSky arrivals HTTP ${res.status}: ${res.statusText}`);
+  }
+
+  const data: OpenSkyArrival[] = await res.json();
+  return data ?? [];
+}
+
+/**
+ * Acquire an OAuth2 access token from the OpenSky Network.
+ * Returns { access_token, expires_in } or throws on failure.
+ */
+export async function fetchOpenSkyToken(
+  clientId: string,
+  clientSecret: string,
+): Promise<OpenSkyTokenResponse> {
+  const res = await fetch(`${OPENSKY_BASE_URL}/auth/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials',
+      client_id: clientId,
+      client_secret: clientSecret,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`OpenSky auth failed: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
