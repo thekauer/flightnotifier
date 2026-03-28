@@ -1196,17 +1196,28 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           )}
         </div>
       </div>
-      {/* Selected flight detail panel — always reserves space below controls */}
-      <div className="min-h-[120px] shrink-0">
-        {selectedFlight ? (
-          <SelectedFlightPanel
-            flight={selectedFlight}
-          />
-        ) : (
-          <div className="flex items-center justify-center h-[120px] border-t text-xs text-muted-foreground/50 font-mono select-none">
-            Click an aircraft to see details
+      {/* Selected flight detail panel — animated expand/collapse */}
+      <div className="shrink-0 border-t">
+        {/* Placeholder always visible */}
+        <div
+          className="grid transition-[grid-template-rows] duration-300 ease-out"
+          style={{ gridTemplateRows: selectedFlight ? '0fr' : '1fr' }}
+        >
+          <div className="overflow-hidden min-h-0">
+            <div className="flex items-center justify-center h-[80px] text-xs text-muted-foreground/50 font-mono select-none">
+              Click an aircraft to see details
+            </div>
           </div>
-        )}
+        </div>
+        {/* Detail panel */}
+        <div
+          className="grid transition-[grid-template-rows] duration-300 ease-out"
+          style={{ gridTemplateRows: selectedFlight ? '1fr' : '0fr' }}
+        >
+          <div className="overflow-hidden min-h-0">
+            {selectedFlight && <SelectedFlightPanel flight={selectedFlight} />}
+          </div>
+        </div>
       </div>
     </div>
   );
