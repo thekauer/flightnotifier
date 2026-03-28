@@ -487,17 +487,16 @@ export function WeatherCard({ weather }: WeatherCardProps) {
         </p>
 
         {/* Raw METAR */}
-        <details className="group">
-          <summary className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest cursor-pointer select-none hover:text-foreground transition-colors">
+        <div>
+          <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-1">
             Raw METAR
-            <span className="ml-1 inline-block transition-transform group-open:rotate-90">▶</span>
-          </summary>
-          <div className="mt-1.5 rounded-lg bg-muted/40 px-3 py-2">
+          </p>
+          <div className="rounded-lg bg-muted/40 px-3 py-2">
             <p className="font-mono text-[11px] leading-relaxed break-all text-muted-foreground">
               {weather.raw}
             </p>
           </div>
-        </details>
+        </div>
 
         {/* Observation age */}
         <p className="text-[10px] text-muted-foreground text-right">

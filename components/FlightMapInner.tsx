@@ -3,10 +3,13 @@
 import React, { useMemo, useCallback, useRef, useState, useSyncExternalStore } from 'react';
 import { MapContainer, TileLayer, Marker, Polygon, Rectangle, Tooltip, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
+import NumberFlow from '@number-flow/react';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
 import { APPROACH_CONE_27 } from '@/lib/approachCone';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
+import { VsCell } from './VsCell';
+import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { getAirportInfo, countryCodeToFlag } from '@/lib/airports';
 
 /** Tile URLs for light and dark themes (CartoDB free tiles). */
@@ -294,8 +297,9 @@ function shortenTypeCode(typeCode: string | null | undefined): string {
 }
 
 /**
- * Create a label-mode icon: a filled triangle (or diamond if selected) pointing
- * in the direction of flight, with the shortened type code displayed inside.
+ * Create a label-mode icon: an outline triangle pointing in the direction of
+ * flight, with the shortened type code displayed below it. The triangle rotates
+ * with the heading but the text is counter-rotated to stay upright.
  */
 function createLabelIcon(
   track: number,
@@ -305,25 +309,24 @@ function createLabelIcon(
 ): L.DivIcon {
   const color = isSelected ? '#f59e0b' : isApproaching ? '#16a34a' : '#2563eb';
   const label = shortenTypeCode(aircraftType);
-  const size = 32;
+  const size = 40;
   const half = size / 2;
 
-  let shapeSvg: string;
-  if (isSelected) {
-    // Diamond (rotated square / rhombus)
-    shapeSvg = `<polygon points="${half},2 ${size - 2},${half} ${half},${size - 2} 2,${half}" fill="${color}" stroke="white" stroke-width="1"/>`;
-  } else {
-    // Equilateral triangle pointing up
-    shapeSvg = `<polygon points="${half},3 ${size - 3},${size - 5} 3,${size - 5}" fill="${color}" stroke="white" stroke-width="1"/>`;
-  }
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
-    ${shapeSvg}
-    <text x="${half}" y="${isSelected ? half + 4 : size - 10}" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="system-ui, sans-serif">${label}</text>
+  // Outline-only triangle pointing up (no fill)
+  const triSize = 18;
+  const triHalf = triSize / 2;
+  const triSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${triSize} ${triSize}" width="${triSize}" height="${triSize}">
+    <polygon points="${triHalf},2 ${triSize - 2},${triSize - 2} 2,${triSize - 2}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
   </svg>`;
 
+  // The outer div rotates by heading. The text inside is counter-rotated to stay upright.
+  const html = `<div style="width:${size}px;height:${size}px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(${track}deg);">
+    <div style="line-height:0;">${triSvg}</div>
+    <div style="transform:rotate(-${track}deg);font-size:9px;font-weight:700;font-family:system-ui,sans-serif;color:${color};line-height:1;margin-top:1px;white-space:nowrap;">${label}</div>
+  </div>`;
+
   return L.divIcon({
-    html: `<div style="width:${size}px;height:${size}px;transform:rotate(${track}deg);line-height:0;">${svg}</div>`,
+    html,
     iconSize: [size, size],
     iconAnchor: [half, half],
     className: '',
@@ -415,8 +418,8 @@ function interpolatePosition(
 
 /**
  * Wrapper around FlightMarker that smoothly interpolates position when
- * animation is enabled. Uses requestAnimationFrame directly (no useEffect).
- * A render-tick counter forces re-renders; position is computed eagerly each frame.
+ * animation is enabled. Uses Leaflet's setLatLng() directly via marker ref
+ * for smooth 60fps updates without React re-renders.
  */
 function AnimatedFlightMarker({
   flight,
@@ -433,42 +436,62 @@ function AnimatedFlightMarker({
   isSelected: boolean;
   onSelect: (flightId: string) => void;
 }) {
-  const [, setTick] = useState(0);
+  const markerRef = useRef<L.Marker | null>(null);
   const rafRef = useRef<number>(0);
-  const animatingRef = useRef(false);
+  const flightRef = useRef(flight);
+  flightRef.current = flight;
 
-  // Schedule next frame — triggers a re-render so position is recomputed
-  const scheduleFrame = useCallback(() => {
-    rafRef.current = requestAnimationFrame(() => {
-      setTick((t) => t + 1);
-    });
+  // rAF loop that directly updates Leaflet marker position (no React re-render)
+  const tick = useCallback(() => {
+    const f = flightRef.current;
+    const elapsed = Date.now() / 1000 - f.timestamp;
+    const clamped = Math.min(elapsed, 300);
+    const [lat, lon] = interpolatePosition(f.lat, f.lon, f.speed, f.track, clamped);
+    markerRef.current?.setLatLng([lat, lon]);
+    rafRef.current = requestAnimationFrame(tick);
   }, []);
 
-  // Start/stop the rAF loop based on animate prop
-  if (animate && !animatingRef.current) {
-    animatingRef.current = true;
-    scheduleFrame();
-  } else if (!animate && animatingRef.current) {
-    animatingRef.current = false;
+  // Start/stop animation loop
+  const wasAnimating = useRef(false);
+  if (animate && !wasAnimating.current) {
+    wasAnimating.current = true;
+    rafRef.current = requestAnimationFrame(tick);
+  } else if (!animate && wasAnimating.current) {
+    wasAnimating.current = false;
     cancelAnimationFrame(rafRef.current);
+    // Snap to real position
+    markerRef.current?.setLatLng([flight.lat, flight.lon]);
   }
 
-  // Schedule next frame after each render while animating
-  if (animate && animatingRef.current) {
-    cancelAnimationFrame(rafRef.current);
-    scheduleFrame();
-  }
-
-  // Compute interpolated position on every render (tick forces re-renders via rAF)
-  let displayFlight = flight;
+  // Compute initial/static position
+  let displayLat = flight.lat;
+  let displayLon = flight.lon;
   if (animate) {
     const elapsed = Date.now() / 1000 - flight.timestamp;
     const clamped = Math.min(elapsed, 300);
-    const [lat, lon] = interpolatePosition(flight.lat, flight.lon, flight.speed, flight.track, clamped);
-    displayFlight = { ...flight, lat, lon };
+    [displayLat, displayLon] = interpolatePosition(flight.lat, flight.lon, flight.speed, flight.track, clamped);
   }
 
-  return <FlightMarker flight={displayFlight} isApproaching={isApproaching} labelMode={labelMode} isSelected={isSelected} onSelect={onSelect} />;
+  const icon = useMemo(() => {
+    if (labelMode) {
+      return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected);
+    }
+    return createFlightIcon(flight.track, isApproaching, flight.aircraftType);
+  }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode]);
+
+  const eventHandlers = useMemo(
+    () => ({ click() { onSelect(flight.id); } }),
+    [flight.id, onSelect],
+  );
+
+  return (
+    <Marker
+      ref={markerRef}
+      position={[displayLat, displayLon]}
+      icon={icon}
+      eventHandlers={eventHandlers}
+    />
+  );
 }
 
 /** Handles click events to draw a notification zone rectangle (two-click). */
@@ -525,6 +548,132 @@ function DragHandle({ position, onDrag }: { position: [number, number]; onDrag: 
   );
 
   return <Marker position={position} icon={icon} draggable eventHandlers={eventHandlers} />;
+}
+
+/** Inline display for altitude with NumberFlow animation. */
+function InlineAltitude({ value }: { value: number }) {
+  const staggered = useStaggeredValue(value, 6000);
+  return (
+    <div className="flex flex-col leading-tight">
+      <span className="text-[10px] text-muted-foreground">Alt</span>
+      <div className="flex items-baseline gap-1">
+        <NumberFlow
+          value={staggered}
+          format={{ useGrouping: true }}
+          willChange
+          trend={0}
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+          className="text-sm font-semibold text-foreground"
+        />
+        <span className="text-[10px] text-muted-foreground">ft</span>
+      </div>
+    </div>
+  );
+}
+
+/** Inline display for speed with NumberFlow animation. */
+function InlineSpeed({ value }: { value: number }) {
+  const staggered = useStaggeredValue(value, 6000);
+  return (
+    <div className="flex flex-col leading-tight">
+      <span className="text-[10px] text-muted-foreground">Speed</span>
+      <div className="flex items-baseline gap-1">
+        <NumberFlow
+          value={staggered}
+          willChange
+          trend={0}
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+          className="text-sm font-semibold text-foreground"
+        />
+        <span className="text-[10px] text-muted-foreground">kts</span>
+      </div>
+    </div>
+  );
+}
+
+/** Inline display for heading with NumberFlow animation. */
+function InlineHeading({ value }: { value: number }) {
+  const staggered = useStaggeredValue(value, 6000);
+  return (
+    <div className="flex flex-col leading-tight">
+      <span className="text-[10px] text-muted-foreground">Hdg</span>
+      <NumberFlow
+        value={staggered}
+        willChange
+        trend={0}
+        style={{ fontVariantNumeric: 'tabular-nums' }}
+        suffix="°"
+        className="text-sm font-semibold text-foreground"
+      />
+    </div>
+  );
+}
+
+/** Inline display for vertical speed using VsCell in non-table mode. */
+function InlineVs({ value }: { value: number }) {
+  return (
+    <div className="flex flex-col leading-tight">
+      <span className="text-[10px] text-muted-foreground">V/S</span>
+      <div className="text-sm font-semibold">
+        <VsCell value={value} asTableCell={false} />
+      </div>
+    </div>
+  );
+}
+
+/** Airport badge with flag + IATA code and city tooltip. */
+function AirportBadge({ label, iata }: { label: string; iata: string }) {
+  const info = getAirportInfo(iata);
+  return (
+    <div className="flex flex-col leading-tight">
+      <span className="text-[10px] text-muted-foreground">{label}</span>
+      {info ? (
+        <span className="text-sm font-semibold text-foreground" title={info.city}>
+          {countryCodeToFlag(info.countryCode)} {info.iata}
+        </span>
+      ) : (
+        <span className="text-sm font-semibold text-foreground">{iata}</span>
+      )}
+    </div>
+  );
+}
+
+/** Selected flight detail panel — two-column grid layout. */
+function SelectedFlightPanel({
+  flight,
+  onClose,
+}: {
+  flight: Flight;
+  onClose: () => void;
+}) {
+  return (
+    <div className="border-t bg-muted/40 px-4 py-3 text-xs">
+      {/* Header row: aircraft type + close button */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="text-base font-semibold">
+          <AircraftTypeBadge typeCode={flight.aircraftType} />
+        </div>
+        <button
+          onClick={onClose}
+          className="rounded-full w-6 h-6 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors text-sm font-bold"
+          title="Deselect"
+        >
+          &times;
+        </button>
+      </div>
+      {/* Two-column data grid */}
+      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+        {flight.origin && <AirportBadge label="From" iata={flight.origin} />}
+        {flight.destination && <AirportBadge label="To" iata={flight.destination} />}
+        {!flight.origin && !flight.destination && <div className="col-span-2" />}
+        {flight.origin && !flight.destination && <div />}
+        <InlineAltitude value={flight.alt} />
+        <InlineSpeed value={flight.speed} />
+        <InlineHeading value={flight.track} />
+        <InlineVs value={flight.verticalRate} />
+      </div>
+    </div>
+  );
 }
 
 interface FlightMapInnerProps {
@@ -649,7 +798,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
       <div className="relative flex-1 min-h-0">
       <MapContainer
         center={SCHIPHOL_POS}
-        zoom={11}
+        zoom={12}
         minZoom={9}
         maxZoom={16}
         maxBounds={[[52.0, 4.2], [52.6, 5.5]]}
@@ -753,70 +902,28 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         ))}
       </MapContainer>
       </div>
-      {/* Selected flight detail panel */}
-      {selectedFlight && (
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2 border-t text-xs bg-muted/40">
-          <span className="font-bold text-foreground">{selectedFlight.callsign || selectedFlight.id}</span>
-          {selectedFlight.aircraftType && (
-            <span className="flex items-center gap-1">
-              {selectedFlight.manufacturer && <span>{selectedFlight.manufacturer}</span>}{' '}
-              <AircraftTypeBadge typeCode={selectedFlight.aircraftType} />
-            </span>
-          )}
-          {selectedFlight.registration && <span>Reg: {selectedFlight.registration}</span>}
-          {selectedFlight.owner && <span>Owner: {selectedFlight.owner}</span>}
-          {selectedFlight.origin &&
-            (() => {
-              const info = getAirportInfo(selectedFlight.origin);
-              return info ? (
-                <span>From: {countryCodeToFlag(info.countryCode)} {info.city}</span>
-              ) : (
-                <span>From: {selectedFlight.origin}</span>
-              );
-            })()}
-          {selectedFlight.destination &&
-            (() => {
-              const info = getAirportInfo(selectedFlight.destination);
-              return info ? (
-                <span>To: {countryCodeToFlag(info.countryCode)} {info.city}</span>
-              ) : (
-                <span>To: {selectedFlight.destination}</span>
-              );
-            })()}
-          <span>Alt: {selectedFlight.alt.toLocaleString()} ft</span>
-          <span>Speed: {selectedFlight.speed} kts</span>
-          <span>Hdg: {selectedFlight.track}&deg;</span>
-          <span>V/S: {selectedFlight.verticalRate} ft/min</span>
-          <button
-            onClick={() => setSelectedFlightId(null)}
-            className="ml-auto rounded px-1.5 py-0.5 font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            title="Deselect"
-          >
-            &times;
-          </button>
-        </div>
-      )}
       {/* Controls below map */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
-        <label className="flex items-center gap-1.5 font-medium text-muted-foreground cursor-pointer select-none hover:text-foreground transition-colors">
-          <input
-            type="checkbox"
-            checked={animate}
-            onChange={(e) => setAnimate(e.target.checked)}
-            className="accent-blue-600"
-          />
+        <button
+          onClick={() => setAnimate((v) => !v)}
+          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
+            animate
+              ? 'bg-blue-600 text-white'
+              : 'border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+          }`}
+        >
           Animate
-        </label>
-        <span className="text-muted-foreground/30">|</span>
-        <label className="flex items-center gap-1.5 font-medium text-muted-foreground cursor-pointer select-none hover:text-foreground transition-colors">
-          <input
-            type="checkbox"
-            checked={labelMode}
-            onChange={(e) => setLabelMode(e.target.checked)}
-            className="accent-blue-600"
-          />
+        </button>
+        <button
+          onClick={() => setLabelMode((v) => !v)}
+          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none ${
+            labelMode
+              ? 'bg-blue-600 text-white'
+              : 'border border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+          }`}
+        >
           Labels
-        </label>
+        </button>
         <span className="text-muted-foreground/30">|</span>
         <button
           onClick={drawing ? handleReset : handleStartDraw}
@@ -845,6 +952,13 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
           </>
         )}
       </div>
+      {/* Selected flight detail panel — below controls */}
+      {selectedFlight && (
+        <SelectedFlightPanel
+          flight={selectedFlight}
+          onClose={() => setSelectedFlightId(null)}
+        />
+      )}
     </div>
   );
 }
