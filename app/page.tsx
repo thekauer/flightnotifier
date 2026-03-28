@@ -119,14 +119,17 @@ export default function Home() {
           <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
             {dashboardTab === 'overview' && (
               <>
-                {zone && (
-                  <ConeFlightsTable
-                    flights={zoneFlights}
-                    title="Aircraft Visible"
-                    emptyLabel="No aircraft currently inside the zone"
-                  />
-                )}
-                <ConeFlightsTable flights={state.approachingFlights} />
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                  {zone && (
+                    <ConeFlightsTable
+                      flights={zoneFlights}
+                      title="Aircraft Visible"
+                      emptyLabel="No aircraft currently inside the zone"
+                    />
+                  )}
+                  <ConeFlightsTable flights={state.approachingFlights} />
+                </div>
+                <ScheduledArrivalsTable />
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3">

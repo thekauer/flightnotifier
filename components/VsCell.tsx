@@ -1,3 +1,7 @@
+'use client';
+
+import NumberFlow from '@number-flow/react';
+
 interface VsCellProps {
   value: number;
   /** Render as a <td> table cell (default true) */
@@ -12,19 +16,24 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
   const content = (
     <div className="flex items-center justify-end gap-1.5">
       <div className="flex flex-col items-end leading-tight">
-        <span
-          className={
-            isClimbing
-              ? 'text-emerald-600 dark:text-emerald-400 font-medium'
-              : isDescending
-                ? 'text-red-600 dark:text-red-400 font-medium'
-                : 'text-muted-foreground'
-          }
-        >
-          {isClimbing || isDescending ? Math.abs(value).toLocaleString() : '\u2014'}
-        </span>
-        {(isClimbing || isDescending) && (
-          <span className="text-muted-foreground text-[10px]">ft/m</span>
+        {isClimbing || isDescending ? (
+          <>
+            <NumberFlow
+              value={Math.abs(value)}
+              format={{ useGrouping: true }}
+              willChange
+              trend={0}
+              className={
+                isClimbing
+                  ? 'text-emerald-600 dark:text-emerald-400 font-medium'
+                  : 'text-red-600 dark:text-red-400 font-medium'
+              }
+              style={{ fontVariantNumeric: 'tabular-nums' }}
+            />
+            <span className="text-muted-foreground text-[10px]">ft/m</span>
+          </>
+        ) : (
+          <span className="text-muted-foreground">{'\u2014'}</span>
         )}
       </div>
       {(isClimbing || isDescending) && (

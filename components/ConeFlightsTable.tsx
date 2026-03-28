@@ -25,6 +25,11 @@ function formatEta(minutes: number): string {
   if (minutes < 1) {
     return `${Math.round(minutes * 60)}s`;
   }
+  if (minutes < 5) {
+    const m = Math.floor(minutes);
+    const s = Math.round((minutes - m) * 60);
+    return `${m}m ${s}s`;
+  }
   if (minutes < 60) {
     return `${Math.round(minutes)} min`;
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { DataSourceCard } from './settings/DataSourceCard';
+import { AircraftTypeFilter } from './settings/AircraftTypeFilter';
 import { PredictionSettingsCard } from './settings/PredictionSettingsCard';
 import { PredictionHorizonCard } from './settings/PredictionHorizonCard';
 import { SpottingModeCard } from './settings/SpottingModeCard';
@@ -40,8 +40,8 @@ export function SettingsPage() {
       {/* Visibility Predictions */}
       <PredictionSettingsCard />
 
-      {/* Data Source */}
-      <DataSourceCard />
+      {/* Aircraft Type Filter */}
+      <AircraftTypeFilter />
 
       {/* Spotting Mode */}
       <SpottingModeCard />

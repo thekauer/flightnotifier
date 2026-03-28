@@ -15,8 +15,9 @@ export type AircraftCategory =
   | 'cargo'
   | 'unknown';
 
-// Build a lookup map from ICAO type code -> category at module level
+// Build lookup maps from ICAO type code -> category and full name at module level
 const TYPE_CODE_TO_CATEGORY: Record<string, AircraftCategory> = {};
+const TYPE_CODE_TO_FULL_NAME: Record<string, string> = {};
 
 const CATEGORY_MAP: Record<string, AircraftCategory> = {
   'Wide Body': 'wide-body',
@@ -31,8 +32,15 @@ for (const cat of AIRCRAFT_TYPE_HIERARCHY) {
   for (const fam of cat.families) {
     for (const v of fam.variants) {
       TYPE_CODE_TO_CATEGORY[v.code] = mapped;
+      TYPE_CODE_TO_FULL_NAME[v.code] = `${fam.name} · ${v.name}`;
     }
   }
+}
+
+/** Get the full display name for an ICAO type code, e.g. "Boeing 737 · 737-800" */
+export function getAircraftFullName(typeCode: string | null | undefined): string | null {
+  if (!typeCode) return null;
+  return TYPE_CODE_TO_FULL_NAME[typeCode.toUpperCase().trim()] ?? null;
 }
 
 /**
@@ -117,7 +125,7 @@ export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProp
               ? 'ring-1 ring-rose-500/50'
               : ''
         } ${className ?? ''}`.trim()}
-        title={spottingQuiz?.correctOption.label ?? category.replace('-', ' ')}
+        title={getAircraftFullName(typeCode) ?? spottingQuiz?.correctOption.label ?? category.replace('-', ' ')}
       >
         {typeCode}
       </span>

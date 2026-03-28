@@ -1,3 +1,6 @@
+'use client';
+
+import NumberFlow from '@number-flow/react';
 import { VsCell } from './VsCell';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
 
@@ -129,7 +132,13 @@ function AltitudeCell({ value, className }: { value: number; className?: string 
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
-        <span>{value.toLocaleString()}</span>
+        <NumberFlow
+          value={value}
+          format={{ useGrouping: true }}
+          willChange
+          trend={0}
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+        />
         <span className="text-muted-foreground text-[10px]">ft</span>
       </div>
     </td>
@@ -140,7 +149,12 @@ function SpeedCell({ value, className }: { value: number; className?: string }) 
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
-        <span>{value}</span>
+        <NumberFlow
+          value={value}
+          willChange
+          trend={0}
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+        />
         <span className="text-muted-foreground text-[10px]">kts</span>
       </div>
     </td>
@@ -154,7 +168,13 @@ function VerticalSpeedCell({ value, className }: { value: number; className?: st
 function HeadingCell({ value, className }: { value: number; className?: string }) {
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-      {value}<span className="text-muted-foreground text-xs">°</span>
+      <NumberFlow
+        value={value}
+        willChange
+        trend={0}
+        style={{ fontVariantNumeric: 'tabular-nums' }}
+        suffix="°"
+      />
     </td>
   );
 }
@@ -171,7 +191,12 @@ function DistanceCell({ value, className }: { value: number; className?: string 
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
-        <span>{value}</span>
+        <NumberFlow
+          value={value}
+          willChange
+          trend={0}
+          style={{ fontVariantNumeric: 'tabular-nums' }}
+        />
         <span className="text-muted-foreground text-[10px]">km</span>
       </div>
     </td>

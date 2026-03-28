@@ -41,9 +41,7 @@ export function AirportCell({ icaoCode, className }: AirportCellProps) {
       <span className="whitespace-nowrap">
         <span title={info.country} className="cursor-default">{flag}</span>
         {' '}
-        <span>{info.city}</span>
-        {' '}
-        <span className="inline-flex items-center rounded-full bg-muted px-1.5 py-0.5 text-xs font-mono text-muted-foreground">
+        <span title={info.city} className="inline-flex items-center rounded-full bg-muted px-1.5 py-0.5 text-xs font-mono text-muted-foreground cursor-default">
           {badge}
         </span>
       </span>
