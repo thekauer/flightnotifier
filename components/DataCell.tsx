@@ -229,8 +229,9 @@ function DistanceCell({ value, className }: { value: number; className?: string 
 }
 
 function EtaCell({ value: rawMinutes, className }: { value: number; className?: string }) {
-  const staggeredMinutes = useStaggeredValue(rawMinutes, 6000);
-  const valid = Number.isFinite(staggeredMinutes) && staggeredMinutes >= 0;
+  // ETA is never staggered — always shows real-time countdown
+  useStaggeredValue(rawMinutes, 6000); // call hook to maintain stable hook order
+  const valid = Number.isFinite(rawMinutes) && rawMinutes >= 0;
 
   // Compute display values — always compute both major and minor to keep a stable render tree
   let major = 0;
@@ -240,21 +241,21 @@ function EtaCell({ value: rawMinutes, className }: { value: number; className?: 
   let showMinor = false;
 
   if (valid) {
-    if (staggeredMinutes < 1) {
-      major = Math.round(staggeredMinutes * 60);
+    if (rawMinutes < 1) {
+      major = Math.round(rawMinutes * 60);
       majorSuffix = 's';
-    } else if (staggeredMinutes < 5) {
-      major = Math.floor(staggeredMinutes);
-      minor = Math.round((staggeredMinutes - major) * 60);
+    } else if (rawMinutes < 5) {
+      major = Math.floor(rawMinutes);
+      minor = Math.round((rawMinutes - major) * 60);
       majorSuffix = 'm ';
       minorSuffix = 's';
       showMinor = true;
-    } else if (staggeredMinutes < 60) {
-      major = Math.round(staggeredMinutes);
+    } else if (rawMinutes < 60) {
+      major = Math.round(rawMinutes);
       majorSuffix = ' min';
     } else {
-      major = Math.floor(staggeredMinutes / 60);
-      minor = Math.round(staggeredMinutes % 60);
+      major = Math.floor(rawMinutes / 60);
+      minor = Math.round(rawMinutes % 60);
       majorSuffix = 'h ';
       minorSuffix = 'm';
       showMinor = true;
