@@ -32,12 +32,6 @@ function estimateEtaMinutes(f: Flight): number {
   return minutesToGround;
 }
 
-function formatEtaFromMinutes(minutes: number): string {
-  if (!isFinite(minutes)) return '-';
-  const now = new Date();
-  const eta = new Date(now.getTime() + minutes * 60_000);
-  return eta.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-}
 
 const VIS_STYLES: Record<string, { dot: string; label: string }> = {
   clear: { dot: 'bg-emerald-500', label: 'Visible from ground' },
@@ -125,7 +119,7 @@ export function LandingTable({ flights, weather }: LandingTableProps) {
                   <DataCell type="altitude" value={f.alt} />
                   <DataCell type="speed" value={f.speed} />
                   <DataCell type="verticalSpeed" value={f.verticalRate} />
-                  <DataCell type="eta" value={formatEtaFromMinutes(estimateEtaMinutes(f))} />
+                  <DataCell type="eta" value={estimateEtaMinutes(f)} />
                   {zone && (
                     <VisibilityCountdown prediction={predictionsByFlightId.get(f.id)} />
                   )}

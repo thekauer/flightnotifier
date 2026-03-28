@@ -129,7 +129,18 @@ export default function Home() {
                   )}
                   <ConeFlightsTable flights={state.approachingFlights} />
                 </div>
-                <ScheduledArrivalsTable />
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+                  <div className="lg:col-span-2 rounded-xl border bg-card shadow-sm">
+                    <div className="border-b px-5 py-3 flex items-center justify-between">
+                      <h2 className="text-sm font-semibold">Airborne Flights</h2>
+                      <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                        {state.allFlights.filter((f) => !f.onGround).length}
+                      </span>
+                    </div>
+                    <FlightList flights={state.allFlights} approachingIds={approachingIds} />
+                  </div>
+                  <ScheduledArrivalsTable />
+                </div>
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3">
@@ -138,15 +149,6 @@ export default function Home() {
                     <div className="h-[350px] p-1">
                       <FlightMap state={state} />
                     </div>
-                  </div>
-                  <div className="rounded-xl border bg-card shadow-sm">
-                    <div className="border-b px-5 py-3 flex items-center justify-between">
-                      <h2 className="text-sm font-semibold">Airborne Flights</h2>
-                      <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                        {state.allFlights.filter((f) => !f.onGround).length}
-                      </span>
-                    </div>
-                    <FlightList flights={state.allFlights} approachingIds={approachingIds} />
                   </div>
                   <WeatherCard weather={state.weather ?? null} />
                 </div>

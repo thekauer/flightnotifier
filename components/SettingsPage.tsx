@@ -4,6 +4,7 @@ import { AircraftTypeFilter } from './settings/AircraftTypeFilter';
 import { PredictionSettingsCard } from './settings/PredictionSettingsCard';
 import { PredictionHorizonCard } from './settings/PredictionHorizonCard';
 import { SpottingModeCard } from './settings/SpottingModeCard';
+import { StaggerCard } from './settings/StaggerCard';
 
 export function SettingsPage() {
   return (
@@ -45,6 +46,9 @@ export function SettingsPage() {
 
       {/* Spotting Mode */}
       <SpottingModeCard />
+
+      {/* Staggered Animations */}
+      <StaggerCard />
 
       {/* Display */}
       <div className="rounded-xl border bg-card shadow-sm">

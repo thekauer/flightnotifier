@@ -20,23 +20,6 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-function formatEta(minutes: number): string {
-  if (!Number.isFinite(minutes) || minutes < 0) return '—';
-  if (minutes < 1) {
-    return `${Math.round(minutes * 60)}s`;
-  }
-  if (minutes < 5) {
-    const m = Math.floor(minutes);
-    const s = Math.round((minutes - m) * 60);
-    return `${m}m ${s}s`;
-  }
-  if (minutes < 60) {
-    return `${Math.round(minutes)} min`;
-  }
-  const h = Math.floor(minutes / 60);
-  const m = Math.round(minutes % 60);
-  return `${h}h ${m}m`;
-}
 
 interface ConeFlightRow extends Flight {
   distanceToAmsKm: number;
@@ -140,7 +123,7 @@ export function ConeFlightsTable({
                   <DataCell type="speed" value={flight.speed} />
                   <DataCell type="verticalSpeed" value={flight.verticalRate} />
                   <DataCell type="distance" value={flight.distanceToAmsKm} />
-                  <DataCell type="eta" value={formatEta(flight.estimatedMinutes)} />
+                  <DataCell type="eta" value={flight.estimatedMinutes} />
                 </tr>
               ))}
             </tbody>

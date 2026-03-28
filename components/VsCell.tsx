@@ -1,6 +1,7 @@
 'use client';
 
 import NumberFlow from '@number-flow/react';
+import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 
 interface VsCellProps {
   value: number;
@@ -10,8 +11,9 @@ interface VsCellProps {
 }
 
 export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
-  const isClimbing = value > 50;
-  const isDescending = value < -50;
+  const staggeredValue = useStaggeredValue(value, 6000);
+  const isClimbing = staggeredValue > 50;
+  const isDescending = staggeredValue < -50;
 
   const content = (
     <div className="flex items-center justify-end gap-1.5">
@@ -19,7 +21,7 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
         {isClimbing || isDescending ? (
           <>
             <NumberFlow
-              value={Math.abs(value)}
+              value={Math.abs(staggeredValue)}
               format={{ useGrouping: true }}
               willChange
               trend={0}

@@ -9,20 +9,6 @@ import { HistoricApproachMap } from './HistoricApproachMap';
 import { usePredictionHorizon } from '@/lib/predictionHorizonContext';
 import { useScheduleData } from '@/hooks/useScheduleData';
 
-function formatEta(minutes: number): string {
-  if (!Number.isFinite(minutes) || minutes < 0) return '—';
-  if (minutes < 1) return `${Math.round(minutes * 60)}s`;
-  if (minutes < 5) {
-    const m = Math.floor(minutes);
-    const s = Math.round((minutes - m) * 60);
-    return `${m}m ${s}s`;
-  }
-  if (minutes < 60) return `${Math.round(minutes)} min`;
-  const h = Math.floor(minutes / 60);
-  const m = Math.round(minutes % 60);
-  return `${h}h ${m}m`;
-}
-
 function formatTimestamp(seconds: number): string {
   return new Date(seconds * 1000).toLocaleString([], {
     month: 'short',
@@ -251,7 +237,7 @@ export function ScheduledArrivalsTable() {
                       <AirportCell icaoCode={arrival.destination} />
                       <DataCell type="aircraftType" value={arrival.aircraftType} />
                       <DataCell type="distance" value={arrival.distanceToAmsKm} />
-                      <DataCell type="eta" value={formatEta(arrival.estimatedMinutes)} />
+                      <DataCell type="eta" value={arrival.estimatedMinutes} />
                       <td className="px-3 py-1.5 text-center">
                         {arrival.isBuitenveldertbaan ? (
                           <span className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-xs font-bold">

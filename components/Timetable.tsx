@@ -29,23 +29,7 @@ interface ScheduledArrival {
   isBuitenveldertbaan: boolean;
 }
 
-function formatEta(minutes: number): string {
-  if (minutes < 1) {
-    const seconds = Math.round(minutes * 60);
-    return `${seconds}s`;
-  }
-  if (minutes < 5) {
-    const m = Math.floor(minutes);
-    const s = Math.round((minutes - m) * 60);
-    return `${m}m ${s}s`;
-  }
-  if (minutes < 60) {
-    return `${Math.floor(minutes)} min`;
-  }
-  const h = Math.floor(minutes / 60);
-  const m = Math.round(minutes % 60);
-  return `${h}h ${m}m`;
-}
+
 
 export function Timetable() {
   const [, setTick] = useState(0);
@@ -121,7 +105,7 @@ export function Timetable() {
                 <DataCell type="aircraftType" value={a.aircraftType} />
                 <VsCell value={a.verticalRate ?? 0} />
                 <DataCell type="distance" value={a.distanceToAmsKm} />
-                <DataCell type="eta" value={formatEta(liveEtaMinutes)} />
+                <DataCell type="eta" value={liveEtaMinutes} />
                 <td className="px-3 py-1.5 text-center">
                   {predictionMap.has(a.id) ? (
                     <RunwayPredictionBadge prediction={predictionMap.get(a.id)!} />

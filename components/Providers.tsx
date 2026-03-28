@@ -7,19 +7,22 @@ import { VisibilitySettingsProvider } from '@/lib/visibilitySettingsContext';
 import { PredictionHorizonProvider } from '@/lib/predictionHorizonContext';
 import { AircraftFilterProvider } from '@/lib/aircraftFilterContext';
 import { SpottingModeProvider } from '@/lib/spottingModeContext';
+import { StaggerProvider } from '@/lib/staggerContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
   return (
     <QueryClientProvider client={queryClient}>
       <SpottingModeProvider>
-        <NotificationZoneProvider>
-          <VisibilitySettingsProvider>
-            <PredictionHorizonProvider>
-              <AircraftFilterProvider>{children}</AircraftFilterProvider>
-            </PredictionHorizonProvider>
-          </VisibilitySettingsProvider>
-        </NotificationZoneProvider>
+        <StaggerProvider>
+          <NotificationZoneProvider>
+            <VisibilitySettingsProvider>
+              <PredictionHorizonProvider>
+                <AircraftFilterProvider>{children}</AircraftFilterProvider>
+              </PredictionHorizonProvider>
+            </VisibilitySettingsProvider>
+          </NotificationZoneProvider>
+        </StaggerProvider>
       </SpottingModeProvider>
     </QueryClientProvider>
   );

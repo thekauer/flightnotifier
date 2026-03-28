@@ -3,6 +3,7 @@
 import NumberFlow from '@number-flow/react';
 import { VsCell } from './VsCell';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
+import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 
 const COUNTRY_CODES: Record<string, string> = {
   'Kingdom of the Netherlands': 'NL',
@@ -91,7 +92,7 @@ export type DataCellProps =
   | { type: 'verticalSpeed'; value: number; className?: string }
   | { type: 'heading'; value: number; className?: string }
   | { type: 'distance'; value: number; className?: string }
-  | { type: 'eta'; value: string; className?: string }
+  | { type: 'eta'; value: number; className?: string }
   | { type: 'aircraftType'; value: string | null; className?: string }
 
 function TextCell({ value, className }: { value: string; className?: string }) {
@@ -129,11 +130,12 @@ function CountryCell({ value, className }: { value: string; className?: string }
 }
 
 function AltitudeCell({ value, className }: { value: number; className?: string }) {
+  const staggeredValue = useStaggeredValue(value, 6000);
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
         <NumberFlow
-          value={value}
+          value={staggeredValue}
           format={{ useGrouping: true }}
           willChange
           trend={0}
@@ -146,11 +148,12 @@ function AltitudeCell({ value, className }: { value: number; className?: string 
 }
 
 function SpeedCell({ value, className }: { value: number; className?: string }) {
+  const staggeredValue = useStaggeredValue(value, 6000);
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
         <NumberFlow
-          value={value}
+          value={staggeredValue}
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
@@ -166,10 +169,11 @@ function VerticalSpeedCell({ value, className }: { value: number; className?: st
 }
 
 function HeadingCell({ value, className }: { value: number; className?: string }) {
+  const staggeredValue = useStaggeredValue(value, 6000);
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <NumberFlow
-        value={value}
+        value={staggeredValue}
         willChange
         trend={0}
         style={{ fontVariantNumeric: 'tabular-nums' }}
@@ -180,6 +184,7 @@ function HeadingCell({ value, className }: { value: number; className?: string }
 }
 
 function DistanceCell({ value, className }: { value: number; className?: string }) {
+  const staggeredValue = useStaggeredValue(value, 6000);
   if (value <= 0) {
     return (
       <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
@@ -192,7 +197,7 @@ function DistanceCell({ value, className }: { value: number; className?: string 
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
         <NumberFlow
-          value={value}
+          value={staggeredValue}
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
@@ -203,8 +208,54 @@ function DistanceCell({ value, className }: { value: number; className?: string 
   );
 }
 
-function EtaCell({ value, className }: { value: string; className?: string }) {
-  return <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>{value}</td>;
+function EtaCell({ value: rawMinutes, className }: { value: number; className?: string }) {
+  const staggeredMinutes = useStaggeredValue(rawMinutes, 6000);
+
+  if (!Number.isFinite(staggeredMinutes) || staggeredMinutes < 0) {
+    return (
+      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+        <span className="text-muted-foreground">—</span>
+      </td>
+    );
+  }
+
+  if (staggeredMinutes < 1) {
+    const seconds = Math.round(staggeredMinutes * 60);
+    return (
+      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+        <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="s" />
+      </td>
+    );
+  }
+
+  if (staggeredMinutes < 5) {
+    const m = Math.floor(staggeredMinutes);
+    const s = Math.round((staggeredMinutes - m) * 60);
+    return (
+      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+        <NumberFlow value={m} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="m " />
+        <NumberFlow value={s} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="s" />
+      </td>
+    );
+  }
+
+  if (staggeredMinutes < 60) {
+    const rounded = Math.round(staggeredMinutes);
+    return (
+      <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+        <NumberFlow value={rounded} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix=" min" />
+      </td>
+    );
+  }
+
+  const h = Math.floor(staggeredMinutes / 60);
+  const m = Math.round(staggeredMinutes % 60);
+  return (
+    <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
+      <NumberFlow value={h} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="h " />
+      <NumberFlow value={m} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="m" />
+    </td>
+  );
 }
 
 function AircraftTypeCell({ value, className }: { value: string | null; className?: string }) {

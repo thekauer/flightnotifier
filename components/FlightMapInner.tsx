@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo, useCallback, useRef, useState, useSyncExternalStore } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polygon, Rectangle, Tooltip, useMap, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Polygon, Rectangle, Tooltip, useMap, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
@@ -279,6 +279,57 @@ function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: 
   });
 }
 
+/**
+ * Shorten an ICAO type code by stripping the leading letter.
+ * E.g. "B738" → "738", "A320" → "320", "E190" → "190".
+ * If null/empty, returns "?".
+ */
+function shortenTypeCode(typeCode: string | null | undefined): string {
+  if (!typeCode) return '?';
+  const trimmed = typeCode.trim();
+  if (trimmed.length === 0) return '?';
+  // Strip leading letter if first char is a letter
+  if (/^[A-Za-z]/.test(trimmed)) return trimmed.slice(1);
+  return trimmed;
+}
+
+/**
+ * Create a label-mode icon: a filled triangle (or diamond if selected) pointing
+ * in the direction of flight, with the shortened type code displayed inside.
+ */
+function createLabelIcon(
+  track: number,
+  aircraftType: string | null | undefined,
+  isApproaching: boolean,
+  isSelected: boolean,
+): L.DivIcon {
+  const color = isSelected ? '#f59e0b' : isApproaching ? '#16a34a' : '#2563eb';
+  const label = shortenTypeCode(aircraftType);
+  const size = 32;
+  const half = size / 2;
+
+  let shapeSvg: string;
+  if (isSelected) {
+    // Diamond (rotated square / rhombus)
+    shapeSvg = `<polygon points="${half},2 ${size - 2},${half} ${half},${size - 2} 2,${half}" fill="${color}" stroke="white" stroke-width="1"/>`;
+  } else {
+    // Equilateral triangle pointing up
+    shapeSvg = `<polygon points="${half},3 ${size - 3},${size - 5} 3,${size - 5}" fill="${color}" stroke="white" stroke-width="1"/>`;
+  }
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+    ${shapeSvg}
+    <text x="${half}" y="${isSelected ? half + 4 : size - 10}" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="system-ui, sans-serif">${label}</text>
+  </svg>`;
+
+  return L.divIcon({
+    html: `<div style="width:${size}px;height:${size}px;transform:rotate(${track}deg);line-height:0;">${svg}</div>`,
+    iconSize: [size, size],
+    iconAnchor: [half, half],
+    className: '',
+  });
+}
+
 function FitBounds() {
   const map = useMap();
   useMemo(() => {
@@ -290,51 +341,49 @@ function FitBounds() {
   return null;
 }
 
-function FlightMarker({ flight, isApproaching }: { flight: Flight; isApproaching: boolean }) {
-  const icon = useMemo(() => createFlightIcon(flight.track, isApproaching, flight.aircraftType), [flight.track, isApproaching, flight.aircraftType]);
+function FlightMarker({
+  flight,
+  isApproaching,
+  labelMode,
+  isSelected,
+  onSelect,
+}: {
+  flight: Flight;
+  isApproaching: boolean;
+  labelMode: boolean;
+  isSelected: boolean;
+  onSelect: (flightId: string) => void;
+}) {
+  const icon = useMemo(() => {
+    if (labelMode) {
+      return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected);
+    }
+    const highlightColor = isSelected ? '#f59e0b' : undefined;
+    if (highlightColor) {
+      const category = classifyAircraft(flight.aircraftType);
+      const { svg, size } = aircraftSvg(category, highlightColor);
+      const half = size / 2;
+      return L.divIcon({
+        html: `<div style="width:${size}px;height:${size}px;transform:rotate(${flight.track}deg);line-height:0;">${svg}</div>`,
+        iconSize: [size, size],
+        iconAnchor: [half, half],
+        className: '',
+      });
+    }
+    return createFlightIcon(flight.track, isApproaching, flight.aircraftType);
+  }, [flight.track, isApproaching, flight.aircraftType, labelMode, isSelected]);
+
+  const eventHandlers = useMemo(
+    () => ({
+      click() {
+        onSelect(flight.id);
+      },
+    }),
+    [flight.id, onSelect],
+  );
 
   return (
-    <Marker position={[flight.lat, flight.lon]} icon={icon}>
-      <Popup>
-        <div className="text-xs">
-          <div className="font-bold">{flight.callsign || flight.id}</div>
-          {flight.aircraftType && (
-            <div className="flex items-center gap-1">
-              Type: {flight.manufacturer && <span>{flight.manufacturer}</span>}{' '}
-              <AircraftTypeBadge typeCode={flight.aircraftType} />
-            </div>
-          )}
-          {flight.registration && <div>Reg: {flight.registration}</div>}
-          {flight.owner && <div>Owner: {flight.owner}</div>}
-          {flight.origin &&
-            (() => {
-              const info = getAirportInfo(flight.origin);
-              return info ? (
-                <div>
-                  From: {countryCodeToFlag(info.countryCode)} {info.city}
-                </div>
-              ) : (
-                <div>From: {flight.origin}</div>
-              );
-            })()}
-          {flight.destination &&
-            (() => {
-              const info = getAirportInfo(flight.destination);
-              return info ? (
-                <div>
-                  To: {countryCodeToFlag(info.countryCode)} {info.city}
-                </div>
-              ) : (
-                <div>To: {flight.destination}</div>
-              );
-            })()}
-          <div>Alt: {flight.alt.toLocaleString()} ft</div>
-          <div>Speed: {flight.speed} kts</div>
-          <div>Heading: {flight.track}&deg;</div>
-          <div>V/S: {flight.verticalRate} ft/min</div>
-        </div>
-      </Popup>
-    </Marker>
+    <Marker position={[flight.lat, flight.lon]} icon={icon} eventHandlers={eventHandlers} />
   );
 }
 
@@ -373,10 +422,16 @@ function AnimatedFlightMarker({
   flight,
   isApproaching,
   animate,
+  labelMode,
+  isSelected,
+  onSelect,
 }: {
   flight: Flight;
   isApproaching: boolean;
   animate: boolean;
+  labelMode: boolean;
+  isSelected: boolean;
+  onSelect: (flightId: string) => void;
 }) {
   const [, setTick] = useState(0);
   const rafRef = useRef<number>(0);
@@ -404,17 +459,16 @@ function AnimatedFlightMarker({
     scheduleFrame();
   }
 
-  // Compute interpolated position eagerly during render
-  const displayFlight = useMemo(() => {
-    if (!animate) return flight;
+  // Compute interpolated position on every render (tick forces re-renders via rAF)
+  let displayFlight = flight;
+  if (animate) {
     const elapsed = Date.now() / 1000 - flight.timestamp;
     const clamped = Math.min(elapsed, 300);
     const [lat, lon] = interpolatePosition(flight.lat, flight.lon, flight.speed, flight.track, clamped);
-    return { ...flight, lat, lon };
-  // eslint-disable-next-line react-hooks/exhaustive-deps -- intentionally recomputes each tick
-  }, [animate, flight]);
+    displayFlight = { ...flight, lat, lon };
+  }
 
-  return <FlightMarker flight={displayFlight} isApproaching={isApproaching} />;
+  return <FlightMarker flight={displayFlight} isApproaching={isApproaching} labelMode={labelMode} isSelected={isSelected} onSelect={onSelect} />;
 }
 
 /** Handles click events to draw a notification zone rectangle (two-click). */
@@ -423,19 +477,24 @@ function DrawZoneHandler({
   firstCorner,
   onFirstClick,
   onSecondClick,
+  onMapClick,
 }: {
   drawing: boolean;
   firstCorner: L.LatLng | null;
   onFirstClick: (latlng: L.LatLng) => void;
   onSecondClick: (latlng: L.LatLng) => void;
+  onMapClick?: () => void;
 }) {
   useMapEvents({
     click(e) {
-      if (!drawing) return;
-      if (!firstCorner) {
-        onFirstClick(e.latlng);
+      if (drawing) {
+        if (!firstCorner) {
+          onFirstClick(e.latlng);
+        } else {
+          onSecondClick(e.latlng);
+        }
       } else {
-        onSecondClick(e.latlng);
+        onMapClick?.();
       }
     },
   });
@@ -477,9 +536,21 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
   const isDark = useIsDarkMode();
   const { zone, visible, setZone, clearZone, toggleVisible } = useNotificationZone();
   const [animate, setAnimate] = useState(false);
+  const [labelMode, setLabelMode] = useState(false);
+  const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   const [drawing, setDrawing] = useState(false);
   const firstCornerRef = useRef<L.LatLng | null>(null);
   const [firstCorner, setFirstCorner] = useState<L.LatLng | null>(null);
+  const [zoneEditing, setZoneEditing] = useState(false);
+
+  const handleSelectFlight = useCallback((flightId: string) => {
+    setSelectedFlightId((prev) => (prev === flightId ? null : flightId));
+  }, []);
+
+  const selectedFlight = useMemo(
+    () => (selectedFlightId ? airborneFlights.find((f) => f.id === selectedFlightId) ?? null : null),
+    [selectedFlightId, airborneFlights],
+  );
 
   const handleStartDraw = useCallback(() => {
     setDrawing(true);
@@ -574,46 +645,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
     : null;
 
   return (
-    <div className="relative h-full w-full">
-      {/* Map controls overlay */}
-      <div className="absolute top-2 right-2 z-[1000] flex flex-col gap-1.5">
-        <label className="flex items-center gap-1.5 rounded-lg bg-white/90 dark:bg-zinc-800/90 px-3 py-1.5 text-xs font-medium shadow-md backdrop-blur-sm border border-zinc-200 dark:border-zinc-600 text-zinc-700 dark:text-zinc-200 cursor-pointer select-none transition-colors hover:bg-white dark:hover:bg-zinc-700">
-          <input
-            type="checkbox"
-            checked={animate}
-            onChange={(e) => setAnimate(e.target.checked)}
-            className="accent-blue-600"
-          />
-          Animate
-        </label>
-        <button
-          onClick={drawing ? handleReset : handleStartDraw}
-          className={`rounded-lg px-3 py-1.5 text-xs font-medium shadow-md backdrop-blur-sm transition-colors ${
-            drawing
-              ? 'bg-amber-500 text-white hover:bg-amber-600'
-              : 'bg-white/90 dark:bg-zinc-800/90 text-zinc-700 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-600'
-          }`}
-        >
-          {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}
-        </button>
-        {zone && (
-          <>
-            <button
-              onClick={toggleVisible}
-              className="rounded-lg bg-white/90 dark:bg-zinc-800/90 px-3 py-1.5 text-xs font-medium shadow-md backdrop-blur-sm border border-zinc-200 dark:border-zinc-600 text-zinc-700 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-700 transition-colors"
-            >
-              {visible ? 'Hide Zone' : 'Show Zone'}
-            </button>
-            <button
-              onClick={handleReset}
-              className="rounded-lg bg-white/90 dark:bg-zinc-800/90 px-3 py-1.5 text-xs font-medium shadow-md backdrop-blur-sm border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950 transition-colors"
-            >
-              Reset Zone
-            </button>
-          </>
-        )}
-      </div>
-
+    <div className="flex flex-col h-full w-full">
+      <div className="relative flex-1 min-h-0">
       <MapContainer
         center={SCHIPHOL_POS}
         zoom={11}
@@ -623,7 +656,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         maxBoundsViscosity={1.0}
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
-        zoomControl={true}
+        zoomControl={false}
       >
         <TileLayer
           key={isDark ? 'dark' : 'light'}
@@ -637,6 +670,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
           firstCorner={firstCorner}
           onFirstClick={handleFirstClick}
           onSecondClick={handleSecondClick}
+          onMapClick={() => setZoneEditing(false)}
         />
 
         {/* Approach detection cones */}
@@ -663,12 +697,22 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
                 weight: 2,
                 dashArray: '8 4',
               }}
+              eventHandlers={{
+                click: (e) => {
+                  L.DomEvent.stopPropagation(e.originalEvent);
+                  setZoneEditing((v) => !v);
+                },
+              }}
             />
-            {/* Drag handles at corners */}
-            <DragHandle position={[zone.south, zone.west]} onDrag={handleDragSW} />
-            <DragHandle position={[zone.north, zone.east]} onDrag={handleDragNE} />
-            <DragHandle position={[zone.north, zone.west]} onDrag={handleDragNW} />
-            <DragHandle position={[zone.south, zone.east]} onDrag={handleDragSE} />
+            {/* Drag handles at corners — only visible when zone is being edited */}
+            {zoneEditing && (
+              <>
+                <DragHandle position={[zone.south, zone.west]} onDrag={handleDragSW} />
+                <DragHandle position={[zone.north, zone.east]} onDrag={handleDragNE} />
+                <DragHandle position={[zone.north, zone.west]} onDrag={handleDragNW} />
+                <DragHandle position={[zone.south, zone.east]} onDrag={handleDragSE} />
+              </>
+            )}
           </>
         )}
 
@@ -702,9 +746,105 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
             flight={flight}
             isApproaching={approachingIds.has(flight.id)}
             animate={animate}
+            labelMode={labelMode}
+            isSelected={selectedFlightId === flight.id}
+            onSelect={handleSelectFlight}
           />
         ))}
       </MapContainer>
+      </div>
+      {/* Selected flight detail panel */}
+      {selectedFlight && (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 px-3 py-2 border-t text-xs bg-muted/40">
+          <span className="font-bold text-foreground">{selectedFlight.callsign || selectedFlight.id}</span>
+          {selectedFlight.aircraftType && (
+            <span className="flex items-center gap-1">
+              {selectedFlight.manufacturer && <span>{selectedFlight.manufacturer}</span>}{' '}
+              <AircraftTypeBadge typeCode={selectedFlight.aircraftType} />
+            </span>
+          )}
+          {selectedFlight.registration && <span>Reg: {selectedFlight.registration}</span>}
+          {selectedFlight.owner && <span>Owner: {selectedFlight.owner}</span>}
+          {selectedFlight.origin &&
+            (() => {
+              const info = getAirportInfo(selectedFlight.origin);
+              return info ? (
+                <span>From: {countryCodeToFlag(info.countryCode)} {info.city}</span>
+              ) : (
+                <span>From: {selectedFlight.origin}</span>
+              );
+            })()}
+          {selectedFlight.destination &&
+            (() => {
+              const info = getAirportInfo(selectedFlight.destination);
+              return info ? (
+                <span>To: {countryCodeToFlag(info.countryCode)} {info.city}</span>
+              ) : (
+                <span>To: {selectedFlight.destination}</span>
+              );
+            })()}
+          <span>Alt: {selectedFlight.alt.toLocaleString()} ft</span>
+          <span>Speed: {selectedFlight.speed} kts</span>
+          <span>Hdg: {selectedFlight.track}&deg;</span>
+          <span>V/S: {selectedFlight.verticalRate} ft/min</span>
+          <button
+            onClick={() => setSelectedFlightId(null)}
+            className="ml-auto rounded px-1.5 py-0.5 font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            title="Deselect"
+          >
+            &times;
+          </button>
+        </div>
+      )}
+      {/* Controls below map */}
+      <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
+        <label className="flex items-center gap-1.5 font-medium text-muted-foreground cursor-pointer select-none hover:text-foreground transition-colors">
+          <input
+            type="checkbox"
+            checked={animate}
+            onChange={(e) => setAnimate(e.target.checked)}
+            className="accent-blue-600"
+          />
+          Animate
+        </label>
+        <span className="text-muted-foreground/30">|</span>
+        <label className="flex items-center gap-1.5 font-medium text-muted-foreground cursor-pointer select-none hover:text-foreground transition-colors">
+          <input
+            type="checkbox"
+            checked={labelMode}
+            onChange={(e) => setLabelMode(e.target.checked)}
+            className="accent-blue-600"
+          />
+          Labels
+        </label>
+        <span className="text-muted-foreground/30">|</span>
+        <button
+          onClick={drawing ? handleReset : handleStartDraw}
+          className={`rounded px-2 py-1 font-medium transition-colors ${
+            drawing
+              ? 'bg-amber-500 text-white hover:bg-amber-600'
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+          }`}
+        >
+          {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}
+        </button>
+        {zone && (
+          <>
+            <button
+              onClick={toggleVisible}
+              className="rounded px-2 py-1 font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            >
+              {visible ? 'Hide Zone' : 'Show Zone'}
+            </button>
+            <button
+              onClick={handleReset}
+              className="rounded px-2 py-1 font-medium text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950 transition-colors"
+            >
+              Reset Zone
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }
