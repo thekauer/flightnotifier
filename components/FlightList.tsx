@@ -70,7 +70,7 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
             <tbody key={f.id}>
               <tr
                 onClick={() => toggleExpanded(f.id)}
-                className={`cursor-pointer border-b border-border/50 transition-colors hover:bg-muted/50 ${onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30 border-l-3 border-l-amber-500' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''} ${selectedFlightId === f.id ? 'outline outline-2 outline-dashed outline-orange-500' : ''}`}
+                className={`cursor-pointer border-b border-border/50 transition-colors hover:bg-muted/50 ${onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30 border-l-3 border-l-amber-500' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''} ${selectedFlightId === f.id ? 'ring-1 ring-inset ring-orange-300/50 dark:ring-orange-500/30 bg-orange-50/30 dark:bg-orange-950/15' : ''}`}
               >
                 <DataCell type="callsign" value={f.callsign || f.id} isExpanded={isExpanded} isApproaching={isApproaching} />
                 <DataCell type="aircraftType" value={f.aircraftType} />

@@ -220,7 +220,7 @@ export function ScheduledArrivalsTable() {
                     <tr
                       className={`border-b border-border/50 transition-colors hover:bg-muted/50 ${
                         arrival.isBuitenveldertbaan ? 'bg-emerald-50/40 dark:bg-emerald-950/20' : ''
-                      } ${selectedFlightId === arrival.id ? 'outline outline-2 outline-dashed outline-orange-500' : ''}`}
+                      } ${selectedFlightId === arrival.id ? 'ring-1 ring-inset ring-orange-300/50 dark:ring-orange-500/30 bg-orange-50/30 dark:bg-orange-950/15' : ''}`}
                     >
                       <td className="px-3 py-1.5">
                         <button
