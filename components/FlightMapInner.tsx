@@ -12,6 +12,20 @@ import { VsCell } from './VsCell';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { getAirportInfo, countryCodeToFlag } from '@/lib/airports';
 
+// ---------------------------------------------------------------------------
+// Color palette
+// ---------------------------------------------------------------------------
+const COLOR_APPROACHING = '#16a34a';    // green — flights in approach cone
+const COLOR_DEFAULT = '#2563eb';        // blue — normal flights
+const COLOR_SELECTED = '#f59e0b';       // amber — selected aircraft
+const COLOR_IN_ZONE = '#a855f7';        // purple — aircraft inside notification zone
+const COLOR_CONE = '#16a34a';           // green — approach cone overlay
+const COLOR_RUNWAY_FILL_LIGHT = '#333';
+const COLOR_RUNWAY_FILL_DARK = '#71717a';
+const COLOR_RUNWAY_STROKE_LIGHT = '#555';
+const COLOR_RUNWAY_STROKE_DARK = '#a1a1aa';
+const COLOR_ZONE_BORDER = '#3b82f6';    // blue — notification zone rectangle
+
 /** Tile URLs for light and dark themes (CartoDB free tiles). */
 const TILE_LIGHT = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 const TILE_DARK = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
@@ -270,7 +284,7 @@ function aircraftSvg(category: AircraftCategory, color: string): { svg: string; 
 }
 
 function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null, isInZone?: boolean): L.DivIcon {
-  const color = isInZone ? '#a855f7' : isApproaching ? '#16a34a' : '#2563eb';
+  const color = isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
   const category = classifyAircraft(aircraftType);
   const { svg, size } = aircraftSvg(category, color);
   const half = size / 2;
@@ -308,7 +322,7 @@ function createLabelIcon(
   isSelected: boolean,
   isInZone?: boolean,
 ): L.DivIcon {
-  const color = isSelected ? '#f59e0b' : isInZone ? '#a855f7' : isApproaching ? '#16a34a' : '#2563eb';
+  const color = isSelected ? COLOR_SELECTED : isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
   const label = shortenTypeCode(aircraftType);
   const size = 40;
   const half = size / 2;
@@ -362,7 +376,7 @@ function FlightMarker({
     if (labelMode) {
       return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected);
     }
-    const highlightColor = isSelected ? '#f59e0b' : undefined;
+    const highlightColor = isSelected ? COLOR_SELECTED : undefined;
     if (highlightColor) {
       const category = classifyAircraft(flight.aircraftType);
       const { svg, size } = aircraftSvg(category, highlightColor);
@@ -550,7 +564,7 @@ function FirstCornerMarker({ position }: { position: L.LatLng }) {
   const icon = useMemo(
     () =>
       L.divIcon({
-        html: '<div style="width:10px;height:10px;background:#3b82f6;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>',
+        html: `<div style="width:10px;height:10px;background:${COLOR_ZONE_BORDER};border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.3);"></div>`,
         iconSize: [10, 10],
         iconAnchor: [5, 5],
         className: '',
@@ -565,7 +579,7 @@ function DragHandle({ position, onDrag }: { position: [number, number]; onDrag: 
   const icon = useMemo(
     () =>
       L.divIcon({
-        html: '<div style="width:12px;height:12px;background:#3b82f6;border:2px solid white;border-radius:2px;cursor:grab;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>',
+        html: `<div style="width:12px;height:12px;background:${COLOR_ZONE_BORDER};border:2px solid white;border-radius:2px;cursor:grab;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>`,
         iconSize: [12, 12],
         iconAnchor: [6, 6],
         className: '',
@@ -917,7 +931,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   return (
     <div className="flex flex-col h-full w-full">
       {/* Radar-style HUD header */}
-      <div className="flex items-center justify-between px-3 py-1.5 border border-b-0 rounded-t font-mono text-[11px] text-muted-foreground">
+      <div className="flex items-center justify-between px-3 py-1.5 border border-b-0 rounded-t font-mono text-[11px] text-muted-foreground shrink-0">
         {/* Wind info — top left */}
         <div title="Wind direction / speed">
           {weather && weather.windSpeed != null ? (
@@ -992,8 +1006,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         <Polygon
           positions={APPROACH_CONE_27}
           pathOptions={{
-            color: '#16a34a',
-            fillColor: '#16a34a',
+            color: COLOR_CONE,
+            fillColor: COLOR_CONE,
             fillOpacity: 0.08,
             weight: 2,
             dashArray: '6 3',
@@ -1003,14 +1017,16 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         {/* Notification zone rectangle */}
         {zone && visible && zoneBounds && (
           <>
+            {/* Invisible fat-border hit target for easier clicking */}
             <Rectangle
               bounds={zoneBounds}
               pathOptions={{
-                color: '#3b82f6',
-                fillColor: '#3b82f6',
-                fillOpacity: 0.1,
-                weight: 2,
-                dashArray: '8 4',
+                color: 'transparent',
+                fillColor: COLOR_ZONE_BORDER,
+                fillOpacity: 0.15,
+                weight: 18,
+                opacity: 0,
+                className: 'cursor-pointer',
               }}
               eventHandlers={{
                 click: () => {
@@ -1018,6 +1034,21 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
                   zoneClickedRef.current = true;
                   setZoneEditing((v) => !v);
                 },
+                mouseover: (e: L.LeafletMouseEvent) => {
+                  e.target.getElement()?.style.setProperty('cursor', 'pointer');
+                },
+              }}
+            />
+            {/* Visible zone border */}
+            <Rectangle
+              bounds={zoneBounds}
+              pathOptions={{
+                color: COLOR_ZONE_BORDER,
+                fillColor: COLOR_ZONE_BORDER,
+                fillOpacity: 0,
+                weight: 3,
+                dashArray: '8 4',
+                interactive: false,
               }}
             />
             {/* Drag handles at corners — only visible when zone is being edited */}
@@ -1037,8 +1068,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           <Rectangle
             bounds={ghostBounds}
             pathOptions={{
-              color: '#3b82f6',
-              fillColor: '#3b82f6',
+              color: COLOR_ZONE_BORDER,
+              fillColor: COLOR_ZONE_BORDER,
               fillOpacity: 0.05,
               weight: 2,
               dashArray: '4 4',
@@ -1055,8 +1086,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             key={`${rwy.leIdent}/${rwy.heIdent}`}
             positions={rwy.corners}
             pathOptions={{
-              color: isDark ? '#a1a1aa' : '#555',
-              fillColor: isDark ? '#71717a' : '#333',
+              color: isDark ? COLOR_RUNWAY_STROKE_DARK : COLOR_RUNWAY_STROKE_LIGHT,
+              fillColor: isDark ? COLOR_RUNWAY_FILL_DARK : COLOR_RUNWAY_FILL_LIGHT,
               fillOpacity: 0.7,
               weight: 1,
             }}
@@ -1087,7 +1118,20 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         ))}
       </MapContainer>
       </div>
-      {/* Controls below map */}
+      {/* Selected flight detail panel — always reserves space below map */}
+      <div className="min-h-[80px] shrink-0">
+        {selectedFlight ? (
+          <SelectedFlightPanel
+            flight={selectedFlight}
+            onClose={() => setSelectedFlightId(null)}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-[80px] border-t text-xs text-muted-foreground/50 font-mono select-none">
+            Click an aircraft to see details
+          </div>
+        )}
+      </div>
+      {/* Controls bar — bottom */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
         <button
           onClick={() => setAnimate(!animate)}
@@ -1137,13 +1181,6 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           </>
         )}
       </div>
-      {/* Selected flight detail panel — below controls */}
-      {selectedFlight && (
-        <SelectedFlightPanel
-          flight={selectedFlight}
-          onClose={() => setSelectedFlightId(null)}
-        />
-      )}
     </div>
   );
 }

@@ -8,25 +8,9 @@ import { RunwayHistoryStore } from './runway/historyStore';
 import { predictRunways } from './runway/predictor';
 import { getFlightyArrivals } from './arrivals/flightyClient';
 import { resolveIcaoFromIata } from '@/lib/airports';
+import { callsignMatchesFlighty } from '@/lib/callsignMatch';
 
 const APPROACH_BOUNDS: BoundingBox = { lamin: 52.2, lomin: 4.6, lamax: 52.45, lomax: 5.1 };
-
-// --- Flighty callsign matching (mirrors scheduleService logic) ----------------
-
-function callsignMatchesFlighty(openskyCallsign: string, airlineIata: string, flightNum: string): boolean {
-  const cs = openskyCallsign.toUpperCase().replace(/\s+/g, '');
-  const rawNum = flightNum.toUpperCase();
-  const num = rawNum.replace(/^0+/, '') || '0';
-  if (!cs.endsWith(rawNum) && !cs.endsWith(num)) return false;
-
-  const tailLen = cs.endsWith(rawNum) ? rawNum.length : num.length;
-  const prefix = cs.slice(0, Math.max(0, cs.length - tailLen));
-  const ia = airlineIata.toUpperCase();
-  if (prefix === ia) return true;
-  if (prefix.startsWith(ia)) return true;
-  if (ia === 'KL' && prefix.startsWith('KLM')) return true;
-  return false;
-}
 
 /** Try to resolve origin for flights using cached Flighty arrivals data. */
 async function enrichOriginsFromFlighty(flights: Flight[]): Promise<void> {

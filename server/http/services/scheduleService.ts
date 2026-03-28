@@ -1,5 +1,6 @@
 import type { ScheduledArrival } from '@/lib/types';
 import { resolveIcaoFromIata } from '@/lib/airports';
+import { callsignMatchesFlighty } from '@/lib/callsignMatch';
 import { getFlightyArrivals } from '@/server/arrivals/flightyClient';
 import {
   estimatedMinutesFromRow,
@@ -32,21 +33,6 @@ function countryFromFlagPath(flag?: string): string {
   } catch {
     return '';
   }
-}
-
-function callsignMatchesFlighty(openskyCallsign: string, airlineIata: string, flightNum: string): boolean {
-  const cs = openskyCallsign.toUpperCase().replace(/\s+/g, '');
-  const rawNum = flightNum.toUpperCase();
-  const num = rawNum.replace(/^0+/, '') || '0';
-  if (!cs.endsWith(rawNum) && !cs.endsWith(num)) return false;
-
-  const tailLen = cs.endsWith(rawNum) ? rawNum.length : num.length;
-  const prefix = cs.slice(0, Math.max(0, cs.length - tailLen));
-  const ia = airlineIata.toUpperCase();
-  if (prefix === ia) return true;
-  if (prefix.startsWith(ia)) return true;
-  if (ia === 'KL' && prefix.startsWith('KLM')) return true;
-  return false;
 }
 
 function findLiveFlight(rows: Flight[], airlineIata: string, flightNum: string): Flight | undefined {

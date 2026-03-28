@@ -85,16 +85,18 @@ export default function Home() {
           />
 
           <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
-                {/* Row 1: Live Map | Aircraft Visible | Aircraft In Cone */}
+                {/* Top section: Live Map (1/3, spans 2 rows) | Tables (2/3) */}
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-                  <div className="rounded-xl border bg-card shadow-sm">
+                  {/* Live Map — spans 2 grid rows */}
+                  <div className="rounded-xl border bg-card shadow-sm lg:row-span-2">
                     <div className="border-b px-5 py-3">
                       <h2 className="text-sm font-semibold">Live Map</h2>
                     </div>
-                    <div className="h-[350px] p-1">
+                    <div className="h-[700px] p-1">
                       <FlightMap state={state} />
                     </div>
                   </div>
+                  {/* Right column row 1: Aircraft Visible + In Cone */}
                   {zone && (
                     <ConeFlightsTable
                       flights={zoneFlights}
@@ -103,20 +105,19 @@ export default function Home() {
                     />
                   )}
                   <ConeFlightsTable flights={state.approachingFlights} />
-                </div>
-
-                {/* Row 2: Airborne Flights (full width) */}
-                <div className="rounded-xl border bg-card shadow-sm">
-                  <div className="border-b px-5 py-3 flex items-center justify-between">
-                    <h2 className="text-sm font-semibold">Airborne Flights</h2>
-                    <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                      {state.allFlights.filter((f) => !f.onGround).length}
-                    </span>
+                  {/* Right column row 2: Airborne Flights (spans 2 cols) */}
+                  <div className="lg:col-span-2 rounded-xl border bg-card shadow-sm">
+                    <div className="border-b px-5 py-3 flex items-center justify-between">
+                      <h2 className="text-sm font-semibold">Airborne Flights</h2>
+                      <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                        {state.allFlights.filter((f) => !f.onGround).length}
+                      </span>
+                    </div>
+                    <FlightList flights={state.allFlights} approachingIds={approachingIds} />
                   </div>
-                  <FlightList flights={state.allFlights} approachingIds={approachingIds} />
                 </div>
 
-                {/* Row 3: Scheduled Arrivals (50%) | Weather (50%) */}
+                {/* Bottom row: Scheduled Arrivals (50%) | Weather (50%) */}
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
                   <ScheduledArrivalsTable />
                   <WeatherCard weather={state.weather ?? null} />
