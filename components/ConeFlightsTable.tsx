@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import type { Flight } from '@/lib/types';
 import { DataCell } from './DataCell';
 import { AirportCell } from './AirportCell';
+import { useSelectedFlight } from '@/lib/selectedFlightContext';
 
 const SCHIPHOL_LAT = 52.3105;
 const SCHIPHOL_LON = 4.7683;
@@ -39,6 +40,7 @@ export function ConeFlightsTable({
   emptyLabel = 'No aircraft currently inside the cone',
   zoneFlightIds,
 }: ConeFlightsTableProps) {
+  const { selectedFlightId } = useSelectedFlight();
   const rows = useMemo<ConeFlightRow[]>(
     () =>
       flights
@@ -115,7 +117,7 @@ export function ConeFlightsTable({
                     zoneFlightIds?.has(flight.id)
                       ? 'bg-blue-50/40 dark:bg-blue-950/20'
                       : 'bg-emerald-50/40 dark:bg-emerald-950/20'
-                  }`}
+                  } ${selectedFlightId === flight.id ? 'outline outline-2 outline-dashed outline-orange-500' : ''}`}
                 >
                   <DataCell
                     type="callsign"

@@ -8,6 +8,7 @@ import { PredictionHorizonProvider } from '@/lib/predictionHorizonContext';
 import { AircraftFilterProvider } from '@/lib/aircraftFilterContext';
 import { SpottingModeProvider } from '@/lib/spottingModeContext';
 import { StaggerProvider } from '@/lib/staggerContext';
+import { SelectedFlightProvider } from '@/lib/selectedFlightContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -18,7 +19,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
           <NotificationZoneProvider>
             <VisibilitySettingsProvider>
               <PredictionHorizonProvider>
-                <AircraftFilterProvider>{children}</AircraftFilterProvider>
+                <AircraftFilterProvider>
+                  <SelectedFlightProvider>{children}</SelectedFlightProvider>
+                </AircraftFilterProvider>
               </PredictionHorizonProvider>
             </VisibilitySettingsProvider>
           </NotificationZoneProvider>
