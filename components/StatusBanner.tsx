@@ -21,7 +21,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
       {/* Connection */}
       <div className="flex items-center gap-1.5">
         <span
-          className={`h-2 w-2 rounded-full ${connected ? 'bg-emerald-500' : 'bg-red-500'}`}
+          className={`h-2 w-2 rounded-full ${connected ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`}
         />
         <span className="font-medium">{connected ? 'Live' : 'Offline'}</span>
       </div>
