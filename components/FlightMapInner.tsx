@@ -1001,6 +1001,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         style={{ height: '100%', width: '100%' }}
         scrollWheelZoom={true}
         zoomControl={false}
+        attributionControl={false}
       >
         <TileLayer
           key={isDark ? 'dark' : 'light'}
