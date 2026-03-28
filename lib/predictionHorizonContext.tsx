@@ -8,12 +8,12 @@ interface PredictionHorizonContextValue {
 }
 
 const PredictionHorizonContext = createContext<PredictionHorizonContextValue>({
-  horizonMinutes: 15,
+  horizonMinutes: 60,
   setHorizonMinutes: () => {},
 });
 
 const STORAGE_KEY = 'flightnotifier-prediction-horizon';
-const DEFAULT_HORIZON = 15;
+const DEFAULT_HORIZON = 60;
 const MIN_HORIZON = 1;
 const MAX_HORIZON = 1440;
 
