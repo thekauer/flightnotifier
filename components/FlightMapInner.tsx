@@ -17,13 +17,6 @@ const APPROACH_CONE_27: [number, number][] = [
   [52.304, 4.78],
 ];
 
-const APPROACH_CONE_09: [number, number][] = [
-  [52.322, 4.835],
-  [52.34, 4.5],
-  [52.286, 4.5],
-  [52.304, 4.835],
-];
-
 const schipholIcon = L.divIcon({
   html: '<div style="font-size:20px;text-align:center;">&#x2708;&#xFE0F;</div>',
   iconSize: [24, 24],
@@ -306,16 +299,6 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         {/* Approach detection cones */}
         <Polygon
           positions={APPROACH_CONE_27}
-          pathOptions={{
-            color: '#16a34a',
-            fillColor: '#16a34a',
-            fillOpacity: 0.08,
-            weight: 2,
-            dashArray: '6 3',
-          }}
-        />
-        <Polygon
-          positions={APPROACH_CONE_09}
           pathOptions={{
             color: '#16a34a',
             fillColor: '#16a34a',

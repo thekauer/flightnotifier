@@ -1,54 +1,51 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   generateRound,
   getImageNumbers,
   getImageUrl,
   pickAlternateImageNumber,
+  QUIZ_IMAGE_FORMAT_PRIORITY,
   type QuizQuestion,
 } from '@/lib/spotting/quizData';
 import { cn } from '@/lib/utils';
 
-function pathLooksLikeWebp(url: string): boolean {
-  const path = url.split('?')[0] ?? url;
-  return path.endsWith('.webp');
-}
-
 function QuizQuestionImage({
   aircraftId,
   initialNumber,
-  initialPath,
 }: {
   aircraftId: string;
   initialNumber: number;
-  initialPath: string;
 }) {
   const [imageNumber, setImageNumber] = useState(initialNumber);
-  const [src, setSrc] = useState(initialPath);
-  /** Indices where both .webp and .jpg failed — do not retry those numbers. */
-  const [exhaustedNumbers, setExhaustedNumbers] = useState(() => new Set<number>());
+  /** Index into QUIZ_IMAGE_FORMAT_PRIORITY for the current basename. */
+  const [formatIndex, setFormatIndex] = useState(0);
+  const exhaustedNumbers = useRef(new Set<number>());
   const [unavailable, setUnavailable] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
+
+  const currentFormat = QUIZ_IMAGE_FORMAT_PRIORITY[formatIndex] ?? 'webp';
+  const src = getImageUrl(aircraftId, imageNumber, currentFormat);
 
   function handleImageError() {
     if (unavailable) return;
     setImgLoaded(false);
 
-    if (pathLooksLikeWebp(src)) {
-      setSrc(getImageUrl(aircraftId, imageNumber, 'jpg'));
+    const nextFormat = formatIndex + 1;
+    if (nextFormat < QUIZ_IMAGE_FORMAT_PRIORITY.length) {
+      setFormatIndex(nextFormat);
       return;
     }
 
-    const nextExhausted = new Set(exhaustedNumbers).add(imageNumber);
-    setExhaustedNumbers(nextExhausted);
-    const next = pickAlternateImageNumber(aircraftId, nextExhausted);
+    exhaustedNumbers.current.add(imageNumber);
+    const next = pickAlternateImageNumber(aircraftId, exhaustedNumbers.current);
     if (next === null) {
       setUnavailable(true);
       return;
     }
     setImageNumber(next);
-    setSrc(getImageUrl(aircraftId, next, 'webp'));
+    setFormatIndex(0);
   }
 
   if (unavailable) {
@@ -72,18 +69,25 @@ function QuizQuestionImage({
     );
   }
 
+  const imgClass = cn(
+    'h-80 w-full object-cover transition-opacity duration-200',
+    imgLoaded ? 'opacity-100' : 'opacity-0',
+  );
+
+  const imgProps = {
+    alt: 'Identify this aircraft' as const,
+    decoding: 'async' as const,
+    onLoad: () => setImgLoaded(true),
+    onError: handleImageError,
+    className: imgClass,
+  };
+
   return (
     <div className="relative h-80 w-full bg-muted">
       <img
+        key={`${aircraftId}-${imageNumber}-${currentFormat}`}
         src={src}
-        alt="Identify this aircraft"
-        decoding="async"
-        onLoad={() => setImgLoaded(true)}
-        onError={handleImageError}
-        className={cn(
-          'h-80 w-full object-cover transition-opacity duration-200',
-          imgLoaded ? 'opacity-100' : 'opacity-0',
-        )}
+        {...imgProps}
       />
     </div>
   );
@@ -193,7 +197,6 @@ export function SpottingQuiz() {
           key={currentIndex}
           aircraftId={question!.correctAircraft.id}
           initialNumber={question!.imageNumber}
-          initialPath={question!.imagePath}
         />
       </div>
 

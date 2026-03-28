@@ -29,7 +29,8 @@ export const QUIZ_AIRCRAFT: QuizAircraft[] = [
  * Image files live under public/assets/aircraft/{id}/ with zero-padded basenames.
  * Quiz URLs prefer 001.webp …; the UI falls back to .jpg per file when WebP is absent.
  * Use 0 for empty folders. Types with no images stay in QUIZ_AIRCRAFT as decoys only.
- * Aircraft `id` must match the folder name (e.g. airbus-a320, dash-8 — not legacy aliases).
+ * Aircraft `id` must match the folder name under public/assets/aircraft/.
+ * Folder names under public/assets/aircraft/ must match `id` (e.g. airbus-a320, dash-8).
  */
 const AIRCRAFT_IMAGE_RANGE_MAX: Record<string, number> = {
   'boeing-747': 0,
@@ -43,6 +44,7 @@ const AIRCRAFT_IMAGE_RANGE_MAX: Record<string, number> = {
   'boeing-757': 50,
   'boeing-767': 50,
   'airbus-a320': 50,
+  'embraer-ejet': 0,
   'atr-72': 0,
   'dash-8': 0,
   'bombardier-crj': 0,
@@ -85,9 +87,12 @@ function quizAircraftWithImages(): QuizAircraft[] {
   return QUIZ_AIRCRAFT.filter((a) => getImageCount(a.id) > 0);
 }
 
-export type QuizImageFormat = 'webp' | 'jpg';
+export type QuizImageFormat = 'webp' | 'jpg' | 'png';
 
-/** Primary quiz asset URL (WebP). Same basename may exist as .jpg until conversion. */
+/** Try formats in this order when loading a question image (WebP preferred). */
+export const QUIZ_IMAGE_FORMAT_PRIORITY: readonly QuizImageFormat[] = ['webp', 'jpg', 'png'];
+
+/** Asset URL for one basename + extension under public/assets/aircraft/{id}/. */
 export function getImageUrl(
   aircraftId: string,
   imageNumber: number,
@@ -114,7 +119,6 @@ function shuffle<T>(arr: T[]): T[] {
 export interface QuizQuestion {
   correctAircraft: QuizAircraft;
   imageNumber: number;
-  imagePath: string;
   options: QuizAircraft[];
 }
 
@@ -128,7 +132,6 @@ export function generateQuestion(): QuizQuestion {
   const correctAircraft = pool[correctIndex];
   const nums = getImageNumbers(correctAircraft.id);
   const imageNumber = nums[randInt(0, nums.length)]!;
-  const imagePath = getImageUrl(correctAircraft.id, imageNumber, 'webp');
 
   // Pick 3 random wrong answers
   const others = QUIZ_AIRCRAFT.filter((a) => a.id !== correctAircraft.id);
@@ -137,7 +140,7 @@ export function generateQuestion(): QuizQuestion {
   // Combine and shuffle
   const options = shuffle([correctAircraft, ...wrongAnswers]);
 
-  return { correctAircraft, imageNumber, imagePath, options };
+  return { correctAircraft, imageNumber, options };
 }
 
 /** Generate a full round of 10 questions. */
