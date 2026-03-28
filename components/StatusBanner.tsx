@@ -17,7 +17,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
     typeof Notification !== 'undefined' && Notification.permission === 'granted';
 
   return (
-    <div className="flex flex-wrap items-center justify-between border-b bg-card px-6 py-2.5 text-xs">
+    <div className="flex flex-wrap items-center justify-between border-b bg-card px-6 py-2.5 mb-2 text-xs">
       {/* Connection */}
       <div className="flex items-center gap-1.5">
         <span
@@ -26,8 +26,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
         <span className="font-medium">{connected ? 'Live' : 'Offline'}</span>
       </div>
 
-      <span className="text-muted-foreground/30">|</span>
-
+      
       {/* Flights */}
       <div className="flex items-center gap-1.5">
         <span className="text-muted-foreground">Tracked</span>
@@ -37,8 +36,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
         <span className="text-muted-foreground">airborne</span>
       </div>
 
-      <span className="text-muted-foreground/30">|</span>
-
+      
       {/* Buitenveldertbaan */}
       <div className="flex items-center gap-1.5">
         <span className="text-muted-foreground">RWY 09/27</span>
@@ -52,8 +50,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
         )}
       </div>
 
-      <span className="text-muted-foreground/30">|</span>
-
+      
       {/* Notifications */}
       <div className="flex items-center gap-1.5">
         <span className="text-muted-foreground">Notifications</span>

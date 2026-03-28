@@ -35,6 +35,10 @@ export default function Home() {
     () => (zone ? state.allFlights.filter((f) => !f.onGround && isInZone(f.lat, f.lon)) : []),
     [zone, isInZone, state.allFlights],
   );
+  const zoneFlightIds = useMemo(
+    () => new Set<string>(zoneFlights.map((f: { id: string }) => f.id)),
+    [zoneFlights],
+  );
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -96,15 +100,12 @@ export default function Home() {
                       <FlightMap state={state} />
                     </div>
                   </div>
-                  {/* Right column row 1: Aircraft Visible + In Cone */}
-                  {zone && (
-                    <ConeFlightsTable
-                      flights={zoneFlights}
-                      title="Aircraft Visible"
-                      emptyLabel="No aircraft currently inside the zone"
-                    />
-                  )}
-                  <ConeFlightsTable flights={state.approachingFlights} />
+                  {/* Right column row 1: Aircraft In Cone + Scheduled Arrivals */}
+                  <ConeFlightsTable
+                    flights={state.approachingFlights}
+                    zoneFlightIds={zoneFlightIds}
+                  />
+                  <ScheduledArrivalsTable />
                   {/* Right column row 2: Airborne Flights (spans 2 cols) */}
                   <div className="lg:col-span-2 rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3 flex items-center justify-between">
@@ -117,11 +118,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Bottom row: Scheduled Arrivals (50%) | Weather (50%) */}
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                  <ScheduledArrivalsTable />
-                  <WeatherCard weather={state.weather ?? null} />
-                </div>
+                {/* Bottom row: Weather (full width) */}
+                <WeatherCard weather={state.weather ?? null} />
           </main>
         </>
       )}

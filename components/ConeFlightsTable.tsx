@@ -30,12 +30,14 @@ interface ConeFlightsTableProps {
   flights: Flight[];
   title?: string;
   emptyLabel?: string;
+  zoneFlightIds?: Set<string>;
 }
 
 export function ConeFlightsTable({
   flights,
   title = 'Aircraft In Cone',
   emptyLabel = 'No aircraft currently inside the cone',
+  zoneFlightIds,
 }: ConeFlightsTableProps) {
   const rows = useMemo<ConeFlightRow[]>(
     () =>
@@ -109,7 +111,11 @@ export function ConeFlightsTable({
               {rows.map((flight) => (
                 <tr
                   key={flight.id}
-                  className="border-b border-border/50 bg-emerald-50/40 dark:bg-emerald-950/20"
+                  className={`border-b border-border/50 ${
+                    zoneFlightIds?.has(flight.id)
+                      ? 'bg-blue-50/40 dark:bg-blue-950/20'
+                      : 'bg-emerald-50/40 dark:bg-emerald-950/20'
+                  }`}
                 >
                   <DataCell
                     type="callsign"
