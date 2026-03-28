@@ -123,6 +123,7 @@ export function ConeFlightsTable({
                     type="callsign"
                     value={flight.callsign || flight.id}
                     isApproaching={true}
+                    isInZone={zoneFlightIds?.has(flight.id)}
                   />
                   <AirportCell icaoCode={flight.origin} />
                   <AirportCell icaoCode={flight.destination} />

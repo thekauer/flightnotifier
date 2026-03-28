@@ -86,7 +86,7 @@ function countryToFlag(country: string): string | null {
 
 export type DataCellProps =
   | { type: 'text'; value: string; className?: string }
-  | { type: 'callsign'; value: string; isExpanded?: boolean; isApproaching: boolean; className?: string }
+  | { type: 'callsign'; value: string; isExpanded?: boolean; isApproaching: boolean; isInZone?: boolean; className?: string }
   | { type: 'country'; value: string; className?: string }
   | { type: 'altitude'; value: number; className?: string }
   | { type: 'speed'; value: number; className?: string }
@@ -116,14 +116,16 @@ function AirlineLogo({ callsign }: { callsign: string }) {
   );
 }
 
-function CallsignCell({ value, isExpanded, isApproaching, className }: {
+function CallsignCell({ value, isExpanded, isApproaching, isInZone, className }: {
   value: string;
   isExpanded?: boolean;
   isApproaching: boolean;
+  isInZone?: boolean;
   className?: string;
 }) {
+  const borderColor = isInZone ? 'border-l-2 border-blue-500' : isApproaching ? 'border-l-2 border-emerald-500' : '';
   return (
-    <td className={`px-3 py-1.5 whitespace-nowrap ${isApproaching ? 'border-l-2 border-emerald-500' : ''} ${className ?? ''}`.trim()}>
+    <td className={`px-3 py-1.5 whitespace-nowrap ${borderColor} ${className ?? ''}`.trim()}>
       {isExpanded !== undefined && (
         <span className="mr-1.5 text-[10px] text-muted-foreground/60">{isExpanded ? '\u25BC' : '\u25B6'}</span>
       )}
@@ -288,7 +290,7 @@ export function DataCell(props: DataCellProps) {
     case 'text':
       return <TextCell value={props.value} className={props.className} />;
     case 'callsign':
-      return <CallsignCell value={props.value} isExpanded={props.isExpanded} isApproaching={props.isApproaching} className={props.className} />;
+      return <CallsignCell value={props.value} isExpanded={props.isExpanded} isApproaching={props.isApproaching} isInZone={props.isInZone} className={props.className} />;
     case 'country':
       return <CountryCell value={props.value} className={props.className} />;
     case 'altitude':
