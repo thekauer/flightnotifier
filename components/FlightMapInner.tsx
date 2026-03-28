@@ -616,7 +616,7 @@ function InlineAltitude({ value }: { value: number }) {
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
-          className="text-lg font-bold text-foreground"
+          className="text-xl font-bold text-foreground"
         />
         <span className="text-xs text-muted-foreground">ft</span>
       </div>
@@ -636,7 +636,7 @@ function InlineSpeed({ value }: { value: number }) {
           willChange
           trend={0}
           style={{ fontVariantNumeric: 'tabular-nums' }}
-          className="text-lg font-bold text-foreground"
+          className="text-xl font-bold text-foreground"
         />
         <span className="text-xs text-muted-foreground">kts</span>
       </div>
@@ -656,7 +656,7 @@ function InlineHeading({ value }: { value: number }) {
         trend={0}
         style={{ fontVariantNumeric: 'tabular-nums' }}
         suffix="°"
-        className="text-lg font-bold text-foreground"
+        className="text-xl font-bold text-foreground"
       />
     </div>
   );
@@ -667,7 +667,7 @@ function InlineVs({ value }: { value: number }) {
   return (
     <div className="flex flex-col leading-tight">
       <span className="text-sm text-muted-foreground">V/S</span>
-      <div className="text-lg font-bold">
+      <div className="text-xl font-bold">
         <VsCell value={value} asTableCell={false} />
       </div>
     </div>
@@ -681,32 +681,35 @@ function AirportBadge({ label, iata }: { label: string; iata: string }) {
     <div className="flex flex-col leading-tight">
       <span className="text-sm text-muted-foreground">{label}</span>
       {info ? (
-        <span className="text-lg font-bold text-foreground" title={info.city}>
+        <span className="text-xl font-bold text-foreground" title={info.city}>
           {countryCodeToFlag(info.countryCode)} {info.iata}
         </span>
       ) : (
-        <span className="text-lg font-bold text-foreground">{iata}</span>
+        <span className="text-xl font-bold text-foreground">{iata}</span>
       )}
     </div>
   );
 }
 
-/** Selected flight detail panel — two-column grid layout. */
+/** Selected flight detail panel — two-column grid layout, left-aligned. */
 function SelectedFlightPanel({
   flight,
 }: {
   flight: Flight;
 }) {
   return (
-    <div className="border-t bg-muted/40 px-6 py-4 text-base">
-      {/* Header row: aircraft type */}
-      <div className="mb-3">
-        <div className="text-xl font-bold">
-          <AircraftTypeBadge typeCode={flight.aircraftType} />
+    <div className="border-t bg-muted/40 px-6 py-4">
+      <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+        <div className="flex flex-col leading-tight">
+          <span className="text-sm text-muted-foreground">Type</span>
+          <div className="text-xl font-bold">
+            <AircraftTypeBadge typeCode={flight.aircraftType} />
+          </div>
         </div>
-      </div>
-      {/* Two-column data grid */}
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3 place-items-center text-center">
+        <div className="flex flex-col leading-tight">
+          <span className="text-sm text-muted-foreground">Callsign</span>
+          <span className="text-xl font-bold font-mono tracking-wide">{flight.callsign || flight.id}</span>
+        </div>
         {flight.origin && <AirportBadge label="From" iata={flight.origin} />}
         {flight.destination && <AirportBadge label="To" iata={flight.destination} />}
         {!flight.origin && !flight.destination && <div className="col-span-2" />}
