@@ -224,13 +224,16 @@ function DistanceCell({ value, className }: { value: number; className?: string 
     );
   }
 
+  const showDecimal = staggeredValue < 10;
+
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       <div className="flex flex-col items-end leading-tight">
         <NumberFlow
-          value={staggeredValue}
+          value={showDecimal ? Math.round(staggeredValue * 10) / 10 : Math.round(staggeredValue)}
           willChange
           trend={0}
+          format={showDecimal ? { minimumFractionDigits: 1, maximumFractionDigits: 1 } : undefined}
           style={{ fontVariantNumeric: 'tabular-nums' }}
         />
         <span className="text-muted-foreground text-[10px]">km</span>
