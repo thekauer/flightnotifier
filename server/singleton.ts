@@ -10,7 +10,7 @@ import { getFlightyArrivals } from './arrivals/flightyClient';
 import { resolveIcaoFromIata } from '@/lib/airports';
 import { callsignMatchesFlighty } from '@/lib/callsignMatch';
 
-const APPROACH_BOUNDS: BoundingBox = { lamin: 52.17, lomin: 4.54, lamax: 52.48, lomax: 5.16 };
+const APPROACH_BOUNDS: BoundingBox = { lamin: 52.13, lomin: 4.46, lamax: 52.52, lomax: 5.24 };
 
 /** Try to resolve origin for flights using cached Flighty arrivals data. */
 async function enrichOriginsFromFlighty(flights: Flight[]): Promise<void> {
