@@ -21,5 +21,5 @@ export function FlightMap({ state }: FlightMapProps) {
     [state.allFlights],
   );
 
-  return <FlightMapInner airborneFlights={airborneFlights} approachingIds={approachingIds} />;
+  return <FlightMapInner airborneFlights={airborneFlights} approachingIds={approachingIds} weather={state.weather ?? null} />;
 }

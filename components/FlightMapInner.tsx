@@ -676,12 +676,28 @@ function SelectedFlightPanel({
   );
 }
 
+const SCHIPHOL_LAT = 52.3105;
+const SCHIPHOL_LON = 4.7683;
+
+function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 interface FlightMapInnerProps {
   airborneFlights: Flight[];
   approachingIds: Set<string>;
+  weather: import('@/lib/api/weather').MetarData | null;
 }
 
-export default function FlightMapInner({ airborneFlights, approachingIds }: FlightMapInnerProps) {
+export default function FlightMapInner({ airborneFlights, approachingIds, weather }: FlightMapInnerProps) {
   const isDark = useIsDarkMode();
   const { zone, visible, setZone, clearZone, toggleVisible } = useNotificationZone();
   const [animate, setAnimate] = useState(false);
@@ -793,8 +809,50 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
       ]
     : null;
 
+  const selectedFlightDistance = useMemo(() => {
+    if (!selectedFlight) return null;
+    return Math.round(haversineKm(selectedFlight.lat, selectedFlight.lon, SCHIPHOL_LAT, SCHIPHOL_LON));
+  }, [selectedFlight]);
+
   return (
     <div className="flex flex-col h-full w-full">
+      {/* Radar-style HUD header */}
+      <div className="flex items-center justify-between px-3 py-1.5 border border-b-0 rounded-t font-mono text-[11px] text-muted-foreground">
+        {/* Wind info — top left */}
+        <div title="Wind direction / speed">
+          {weather && weather.windSpeed != null ? (
+            <span>
+              <span className="font-semibold text-foreground">
+                {weather.windDirection != null ? `${String(weather.windDirection).padStart(3, '0')}°` : 'VRB'}
+              </span>
+              <span className="text-muted-foreground">/</span>
+              <span className="font-semibold text-foreground">{weather.windSpeed}kt</span>
+              {weather.windGust != null && weather.windGust > (weather.windSpeed ?? 0) && (
+                <span className="text-amber-500 font-semibold"> G{weather.windGust}kt</span>
+              )}
+            </span>
+          ) : (
+            <span>WIND ---</span>
+          )}
+        </div>
+
+        {/* Selected aircraft heading — center */}
+        {selectedFlight && (
+          <div className="border rounded px-2 py-0.5 font-semibold text-foreground">
+            HDG {String(selectedFlight.track).padStart(3, '0')}°
+          </div>
+        )}
+
+        {/* Distance from airport — top right */}
+        {selectedFlight && selectedFlightDistance != null && (
+          <div title="Distance to Schiphol">
+            <span className="font-semibold text-foreground">{selectedFlightDistance}</span>
+            <span className="ml-0.5">km</span>
+          </div>
+        )}
+        {!selectedFlight && <div />}
+      </div>
+
       <div className="relative flex-1 min-h-0">
       <MapContainer
         center={SCHIPHOL_POS}

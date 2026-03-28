@@ -1,5 +1,6 @@
 'use client';
 
+import NumberFlow from '@number-flow/react';
 import type { FlightState } from '@/lib/types';
 
 interface StatusBannerProps {
@@ -30,9 +31,9 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
       {/* Flights */}
       <div className="flex items-center gap-1.5">
         <span className="text-muted-foreground">Tracked</span>
-        <span className="font-bold tabular-nums">{totalCount}</span>
+        <span className="font-bold"><NumberFlow value={totalCount} willChange /></span>
         <span className="text-muted-foreground">/</span>
-        <span className="font-bold tabular-nums">{airborneCount}</span>
+        <span className="font-bold"><NumberFlow value={airborneCount} willChange /></span>
         <span className="text-muted-foreground">airborne</span>
       </div>
 

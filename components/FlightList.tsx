@@ -58,7 +58,6 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
             <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">Speed</th>
             <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">V/S</th>
             <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">Hdg</th>
-            <th className="px-3 py-2.5 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider">Reg</th>
           </tr>
         </thead>
         {airborne.map((f) => {
@@ -79,11 +78,10 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
                 <DataCell type="speed" value={f.speed} />
                 <VsCell value={f.verticalRate} />
                 <DataCell type="heading" value={f.track} />
-                <DataCell type="text" value={f.registration || '-'} />
               </tr>
               {isExpanded && (
                 <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
-                  <td colSpan={9} className="px-3 py-3">
+                  <td colSpan={8} className="px-3 py-3">
                     {(f.manufacturer || f.owner || f.registration || f.route) && (
                       <>
                         <div className="text-xs font-semibold mb-1.5 text-muted-foreground uppercase tracking-wider">Aircraft Info</div>
