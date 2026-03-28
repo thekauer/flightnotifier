@@ -335,10 +335,12 @@ function createLabelIcon(
     <polygon points="${triHalf},2 ${triSize - 2},${triSize - 2} 2,${triSize - 2}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
   </svg>`;
 
-  // The outer div rotates by heading. The text inside is counter-rotated to stay upright.
-  const html = `<div style="width:${size}px;height:${size}px;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(${track}deg);">
-    <div style="line-height:0;">${triSvg}</div>
-    <div style="transform:rotate(-${track}deg);font-size:9px;font-weight:700;font-family:system-ui,sans-serif;color:${color};line-height:1;margin-top:1px;white-space:nowrap;">${label}</div>
+  // Triangle rotates by heading. Text is absolutely positioned at center, counter-rotated to stay upright and always on top.
+  const html = `<div style="width:${size}px;height:${size}px;position:relative;transform:rotate(${track}deg);">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;line-height:0;">${triSvg}</div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transform:rotate(-${track}deg);z-index:1;">
+      <span style="font-size:9px;font-weight:700;font-family:system-ui,sans-serif;color:${color};line-height:1;white-space:nowrap;text-shadow:0 0 3px var(--background,#fff),0 0 3px var(--background,#fff);">${label}</span>
+    </div>
   </div>`;
 
   return L.divIcon({
