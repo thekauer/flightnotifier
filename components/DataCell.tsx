@@ -5,6 +5,7 @@ import { VsCell } from './VsCell';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { getAirlineLogoUrl } from '@/lib/airlineLogo';
+import { useEtaFormat } from '@/lib/etaFormatContext';
 
 const COUNTRY_CODES: Record<string, string> = {
   'Kingdom of the Netherlands': 'NL',
@@ -126,7 +127,19 @@ function CallsignCell({ value, isExpanded, isApproaching, isInZone, className }:
   return (
     <td className={`px-3 py-1.5 whitespace-nowrap ${className ?? ''}`.trim()}>
       {isExpanded !== undefined && (
-        <span className="mr-1.5 text-[10px] text-muted-foreground/60">{isExpanded ? '\u25BC' : '\u25B6'}</span>
+        <svg
+          className="inline-block mr-1.5 text-muted-foreground/60 transition-transform duration-200 align-middle"
+          style={{ transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        >
+          <path d="M3 2L7 5L3 8" />
+        </svg>
       )}
       <AirlineLogo callsign={value} />
       <span className="font-mono font-semibold tracking-wide">{value}</span>
@@ -229,48 +242,63 @@ function DistanceCell({ value, className }: { value: number; className?: string 
 function EtaCell({ value: rawMinutes, className }: { value: number; className?: string }) {
   // ETA is never staggered — always shows real-time countdown
   useStaggeredValue(rawMinutes, 6000); // call hook to maintain stable hook order
+  const { etaFormat } = useEtaFormat();
   const valid = Number.isFinite(rawMinutes) && rawMinutes >= 0;
 
-  // Compute display values — always compute both major and minor to keep a stable render tree
-  let major = 0;
-  let minor = 0;
-  let majorSuffix = ' min';
-  let minorSuffix = '';
-  let showMinor = false;
+  // Convert rawMinutes to total seconds, then decompose
+  const totalSeconds = valid ? Math.round(rawMinutes * 60) : 0;
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
-  if (valid) {
-    if (rawMinutes < 1) {
-      major = Math.round(rawMinutes * 60);
-      majorSuffix = 's';
-    } else if (rawMinutes < 5) {
-      major = Math.floor(rawMinutes);
-      minor = Math.round((rawMinutes - major) * 60);
-      majorSuffix = 'm ';
-      minorSuffix = 's';
-      showMinor = true;
-    } else if (rawMinutes < 60) {
-      major = Math.round(rawMinutes);
-      majorSuffix = ' min';
-    } else {
-      major = Math.floor(rawMinutes / 60);
-      minor = Math.round(rawMinutes % 60);
-      majorSuffix = 'h ';
-      minorSuffix = 'm';
-      showMinor = true;
-    }
-  }
+  const isColon = etaFormat === 'colon';
+  const padTwo = { minimumIntegerDigits: 2 } as const;
 
   return (
     <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
       {!valid ? (
         <span className="text-muted-foreground">—</span>
+      ) : hours >= 1 ? (
+        // >= 60 min: H:MM:SS or HhM'SS"
+        isColon ? (
+          <>
+            <NumberFlow value={hours} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix=":" />
+            <NumberFlow value={minutes} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} suffix=":" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} />
+          </>
+        ) : (
+          <>
+            <NumberFlow value={hours} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="h" />
+            <NumberFlow value={minutes} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="'" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={'"'} />
+          </>
+        )
+      ) : rawMinutes < 1 ? (
+        // < 1 min: 0:SS or 0'SS"
+        isColon ? (
+          <>
+            <NumberFlow value={0} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix=":" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} />
+          </>
+        ) : (
+          <>
+            <NumberFlow value={0} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="'" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} suffix={'"'} />
+          </>
+        )
       ) : (
-        <>
-          <NumberFlow value={major} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={majorSuffix} />
-          {showMinor && (
-            <NumberFlow value={minor} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={minorSuffix} />
-          )}
-        </>
+        // 1-59 min: MM:SS or MM'SS"
+        isColon ? (
+          <>
+            <NumberFlow value={minutes} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix=":" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} />
+          </>
+        ) : (
+          <>
+            <NumberFlow value={minutes} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix="'" />
+            <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} format={padTwo} suffix={'"'} />
+          </>
+        )
       )}
     </td>
   );

@@ -228,7 +228,19 @@ export function ScheduledArrivalsTable() {
                           onClick={() => setExpandedId((current) => (current === arrival.id ? null : arrival.id))}
                           className="flex items-center gap-2 text-left"
                         >
-                          <span className="text-xs">{isExpanded ? '▼' : '▶'}</span>
+                          <svg
+                            className="text-muted-foreground/60 transition-transform duration-200 shrink-0"
+                            style={{ transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          >
+                            <path d="M3 2L7 5L3 8" />
+                          </svg>
                           <span>{arrival.callsign || arrival.id}</span>
                         </button>
                       </td>
