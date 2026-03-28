@@ -1,18 +1,18 @@
-import type { LiveFeedFlight } from './fr24/proto.js';
-import { isOnRunway09Approach } from './fr24/detector.js';
+import type { Flight } from './opensky/types';
+import { isBuitenveldertbaanApproach } from './opensky/detector';
 
 export interface FlightState {
-  allFlights: LiveFeedFlight[];
-  approachingFlights: LiveFeedFlight[];
-  runway09Active: boolean;
+  allFlights: Flight[];
+  approachingFlights: Flight[];
+  buitenveldertbaanActive: boolean;
   lastUpdateMs: number;
 }
 
 export type StateChangeEvent =
   | { type: 'flights_updated'; state: FlightState }
-  | { type: 'runway09_activated'; flights: LiveFeedFlight[] }
-  | { type: 'runway09_deactivated' }
-  | { type: 'new_approach'; flight: LiveFeedFlight };
+  | { type: 'buitenveldertbaan_activated'; flights: Flight[] }
+  | { type: 'buitenveldertbaan_deactivated' }
+  | { type: 'new_approach'; flight: Flight };
 
 export type EventCallback = (event: StateChangeEvent) => void;
 
@@ -22,11 +22,11 @@ export class FlightStateManager {
   private state: FlightState = {
     allFlights: [],
     approachingFlights: [],
-    runway09Active: false,
+    buitenveldertbaanActive: false,
     lastUpdateMs: 0,
   };
   private lastApproachTime = 0;
-  private knownApproachFlightIds = new Set<number>();
+  private knownApproachFlightIds = new Set<string>();
   private listeners: EventCallback[] = [];
 
   onEvent(callback: EventCallback): () => void {
@@ -40,23 +40,23 @@ export class FlightStateManager {
     return { ...this.state };
   }
 
-  update(flights: LiveFeedFlight[]): void {
-    const approaching = flights.filter(isOnRunway09Approach);
+  update(flights: Flight[]): void {
+    const approaching = flights.filter(isBuitenveldertbaanApproach);
     const now = Date.now();
 
     for (const flight of approaching) {
-      if (!this.knownApproachFlightIds.has(flight.flightId)) {
-        this.knownApproachFlightIds.add(flight.flightId);
+      if (!this.knownApproachFlightIds.has(flight.id)) {
+        this.knownApproachFlightIds.add(flight.id);
         this.emit({ type: 'new_approach', flight });
       }
     }
 
-    const currentIds = new Set(approaching.map((f) => f.flightId));
+    const currentIds = new Set(approaching.map((f) => f.id));
     for (const id of this.knownApproachFlightIds) {
       if (!currentIds.has(id)) this.knownApproachFlightIds.delete(id);
     }
 
-    const wasActive = this.state.runway09Active;
+    const wasActive = this.state.buitenveldertbaanActive;
     if (approaching.length > 0) this.lastApproachTime = now;
     const isActive =
       approaching.length > 0 || now - this.lastApproachTime < RUNWAY_INACTIVE_TIMEOUT_MS;
@@ -64,12 +64,13 @@ export class FlightStateManager {
     this.state = {
       allFlights: flights,
       approachingFlights: approaching,
-      runway09Active: isActive,
+      buitenveldertbaanActive: isActive,
       lastUpdateMs: now,
     };
 
-    if (!wasActive && isActive) this.emit({ type: 'runway09_activated', flights: approaching });
-    else if (wasActive && !isActive) this.emit({ type: 'runway09_deactivated' });
+    if (!wasActive && isActive)
+      this.emit({ type: 'buitenveldertbaan_activated', flights: approaching });
+    else if (wasActive && !isActive) this.emit({ type: 'buitenveldertbaan_deactivated' });
     this.emit({ type: 'flights_updated', state: this.getState() });
   }
 
