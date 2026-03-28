@@ -1007,7 +1007,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         {/* OpenSky approach tracking area */}
         {showArea && (
           <Rectangle
-            bounds={[[52.2, 4.6], [52.45, 5.1]]}
+            bounds={[[52.17, 4.54], [52.48, 5.16]]}
             pathOptions={{
               color: '#9ca3af',
               weight: 1.5,
