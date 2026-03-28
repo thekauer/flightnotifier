@@ -4,6 +4,7 @@ import NumberFlow from '@number-flow/react';
 import { VsCell } from './VsCell';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
+import { getAirlineLogoUrl } from '@/lib/airlineLogo';
 
 const COUNTRY_CODES: Record<string, string> = {
   'Kingdom of the Netherlands': 'NL',
@@ -99,6 +100,22 @@ function TextCell({ value, className }: { value: string; className?: string }) {
   return <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>{value}</td>;
 }
 
+function AirlineLogo({ callsign }: { callsign: string }) {
+  const logoUrl = getAirlineLogoUrl(callsign);
+  if (!logoUrl) return null;
+
+  return (
+    <img
+      src={logoUrl}
+      alt=""
+      width={20}
+      height={20}
+      className="inline-block mr-1.5 rounded-full border border-border/40 object-contain bg-white"
+      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+    />
+  );
+}
+
 function CallsignCell({ value, isExpanded, isApproaching, className }: {
   value: string;
   isExpanded?: boolean;
@@ -111,6 +128,7 @@ function CallsignCell({ value, isExpanded, isApproaching, className }: {
         <span className="mr-1.5 text-[10px] text-muted-foreground/60">{isExpanded ? '\u25BC' : '\u25B6'}</span>
       )}
       {isApproaching && <span className="mr-1">&#9992;</span>}
+      <AirlineLogo callsign={value} />
       <span className="font-mono font-semibold tracking-wide">{value}</span>
     </td>
   );
