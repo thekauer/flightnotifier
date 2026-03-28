@@ -38,9 +38,8 @@ export function AirportCell({ icaoCode, className }: AirportCellProps) {
 
   return (
     <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>
-      <span className="whitespace-nowrap">
-        <span title={info.country} className="cursor-default">{flag}</span>
-        {' '}
+      <span className="inline-flex items-center gap-1 whitespace-nowrap">
+        <span title={info.country} className="cursor-default leading-none">{flag}</span>
         <span title={info.city} className="inline-flex items-center rounded-full bg-muted px-1.5 py-0.5 text-xs font-mono text-muted-foreground cursor-default">
           {badge}
         </span>
