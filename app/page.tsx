@@ -85,28 +85,7 @@ export default function Home() {
           />
 
           <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                  {zone && (
-                    <ConeFlightsTable
-                      flights={zoneFlights}
-                      title="Aircraft Visible"
-                      emptyLabel="No aircraft currently inside the zone"
-                    />
-                  )}
-                  <ConeFlightsTable flights={state.approachingFlights} />
-                </div>
-                <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-                  <div className="lg:col-span-2 rounded-xl border bg-card shadow-sm">
-                    <div className="border-b px-5 py-3 flex items-center justify-between">
-                      <h2 className="text-sm font-semibold">Airborne Flights</h2>
-                      <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-                        {state.allFlights.filter((f) => !f.onGround).length}
-                      </span>
-                    </div>
-                    <FlightList flights={state.allFlights} approachingIds={approachingIds} />
-                  </div>
-                  <ScheduledArrivalsTable />
-                </div>
+                {/* Row 1: Live Map | Aircraft Visible | Aircraft In Cone */}
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   <div className="rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3">
@@ -116,6 +95,30 @@ export default function Home() {
                       <FlightMap state={state} />
                     </div>
                   </div>
+                  {zone && (
+                    <ConeFlightsTable
+                      flights={zoneFlights}
+                      title="Aircraft Visible"
+                      emptyLabel="No aircraft currently inside the zone"
+                    />
+                  )}
+                  <ConeFlightsTable flights={state.approachingFlights} />
+                </div>
+
+                {/* Row 2: Airborne Flights (full width) */}
+                <div className="rounded-xl border bg-card shadow-sm">
+                  <div className="border-b px-5 py-3 flex items-center justify-between">
+                    <h2 className="text-sm font-semibold">Airborne Flights</h2>
+                    <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                      {state.allFlights.filter((f) => !f.onGround).length}
+                    </span>
+                  </div>
+                  <FlightList flights={state.allFlights} approachingIds={approachingIds} />
+                </div>
+
+                {/* Row 3: Scheduled Arrivals (50%) | Weather (50%) */}
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                  <ScheduledArrivalsTable />
                   <WeatherCard weather={state.weather ?? null} />
                 </div>
           </main>

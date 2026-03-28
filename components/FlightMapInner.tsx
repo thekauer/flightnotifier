@@ -269,8 +269,8 @@ function aircraftSvg(category: AircraftCategory, color: string): { svg: string; 
   }
 }
 
-function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null): L.DivIcon {
-  const color = isApproaching ? '#16a34a' : '#2563eb';
+function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null, isInZone?: boolean): L.DivIcon {
+  const color = isInZone ? '#a855f7' : isApproaching ? '#16a34a' : '#2563eb';
   const category = classifyAircraft(aircraftType);
   const { svg, size } = aircraftSvg(category, color);
   const half = size / 2;
@@ -306,8 +306,9 @@ function createLabelIcon(
   aircraftType: string | null | undefined,
   isApproaching: boolean,
   isSelected: boolean,
+  isInZone?: boolean,
 ): L.DivIcon {
-  const color = isSelected ? '#f59e0b' : isApproaching ? '#16a34a' : '#2563eb';
+  const color = isSelected ? '#f59e0b' : isInZone ? '#a855f7' : isApproaching ? '#16a34a' : '#2563eb';
   const label = shortenTypeCode(aircraftType);
   const size = 40;
   const half = size / 2;
@@ -428,6 +429,7 @@ function AnimatedFlightMarker({
   labelMode,
   isSelected,
   onSelect,
+  isInZone,
 }: {
   flight: Flight;
   isApproaching: boolean;
@@ -435,19 +437,36 @@ function AnimatedFlightMarker({
   labelMode: boolean;
   isSelected: boolean;
   onSelect: (flightId: string) => void;
+  isInZone: boolean;
 }) {
   const markerRef = useRef<L.Marker | null>(null);
   const rafRef = useRef<number>(0);
+  // Track current animated position and last frame time for smooth delta-based movement
+  const posRef = useRef<{ lat: number; lon: number }>({ lat: flight.lat, lon: flight.lon });
+  const lastFrameRef = useRef<number>(performance.now());
   const flightRef = useRef(flight);
+
+  // When flight data updates from SSE, snap to the new real position
+  if (flightRef.current.lat !== flight.lat || flightRef.current.lon !== flight.lon) {
+    posRef.current = { lat: flight.lat, lon: flight.lon };
+  }
   flightRef.current = flight;
 
-  // rAF loop that directly updates Leaflet marker position (no React re-render)
+  // rAF loop: advance position by deltaTime * speed each frame
   const tick = useCallback(() => {
+    const now = performance.now();
+    const dt = (now - lastFrameRef.current) / 1000; // seconds since last frame
+    lastFrameRef.current = now;
+
     const f = flightRef.current;
-    const elapsed = Date.now() / 1000 - f.timestamp;
-    const clamped = Math.min(elapsed, 300);
-    const [lat, lon] = interpolatePosition(f.lat, f.lon, f.speed, f.track, clamped);
-    markerRef.current?.setLatLng([lat, lon]);
+    const speedDegPerSec = f.speed * KNOTS_TO_DEG_PER_SEC;
+    const trackRad = (f.track * Math.PI) / 180;
+    const pos = posRef.current;
+
+    pos.lat += speedDegPerSec * Math.cos(trackRad) * dt;
+    pos.lon += (speedDegPerSec * Math.sin(trackRad) * dt) / Math.cos((pos.lat * Math.PI) / 180);
+
+    markerRef.current?.setLatLng([pos.lat, pos.lon]);
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
@@ -455,29 +474,24 @@ function AnimatedFlightMarker({
   const wasAnimating = useRef(false);
   if (animate && !wasAnimating.current) {
     wasAnimating.current = true;
+    lastFrameRef.current = performance.now();
     rafRef.current = requestAnimationFrame(tick);
   } else if (!animate && wasAnimating.current) {
     wasAnimating.current = false;
     cancelAnimationFrame(rafRef.current);
-    // Snap to real position
+    posRef.current = { lat: flight.lat, lon: flight.lon };
     markerRef.current?.setLatLng([flight.lat, flight.lon]);
   }
 
-  // Compute initial/static position
-  let displayLat = flight.lat;
-  let displayLon = flight.lon;
-  if (animate) {
-    const elapsed = Date.now() / 1000 - flight.timestamp;
-    const clamped = Math.min(elapsed, 300);
-    [displayLat, displayLon] = interpolatePosition(flight.lat, flight.lon, flight.speed, flight.track, clamped);
-  }
+  const displayLat = animate ? posRef.current.lat : flight.lat;
+  const displayLon = animate ? posRef.current.lon : flight.lon;
 
   const icon = useMemo(() => {
     if (labelMode) {
-      return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected);
+      return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected, isInZone);
     }
-    return createFlightIcon(flight.track, isApproaching, flight.aircraftType);
-  }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode]);
+    return createFlightIcon(flight.track, isApproaching, flight.aircraftType, isInZone);
+  }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode, isInZone]);
 
   const eventHandlers = useMemo(
     () => ({ click() { onSelect(flight.id); } }),
@@ -721,7 +735,7 @@ interface FlightMapInnerProps {
 
 export default function FlightMapInner({ airborneFlights, approachingIds, weather }: FlightMapInnerProps) {
   const isDark = useIsDarkMode();
-  const { zone, visible, setZone, clearZone, toggleVisible } = useNotificationZone();
+  const { zone, visible, setZone, clearZone, toggleVisible, isInZone } = useNotificationZone();
   // --- Animate toggle (persisted to localStorage) ---
   const ANIMATE_KEY = 'flightnotifier-animate';
   const [animateState, setAnimateState] = useState(false);
@@ -1068,6 +1082,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             labelMode={labelMode}
             isSelected={selectedFlightId === flight.id}
             onSelect={handleSelectFlight}
+            isInZone={!!zone && isInZone(flight.lat, flight.lon)}
           />
         ))}
       </MapContainer>
