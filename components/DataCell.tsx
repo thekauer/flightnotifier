@@ -106,12 +106,12 @@ function CallsignCell({ value, isExpanded, isApproaching, className }: {
   className?: string;
 }) {
   return (
-    <td className={`px-3 py-1.5 whitespace-nowrap ${className ?? ''}`.trim()}>
+    <td className={`px-3 py-1.5 whitespace-nowrap ${isApproaching ? 'border-l-2 border-emerald-500' : ''} ${className ?? ''}`.trim()}>
       {isExpanded !== undefined && (
-        <span className="mr-2">{isExpanded ? '▼' : '▶'}</span>
+        <span className="mr-1.5 text-[10px] text-muted-foreground/60">{isExpanded ? '\u25BC' : '\u25B6'}</span>
       )}
       {isApproaching && <span className="mr-1">&#9992;</span>}
-      {value}
+      <span className="font-mono font-semibold tracking-wide">{value}</span>
     </td>
   );
 }

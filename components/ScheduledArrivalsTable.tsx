@@ -208,9 +208,6 @@ export function ScheduledArrivalsTable() {
                 <th className="px-3 py-2.5 text-right text-xs font-medium text-muted-foreground uppercase tracking-wider">
                   ETA
                 </th>
-                <th className="px-3 py-2.5 text-center text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Cone
-                </th>
               </tr>
             </thead>
             <tbody>
@@ -238,19 +235,10 @@ export function ScheduledArrivalsTable() {
                       <DataCell type="aircraftType" value={arrival.aircraftType} />
                       <DataCell type="distance" value={arrival.distanceToAmsKm} />
                       <DataCell type="eta" value={arrival.estimatedMinutes} />
-                      <td className="px-3 py-1.5 text-center">
-                        {arrival.isBuitenveldertbaan ? (
-                          <span className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-xs font-bold">
-                            &#10003;
-                          </span>
-                        ) : (
-                          ''
-                        )}
-                      </td>
                     </tr>
                     {isExpanded && (
                       <tr className="border-b border-border/50 bg-muted/20">
-                        <td colSpan={7}>
+                        <td colSpan={6}>
                           <HistoricalFlightDetails arrival={arrival} />
                         </td>
                       </tr>
