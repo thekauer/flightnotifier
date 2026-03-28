@@ -15,10 +15,10 @@ import { getAirportInfo, countryCodeToFlag } from '@/lib/airports';
 // ---------------------------------------------------------------------------
 // Color palette
 // ---------------------------------------------------------------------------
+const COLOR_DEFAULT = '#ca8a04';        // muted yellow — normal flights
 const COLOR_APPROACHING = '#16a34a';    // green — flights in approach cone
-const COLOR_DEFAULT = '#2563eb';        // blue — normal flights
-const COLOR_SELECTED = '#f59e0b';       // amber — selected aircraft
-const COLOR_IN_ZONE = '#a855f7';        // purple — aircraft inside notification zone
+const COLOR_IN_ZONE = '#3b82f6';        // blue — aircraft inside notification zone
+const COLOR_SELECTED = '#f97316';       // orange — selected aircraft
 const COLOR_CONE = '#16a34a';           // green — approach cone overlay
 const COLOR_RUNWAY_FILL_LIGHT = '#333';
 const COLOR_RUNWAY_FILL_DARK = '#71717a';
@@ -283,8 +283,8 @@ function aircraftSvg(category: AircraftCategory, color: string): { svg: string; 
   }
 }
 
-function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null, isInZone?: boolean): L.DivIcon {
-  const color = isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
+function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null, isInZone?: boolean, isSelected?: boolean): L.DivIcon {
+  const color = isSelected ? COLOR_SELECTED : isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
   const category = classifyAircraft(aircraftType);
   const { svg, size } = aircraftSvg(category, color);
   const half = size / 2;
@@ -388,7 +388,7 @@ function FlightMarker({
         className: '',
       });
     }
-    return createFlightIcon(flight.track, isApproaching, flight.aircraftType);
+    return createFlightIcon(flight.track, isApproaching, flight.aircraftType, false, isSelected);
   }, [flight.track, isApproaching, flight.aircraftType, labelMode, isSelected]);
 
   const eventHandlers = useMemo(
@@ -504,7 +504,7 @@ function AnimatedFlightMarker({
     if (labelMode) {
       return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected, isInZone);
     }
-    return createFlightIcon(flight.track, isApproaching, flight.aircraftType, isInZone);
+    return createFlightIcon(flight.track, isApproaching, flight.aircraftType, isInZone, isSelected);
   }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode, isInZone]);
 
   const eventHandlers = useMemo(
