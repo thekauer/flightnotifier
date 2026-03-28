@@ -100,12 +100,14 @@ export default function Home() {
                       <FlightMap state={state} />
                     </div>
                   </div>
-                  {/* Right column row 1: Aircraft In Cone + Scheduled Arrivals */}
-                  <ConeFlightsTable
-                    flights={state.approachingFlights}
-                    zoneFlightIds={zoneFlightIds}
-                  />
-                  <ScheduledArrivalsTable />
+                  {/* Right column row 1: Contact (2/3 wide) */}
+                  <div className="lg:col-span-2">
+                    <ConeFlightsTable
+                      flights={state.approachingFlights}
+                      title="Contact"
+                      zoneFlightIds={zoneFlightIds}
+                    />
+                  </div>
                   {/* Right column row 2: Airborne Flights (spans 2 cols) */}
                   <div className="lg:col-span-2 rounded-xl border bg-card shadow-sm">
                     <div className="border-b px-5 py-3 flex items-center justify-between">
@@ -118,8 +120,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Bottom row: Weather (full width) */}
-                <WeatherCard weather={state.weather ?? null} />
+                {/* Bottom row: Arrivals (50%) + Weather (50%) */}
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                  <ScheduledArrivalsTable />
+                  <WeatherCard weather={state.weather ?? null} />
+                </div>
           </main>
         </>
       )}
