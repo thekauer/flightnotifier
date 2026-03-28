@@ -27,7 +27,7 @@ const schipholIcon = L.divIcon({
 function createFlightIcon(track: number, isApproaching: boolean): L.DivIcon {
   const color = isApproaching ? '#16a34a' : '#2563eb';
   return L.divIcon({
-    html: `<div style="font-size:18px;color:${color};transform:rotate(${track}deg);text-align:center;line-height:1;">&#9992;</div>`,
+    html: `<div style="font-size:18px;color:${color};transform:rotate(${track - 90}deg);text-align:center;line-height:1;">&#9992;</div>`,
     iconSize: [24, 24],
     iconAnchor: [12, 12],
     className: '',
@@ -46,31 +46,43 @@ function FitBounds() {
 }
 
 function FlightMarker({ flight, isApproaching }: { flight: Flight; isApproaching: boolean }) {
-  const icon = useMemo(
-    () => createFlightIcon(flight.track, isApproaching),
-    [flight.track, isApproaching],
-  );
+  const icon = useMemo(() => createFlightIcon(flight.track, isApproaching), [flight.track, isApproaching]);
 
   return (
     <Marker position={[flight.lat, flight.lon]} icon={icon}>
       <Popup>
         <div className="text-xs">
           <div className="font-bold">{flight.callsign || flight.id}</div>
-          {flight.aircraftType && <div className="flex items-center gap-1">Type: {flight.manufacturer && <span>{flight.manufacturer}</span>} <AircraftTypeBadge typeCode={flight.aircraftType} /></div>}
+          {flight.aircraftType && (
+            <div className="flex items-center gap-1">
+              Type: {flight.manufacturer && <span>{flight.manufacturer}</span>}{' '}
+              <AircraftTypeBadge typeCode={flight.aircraftType} />
+            </div>
+          )}
           {flight.registration && <div>Reg: {flight.registration}</div>}
           {flight.owner && <div>Owner: {flight.owner}</div>}
-          {flight.origin && (() => {
-            const info = getAirportInfo(flight.origin);
-            return info
-              ? <div>From: {countryCodeToFlag(info.countryCode)} {info.city}</div>
-              : <div>From: {flight.origin}</div>;
-          })()}
-          {flight.destination && (() => {
-            const info = getAirportInfo(flight.destination);
-            return info
-              ? <div>To: {countryCodeToFlag(info.countryCode)} {info.city}</div>
-              : <div>To: {flight.destination}</div>;
-          })()}
+          {flight.origin &&
+            (() => {
+              const info = getAirportInfo(flight.origin);
+              return info ? (
+                <div>
+                  From: {countryCodeToFlag(info.countryCode)} {info.city}
+                </div>
+              ) : (
+                <div>From: {flight.origin}</div>
+              );
+            })()}
+          {flight.destination &&
+            (() => {
+              const info = getAirportInfo(flight.destination);
+              return info ? (
+                <div>
+                  To: {countryCodeToFlag(info.countryCode)} {info.city}
+                </div>
+              ) : (
+                <div>To: {flight.destination}</div>
+              );
+            })()}
           <div>Alt: {flight.alt.toLocaleString()} ft</div>
           <div>Speed: {flight.speed} kts</div>
           <div>Heading: {flight.track}&deg;</div>
@@ -107,13 +119,7 @@ function DrawZoneHandler({
 }
 
 /** Drag handle marker for resizing the notification zone. */
-function DragHandle({
-  position,
-  onDrag,
-}: {
-  position: [number, number];
-  onDrag: (latlng: L.LatLng) => void;
-}) {
+function DragHandle({ position, onDrag }: { position: [number, number]; onDrag: (latlng: L.LatLng) => void }) {
   const icon = useMemo(
     () =>
       L.divIcon({
@@ -122,7 +128,7 @@ function DragHandle({
         iconAnchor: [6, 6],
         className: '',
       }),
-    [],
+    []
   );
 
   const eventHandlers = useMemo(
@@ -132,7 +138,7 @@ function DragHandle({
         onDrag(marker.getLatLng());
       },
     }),
-    [onDrag],
+    [onDrag]
   );
 
   return <Marker position={position} icon={icon} draggable eventHandlers={eventHandlers} />;
@@ -176,7 +182,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
       firstCornerRef.current = null;
       setFirstCorner(null);
     },
-    [setZone],
+    [setZone]
   );
 
   const handleReset = useCallback(() => {
@@ -195,7 +201,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         west: Math.min(latlng.lng, zone.east),
       });
     },
-    [zone, setZone],
+    [zone, setZone]
   );
 
   const handleDragNE = useCallback(
@@ -207,7 +213,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         east: Math.max(latlng.lng, zone.west),
       });
     },
-    [zone, setZone],
+    [zone, setZone]
   );
 
   const handleDragNW = useCallback(
@@ -219,7 +225,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         west: Math.min(latlng.lng, zone.east),
       });
     },
-    [zone, setZone],
+    [zone, setZone]
   );
 
   const handleDragSE = useCallback(
@@ -231,7 +237,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         east: Math.max(latlng.lng, zone.west),
       });
     },
-    [zone, setZone],
+    [zone, setZone]
   );
 
   const zoneBounds: L.LatLngBoundsExpression | null = zone
@@ -253,11 +259,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
               : 'bg-white/90 dark:bg-zinc-800/90 text-zinc-700 dark:text-zinc-200 hover:bg-white dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-600'
           }`}
         >
-          {drawing
-            ? firstCorner
-              ? 'Click 2nd corner...'
-              : 'Click 1st corner...'
-            : 'Draw Zone'}
+          {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}
         </button>
         {zone && (
           <>
@@ -277,12 +279,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         )}
       </div>
 
-      <MapContainer
-        center={SCHIPHOL_POS}
-        zoom={11}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={true}
-      >
+      <MapContainer center={SCHIPHOL_POS} zoom={11} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -338,11 +335,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds }: Flig
         </Marker>
 
         {airborneFlights.map((flight) => (
-          <FlightMarker
-            key={flight.id}
-            flight={flight}
-            isApproaching={approachingIds.has(flight.id)}
-          />
+          <FlightMarker key={flight.id} flight={flight} isApproaching={approachingIds.has(flight.id)} />
         ))}
       </MapContainer>
     </div>
