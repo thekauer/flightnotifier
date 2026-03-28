@@ -5,6 +5,7 @@ import { PredictionSettingsCard } from './settings/PredictionSettingsCard';
 import { PredictionHorizonCard } from './settings/PredictionHorizonCard';
 import { SpottingModeCard } from './settings/SpottingModeCard';
 import { StaggerCard } from './settings/StaggerCard';
+import { EtaFormatCard } from './settings/EtaFormatCard';
 
 export function SettingsPage() {
   return (
@@ -49,6 +50,9 @@ export function SettingsPage() {
 
       {/* Staggered Animations */}
       <StaggerCard />
+
+      {/* ETA Format */}
+      <EtaFormatCard />
 
       {/* Display */}
       <div className="rounded-xl border bg-card shadow-sm">

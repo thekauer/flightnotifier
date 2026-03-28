@@ -9,6 +9,7 @@ import { AircraftFilterProvider } from '@/lib/aircraftFilterContext';
 import { SpottingModeProvider } from '@/lib/spottingModeContext';
 import { StaggerProvider } from '@/lib/staggerContext';
 import { SelectedFlightProvider } from '@/lib/selectedFlightContext';
+import { EtaFormatProvider } from '@/lib/etaFormatContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -20,7 +21,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <VisibilitySettingsProvider>
               <PredictionHorizonProvider>
                 <AircraftFilterProvider>
-                  <SelectedFlightProvider>{children}</SelectedFlightProvider>
+                  <EtaFormatProvider>
+                    <SelectedFlightProvider>{children}</SelectedFlightProvider>
+                  </EtaFormatProvider>
                 </AircraftFilterProvider>
               </PredictionHorizonProvider>
             </VisibilitySettingsProvider>
