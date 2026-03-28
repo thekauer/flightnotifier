@@ -93,10 +93,10 @@ export default function Home() {
                 <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
                   {/* Live Map — spans 2 grid rows */}
                   <div className="rounded-xl border bg-card shadow-sm lg:row-span-2">
-                    <div className="border-b px-5 py-3">
+                    <div className="px-5 py-3">
                       <h2 className="text-sm font-semibold">Live Map</h2>
                     </div>
-                    <div className="h-[700px] p-1">
+                    <div className="h-[700px]">
                       <FlightMap state={state} />
                     </div>
                   </div>

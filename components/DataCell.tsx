@@ -106,7 +106,7 @@ function CallsignCell({ value, isExpanded, isApproaching, className }: {
   className?: string;
 }) {
   return (
-    <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>
+    <td className={`px-3 py-1.5 whitespace-nowrap ${className ?? ''}`.trim()}>
       {isExpanded !== undefined && (
         <span className="mr-2">{isExpanded ? '▼' : '▶'}</span>
       )}

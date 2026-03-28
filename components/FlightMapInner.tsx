@@ -697,22 +697,22 @@ function SelectedFlightPanel({
   onClose: () => void;
 }) {
   return (
-    <div className="border-t bg-muted/40 px-4 py-3 text-xs">
+    <div className="border-t bg-muted/40 px-6 py-4 text-sm">
       {/* Header row: aircraft type + close button */}
-      <div className="flex items-center justify-between mb-2">
-        <div className="text-base font-semibold">
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-lg font-semibold">
           <AircraftTypeBadge typeCode={flight.aircraftType} />
         </div>
         <button
           onClick={onClose}
-          className="rounded-full w-6 h-6 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors text-sm font-bold"
+          className="rounded-full w-7 h-7 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors text-base font-bold"
           title="Deselect"
         >
           &times;
         </button>
       </div>
       {/* Two-column data grid */}
-      <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+      <div className="grid grid-cols-2 gap-x-8 gap-y-3 place-items-center text-center">
         {flight.origin && <AirportBadge label="From" iata={flight.origin} />}
         {flight.destination && <AirportBadge label="To" iata={flight.destination} />}
         {!flight.origin && !flight.destination && <div className="col-span-2" />}
@@ -799,6 +799,32 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   }, []);
 
   const labelMode = getLabelMode();
+
+  // --- Show area toggle (persisted to localStorage) ---
+  const AREA_KEY = 'flightnotifier-show-area';
+  const [showAreaState, setShowAreaState] = useState(false);
+  const hasSyncedArea = useRef(false);
+
+  const getShowArea = useCallback((): boolean => {
+    if (!hasSyncedArea.current && typeof window !== 'undefined') {
+      hasSyncedArea.current = true;
+      try {
+        const stored = localStorage.getItem(AREA_KEY) === 'true';
+        if (stored) setShowAreaState(true);
+        return stored;
+      } catch { return false; }
+    }
+    return showAreaState;
+  }, [showAreaState]);
+
+  const setShowArea = useCallback((v: boolean) => {
+    hasSyncedArea.current = true;
+    setShowAreaState(v);
+    try { localStorage.setItem(AREA_KEY, String(v)); } catch {}
+  }, []);
+
+  const showArea = getShowArea();
+
   const [selectedFlightId, setSelectedFlightId] = useState<string | null>(null);
   const [drawing, setDrawing] = useState(false);
   const firstCornerRef = useRef<L.LatLng | null>(null);
@@ -931,7 +957,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   return (
     <div className="flex flex-col h-full w-full">
       {/* Radar-style HUD header */}
-      <div className="flex items-center justify-between px-3 py-1.5 border border-b-0 rounded-t font-mono text-[11px] text-muted-foreground shrink-0">
+      <div className="flex items-center justify-between px-3 py-1.5 border-b font-mono text-[11px] text-muted-foreground shrink-0">
         {/* Wind info — top left */}
         <div title="Wind direction / speed">
           {weather && weather.windSpeed != null ? (
@@ -970,7 +996,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       <div className="relative flex-1 min-h-0">
       <MapContainer
         center={SCHIPHOL_POS}
-        zoom={12}
+        zoom={13}
         minZoom={9}
         maxZoom={16}
         maxBounds={[[52.0, 4.2], [52.6, 5.5]]}
@@ -985,6 +1011,21 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           url={isDark ? TILE_DARK : TILE_LIGHT}
         />
         <FitBounds />
+
+        {/* OpenSky approach tracking area */}
+        {showArea && (
+          <Rectangle
+            bounds={[[52.2, 4.6], [52.45, 5.1]]}
+            pathOptions={{
+              color: '#9ca3af',
+              weight: 1.5,
+              dashArray: '6 4',
+              fillColor: '#9ca3af',
+              fillOpacity: 0.03,
+              interactive: false,
+            }}
+          />
+        )}
 
         <DrawZoneHandler
           drawing={drawing}
@@ -1118,20 +1159,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         ))}
       </MapContainer>
       </div>
-      {/* Selected flight detail panel — always reserves space below map */}
-      <div className="min-h-[80px] shrink-0">
-        {selectedFlight ? (
-          <SelectedFlightPanel
-            flight={selectedFlight}
-            onClose={() => setSelectedFlightId(null)}
-          />
-        ) : (
-          <div className="flex items-center justify-center h-[80px] border-t text-xs text-muted-foreground/50 font-mono select-none">
-            Click an aircraft to see details
-          </div>
-        )}
-      </div>
-      {/* Controls bar — bottom */}
+      {/* Controls bar */}
       <div className="flex flex-wrap items-center gap-2 px-3 py-2 border-t text-xs">
         <button
           onClick={() => setAnimate(!animate)}
@@ -1152,6 +1180,16 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           }`}
         >
           Labels
+        </button>
+        <button
+          onClick={() => setShowArea(!showArea)}
+          className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors select-none border ${
+            showArea
+              ? 'bg-blue-600 text-white border-blue-600'
+              : 'border-zinc-300 dark:border-zinc-600 text-muted-foreground hover:text-foreground'
+          }`}
+        >
+          Area
         </button>
         <span className="text-muted-foreground/30">|</span>
         <button
@@ -1179,6 +1217,19 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
               Reset Zone
             </button>
           </>
+        )}
+      </div>
+      {/* Selected flight detail panel — always reserves space below controls */}
+      <div className="min-h-[120px] shrink-0">
+        {selectedFlight ? (
+          <SelectedFlightPanel
+            flight={selectedFlight}
+            onClose={() => setSelectedFlightId(null)}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-[120px] border-t text-xs text-muted-foreground/50 font-mono select-none">
+            Click an aircraft to see details
+          </div>
         )}
       </div>
     </div>
