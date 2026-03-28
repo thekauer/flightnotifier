@@ -79,8 +79,8 @@ export function FlightList({ flights, approachingIds }: FlightListProps) {
                 <VsCell value={f.verticalRate} />
                 <DataCell type="heading" value={f.track} />
               </tr>
-              <tr className={onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}>
-                <td colSpan={8} className="p-0">
+              <tr className={`${isExpanded ? (onRwy27 ? 'bg-amber-50/70 dark:bg-amber-950/30' : isApproaching ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : '') : ''}`} style={{ lineHeight: isExpanded ? undefined : 0 }}>
+                <td colSpan={8} className="p-0 border-0">
                   <div className="grid transition-[grid-template-rows] duration-200 ease-out" style={{ gridTemplateRows: isExpanded ? '1fr' : '0fr' }}>
                     <div className="overflow-hidden min-h-0">
                       <div className="px-3 py-3">
