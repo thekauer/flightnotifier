@@ -355,10 +355,12 @@ function createLabelIcon(
 function FitBounds() {
   const map = useMap();
   useMemo(() => {
+    const lats = APPROACH_CONE_27.map(p => p[0]);
+    const lons = APPROACH_CONE_27.map(p => p[1]);
     map.fitBounds([
-      [52.2, 4.5],
-      [52.45, 5.2],
-    ]);
+      [Math.min(...lats), Math.min(...lons)],
+      [Math.max(...lats), Math.max(...lons)],
+    ], { padding: [10, 10] });
   }, [map]);
   return null;
 }
