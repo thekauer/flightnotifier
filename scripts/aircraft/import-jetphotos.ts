@@ -4,13 +4,62 @@ import { createHash } from 'node:crypto';
 import { mkdir, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
+import puppeteer from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import type { Browser, Page } from 'puppeteer-core';
 import { publishSourceImage, writeQuizInventory, REPO_ROOT, SOURCE_ROOT, zeroPadSlot } from './lib/publish';
 
-const USER_AGENT =
-  'FlightNotifier/1.0 (local development; JetPhotos importer; contact: local workspace)';
+puppeteer.use(StealthPlugin());
+
 const SEARCH_BASE_URL = 'https://www.jetphotos.com/showphotos.php';
 const PHOTO_BASE_URL = 'https://www.jetphotos.com';
 const TERMS_NOTE = 'JetPhotos page says to contact photographer for terms of use.';
+
+const BROWSER_UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+
+/** Max retries on 403 / rate limit. */
+const MAX_RETRIES = 5;
+/** Base backoff on rate limit — doubles each attempt: 60s, 120s, 240s, ... */
+const RATE_LIMIT_BACKOFF_MS = 60_000;
+/** Delay between sequential requests (ms). ~16 req/min, well under 30/min. */
+const DEFAULT_DELAY_MS = 1_000;
+/** Random jitter ±500ms added to delay. */
+const JITTER_MS = 500;
+/** Path to system Chrome on macOS. */
+const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+
+let _browser: Browser | null = null;
+let _requestCount = 0;
+const _startTime = Date.now();
+
+async function getBrowser(): Promise<Browser> {
+  if (!_browser) {
+    logStep('browser', 'launching headless Chrome with stealth...');
+    _browser = await puppeteer.launch({
+      executablePath: CHROME_PATH,
+      headless: 'new',
+      args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu',
+        '--window-size=1920,1080',
+        '--disable-blink-features=AutomationControlled',
+      ],
+    }) as unknown as Browser;
+    logStep('browser', 'Chrome launched');
+  }
+  return _browser;
+}
+
+async function closeBrowser(): Promise<void> {
+  if (_browser) {
+    await _browser.close();
+    _browser = null;
+    logStep('browser', 'Chrome closed');
+  }
+}
 
 const FAMILY_CONFIG: Record<string, { name: string; searches: string[] }> = {
   'boeing-747': { name: 'Boeing 747', searches: ['Boeing 747;'] },
@@ -37,10 +86,10 @@ const FAMILY_CONFIG: Record<string, { name: string; searches: string[] }> = {
 };
 
 interface ImportArgs {
-  family: string;
+  families: string[];
   target: number;
   pages: number;
-  concurrency: number;
+  delay: number;
   quality: number;
 }
 
@@ -62,27 +111,29 @@ function parseCliArgs(): ImportArgs {
     args: process.argv.slice(2),
     options: {
       family: { type: 'string' },
-      target: { type: 'string', default: '1' },
-      pages: { type: 'string', default: '1' },
-      concurrency: { type: 'string', default: '4' },
+      target: { type: 'string', default: '100' },
+      pages: { type: 'string', default: '5' },
+      delay: { type: 'string', default: String(DEFAULT_DELAY_MS) },
       quality: { type: 'string', default: '82' },
     },
     allowPositionals: false,
   });
 
-  const family = values.family;
-  if (!family) {
-    throw new Error('Missing required --family argument.');
-  }
-  if (!FAMILY_CONFIG[family]) {
-    throw new Error(`Unknown family "${family}".`);
+  let families: string[];
+  if (values.family) {
+    if (!FAMILY_CONFIG[values.family]) {
+      throw new Error(`Unknown family "${values.family}". Valid: ${Object.keys(FAMILY_CONFIG).join(', ')}`);
+    }
+    families = [values.family];
+  } else {
+    families = Object.keys(FAMILY_CONFIG);
   }
 
   return {
-    family,
-    target: Math.max(1, parseInt(values.target ?? '1', 10) || 1),
-    pages: Math.max(1, parseInt(values.pages ?? '1', 10) || 1),
-    concurrency: Math.max(1, parseInt(values.concurrency ?? '4', 10) || 1),
+    families,
+    target: Math.max(1, parseInt(values.target ?? '100', 10) || 100),
+    pages: Math.max(1, parseInt(values.pages ?? '5', 10) || 5),
+    delay: Math.max(0, parseInt(values.delay ?? String(DEFAULT_DELAY_MS), 10) || DEFAULT_DELAY_MS),
     quality: Math.max(1, parseInt(values.quality ?? '82', 10) || 82),
   };
 }
@@ -105,38 +156,112 @@ function stripTags(value: string): string {
 }
 
 function logStep(family: string, message: string): void {
-  console.log(`[jetphotos:${family}] ${message}`);
+  const elapsed = ((Date.now() - _startTime) / 1000).toFixed(0);
+  console.log(`[${elapsed}s req#${_requestCount}] [jetphotos:${family}] ${message}`);
 }
 
-async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url, {
-    headers: {
-      'user-agent': USER_AGENT,
-      accept: 'text/html,application/xhtml+xml',
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} while fetching ${url}`);
-  }
-
-  return response.text();
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function fetchBytes(url: string): Promise<Uint8Array> {
-  const response = await fetch(url, {
-    headers: {
-      'user-agent': USER_AGENT,
-      accept: 'image/avif,image/webp,image/apng,image/jpeg,image/*,*/*;q=0.8',
-      referer: PHOTO_BASE_URL,
-    },
-  });
+function jitteredDelay(baseMs: number): number {
+  return baseMs + Math.round((Math.random() * 2 - 1) * JITTER_MS);
+}
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} while downloading ${url}`);
+/** Throttle: wait between requests to stay under rate limits. */
+async function throttle(delayMs: number): Promise<void> {
+  const actual = jitteredDelay(delayMs);
+  await sleep(actual);
+}
+
+/**
+ * Fetch HTML via headless Chrome (bypasses Cloudflare).
+ * Retries on 403 with exponential backoff (60s, 120s, 240s, ...).
+ */
+async function fetchText(url: string, delayMs: number): Promise<string> {
+  const browser = await getBrowser();
+  let lastError: Error | null = null;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    _requestCount++;
+    const page: Page = await browser.newPage();
+    try {
+      const response = await page.goto(url, {
+        waitUntil: 'domcontentloaded',
+        timeout: 30_000,
+      });
+
+      const status = response?.status() ?? 0;
+
+      if (status >= 200 && status < 400) {
+        const html = await page.content();
+        await throttle(delayMs);
+        return html;
+      }
+
+      lastError = new Error(`HTTP ${status} while fetching ${url}`);
+
+      if ((status === 403 || status === 429) && attempt < MAX_RETRIES) {
+        const backoff = RATE_LIMIT_BACKOFF_MS * Math.pow(2, attempt - 1);
+        logStep('fetch', `got ${status} on attempt ${attempt}/${MAX_RETRIES}, backing off ${(backoff / 1000).toFixed(0)}s...`);
+        await sleep(backoff);
+        continue;
+      }
+
+      throw lastError;
+    } catch (error) {
+      if (error === lastError) throw error;
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt < MAX_RETRIES) {
+        const backoff = RATE_LIMIT_BACKOFF_MS * Math.pow(2, attempt - 1);
+        logStep('fetch', `error on attempt ${attempt}/${MAX_RETRIES}: ${lastError.message}, backing off ${(backoff / 1000).toFixed(0)}s...`);
+        await sleep(backoff);
+        continue;
+      }
+      throw lastError;
+    } finally {
+      await page.close();
+    }
   }
 
-  return new Uint8Array(await response.arrayBuffer());
+  throw lastError ?? new Error(`Failed to fetch ${url} after ${MAX_RETRIES} attempts`);
+}
+
+/** Fetch image bytes (CDN, not behind Cloudflare — direct fetch is fine). */
+async function fetchBytes(url: string, delayMs: number): Promise<Uint8Array> {
+  let lastError: Error | null = null;
+
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    _requestCount++;
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': BROWSER_UA,
+        Accept: 'image/avif,image/webp,image/apng,image/jpeg,image/*,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        Referer: `${PHOTO_BASE_URL}/`,
+      },
+      redirect: 'follow',
+    });
+
+    if (response.ok) {
+      const data = new Uint8Array(await response.arrayBuffer());
+      await throttle(delayMs);
+      return data;
+    }
+
+    lastError = new Error(`HTTP ${response.status} while downloading ${url}`);
+
+    if ((response.status === 403 || response.status === 429) && attempt < MAX_RETRIES) {
+      const backoff = RATE_LIMIT_BACKOFF_MS * Math.pow(2, attempt - 1);
+      logStep('fetch', `got ${response.status} on image attempt ${attempt}/${MAX_RETRIES}, backing off ${(backoff / 1000).toFixed(0)}s...`);
+      await sleep(backoff);
+      continue;
+    }
+
+    throw lastError;
+  }
+
+  throw lastError ?? new Error(`Failed to download ${url} after ${MAX_RETRIES} attempts`);
 }
 
 function buildSearchUrl(searchValue: string, page: number): string {
@@ -254,8 +379,8 @@ function parseTitleMetadata(html: string): {
   };
 }
 
-async function inspectPhotoPage(photoPageUrl: string): Promise<PhotoCandidate | null> {
-  const html = await fetchText(photoPageUrl);
+async function inspectPhotoPage(photoPageUrl: string, delayMs: number): Promise<PhotoCandidate | null> {
+  const html = await fetchText(photoPageUrl, delayMs);
   const jsonLd = extractScriptJsonLd(html);
   const titleFields = parseTitleMetadata(html);
   const ogImage = extractMetaContent(html, 'og:image');
@@ -295,40 +420,33 @@ async function inspectPhotoPage(photoPageUrl: string): Promise<PhotoCandidate | 
   };
 }
 
-async function inspectCandidateBatch(
+/** Inspect candidates sequentially (one at a time) to respect rate limits. */
+async function inspectCandidatesSequential(
   photoPageUrls: string[],
-  concurrency: number,
   family: string,
   target: number,
+  delayMs: number,
 ): Promise<PhotoCandidate[]> {
   const accepted: PhotoCandidate[] = [];
   let inspected = 0;
 
-  for (let index = 0; index < photoPageUrls.length && accepted.length < target; index += concurrency) {
-    const batch = photoPageUrls.slice(index, index + concurrency);
-    const batchResults = await Promise.all(
-      batch.map(async (photoPageUrl) => {
-        try {
-          return await inspectPhotoPage(photoPageUrl);
-        } catch (error) {
-          const message = error instanceof Error ? error.message : String(error);
-          logStep(family, `failed to inspect ${photoPageUrl}: ${message}`);
-          return null;
-        }
-      }),
-    );
+  for (const photoPageUrl of photoPageUrls) {
+    if (accepted.length >= target) break;
 
-    inspected += batch.length;
-    for (const candidate of batchResults) {
-      if (!candidate) continue;
-      accepted.push(candidate);
-      if (accepted.length >= target) break;
+    inspected++;
+    try {
+      const candidate = await inspectPhotoPage(photoPageUrl, delayMs);
+      if (candidate) {
+        accepted.push(candidate);
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      logStep(family, `failed to inspect ${photoPageUrl}: ${message}`);
     }
 
-    logStep(
-      family,
-      `inspected ${inspected}/${photoPageUrls.length} result pages, accepted ${accepted.length}/${target}`,
-    );
+    if (inspected % 10 === 0 || accepted.length >= target) {
+      logStep(family, `inspected ${inspected}/${photoPageUrls.length}, accepted ${accepted.length}/${target}`);
+    }
   }
 
   return accepted;
@@ -358,6 +476,7 @@ async function saveCandidate(
   slotNumber: number,
   candidate: PhotoCandidate,
   quality: number,
+  delayMs: number,
 ): Promise<void> {
   const slot = zeroPadSlot(slotNumber);
   const imagePath = path.join(outputDir, `${slot}.jpg`);
@@ -365,7 +484,7 @@ async function saveCandidate(
   const publicWebpPath = path.join('public', 'assets', 'aircraft', familyId, `${slot}.webp`);
 
   logStep(familyId, `downloading ${candidate.imageUrl}`);
-  const bytes = await fetchBytes(candidate.imageUrl);
+  const bytes = await fetchBytes(candidate.imageUrl, delayMs);
   await writeFile(imagePath, bytes);
 
   const hash = createHash('sha256').update(bytes).digest('hex');
@@ -430,45 +549,46 @@ async function saveCandidate(
   await writeQuizInventory((message) => logStep(familyId, message));
 }
 
-async function run(): Promise<void> {
-  const args = parseCliArgs();
-  const familyConfig = FAMILY_CONFIG[args.family];
-  const outputDir = path.join(SOURCE_ROOT, args.family);
+async function importFamily(
+  familyId: string,
+  args: ImportArgs,
+): Promise<void> {
+  const familyConfig = FAMILY_CONFIG[familyId]!;
+  const outputDir = path.join(SOURCE_ROOT, familyId);
 
   await mkdir(outputDir, { recursive: true });
-  logStep(args.family, `starting import for ${familyConfig.name}`);
-  logStep(
-    args.family,
-    `target=${args.target}, pages=${args.pages}, concurrency=${args.concurrency}, quality=${args.quality}`,
-  );
+  logStep(familyId, `starting import for ${familyConfig.name}`);
+  logStep(familyId, `target=${args.target}, pages=${args.pages}, delay=${args.delay}ms, quality=${args.quality}`);
 
   const allPhotoLinks: string[] = [];
   for (const searchValue of familyConfig.searches) {
     for (let page = 1; page <= args.pages; page += 1) {
       const searchUrl = buildSearchUrl(searchValue, page);
-      logStep(args.family, `fetching search page ${page}: ${searchUrl}`);
-      const html = await fetchText(searchUrl);
+      logStep(familyId, `fetching search page ${page}: ${searchUrl}`);
+      const html = await fetchText(searchUrl, args.delay);
       const pageLinks = extractPhotoLinks(html);
-      logStep(args.family, `found ${pageLinks.length} photo links on page ${page}`);
+      logStep(familyId, `found ${pageLinks.length} photo links on page ${page}`);
       allPhotoLinks.push(...pageLinks);
     }
   }
 
   const dedupedPhotoLinks = [...new Set(allPhotoLinks)];
   if (dedupedPhotoLinks.length === 0) {
-    throw new Error('No JetPhotos result links were found.');
+    logStep(familyId, 'no result links found, skipping');
+    return;
   }
 
-  logStep(args.family, `discovered ${dedupedPhotoLinks.length} unique photo pages`);
-  const accepted = await inspectCandidateBatch(
+  logStep(familyId, `discovered ${dedupedPhotoLinks.length} unique photo pages`);
+  const accepted = await inspectCandidatesSequential(
     dedupedPhotoLinks,
-    args.concurrency,
-    args.family,
+    familyId,
     args.target,
+    args.delay,
   );
 
   if (accepted.length === 0) {
-    throw new Error('No acceptable JetPhotos detail pages were found.');
+    logStep(familyId, 'no acceptable detail pages found, skipping');
+    return;
   }
 
   let nextSlot = await getNextSlotNumber(outputDir);
@@ -476,9 +596,9 @@ async function run(): Promise<void> {
     const candidate = accepted[index]!;
     const searchValue = familyConfig.searches[0]!;
     const searchUrl = buildSearchUrl(searchValue, 1);
-    logStep(args.family, `saving ${index + 1}/${accepted.length} into slot ${zeroPadSlot(nextSlot)}`);
+    logStep(familyId, `saving ${index + 1}/${accepted.length} into slot ${zeroPadSlot(nextSlot)}`);
     await saveCandidate(
-      args.family,
+      familyId,
       familyConfig.name,
       searchValue,
       searchUrl,
@@ -486,11 +606,34 @@ async function run(): Promise<void> {
       nextSlot,
       candidate,
       args.quality,
+      args.delay,
     );
     nextSlot += 1;
   }
 
-  logStep(args.family, `done: downloaded ${accepted.length} image(s) into ${path.relative(REPO_ROOT, outputDir)}`);
+  logStep(familyId, `done: downloaded ${accepted.length} image(s) into ${path.relative(REPO_ROOT, outputDir)}`);
+}
+
+async function run(): Promise<void> {
+  const args = parseCliArgs();
+
+  try {
+    if (args.families.length > 1) {
+      const totalEstReqs = args.families.length * (args.pages * 2 + args.target * 1.5 + args.target);
+      const estMinutes = Math.round((totalEstReqs * (args.delay + 3000)) / 60_000);
+      console.log(`Importing ${args.families.length} families, ~${Math.round(totalEstReqs)} requests, est. ~${estMinutes} min`);
+      console.log(`Families: ${args.families.join(', ')}`);
+    }
+
+    for (const familyId of args.families) {
+      await importFamily(familyId, args);
+    }
+
+    const elapsed = ((Date.now() - _startTime) / 60_000).toFixed(1);
+    console.log(`\nAll done. ${_requestCount} requests in ${elapsed} minutes.`);
+  } finally {
+    await closeBrowser();
+  }
 }
 
 run().catch((error) => {
