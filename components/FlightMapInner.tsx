@@ -17,16 +17,16 @@ import { useSelectedFlight } from '@/lib/selectedFlightContext';
 // ---------------------------------------------------------------------------
 // Color palette
 // ---------------------------------------------------------------------------
-const COLOR_DEFAULT = '#ca8a04';        // muted yellow — normal flights
-const COLOR_APPROACHING = '#16a34a';    // green — flights in approach cone
-const COLOR_IN_ZONE = '#3b82f6';        // blue — aircraft inside notification zone
-const COLOR_SELECTED = '#f97316';       // orange — selected aircraft
-const COLOR_CONE = '#16a34a';           // green — approach cone overlay
+const COLOR_DEFAULT = '#ca8a04'; // muted yellow — normal flights
+const COLOR_APPROACHING = '#16a34a'; // green — flights in approach cone
+const COLOR_IN_ZONE = '#3b82f6'; // blue — aircraft inside notification zone
+const COLOR_SELECTED = '#f97316'; // orange — selected aircraft
+const COLOR_CONE = '#16a34a'; // green — approach cone overlay
 const COLOR_RUNWAY_FILL_LIGHT = '#333';
 const COLOR_RUNWAY_FILL_DARK = '#71717a';
 const COLOR_RUNWAY_STROKE_LIGHT = '#555';
 const COLOR_RUNWAY_STROKE_DARK = '#a1a1aa';
-const COLOR_ZONE_BORDER = '#3b82f6';    // blue — notification zone rectangle
+const COLOR_ZONE_BORDER = '#3b82f6'; // blue — notification zone rectangle
 
 /** Tile URLs for light and dark themes (CartoDB free tiles). */
 const TILE_LIGHT = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
@@ -73,12 +73,12 @@ const EHAM_RUNWAYS: {
   leIdent: string;
   heIdent: string;
 }[] = [
-  { le: [52.30040, 4.78348], he: [52.31400, 4.80302], widthFt: 148, leIdent: '04', heIdent: '22' },
-  { le: [52.28790, 4.73402], he: [52.30460, 4.77752], widthFt: 148, leIdent: '06', heIdent: '24' },
-  { le: [52.31660, 4.74635], he: [52.31840, 4.79689], widthFt: 148, leIdent: '09', heIdent: '27' },
-  { le: [52.33140, 4.74003], he: [52.30180, 4.73750], widthFt: 148, leIdent: '18C', heIdent: '36C' },
-  { le: [52.32130, 4.77996], he: [52.29080, 4.77735], widthFt: 148, leIdent: '18L', heIdent: '36R' },
-  { le: [52.36270, 4.71193], he: [52.32860, 4.70884], widthFt: 198, leIdent: '18R', heIdent: '36L' },
+  { le: [52.3004, 4.78348], he: [52.314, 4.80302], widthFt: 148, leIdent: '04', heIdent: '22' },
+  { le: [52.2879, 4.73402], he: [52.3046, 4.77752], widthFt: 148, leIdent: '06', heIdent: '24' },
+  { le: [52.3166, 4.74635], he: [52.3184, 4.79689], widthFt: 148, leIdent: '09', heIdent: '27' },
+  { le: [52.3314, 4.74003], he: [52.3018, 4.7375], widthFt: 148, leIdent: '18C', heIdent: '36C' },
+  { le: [52.3213, 4.77996], he: [52.2908, 4.77735], widthFt: 148, leIdent: '18L', heIdent: '36R' },
+  { le: [52.3627, 4.71193], he: [52.3286, 4.70884], widthFt: 198, leIdent: '18R', heIdent: '36L' },
 ];
 
 /** Convert feet to meters. */
@@ -91,11 +91,7 @@ const M_PER_DEG_LAT = 111_320;
  * Compute the 4 corners of a runway rectangle from its centerline endpoints and width.
  * Returns corners in order suitable for a Leaflet Polygon: LE-left, LE-right, HE-right, HE-left.
  */
-function runwayPolygon(
-  le: [number, number],
-  he: [number, number],
-  widthFt: number,
-): [number, number][] {
+function runwayPolygon(le: [number, number], he: [number, number], widthFt: number): [number, number][] {
   const halfWidthM = (widthFt * FT_TO_M) / 2;
 
   // Direction vector from LE to HE
@@ -142,37 +138,102 @@ const EHAM_RUNWAY_POLYGONS = EHAM_RUNWAYS.map((rwy) => ({
 type AircraftCategory = 'four-engine' | 'widebody' | 'narrowbody' | 'regional' | 'default';
 
 const FOUR_ENGINE = new Set([
-  'A388', 'A389',                           // A380
-  'B744', 'B748',                           // 747
-  'A342', 'A343', 'A344', 'A345', 'A346',  // A340
+  'A388',
+  'A389', // A380
+  'B744',
+  'B748', // 747
+  'A342',
+  'A343',
+  'A344',
+  'A345',
+  'A346', // A340
 ]);
 
 const WIDEBODY = new Set([
-  'A332', 'A333', 'A338', 'A339',          // A330
-  'A359', 'A35K',                           // A350
-  'B772', 'B773', 'B77W', 'B77L',          // 777
-  'B788', 'B789', 'B78X',                  // 787
-  'A306', 'A30B', 'A310',                  // A300/A310
-  'B762', 'B763', 'B764',                  // 767
-  'IL96', 'MD11', 'DC10',                  // Others
+  'A332',
+  'A333',
+  'A338',
+  'A339', // A330
+  'A359',
+  'A35K', // A350
+  'B772',
+  'B773',
+  'B77W',
+  'B77L', // 777
+  'B788',
+  'B789',
+  'B78X', // 787
+  'A306',
+  'A30B',
+  'A310', // A300/A310
+  'B762',
+  'B763',
+  'B764', // 767
+  'IL96',
+  'MD11',
+  'DC10', // Others
 ]);
 
 const NARROWBODY = new Set([
-  'A318', 'A319', 'A320', 'A321', 'A19N', 'A20N', 'A21N', // A320 family
-  'B733', 'B734', 'B735', 'B736', 'B737', 'B738', 'B739', // 737 classic/NG
-  'B38M', 'B39M', 'B3XM',                                   // 737 MAX
-  'BCS1', 'BCS3', 'A223',                                   // A220/CS
-  'E170', 'E175', 'E190', 'E195', 'E290', 'E295',         // Embraer E-Jet
-  'B752', 'B753',                                            // 757
-  'MD80', 'MD81', 'MD82', 'MD83', 'MD87', 'MD88', 'MD90',  // MD-80/90
+  'A318',
+  'A319',
+  'A320',
+  'A321',
+  'A19N',
+  'A20N',
+  'A21N', // A320 family
+  'B733',
+  'B734',
+  'B735',
+  'B736',
+  'B737',
+  'B738',
+  'B739', // 737 classic/NG
+  'B38M',
+  'B39M',
+  'B3XM', // 737 MAX
+  'BCS1',
+  'BCS3',
+  'A223', // A220/CS
+  'E170',
+  'E175',
+  'E190',
+  'E195',
+  'E290',
+  'E295', // Embraer E-Jet
+  'B752',
+  'B753', // 757
+  'MD80',
+  'MD81',
+  'MD82',
+  'MD83',
+  'MD87',
+  'MD88',
+  'MD90', // MD-80/90
 ]);
 
 const REGIONAL = new Set([
-  'AT43', 'AT45', 'AT72', 'AT76',                          // ATR
-  'DH8A', 'DH8B', 'DH8C', 'DH8D',                        // Dash 8
-  'CRJ1', 'CRJ2', 'CRJ7', 'CRJ9', 'CRJX',               // CRJ
-  'E135', 'E145',                                           // Embraer regional
-  'SF34', 'SB20', 'JS41', 'F50', 'F70', 'F100',           // Other regional
+  'AT43',
+  'AT45',
+  'AT72',
+  'AT76', // ATR
+  'DH8A',
+  'DH8B',
+  'DH8C',
+  'DH8D', // Dash 8
+  'CRJ1',
+  'CRJ2',
+  'CRJ7',
+  'CRJ9',
+  'CRJX', // CRJ
+  'E135',
+  'E145', // Embraer regional
+  'SF34',
+  'SB20',
+  'JS41',
+  'F50',
+  'F70',
+  'F100', // Other regional
 ]);
 
 function classifyAircraft(typeCode: string | null | undefined): AircraftCategory {
@@ -285,8 +346,20 @@ function aircraftSvg(category: AircraftCategory, color: string): { svg: string; 
   }
 }
 
-function createFlightIcon(track: number, isApproaching: boolean, aircraftType?: string | null, isInZone?: boolean, isSelected?: boolean): L.DivIcon {
-  const color = isSelected ? COLOR_SELECTED : isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
+function createFlightIcon(
+  track: number,
+  isApproaching: boolean,
+  aircraftType?: string | null,
+  isInZone?: boolean,
+  isSelected?: boolean
+): L.DivIcon {
+  const color = isSelected
+    ? COLOR_SELECTED
+    : isInZone
+      ? COLOR_IN_ZONE
+      : isApproaching
+        ? COLOR_APPROACHING
+        : COLOR_DEFAULT;
   const category = classifyAircraft(aircraftType);
   const { svg, size } = aircraftSvg(category, color);
   const half = size / 2;
@@ -322,9 +395,15 @@ function createLabelIcon(
   aircraftType: string | null | undefined,
   isApproaching: boolean,
   isSelected: boolean,
-  isInZone?: boolean,
+  isInZone?: boolean
 ): L.DivIcon {
-  const color = isSelected ? COLOR_SELECTED : isInZone ? COLOR_IN_ZONE : isApproaching ? COLOR_APPROACHING : COLOR_DEFAULT;
+  const color = isSelected
+    ? COLOR_SELECTED
+    : isInZone
+      ? COLOR_IN_ZONE
+      : isApproaching
+        ? COLOR_APPROACHING
+        : COLOR_DEFAULT;
   const label = shortenTypeCode(aircraftType);
   const size = 40;
   const half = size / 2;
@@ -355,12 +434,15 @@ function createLabelIcon(
 function FitBounds() {
   const map = useMap();
   useMemo(() => {
-    const lats = APPROACH_CONE_27.map(p => p[0]);
-    const lons = APPROACH_CONE_27.map(p => p[1]);
-    map.fitBounds([
-      [Math.min(...lats), Math.min(...lons)],
-      [Math.max(...lats), Math.max(...lons)],
-    ], { padding: [10, 10] });
+    const lats = APPROACH_CONE_27.map((p) => p[0]);
+    const lons = APPROACH_CONE_27.map((p) => p[1]);
+    map.fitBounds(
+      [
+        [Math.min(...lats), Math.min(...lons)],
+        [Math.max(...lats), Math.max(...lons)],
+      ],
+      { padding: [10, 10] }
+    );
   }, [map]);
   return null;
 }
@@ -403,12 +485,10 @@ function FlightMarker({
         onSelect(flight.id);
       },
     }),
-    [flight.id, onSelect],
+    [flight.id, onSelect]
   );
 
-  return (
-    <Marker position={[flight.lat, flight.lon]} icon={icon} eventHandlers={eventHandlers} />
-  );
+  return <Marker position={[flight.lat, flight.lon]} icon={icon} eventHandlers={eventHandlers} />;
 }
 
 /**
@@ -424,16 +504,13 @@ function interpolatePosition(
   lon: number,
   speed: number,
   track: number,
-  elapsedSec: number,
+  elapsedSec: number
 ): [number, number] {
   const speedDegPerSec = speed * KNOTS_TO_DEG_PER_SEC;
   const trackRad = (track * Math.PI) / 180;
   // track 0 = north, so lat uses cos(track) and lon uses sin(track)
   const newLat = lat + speedDegPerSec * Math.cos(trackRad) * elapsedSec;
-  const newLon =
-    lon +
-    (speedDegPerSec * Math.sin(trackRad) * elapsedSec) /
-      Math.cos((lat * Math.PI) / 180);
+  const newLon = lon + (speedDegPerSec * Math.sin(trackRad) * elapsedSec) / Math.cos((lat * Math.PI) / 180);
   return [newLat, newLon];
 }
 
@@ -514,18 +591,15 @@ function AnimatedFlightMarker({
   }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode, isInZone]);
 
   const eventHandlers = useMemo(
-    () => ({ click() { onSelect(flight.id); } }),
-    [flight.id, onSelect],
+    () => ({
+      click() {
+        onSelect(flight.id);
+      },
+    }),
+    [flight.id, onSelect]
   );
 
-  return (
-    <Marker
-      ref={markerRef}
-      position={[displayLat, displayLon]}
-      icon={icon}
-      eventHandlers={eventHandlers}
-    />
-  );
+  return <Marker ref={markerRef} position={[displayLat, displayLon]} icon={icon} eventHandlers={eventHandlers} />;
 }
 
 /** Handles click events to draw a notification zone rectangle (two-click). */
@@ -575,7 +649,7 @@ function FirstCornerMarker({ position }: { position: L.LatLng }) {
         iconAnchor: [5, 5],
         className: '',
       }),
-    [],
+    []
   );
   return <Marker position={position} icon={icon} interactive={false} />;
 }
@@ -671,7 +745,7 @@ function InlineVs({ value }: { value: number }) {
     <div className="flex flex-col leading-tight">
       <span className="text-sm text-muted-foreground">V/S</span>
       <div className="text-xl font-bold">
-        <VsCell value={value} asTableCell={false} />
+        <VsCell value={value} asTableCell={false} className="justify-start" />
       </div>
     </div>
   );
@@ -695,11 +769,7 @@ function AirportBadge({ label, iata }: { label: string; iata: string }) {
 }
 
 /** Selected flight detail panel — two-column grid layout, left-aligned. */
-function SelectedFlightPanel({
-  flight,
-}: {
-  flight: Flight;
-}) {
+function SelectedFlightPanel({ flight }: { flight: Flight }) {
   return (
     <div className="border-t bg-muted/40 px-6 py-4">
       <div className="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -735,9 +805,7 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
     Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) ** 2;
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
@@ -764,7 +832,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         const stored = localStorage.getItem(LABEL_MODE_KEY) === 'true';
         if (stored) setLabelModeState(true);
         return stored;
-      } catch { return false; }
+      } catch {
+        return false;
+      }
     }
     return labelModeState;
   }, [labelModeState]);
@@ -772,7 +842,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const setLabelMode = useCallback((v: boolean) => {
     hasSyncedLabelMode.current = true;
     setLabelModeState(v);
-    try { localStorage.setItem(LABEL_MODE_KEY, String(v)); } catch {}
+    try {
+      localStorage.setItem(LABEL_MODE_KEY, String(v));
+    } catch {}
   }, []);
 
   const labelMode = getLabelMode();
@@ -789,7 +861,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
         const stored = localStorage.getItem(AREA_KEY) === 'true';
         if (stored) setShowAreaState(true);
         return stored;
-      } catch { return false; }
+      } catch {
+        return false;
+      }
     }
     return showAreaState;
   }, [showAreaState]);
@@ -797,7 +871,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const setShowArea = useCallback((v: boolean) => {
     hasSyncedArea.current = true;
     setShowAreaState(v);
-    try { localStorage.setItem(AREA_KEY, String(v)); } catch {}
+    try {
+      localStorage.setItem(AREA_KEY, String(v));
+    } catch {}
   }, []);
 
   const showArea = getShowArea();
@@ -810,13 +886,16 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const [zoneEditing, setZoneEditing] = useState(false);
   const zoneClickedRef = useRef(false);
 
-  const handleSelectFlight = useCallback((flightId: string) => {
-    setSelectedFlightId(selectedFlightId === flightId ? null : flightId);
-  }, [selectedFlightId, setSelectedFlightId]);
+  const handleSelectFlight = useCallback(
+    (flightId: string) => {
+      setSelectedFlightId(selectedFlightId === flightId ? null : flightId);
+    },
+    [selectedFlightId, setSelectedFlightId]
+  );
 
   const selectedFlight = useMemo(
-    () => (selectedFlightId ? airborneFlights.find((f) => f.id === selectedFlightId) ?? null : null),
-    [selectedFlightId, airborneFlights],
+    () => (selectedFlightId ? (airborneFlights.find((f) => f.id === selectedFlightId) ?? null) : null),
+    [selectedFlightId, airborneFlights]
   );
 
   const handleStartDraw = useCallback(() => {
@@ -971,171 +1050,181 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       </div>
 
       <div className="relative flex-1 min-h-0">
-      <MapContainer
-        center={SCHIPHOL_POS}
-        zoom={14}
-        minZoom={9}
-        maxZoom={16}
-        maxBounds={[[52.0, 4.2], [52.6, 5.5]]}
-        maxBoundsViscosity={1.0}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom={true}
-        zoomControl={false}
-        attributionControl={false}
-      >
-        <TileLayer
-          key={isDark ? 'dark' : 'light'}
-          attribution={TILE_ATTRIBUTION}
-          url={isDark ? TILE_DARK : TILE_LIGHT}
-        />
-        <FitBounds />
-
-        {/* OpenSky approach tracking area */}
-        {showArea && (
-          <Rectangle
-            bounds={[[52.13, 4.46], [52.52, 5.24]]}
-            pathOptions={{
-              color: '#9ca3af',
-              weight: 1.5,
-              dashArray: '6 4',
-              fillColor: '#9ca3af',
-              fillOpacity: 0.03,
-              interactive: false,
-            }}
+        <MapContainer
+          center={SCHIPHOL_POS}
+          zoom={14}
+          minZoom={9}
+          maxZoom={16}
+          maxBounds={[
+            [52.0, 4.2],
+            [52.6, 5.5],
+          ]}
+          maxBoundsViscosity={1.0}
+          style={{ height: '100%', width: '100%' }}
+          scrollWheelZoom={true}
+          zoomControl={false}
+          attributionControl={false}
+        >
+          <TileLayer
+            key={isDark ? 'dark' : 'light'}
+            attribution={TILE_ATTRIBUTION}
+            url={isDark ? TILE_DARK : TILE_LIGHT}
           />
-        )}
+          <FitBounds />
 
-        <DrawZoneHandler
-          drawing={drawing}
-          firstCorner={firstCorner}
-          onFirstClick={handleFirstClick}
-          onSecondClick={handleSecondClick}
-          onMouseMove={handleMouseMove}
-          onMapClick={() => {
-            // Don't dismiss editing if the click was on the zone rectangle itself
-            if (zoneClickedRef.current) {
-              zoneClickedRef.current = false;
-              return;
-            }
-            setZoneEditing(false);
-          }}
-        />
-
-        {/* Approach detection cones */}
-        <Polygon
-          positions={APPROACH_CONE_27}
-          pathOptions={{
-            color: COLOR_CONE,
-            fillColor: COLOR_CONE,
-            fillOpacity: 0.08,
-            weight: 2,
-            dashArray: '6 3',
-          }}
-        />
-
-        {/* Notification zone rectangle */}
-        {zone && visible && zoneBounds && (
-          <>
-            {/* Invisible fat-border hit target for easier clicking */}
+          {/* OpenSky approach tracking area */}
+          {showArea && (
             <Rectangle
-              bounds={zoneBounds}
+              bounds={[
+                [52.13, 4.46],
+                [52.52, 5.24],
+              ]}
               pathOptions={{
-                color: 'transparent',
-                fillColor: COLOR_ZONE_BORDER,
-                fillOpacity: 0.15,
-                weight: 18,
-                opacity: 0,
-                className: 'cursor-pointer',
-              }}
-              eventHandlers={{
-                click: () => {
-                  // Flag that zone was clicked so the map click handler won't dismiss editing
-                  zoneClickedRef.current = true;
-                  setZoneEditing((v) => !v);
-                },
-                mouseover: (e: L.LeafletMouseEvent) => {
-                  e.target.getElement()?.style.setProperty('cursor', 'pointer');
-                },
-              }}
-            />
-            {/* Visible zone border */}
-            <Rectangle
-              bounds={zoneBounds}
-              pathOptions={{
-                color: COLOR_ZONE_BORDER,
-                fillColor: COLOR_ZONE_BORDER,
-                fillOpacity: 0,
-                weight: 3,
-                dashArray: '8 4',
+                color: '#9ca3af',
+                weight: 1.5,
+                dashArray: '6 4',
+                fillColor: '#9ca3af',
+                fillOpacity: 0.03,
                 interactive: false,
               }}
             />
-            {/* Drag handles at corners — only visible when zone is being edited */}
-            {zoneEditing && (
-              <>
-                <DragHandle position={[zone.south, zone.west]} onDrag={handleDragSW} />
-                <DragHandle position={[zone.north, zone.east]} onDrag={handleDragNE} />
-                <DragHandle position={[zone.north, zone.west]} onDrag={handleDragNW} />
-                <DragHandle position={[zone.south, zone.east]} onDrag={handleDragSE} />
-              </>
-            )}
-          </>
-        )}
+          )}
 
-        {/* Ghost rectangle preview while drawing */}
-        {ghostBounds && (
-          <Rectangle
-            bounds={ghostBounds}
-            pathOptions={{
-              color: COLOR_ZONE_BORDER,
-              fillColor: COLOR_ZONE_BORDER,
-              fillOpacity: 0.05,
-              weight: 2,
-              dashArray: '4 4',
+          <DrawZoneHandler
+            drawing={drawing}
+            firstCorner={firstCorner}
+            onFirstClick={handleFirstClick}
+            onSecondClick={handleSecondClick}
+            onMouseMove={handleMouseMove}
+            onMapClick={() => {
+              // Don't dismiss editing if the click was on the zone rectangle itself
+              if (zoneClickedRef.current) {
+                zoneClickedRef.current = false;
+                return;
+              }
+              setZoneEditing(false);
             }}
           />
-        )}
 
-        {/* First corner marker while drawing */}
-        {drawing && firstCorner && <FirstCornerMarker position={firstCorner} />}
-
-        {/* EHAM runway polygons */}
-        {EHAM_RUNWAY_POLYGONS.map((rwy) => (
+          {/* Approach detection cones */}
           <Polygon
-            key={`${rwy.leIdent}/${rwy.heIdent}`}
-            positions={rwy.corners}
+            positions={APPROACH_CONE_27}
             pathOptions={{
-              color: isDark ? COLOR_RUNWAY_STROKE_DARK : COLOR_RUNWAY_STROKE_LIGHT,
-              fillColor: isDark ? COLOR_RUNWAY_FILL_DARK : COLOR_RUNWAY_FILL_LIGHT,
-              fillOpacity: 0.7,
-              weight: 1,
+              color: COLOR_CONE,
+              fillColor: COLOR_CONE,
+              fillOpacity: 0.08,
+              weight: 2,
+              dashArray: '6 3',
             }}
           />
-        ))}
-        {EHAM_RUNWAYS.map((rwy) => (
-          <React.Fragment key={`lbl-${rwy.leIdent}`}>
-            <Marker position={rwy.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
-              <Tooltip permanent direction="center" className="runway-label">{rwy.leIdent}</Tooltip>
-            </Marker>
-            <Marker position={rwy.he} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
-              <Tooltip permanent direction="center" className="runway-label">{rwy.heIdent}</Tooltip>
-            </Marker>
-          </React.Fragment>
-        ))}
 
-        {airborneFlights.map((flight) => (
-          <AnimatedFlightMarker
-            key={flight.id}
-            flight={flight}
-            isApproaching={approachingIds.has(flight.id)}
-            animate={animate}
-            labelMode={labelMode}
-            isSelected={selectedFlightId === flight.id}
-            onSelect={handleSelectFlight}
-            isInZone={!!zone && isInZone(flight.lat, flight.lon)}
-          />
-        ))}
-      </MapContainer>
+          {/* Notification zone rectangle */}
+          {zone && visible && zoneBounds && (
+            <>
+              {/* Invisible fat-border hit target for easier clicking */}
+              <Rectangle
+                bounds={zoneBounds}
+                pathOptions={{
+                  color: 'transparent',
+                  fillColor: COLOR_ZONE_BORDER,
+                  fillOpacity: 0.15,
+                  weight: 18,
+                  opacity: 0,
+                  className: 'cursor-pointer',
+                }}
+                eventHandlers={{
+                  click: () => {
+                    // Flag that zone was clicked so the map click handler won't dismiss editing
+                    zoneClickedRef.current = true;
+                    setZoneEditing((v) => !v);
+                  },
+                  mouseover: (e: L.LeafletMouseEvent) => {
+                    e.target.getElement()?.style.setProperty('cursor', 'pointer');
+                  },
+                }}
+              />
+              {/* Visible zone border */}
+              <Rectangle
+                bounds={zoneBounds}
+                pathOptions={{
+                  color: COLOR_ZONE_BORDER,
+                  fillColor: COLOR_ZONE_BORDER,
+                  fillOpacity: 0,
+                  weight: 3,
+                  dashArray: '8 4',
+                  interactive: false,
+                }}
+              />
+              {/* Drag handles at corners — only visible when zone is being edited */}
+              {zoneEditing && (
+                <>
+                  <DragHandle position={[zone.south, zone.west]} onDrag={handleDragSW} />
+                  <DragHandle position={[zone.north, zone.east]} onDrag={handleDragNE} />
+                  <DragHandle position={[zone.north, zone.west]} onDrag={handleDragNW} />
+                  <DragHandle position={[zone.south, zone.east]} onDrag={handleDragSE} />
+                </>
+              )}
+            </>
+          )}
+
+          {/* Ghost rectangle preview while drawing */}
+          {ghostBounds && (
+            <Rectangle
+              bounds={ghostBounds}
+              pathOptions={{
+                color: COLOR_ZONE_BORDER,
+                fillColor: COLOR_ZONE_BORDER,
+                fillOpacity: 0.05,
+                weight: 2,
+                dashArray: '4 4',
+              }}
+            />
+          )}
+
+          {/* First corner marker while drawing */}
+          {drawing && firstCorner && <FirstCornerMarker position={firstCorner} />}
+
+          {/* EHAM runway polygons */}
+          {EHAM_RUNWAY_POLYGONS.map((rwy) => (
+            <Polygon
+              key={`${rwy.leIdent}/${rwy.heIdent}`}
+              positions={rwy.corners}
+              pathOptions={{
+                color: isDark ? COLOR_RUNWAY_STROKE_DARK : COLOR_RUNWAY_STROKE_LIGHT,
+                fillColor: isDark ? COLOR_RUNWAY_FILL_DARK : COLOR_RUNWAY_FILL_LIGHT,
+                fillOpacity: 0.7,
+                weight: 1,
+              }}
+            />
+          ))}
+          {EHAM_RUNWAYS.map((rwy) => (
+            <React.Fragment key={`lbl-${rwy.leIdent}`}>
+              <Marker position={rwy.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
+                <Tooltip permanent direction="center" className="runway-label">
+                  {rwy.leIdent}
+                </Tooltip>
+              </Marker>
+              <Marker position={rwy.he} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
+                <Tooltip permanent direction="center" className="runway-label">
+                  {rwy.heIdent}
+                </Tooltip>
+              </Marker>
+            </React.Fragment>
+          ))}
+
+          {airborneFlights.map((flight) => (
+            <AnimatedFlightMarker
+              key={flight.id}
+              flight={flight}
+              isApproaching={approachingIds.has(flight.id)}
+              animate={animate}
+              labelMode={labelMode}
+              isSelected={selectedFlightId === flight.id}
+              onSelect={handleSelectFlight}
+              isInZone={!!zone && isInZone(flight.lat, flight.lon)}
+            />
+          ))}
+        </MapContainer>
       </div>
       {/* Controls bar */}
       <div className="border-t px-3 py-2 text-xs space-y-1.5">
@@ -1177,9 +1266,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           <button
             onClick={drawing ? handleReset : handleStartDraw}
             className={`flex-1 rounded-md py-1 text-xs font-medium transition-colors select-none ${
-              drawing
-                ? 'bg-amber-500 text-white'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+              drawing ? 'bg-amber-500 text-white' : 'text-muted-foreground hover:text-foreground hover:bg-muted'
             }`}
           >
             {drawing ? (firstCorner ? 'Click 2nd corner...' : 'Click 1st corner...') : 'Draw Zone'}

@@ -2,6 +2,7 @@
 
 import NumberFlow from '@number-flow/react';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
+import { cn } from '@/lib/utils';
 
 interface VsCellProps {
   value: number;
@@ -16,7 +17,7 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
   const isDescending = staggeredValue < -50;
 
   const content = (
-    <div className="flex items-center justify-end gap-1.5">
+    <div className={cn('flex items-center justify-end gap-1.5', !asTableCell && className)}>
       <div className="flex flex-col items-end leading-tight">
         {isClimbing || isDescending ? (
           <>
@@ -56,9 +57,5 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
     return content;
   }
 
-  return (
-    <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>
-      {content}
-    </td>
-  );
+  return <td className={`px-3 py-1.5 text-right ${className ?? ''}`.trim()}>{content}</td>;
 }
