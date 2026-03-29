@@ -10,6 +10,7 @@ A web app that monitors OpenSky Network live flight data, detects when the Buite
 
 ## Important Rules
 
+- **Always use the `dev` skill** when writing or modifying any code. It defines file structure, component granularity, and coding conventions.
 - **useEffect requires permission**: Before adding any `useEffect` hook to any component — even in a subagent — you MUST inform the user and ask for permission. Treat `useEffect` as a dangerous operation. At minimum, tell the user that a `useEffect` was added and explain why.
 
 ## Tech Stack
