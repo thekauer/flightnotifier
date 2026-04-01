@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-053",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036976",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036976",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/416140_1772895090.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "ZSHC_Linzx",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036976"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3DZER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A7-BAB",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Jul 23, 2024",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Hangzhou-Xiaoshan - ZSHC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/053.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/053.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/053.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "906798893f2050e12f0c1bf92dfb111978ff397133e518690e9da97256a3c65e",
+    "sizeBytes": 496528
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:25.468Z"
+}

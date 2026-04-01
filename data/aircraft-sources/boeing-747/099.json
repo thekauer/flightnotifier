@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-099",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035069",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035069",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1054678_1772709750.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Palpa Wang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035069"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-467ERF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-LIA",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Cargo"
+  },
+  "photo": {
+    "photoDate": "Feb 02, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/099.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/099.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/099.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "415d825801d1624d3ded0afb09f395390cce83110d0d07131b99435b1fceec67",
+    "sizeBytes": 1173741
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:04:05.530Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-005",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037958",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037958",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/660599_1772980312.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Akira Uekawa",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037958"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-58551",
+    "serialNumber": null,
+    "airline": "Starlux"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/005.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/005.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/005.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9636695d8fc7fb5c3a4d17fa06b40cc6672aa0fef1a53fd20daed5e7c334e2f5",
+    "sizeBytes": 620079
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:54:45.355Z"
+}

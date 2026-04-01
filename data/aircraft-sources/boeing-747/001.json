@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-001",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037619",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037619",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/656812_1772956785.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Beksultan Zhunisaly",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037619"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-406ERF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "PH-CKB",
+    "serialNumber": null,
+    "airline": "KLM Cargo"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Almaty - UAAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/001.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/001.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/001.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "101779970fb3f629c5c521b39d169c5627845986eb99ae3f0c1ac88755ce6d6a",
+    "sizeBytes": 576642
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:05.294Z"
+}

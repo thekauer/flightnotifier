@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-008",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037489",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037489",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/361023_1772947594.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "JerryXu777",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037489"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "C-FGEO",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/008.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/008.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/008.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "db4f92dba7aad59a4aef6876bc4883b746e3b15482f4a14ad0dd1185f7b3a8e1",
+    "sizeBytes": 381448
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:42.105Z"
+}

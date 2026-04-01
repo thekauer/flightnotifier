@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-073",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036607",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036607",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1005553_1772863983.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "SEN BAI",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036607"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "F-OLRB",
+    "serialNumber": null,
+    "airline": "Air Austral"
+  },
+  "photo": {
+    "photoDate": "Feb 18, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Saint Denis de la Reunion-Gillot - FMEE",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/073.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/073.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/073.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cfd664f79ff54789f86d03d3099ee4482cfe04da73e9869bf78a53098662d940",
+    "sizeBytes": 1109143
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:57.995Z"
+}

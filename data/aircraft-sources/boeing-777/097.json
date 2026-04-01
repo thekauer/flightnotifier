@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-097",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036491",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036491",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1720334_1772846771.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "tobiashsu1217_spotter",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036491"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-281(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "JA715A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (ANA)"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/097.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/097.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/097.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "fad38d1666a0bebb2e4287e078b4d2234ae497dc8b99e04befe7024b5b8edb7e",
+    "sizeBytes": 1701776
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:16.240Z"
+}

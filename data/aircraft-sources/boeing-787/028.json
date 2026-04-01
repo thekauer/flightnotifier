@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-028",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037261",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037261",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1050688_1772922947.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Mark H",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037261"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "C-FVLX",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Jan 09, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Sydney Kingsford Smith Int'l Airport - YSSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/028.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/028.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/028.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9018da87364f817273114037daf5330642e704a70b982c36e6120ab4ac34ade0",
+    "sizeBytes": 1053662
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:04.914Z"
+}

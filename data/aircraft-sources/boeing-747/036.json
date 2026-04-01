@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-036",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036457",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036457",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1175485_1772837830.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Vicknesh PS",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036457"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-409F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "HL7645",
+    "serialNumber": null,
+    "airline": "Air Zeta"
+  },
+  "photo": {
+    "photoDate": "Feb 06, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/036.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/036.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/036.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d0284194a0bc293dcb068781266e3767acde14c37b9b65161f726195bb561c53",
+    "sizeBytes": 1245902
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:47.946Z"
+}

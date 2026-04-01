@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-023",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037317",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037317",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/541923_1772926102.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Mark Brandon",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037317"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "F-HRBD",
+    "serialNumber": null,
+    "airline": "Air France"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Montreal Pierre Elliott Trudeau Int'l Airport - CYUL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/023.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/023.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/023.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2cf77a294432b8112620c5e590a33ed5456ba8a569863558974b17d74683600d",
+    "sizeBytes": 546053
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:00.219Z"
+}

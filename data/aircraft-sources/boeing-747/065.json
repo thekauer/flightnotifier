@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-065",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035847",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035847",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1269100_1772788971.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Yerbol Yespol",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035847"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-87UF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "N858GT",
+    "serialNumber": null,
+    "airline": "Atlas Air (Polar Air Cargo)"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Almaty - UAAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/065.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/065.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/065.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a7596df35a03b0faee216815c842d3b0c6065d89e2b588f2dc9588293583eff8",
+    "sizeBytes": 1376750
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:23.632Z"
+}

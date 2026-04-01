@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-049",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036834",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036834",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1201717_1772887234.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Joey Zhao",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036834"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "PH-BHP",
+    "serialNumber": null,
+    "airline": "KLM Royal Dutch Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 03, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/049.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/049.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/049.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "70a8fab05dcec68e74e07c5ab4d48ab000c141c782d8e21a6909efe208b9b4f7",
+    "sizeBytes": 1246486
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:29.682Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-036",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037143",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037143",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/853609_1772911589.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Mehmed Bekir Cakmak",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037143"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "TC-LMD",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Istanbul Airport - LTFM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/036.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/036.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/036.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c4f87665404c17f85aafdddfbb9d19de12426579403f466470bb495f8a234f33",
+    "sizeBytes": 775837
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:14.689Z"
+}

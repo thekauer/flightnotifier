@@ -5,7 +5,7 @@ import { pathIntersectsApproachCone27 } from '@/lib/approachCone';
 const SCHIPHOL_LAT = 52.3105;
 const SCHIPHOL_LON = 4.7683;
 const HISTORY_CACHE_TTL_MS = 5 * 60 * 1000;
-const HISTORY_WINDOW_SECONDS = 48 * 60 * 60;
+const HISTORY_WINDOW_SECONDS = 24 * 60 * 60;
 const MAX_HISTORY_RESULTS = 5;
 
 interface HistoryCacheEntry {
@@ -25,14 +25,12 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
   const dLon = ((lon2 - lon1) * Math.PI) / 180;
   const a =
     Math.sin(dLat / 2) ** 2 +
-    Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) ** 2;
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
 function selectLandingSegment(
-  path: [number, number | null, number | null, number | null, number | null, boolean][],
+  path: [number, number | null, number | null, number | null, number | null, boolean][]
 ): HistoricalTrackPoint[] {
   const points = path
     .filter((point) => point[1] != null && point[2] != null)
@@ -45,9 +43,7 @@ function selectLandingSegment(
       onGround: point[5],
     }));
 
-  const nearAmsterdam = points.filter(
-    (point) => haversineKm(point.lat, point.lon, SCHIPHOL_LAT, SCHIPHOL_LON) <= 120,
-  );
+  const nearAmsterdam = points.filter((point) => haversineKm(point.lat, point.lon, SCHIPHOL_LAT, SCHIPHOL_LON) <= 120);
   if (nearAmsterdam.length > 0) {
     return nearAmsterdam;
   }
@@ -78,7 +74,11 @@ export async function fetchHistoricalFlightPaths(args: {
   try {
     arrivals = await client.fetchArrivals(destination ?? 'EHAM', begin, end);
   } catch (error) {
-    console.error('[HistoricalFlightPaths] Failed to fetch arrivals:', error);
+    console.error('[HistoricalFlightPaths] Failed to fetch arrivals:', error, {
+      destination: destination ?? 'EHAM',
+      begin,
+      end,
+    });
     return [];
   }
 
@@ -87,16 +87,14 @@ export async function fetchHistoricalFlightPaths(args: {
     (arrival) =>
       normalizeCallsign(arrival.callsign) === targetCallsign &&
       (origin ? arrival.estDepartureAirport === origin : true) &&
-      (destination ? arrival.estArrivalAirport === destination : true),
+      (destination ? arrival.estArrivalAirport === destination : true)
   );
   const relaxedMatches =
     exactMatches.length > 0
       ? exactMatches
       : arrivals.filter((arrival) => normalizeCallsign(arrival.callsign) === targetCallsign);
 
-  const selected = relaxedMatches
-    .sort((a, b) => b.lastSeen - a.lastSeen)
-    .slice(0, MAX_HISTORY_RESULTS);
+  const selected = relaxedMatches.sort((a, b) => b.lastSeen - a.lastSeen).slice(0, MAX_HISTORY_RESULTS);
 
   const results: HistoricalFlightPath[] = [];
   for (const arrival of selected) {

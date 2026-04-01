@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-010",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037455",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037455",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/571993_1772945160.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "eggmilkstar",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037455"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "N898CA",
+    "serialNumber": null,
+    "airline": "National Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/010.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/010.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/010.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3e58b6e970883a6a6b63cd424aefeaf9c4eaeca2772f9d0f5be57090bb711ab1",
+    "sizeBytes": 550372
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:02.072Z"
+}

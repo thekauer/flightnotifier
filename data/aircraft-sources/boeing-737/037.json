@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-037",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037881",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037881",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/690230_1772976679.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "hhwcasc",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037881"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-89L",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5729",
+    "serialNumber": null,
+    "airline": "Dalian Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 24, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/037.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/037.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/037.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "45550c155c410939132df7c4c54d4f077e7ab36b5f6c72298576ecd7cc8538e8",
+    "sizeBytes": 706420
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:31.797Z"
+}

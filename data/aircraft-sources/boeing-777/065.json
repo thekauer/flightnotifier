@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-065",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036830",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036830",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1799391_1772887046.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "HIroki Manabe",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036830"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-31BER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-2007",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/065.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/065.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/065.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "243e3375c939df2643d14adb091d56ac1f107c5d9497a52e8d92069d75fd67b7",
+    "sizeBytes": 1477363
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:38.890Z"
+}

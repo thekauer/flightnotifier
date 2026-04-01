@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-035",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037915",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037915",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/566297_1772976742.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "gruppe6",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037915"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-89P",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-209G",
+    "serialNumber": null,
+    "airline": "China United Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beihai - ZGBH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/035.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/035.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/035.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4bb70e9a68a384b0e42df3a3fe310a4eefc8fcafbf3f3af588dbae01586c6df7",
+    "sizeBytes": 554325
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:28.911Z"
+}

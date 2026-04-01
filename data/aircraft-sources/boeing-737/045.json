@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-045",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037843",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037843",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1267645_1772973542.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Matteo P",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037843"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "SE-RTU",
+    "serialNumber": null,
+    "airline": "Norwegian"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Copenhagen Kastrup Airport - EKCH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/045.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/045.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a6211c321b237e2e8b240e20978bea44d38983c5a282156aa3b5e0f9632850bc",
+    "sizeBytes": 1248752
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:48.842Z"
+}

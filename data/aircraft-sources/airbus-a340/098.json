@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-098",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12021974",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12021974",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/690080_1771613023.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Pit Rhein",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12021974"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-312",
+    "normalizedFamily": "Airbus A340",
+    "registration": "9H-BIG",
+    "serialNumber": null,
+    "airline": "Air X Charter"
+  },
+  "photo": {
+    "photoDate": "Jan 16, 2026",
+    "uploadedDate": "Mar 11, 2026",
+    "locationName": "Berlin Brandenburg Airport - EDDB",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/098.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/098.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/098.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e84531f2a93b27c9e25f0b5d3e8518726938933ee09505c559e538ff5ae17c73",
+    "sizeBytes": 738436
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:25.425Z"
+}

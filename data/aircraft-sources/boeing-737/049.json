@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-049",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037829",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037829",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1827459_1772972998.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Grzesiek Krupa",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037829"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8H6",
+    "normalizedFamily": "Boeing 737",
+    "registration": "UR-SQC",
+    "serialNumber": null,
+    "airline": "SkyUp Airlines"
+  },
+  "photo": {
+    "photoDate": "Oct 19, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/049.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/049.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/049.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ceb31c2a0c51483df150279d616a8197082c174fb914e33fb63dbfeec30f11cc",
+    "sizeBytes": 1812553
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:53.461Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-036",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037885",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037885",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/614264_1772976529.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "gruppe6",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037885"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-20A3",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beihai - ZGBH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/036.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/036.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/036.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7d02d24b71e10d9d4260c3251c98b11705bd3f879fa162d0532b0a2a3f4df5dd",
+    "sizeBytes": 617721
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:30.471Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-012",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037487",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037487",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/318717_1772946414.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "JerryXu777",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037487"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-346ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "JA733J",
+    "serialNumber": null,
+    "airline": "Japan Airlines (JAL)"
+  },
+  "photo": {
+    "photoDate": "Jan 21, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai-Hongqiao - ZSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/012.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/012.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/012.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "65131d7915a19858f2b77701fef0836cb2161215094485570146e6dff7f6e90c",
+    "sizeBytes": 334470
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:34.372Z"
+}

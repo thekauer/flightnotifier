@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Providers } from '@/components/Providers';
+import { NavigationHeader } from '@/components/NavigationHeader';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -25,7 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="flex min-h-screen flex-col bg-background text-foreground">
+            <NavigationHeader />
+            {children}
+          </div>
+        </Providers>
         <script
           dangerouslySetInnerHTML={{
             __html: `

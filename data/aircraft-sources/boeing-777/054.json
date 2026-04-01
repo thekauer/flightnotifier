@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-054",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036946",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036946",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/363849_1772894171.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Mike-Tango-Whiskey",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036946"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3F2ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "TC-LJA",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/054.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/054.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/054.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5896c03ab62512b978b9c5d6f15d3dbed66b8c0012dd6f8c2e82932b0dd1d85c",
+    "sizeBytes": 350241
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:26.948Z"
+}

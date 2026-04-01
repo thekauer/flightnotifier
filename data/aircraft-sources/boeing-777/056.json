@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-056",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036941",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036941",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/584531_1772892478.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "ZPPP Runway22",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036941"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3F2ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "TC-LJB",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 28, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/056.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/056.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/056.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8100f6192453b46f39e8d1c1f09ba4ec4ddeb3473ab169035306fb5393603cd4",
+    "sizeBytes": 626971
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:28.729Z"
+}

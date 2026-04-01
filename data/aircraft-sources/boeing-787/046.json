@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-046",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036931",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036931",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2654639_1772894286.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Lukas Ponitka-Bessert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036931"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "5Y-KZG",
+    "serialNumber": null,
+    "airline": "Kenya Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/046.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/046.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/046.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cadd0493120a03a726a07037cfe00818cd43edbcf4f929f3ca88dc75967d9329",
+    "sizeBytes": 1902364
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:26.563Z"
+}

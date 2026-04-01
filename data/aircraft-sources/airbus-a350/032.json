@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-032",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037541",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037541",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/954901_1772953589.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Maximilian Haertl",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037541"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941CJ",
+    "normalizedFamily": "Airbus A350",
+    "registration": "10-01",
+    "serialNumber": null,
+    "airline": "Germany - Air Force"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "München Franz Josef Strauss - EDDM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/032.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/032.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/032.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6288bf4fcfbe0e934248ece3b6aeeec3dc5625df881903519679dd5c4eb9eeef",
+    "sizeBytes": 942230
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:16.864Z"
+}

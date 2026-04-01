@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-042",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036360",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036360",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/3215048_1772829737.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "aerospotter07",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036360"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-281B(SF)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "ER-BAT",
+    "serialNumber": null,
+    "airline": "Fly Pro Cargo"
+  },
+  "photo": {
+    "photoDate": "Mar 03, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Liege-Bierset - EBLG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/042.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/042.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/042.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a0a7b146acc6c5aaf0fb2819beaedfc66f2932f24444f7f13cded2649aa7fee4",
+    "sizeBytes": 755476
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:55.527Z"
+}

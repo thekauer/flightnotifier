@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-039",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037872",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037872",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/516321_1772976055.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "gruppe6",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037872"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-81B",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-2694",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beihai - ZGBH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/039.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/039.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/039.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ed74231d1c88f7314d0766a96e40e2f26e7cfbd904069b3fd3358b3c9649e464",
+    "sizeBytes": 512481
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:34.763Z"
+}

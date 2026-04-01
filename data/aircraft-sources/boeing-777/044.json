@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-044",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037065",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037065",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/357707_1772901959.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Smiling ZSQD",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037065"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3DZER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A7-BAA",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Aug 17, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/044.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/044.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/044.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "21cf04df4b06f163575129dd58b3abc51afe8fba99ed5927f0efb6ce398977e7",
+    "sizeBytes": 331954
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:12.882Z"
+}

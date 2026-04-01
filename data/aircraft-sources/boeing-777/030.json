@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-030",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037215",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037215",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1270578_1772919808.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Spotter_DF767",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037215"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-367ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-KQW",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/030.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/030.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/030.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1676c844be3d7b30c85203d0c0b34357de724a2a40b3fc351e33c3270822316f",
+    "sizeBytes": 1385211
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:56.039Z"
+}

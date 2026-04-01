@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-019",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037352",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037352",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1287725_1772934051.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Chung Kwok",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037352"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "C-GWUU",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Vancouver Int'l Airport - CYVR",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/019.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/019.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9c149650d4ee665c5591b197fc7f12f9febbb2bd8ccfa9c774c4fe92f7982da9",
+    "sizeBytes": 1266057
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:55.846Z"
+}

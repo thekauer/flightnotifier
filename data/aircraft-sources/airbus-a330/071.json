@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-071",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036584",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036584",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/921842_1772860838.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "YK Wang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036584"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-323",
+    "normalizedFamily": "Airbus A330",
+    "registration": "9M-MTD",
+    "serialNumber": null,
+    "airline": "Malaysia Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/071.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/071.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/071.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6b046f69bed32a42de382fcc362a196cadb6cca5b9bbac56d43818a7ede8391f",
+    "sizeBytes": 993268
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:17.827Z"
+}

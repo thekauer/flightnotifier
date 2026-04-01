@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-026",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037116",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037116",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/763685_1772907214.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Lifu_Mei",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037116"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "4R-ALH",
+    "serialNumber": null,
+    "airline": "SriLankan Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 06, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/026.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/026.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/026.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a6836e2def1a2249bb8e2383eda8006bd9f591ab7d5266f9d7a24b5170038391",
+    "sizeBytes": 549596
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:22.556Z"
+}

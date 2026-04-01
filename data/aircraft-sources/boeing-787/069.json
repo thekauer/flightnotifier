@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-069",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036658",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036658",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/928073_1772871287.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "R-H Chen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036658"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-10 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "A6-BMD",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 11, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Taipei Taoyuan Int'l Airport - RCTP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/069.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/069.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/069.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cbf669f6f2bdb64a0fc23bfd8cac3b9464c3929045e6fd99ed502707a4f14156",
+    "sizeBytes": 839651
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:53.066Z"
+}

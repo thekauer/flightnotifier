@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-035",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036473",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036473",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1459451_1772849182.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Ehco",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036473"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-87UF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "N854GT",
+    "serialNumber": null,
+    "airline": "Atlas Air"
+  },
+  "photo": {
+    "photoDate": "Feb 09, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/035.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/035.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/035.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a22e991bf8aa6589f4e64c483b1f2850ed7a459416dae781167f277397ec221b",
+    "sizeBytes": 1575487
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:46.926Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-076",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036713",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036713",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1314421_1772878232.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Turbofan fish ViC",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036713"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3ALER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HS-TKQ",
+    "serialNumber": null,
+    "airline": "Thai Airways International"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/076.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/076.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/076.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "23800da5f59a2d6e1d3248984473a175097f704eff5089b352b5e4fd5ad9390e",
+    "sizeBytes": 1194458
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:51.112Z"
+}

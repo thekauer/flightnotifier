@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-063",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036996",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036996",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/793443_1772898102.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "af8Wuy",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036996"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "RP-C3510",
+    "serialNumber": null,
+    "airline": "Philippine Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/063.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/063.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/063.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "beab9a9d918804b7e6100a8fd04d2423df0cd8398c42b69cbce2bd55f6e18d46",
+    "sizeBytes": 805669
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:54.362Z"
+}

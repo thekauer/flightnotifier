@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-084",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035212",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035212",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/420995_1772720507.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "JaxsonWhite",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035212"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-412",
+    "normalizedFamily": "Boeing 747",
+    "registration": "ER-BOS",
+    "serialNumber": null,
+    "airline": "Terra Avia"
+  },
+  "photo": {
+    "photoDate": "Mar 04, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Avalon Airport - YMAV",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/084.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/084.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/084.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6418c5c853b9c9e7dbc21d4c643b00deb30c58ad4ba713827d3c59f3f20b5b16",
+    "sizeBytes": 278000
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:48.502Z"
+}

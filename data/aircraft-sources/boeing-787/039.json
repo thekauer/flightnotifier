@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-039",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037090",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037090",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/377263_1772904181.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "2010Xu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037090"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-226Q",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/039.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/039.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/039.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6222a9057ec53886868e2203df7069a6354608a0612b3c694db3f09cf7bbb790",
+    "sizeBytes": 374398
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:18.506Z"
+}

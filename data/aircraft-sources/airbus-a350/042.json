@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-042",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037395",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037395",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/624247_1772942230.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "ZSAM417",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037395"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-308M",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Feb 13, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/042.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/042.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/042.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ef5e4db1138194fadcf6aacf88fb3d037d0ec38cec5a6836329190b1ec48a238",
+    "sizeBytes": 608714
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:30.203Z"
+}

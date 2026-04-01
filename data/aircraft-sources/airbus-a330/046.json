@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-046",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036806",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036806",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1086724_1772883699.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Oscar Plesner",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036806"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "LN-RKM",
+    "serialNumber": null,
+    "airline": "Scandinavian Airlines (SAS)"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Copenhagen Kastrup Airport - EKCH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/046.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/046.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/046.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "911e09809b652ffdf1179777bc0398d83ea000a0069ed4206345566a11f4e8f5",
+    "sizeBytes": 1079314
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:46.671Z"
+}

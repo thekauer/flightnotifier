@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-082",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036666",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036666",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2962629_1772871738.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Jose Diego Roxas",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036666"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "RP-C3508",
+    "serialNumber": null,
+    "airline": "Philippine Airlines"
+  },
+  "photo": {
+    "photoDate": "Apr 10, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Inflight",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/082.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/082.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/082.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "339b5495d302931ef7ec6c540c5d5b6f28f84b8933373133f454dc46f1f6fe5e",
+    "sizeBytes": 2691238
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:15.631Z"
+}

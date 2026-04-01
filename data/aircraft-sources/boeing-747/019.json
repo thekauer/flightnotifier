@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-019",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037009",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037009",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/628962_1772898153.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "zz23",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037009"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-8HVF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "VQ-BLQ",
+    "serialNumber": null,
+    "airline": "Air Bridge Cargo"
+  },
+  "photo": {
+    "photoDate": "Oct 01, 2021",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/019.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/019.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2022b61b2957f494976071b2a560d034d48595d95982232dedea77120e58dce3",
+    "sizeBytes": 575273
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:27.568Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-036",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037490",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037490",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/966168_1772947512.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Rocky Wang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037490"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "TC-LGB",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/036.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/036.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/036.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a0193685ae530cfdae47b1dff41a9c22ecf1dc495dd401820fbad1578861efec",
+    "sizeBytes": 939096
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:22.878Z"
+}

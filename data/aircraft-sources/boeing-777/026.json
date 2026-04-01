@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-026",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037306",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037306",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1161077_1772924991.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Nemo04",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037306"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-36NER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-16730",
+    "serialNumber": null,
+    "airline": "Eva Air"
+  },
+  "photo": {
+    "photoDate": "Jan 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Ho Chi Minh City Tan Son Nhat - VVTS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/026.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/026.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/026.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "263cd80601bb474285af7ebf4efc90ac626546402dd82f7dace378a37e0d2faf",
+    "sizeBytes": 1297738
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:51.365Z"
+}

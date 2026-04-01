@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-016",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037380",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037380",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1323979_1772940913.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Acom",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037380"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-6969",
+    "serialNumber": null,
+    "airline": "Hainan Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 09, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Sanya Fenghuang - ZJSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/016.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/016.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/016.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1fe676af06ca96e691f566eb1b5ec9fb5becf12863663fb2ae4eeeb3ef54d58b",
+    "sizeBytes": 1294675
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:51.443Z"
+}

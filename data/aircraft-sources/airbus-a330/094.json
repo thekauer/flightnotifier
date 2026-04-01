@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-094",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036255",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036255",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2016476_1772817643.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Pablo Romero",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036255"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-203",
+    "normalizedFamily": "Airbus A330",
+    "registration": "TC-JNB",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 17, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/094.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/094.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/094.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e967b7392133fec2a23cde0844335184756beb5f01f37c1ebfe6754b83c7857f",
+    "sizeBytes": 2003199
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:27.739Z"
+}

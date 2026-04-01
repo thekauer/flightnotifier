@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-092",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12023023",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12023023",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/2121160_1771722551.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "CK NG",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12023023"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "D-AIGN",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Jul 13, 2022",
+    "uploadedDate": "Mar 11, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/092.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/092.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/092.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b8124f5889040b6ddfa97e708b5fd5db25901c53ca7c73d1137218c74d3cf6ab",
+    "sizeBytes": 2336367
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:18.922Z"
+}

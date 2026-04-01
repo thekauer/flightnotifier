@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-035",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032614",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032614",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1298103_1772474764.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Toni Marimon",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032614"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EC-HGV",
+    "serialNumber": null,
+    "airline": "Iberia"
+  },
+  "photo": {
+    "photoDate": "Nov 06, 2002",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Madrid Barajas - LEMD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/035.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/035.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/035.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b69f48574b93ffce3cdc9d6448137133b37edad13c7a734ad3d3b2bed659e4ff",
+    "sizeBytes": 1335308
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:06.084Z"
+}

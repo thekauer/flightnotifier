@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-033",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035789",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035789",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1072675_1772779259.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "PQM",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035789"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "D-AIMB",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Jan 09, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/033.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/033.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/033.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "710b61b1ea4e27a8c885e7901489b37524b2214c277db1673d8062483c227969",
+    "sizeBytes": 1073968
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:33.022Z"
+}

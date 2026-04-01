@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-052",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12029873",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12029873",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/348603_1772277357.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "M Umar Aziz",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12029873"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "YA-KMH",
+    "serialNumber": null,
+    "airline": "Kam Air"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 20, 2026",
+    "locationName": "Islamabad International Airport - OPIS ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/052.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/052.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/052.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b0b5674ed203e59c2566883e1b5570f74735570b55c19b58f5382d7e98d6e1ab",
+    "sizeBytes": 402392
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:28.533Z"
+}

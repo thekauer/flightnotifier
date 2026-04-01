@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-074",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036554",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036554",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/428557_1772855205.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Uranus.",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036554"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "SU-GET",
+    "serialNumber": null,
+    "airline": "EgyptAir"
+  },
+  "photo": {
+    "photoDate": "Feb 16, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/074.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/074.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/074.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8b434cb5d098fb72b003bacbe66490082e71e442096606643b983cc4670b81e0",
+    "sizeBytes": 410368
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:59.382Z"
+}

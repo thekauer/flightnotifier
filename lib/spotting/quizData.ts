@@ -147,11 +147,31 @@ export function generateQuestion(pool: QuizAircraft[] = quizAircraftWithImages()
   return { correctAircraft, image, options };
 }
 
-/** Generate a full round of 10 questions. */
+/** Generate a full round of 10 questions, with each aircraft type appearing at most 3 times. */
 export function generateRound(): QuizQuestion[] {
   const pool = quizAircraftWithImages();
   if (pool.length === 0) {
     return [];
   }
-  return Array.from({ length: 10 }, () => generateQuestion(pool));
+
+  const MAX_PER_TYPE = 3;
+  const ROUND_SIZE = 10;
+  const typeCounts = new Map<string, number>();
+  const questions: QuizQuestion[] = [];
+
+  for (let attempt = 0; questions.length < ROUND_SIZE && attempt < ROUND_SIZE * 10; attempt++) {
+    const available = pool.filter(
+      (a) => (typeCounts.get(a.id) ?? 0) < MAX_PER_TYPE,
+    );
+    if (available.length === 0) break;
+
+    const question = generateQuestion(available);
+    typeCounts.set(
+      question.correctAircraft.id,
+      (typeCounts.get(question.correctAircraft.id) ?? 0) + 1,
+    );
+    questions.push(question);
+  }
+
+  return questions;
 }

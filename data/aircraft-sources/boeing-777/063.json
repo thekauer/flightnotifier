@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-063",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036842",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036842",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1065850_1772887668.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Tokyo-JApan",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036842"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-333ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "C-FIVM",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/063.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/063.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/063.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "983b1d425eb9a20aba43427f642abb89c7af53af4c871f3696ee02971101a98d",
+    "sizeBytes": 990241
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:36.753Z"
+}

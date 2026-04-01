@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-095",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036248",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036248",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/625806_1772816895.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "AviationMartin",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036248"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EC-KCP",
+    "serialNumber": null,
+    "airline": "World2Fly"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Poznan-Lawica - EPPO",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/095.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/095.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/095.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "adc333b3c94dbc485b4eb92d139306e2aa7755d739a3c5cb6168ccce0361c499",
+    "sizeBytes": 592893
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:28.677Z"
+}

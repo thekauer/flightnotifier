@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-048",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037833",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037833",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/546501_1772973129.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Barbara Di Pea",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037833"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-808",
+    "normalizedFamily": "Boeing 737",
+    "registration": "G-DRTD",
+    "serialNumber": null,
+    "airline": "Jet2.com"
+  },
+  "photo": {
+    "photoDate": "Dec 29, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Rome Leonardo da Vinci/Fiumicino - LIRF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/048.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/048.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "18b619ae8dc264ce5a11f718331ae641389f5a2e490c7bbe03c6fbb61ac3d9ac",
+    "sizeBytes": 494936
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:51.926Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-042",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031767",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031767",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/423268_1772397399.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Paul Buchröder",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031767"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "D-AUSZ",
+    "serialNumber": null,
+    "airline": "Universal Sky Carrier (USC)"
+  },
+  "photo": {
+    "photoDate": "May 17, 2025",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/042.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/042.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/042.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a125ff192b3f9c221d7408d9c0ca3cd10932f3c09284f14af6b8d2a266ae5b60",
+    "sizeBytes": 387473
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:15.384Z"
+}

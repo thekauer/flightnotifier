@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-031",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037173",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037173",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1250146_1772915631.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Frederick Tremblay",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037173"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-20D8",
+    "serialNumber": null,
+    "airline": "Shanghai Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 14, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/031.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/031.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/031.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8dd66e5eb57caa1609eadb97baf3926b8c4525aba19586808618f9ed6fb600c1",
+    "sizeBytes": 1360417
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:09.026Z"
+}

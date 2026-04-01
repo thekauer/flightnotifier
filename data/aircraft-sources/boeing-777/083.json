@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-083",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036624",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036624",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1603483_1772866982.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Eyal Zarrad",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036624"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-31H",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-HNU",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/083.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/083.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/083.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d47eec4893efe35a9221977e48e11412727b76990862b24fa4ca6b5eb9680687",
+    "sizeBytes": 1616303
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:00.524Z"
+}

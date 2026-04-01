@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-003",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037539",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037539",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/342137_1772641792.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "cuttlefish",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037539"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-4J6",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-2447",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Jul 16, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/003.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/003.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/003.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "af3fb8740f1b0eb19b2351397e22d30233393ff4c7a582182bf3941c74e39047",
+    "sizeBytes": 418176
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:06.879Z"
+}

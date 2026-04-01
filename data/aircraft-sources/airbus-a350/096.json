@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-096",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036493",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036493",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1729407_1772846866.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "tobiashsu1217_spotter",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036493"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "JA07WJ",
+    "serialNumber": null,
+    "airline": "Japan Airlines (JAL)"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/096.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/096.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/096.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5f1c19c2ce842d000bc4cae570046ec0ea181173a7a1d039421d1f7114c4cb04",
+    "sizeBytes": 1725652
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:32.212Z"
+}

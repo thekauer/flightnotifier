@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-075",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032558",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032558",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1396058_1772470929.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Kostas Marmarelis",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032558"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EEZ",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Athens Eleftherios Venizelos Int'l Airport - LGAV",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/075.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/075.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/075.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ff78869b564c47c2279241001e904d4b5274e546e4d4d40f764069fcbed10d2d",
+    "sizeBytes": 1396955
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:25.805Z"
+}

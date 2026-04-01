@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-084",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031486",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031486",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/653250_1772383600.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Joan Martorell",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031486"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "9M-MNF",
+    "serialNumber": null,
+    "airline": "Malaysia Airlines"
+  },
+  "photo": {
+    "photoDate": "Sep 24, 2019",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Palma de Mallorca Son San Juan - LEPA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/084.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/084.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/084.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "da0e568350a9c570162391821b9eedecb19d953eb9e51b52fa1dd0ee1f91b8a0",
+    "sizeBytes": 737444
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:39.125Z"
+}

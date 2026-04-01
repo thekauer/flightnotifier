@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-046",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037038",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037038",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/462370_1772900673.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "B-1942",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037038"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-FHT",
+    "normalizedFamily": "Boeing 777",
+    "registration": "N843FD",
+    "serialNumber": null,
+    "airline": "FedEx"
+  },
+  "photo": {
+    "photoDate": "Feb 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Xiamen Gaoqi - ZSAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/046.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/046.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/046.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8d53ebbeca3878c82be0856b7a4f52187e7bf70b25a4b5afb06c1cec3d1b72ef",
+    "sizeBytes": 515890
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:15.474Z"
+}

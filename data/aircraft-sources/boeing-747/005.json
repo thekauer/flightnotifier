@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-005",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037519",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037519",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1833275_1772949823.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "ANSHUL KADAM",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037519"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-8R7F",
+    "normalizedFamily": "Boeing 747",
+    "registration": "LX-VCC",
+    "serialNumber": null,
+    "airline": "Cargolux Airlines International"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Mumbai Chhatrapati Shivaji Int'l - VABB",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/005.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/005.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/005.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4f2b9b653f381617c98a68b38f2530cd908c6f207e084be3abfabc267fe05d3e",
+    "sizeBytes": 1865995
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:08.963Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-074",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036574",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036574",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1033004_1772858284.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "D-AVZT",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036574"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-5943",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Sanya Fenghuang - ZJSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/074.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/074.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/074.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f01e28ec922d922e0916c9da398ff998ec35cd029553bb614ae7634a62b3693b",
+    "sizeBytes": 1001960
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:22.404Z"
+}

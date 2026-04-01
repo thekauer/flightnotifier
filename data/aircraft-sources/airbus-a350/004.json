@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-004",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038004",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038004",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/429438_1772981121.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "LANG",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038004"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "VT-JRF",
+    "serialNumber": null,
+    "airline": "Air India"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/004.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/004.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/004.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "795ea97fe7dd759bc30fb36c4c89b81d69c694f8a23fc61cfbe17a40d5a04b99",
+    "sizeBytes": 566870
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:54:44.033Z"
+}

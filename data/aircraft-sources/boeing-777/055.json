@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-055",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036943",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036943",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/814923_1772893206.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Andrey Minaev",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036943"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3DZER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A7-BAL",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Jun 23, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Moscow Sheremetyevo - UUEE",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/055.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/055.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/055.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "fd24dbcc3d1fc4fd9706e50f4bfe63d9c3497070f2758bfe6e967a4578425690",
+    "sizeBytes": 752727
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:28.074Z"
+}

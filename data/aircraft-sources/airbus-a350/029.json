@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-029",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037556",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037556",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1068706_1772954283.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "af8Wuy",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037556"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-LXD",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/029.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/029.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2517db930c1fd0ff69991426bca0d7815f11d2864fd8055a14787701cf2f784d",
+    "sizeBytes": 1044269
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:14.482Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-043",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031753",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031753",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1371649_1772396081.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "legong",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031753"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "HB-JME",
+    "serialNumber": null,
+    "airline": "Edelweiss Air"
+  },
+  "photo": {
+    "photoDate": "Feb 27, 2026",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Zurich-Kloten Airport - LSZH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/043.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/043.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/043.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "0f5a31468fbadb394b3603122fe40d7d54805e97881892b5e68621be922704d0",
+    "sizeBytes": 1328347
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:16.969Z"
+}

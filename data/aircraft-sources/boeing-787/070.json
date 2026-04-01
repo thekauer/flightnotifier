@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-070",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036638",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036638",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1566519_1772867629.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Eyal Zarrad",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036638"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "N782HA",
+    "serialNumber": null,
+    "airline": "Hawaiian Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/070.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/070.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/070.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "dcc28e48a71779c976b78a44655a1d966a59b30a65d6107e6e37939d2ce0bd93",
+    "sizeBytes": 1587097
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:53.765Z"
+}

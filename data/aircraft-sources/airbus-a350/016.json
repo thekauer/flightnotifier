@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-016",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037809",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037809",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2222787_1772971327.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "PAIYUAN_PENG_1997",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037809"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "9V-SHY",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/016.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/016.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/016.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "73ae6914c961ff960a794fd9fd1e3a6a5762b00d3f43cb481c529e9a503ed311",
+    "sizeBytes": 2236969
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:54:58.947Z"
+}

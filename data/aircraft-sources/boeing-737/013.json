@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-013",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038044",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038044",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/867102_1772983040.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "CZX",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038044"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-84P",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-1497",
+    "serialNumber": null,
+    "airline": "Hainan Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Nanjing Lukou International Airport - ZSNJ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/013.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/013.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/013.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7b364ef3c9ec8f4e46c10d2bfb870d07ec97bb144cd4e813809eba470033c2ed",
+    "sizeBytes": 944236
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:00.829Z"
+}

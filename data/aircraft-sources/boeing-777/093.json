@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-093",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036532",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036532",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/297427_1772853391.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Jinhui Rao",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036532"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-39PER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-7868",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/093.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/093.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/093.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "74325df1236dadeaf4370d033cdc6f10e27460e0f48c309abba14afbccff2aac",
+    "sizeBytes": 346845
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:11.544Z"
+}

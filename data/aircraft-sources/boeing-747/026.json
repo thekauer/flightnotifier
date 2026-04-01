@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-026",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036791",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036791",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/751392_1772886805.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Oscar Cheung ",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036791"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-329(SF)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "EW-465TQ",
+    "serialNumber": null,
+    "airline": "Trans Avia Export Cargo Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 16, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Macau Int'l - VMMC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/026.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/026.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/026.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "84a317799b099b02867935c6ee1e01be29ab6a04450176b3f0181898bdf11f0b",
+    "sizeBytes": 828186
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:35.239Z"
+}

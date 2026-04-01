@@ -3,6 +3,7 @@
 import NumberFlow from '@number-flow/react';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { cn } from '@/lib/utils';
+import { EM_DASH, UP_ARROW, DOWN_ARROW } from '@/lib/constants/icons';
 
 interface VsCellProps {
   value: number;
@@ -36,7 +37,7 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
             <span className="text-muted-foreground text-[10px]">ft/m</span>
           </>
         ) : (
-          <span className="text-muted-foreground">{'\u2014'}</span>
+          <span className="text-muted-foreground">{EM_DASH}</span>
         )}
       </div>
       {(isClimbing || isDescending) && (
@@ -47,7 +48,7 @@ export function VsCell({ value, asTableCell = true, className }: VsCellProps) {
               : 'bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-400'
           }`}
         >
-          {isClimbing ? '\u2191' : '\u2193'}
+          {isClimbing ? UP_ARROW : DOWN_ARROW}
         </span>
       )}
     </div>

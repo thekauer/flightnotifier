@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-051",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036767",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036767",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/409994_1772884567.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Mail_77",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036767"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "9N-ALY",
+    "serialNumber": null,
+    "airline": "Nepal Airlines"
+  },
+  "photo": {
+    "photoDate": "Dec 30, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Delhi Indira Gandhi Int'l Airport - VIDP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/051.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/051.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/051.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "199d1ca3981a7baa1d75ac59b5dfde753302c07d90ca4be76b3f8dc3d74af890",
+    "sizeBytes": 397657
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:53.500Z"
+}

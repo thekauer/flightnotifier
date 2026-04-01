@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-081",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032225",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032225",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/613760_1772449701.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Mike-Tango-Whiskey",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032225"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EED",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/081.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/081.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/081.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f74de3f4c522d78834664a7ea112df8ec9c6258050a5b58a79c9371b7b6ac035",
+    "sizeBytes": 559353
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:35.187Z"
+}

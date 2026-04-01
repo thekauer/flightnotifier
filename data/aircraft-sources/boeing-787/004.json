@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-004",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037583",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037583",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/675712_1772956551.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Chanwool Lee-Korea Aero Photos",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037583"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "HL7208",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 19, 2022",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/004.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/004.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/004.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4237dc2c2e7674215b798f5a6a709df3dbfafdf88d641aa1a9e412c1164d46c4",
+    "sizeBytes": 648218
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:37.181Z"
+}

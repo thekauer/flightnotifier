@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-066",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036982",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036982",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/307358_1772897431.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Oliver Barker",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036982"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-LXI",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/066.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/066.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/066.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3a9795883c7933aec134384a14ee542c9cb32d033212e2a54bc741ef5e5deac2",
+    "sizeBytes": 362494
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:57.525Z"
+}

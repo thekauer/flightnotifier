@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-016",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036825",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036825",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/490601_1772886959.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "CHOCOLATE1006",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036825"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EEW",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Jul 21, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/016.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/016.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/016.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c4ae55240b83a397f25385ff8a15ef44c6cf294abaf8618083252ec60c47f1f4",
+    "sizeBytes": 507842
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:09.867Z"
+}

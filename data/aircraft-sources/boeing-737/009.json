@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-009",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038074",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038074",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/842538_1772984633.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "flying_TCZ",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038074"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-74P",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5289",
+    "serialNumber": null,
+    "airline": "Lucky Air"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tengchong Airport - ZPTC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/009.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/009.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/009.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "89e7e6fb5ecac98f3e44985e89c65200c89b2c3dd85723c0f0aabf4486b20d4f",
+    "sizeBytes": 793077
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:55.088Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-027",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037973",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037973",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/470413_1774799059.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Shev_Photography",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037973"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-860",
+    "normalizedFamily": "Boeing 737",
+    "registration": "9S-AGA",
+    "serialNumber": null,
+    "airline": "Air Congo"
+  },
+  "photo": {
+    "photoDate": "Mar 29, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Johannesburg O.R. Tambo Int'l - FAOR",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/027.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/027.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/027.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6bbd20f2e37b6da57a655e6590a8e150a8bda4658840f7de1e0a7d334ed36670",
+    "sizeBytes": 586678
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:18.775Z"
+}

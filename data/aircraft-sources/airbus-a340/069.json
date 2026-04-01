@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-069",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12026484",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12026484",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/377897_1772002883.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "lnyln",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12026484"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MMU",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "Feb 02, 2026",
+    "uploadedDate": "Mar 15, 2026",
+    "locationName": "Shenzhen Baoan - ZGSZ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/069.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/069.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/069.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f62a0a5795cc36281a37647c38e0d738bd44314c635228603033b99fda218bde",
+    "sizeBytes": 362848
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:48.195Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-045",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12034980",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12034980",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/4786937_1772702549.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Lukas Ponitka-Bessert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12034980"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-APF",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Mar 02, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/045.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/045.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "464e9f46510cccb0657103f411968969af6d4abc440a9c5c5e3d92cb6116d813",
+    "sizeBytes": 1200220
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:47.306Z"
+}

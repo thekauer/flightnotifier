@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-098",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036487",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036487",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/329135_1772846260.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Paul Spijkers",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036487"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "TC-LGA",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/098.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/098.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/098.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "619f9d9f9bdbeab84d957d43244275d2b51e82b9ac8a80d75ad52782d66cfa9e",
+    "sizeBytes": 327131
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:34.466Z"
+}

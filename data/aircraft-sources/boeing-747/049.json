@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-049",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036182",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036182",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1164578_1772813325.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "KMG_ZZH",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036182"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-4KZF(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "OE-IFK",
+    "serialNumber": null,
+    "airline": "ASL Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 03, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Xiamen Gaoqi - ZSAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/049.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/049.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/049.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7f9971fb3242a3c6a52a525c792834e1aedaed9929597af6c8d2b7995b4e9a7f",
+    "sizeBytes": 1095758
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:02.732Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-093",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12030869",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12030869",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/472154_1772342240.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Vincent_Aviator",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12030869"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-842",
+    "normalizedFamily": "Airbus A380",
+    "registration": "VH-OQI",
+    "serialNumber": null,
+    "airline": "Qantas"
+  },
+  "photo": {
+    "photoDate": "Feb 06, 2026",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/093.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/093.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/093.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "83fb2b3b3b1a91b8af70905ade0c8fd9c49944c33a6e56d33518129866056774",
+    "sizeBytes": 455600
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:48.848Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-064",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12027072",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12027072",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/549142_1772042866.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Alexander Tarasenkov",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12027072"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-311",
+    "normalizedFamily": "Airbus A340",
+    "registration": "TC-JDJ",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Sep 12, 2013",
+    "uploadedDate": "Mar 16, 2026",
+    "locationName": "Istanbul Ataturk/Yesilkoy Int'l Airport - LTBA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/064.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/064.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/064.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "88870b735885f74eaca8d0d90d1ba84dcc1a1e420ad81c4cb62cbf5498480410",
+    "sizeBytes": 520486
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:42.841Z"
+}

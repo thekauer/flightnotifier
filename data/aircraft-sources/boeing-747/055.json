@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-055",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036065",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036065",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1696345_1772805663.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Faller Tamï¿½s",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036065"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-412F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "LZ-CJA",
+    "serialNumber": null,
+    "airline": "Compass Air Cargo"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Budapest Liszt Ferenc - LHBP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/055.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/055.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/055.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "35ec7ab4870af5a8c008f0e5ca99e175c0ecc4ec8d5b682191d3228081e496bf",
+    "sizeBytes": 1750194
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:10.959Z"
+}

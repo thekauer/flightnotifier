@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-072",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032933",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032933",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/653495_1772497637.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Fish cats",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032933"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "D-AIMN",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Jan 23, 2026",
+    "uploadedDate": "Mar 24, 2026",
+    "locationName": "Surat Thani International Airport - VTSB",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/072.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/072.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/072.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d23bf6297fe533f9ffb5a91161183cc210918638438f0d18b99c80f032f732cd",
+    "sizeBytes": 693244
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:21.494Z"
+}

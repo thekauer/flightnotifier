@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-085",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036591",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036591",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/293606_1772861861.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "CMWLZJH",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036591"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-312ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "9V-SWI",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/085.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/085.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/085.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "15a798dfd8e8388a9b5130877b8ba45f82993970f5e6ace45e2a3879d5075be6",
+    "sizeBytes": 251958
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:03.797Z"
+}

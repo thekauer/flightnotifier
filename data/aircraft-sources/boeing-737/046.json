@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-046",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037841",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037841",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/387561_1772973932.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "CAA359",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037841"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-81B",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-7996",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 17, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beijing Daxing Airport - ZBAD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/046.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/046.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/046.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "75b352a0d73d927feec1edc0596422d5d91876abba4143d5f631bcb513595700",
+    "sizeBytes": 452412
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:49.571Z"
+}

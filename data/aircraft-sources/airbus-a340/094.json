@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-094",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12022290",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12022290",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1048247_1771649138.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Luqman Alif",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12022290"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-541",
+    "normalizedFamily": "Airbus A340",
+    "registration": "HS-TYV",
+    "serialNumber": null,
+    "airline": "Thailand - Royal Thai Air Force"
+  },
+  "photo": {
+    "photoDate": "Jan 10, 2026",
+    "uploadedDate": "Mar 11, 2026",
+    "locationName": "Bangkok Don Muang Int'l Airport - VTBD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/094.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/094.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/094.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "93e3b1ee1262029f0e72590e29b3008079c26c50d342f3beb2912ae43b9501bb",
+    "sizeBytes": 1223118
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:20.972Z"
+}

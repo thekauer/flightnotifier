@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-017",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037358",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037358",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/634877_1772929891.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Ryley_McLean",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037358"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "C-GHPX",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Nov 09, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Calgary Int'l Airport - CYYC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/017.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/017.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/017.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7df33aaf03ae64a646ca9b6e9b821fdbe0316b6a9abc2694b5ed56bdf34120e5",
+    "sizeBytes": 644269
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:52.821Z"
+}

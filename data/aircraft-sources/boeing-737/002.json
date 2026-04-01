@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-002",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038115",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038115",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/493073_1772986101.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "To_Arctic",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038115"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-86N",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5691",
+    "serialNumber": null,
+    "airline": "Shanghai Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 12, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Kunming Changshui Int'l - ZPPP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/002.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/002.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/002.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7dee1dd714b0d5340ddfc815bcb157f719757c6d32fc2737b84dfce7961d222e",
+    "sizeBytes": 514418
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:43.912Z"
+}

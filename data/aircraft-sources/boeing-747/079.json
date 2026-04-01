@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-079",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035442",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035442",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1708869_1772736030.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Leonard Damm",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035442"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-867F",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-LJE",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Cargo"
+  },
+  "photo": {
+    "photoDate": "Feb 27, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/079.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/079.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/079.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8b7dc1bb7c0810b75c3051745e7b0bd211907c0b90a57d1aacb101f0ba6753fb",
+    "sizeBytes": 1780329
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:40.869Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-014",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037345",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037345",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/604686_1772930343.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "1219qiuda",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037345"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "HB-JHB",
+    "serialNumber": null,
+    "airline": "Swiss"
+  },
+  "photo": {
+    "photoDate": "Sep 19, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/014.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/014.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/014.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c671523efdd586fc6604f4aa8fcee9d5085b0e7e5f09b4881299ff929916a5e4",
+    "sizeBytes": 753481
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:06.616Z"
+}

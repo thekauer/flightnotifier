@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-055",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037085",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037085",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/458890_1772903766.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "AIRSHI",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037085"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "A7-AOB",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/055.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/055.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/055.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "fbdd7a2b40b5163f18c94ffb861e831ca1be8c745cf82e43f792ffc588d3bc11",
+    "sizeBytes": 552579
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:45.262Z"
+}

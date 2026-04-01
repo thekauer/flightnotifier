@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-010",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038062",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038062",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/863417_1772983641.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "CZX",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038062"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-85C",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5659",
+    "serialNumber": null,
+    "airline": "Xiamen Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Nanjing Lukou International Airport - ZSNJ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/010.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/010.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/010.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "aed66dee50834db353ca9a00cf0e9ff9fd01e246287a3f8c3293394e3bd71584",
+    "sizeBytes": 934362
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:56.243Z"
+}

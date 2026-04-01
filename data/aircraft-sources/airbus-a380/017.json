@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-017",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036706",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036706",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/802658_1772877352.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "EDDW_Alex",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036706"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "G-XLEH",
+    "serialNumber": null,
+    "airline": "British Airways"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/017.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/017.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/017.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "dd5f0c1e90781b621878c2876f4aee4a1166c893a7fbacd7ecebcf3f7f78207b",
+    "sizeBytes": 858791
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:10.658Z"
+}

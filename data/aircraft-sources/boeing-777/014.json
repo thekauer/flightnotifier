@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-014",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037477",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037477",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1620299_1772945332.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Andres Galarraga",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037477"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-223(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "N751AN",
+    "serialNumber": null,
+    "airline": "American Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Miami Int'l Airport - KMIA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/014.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/014.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/014.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "54cbf623aef3f81143f4796927afdf2ffc763a5aadcae94f49389f3c30e09bd4",
+    "sizeBytes": 1611738
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:36.515Z"
+}

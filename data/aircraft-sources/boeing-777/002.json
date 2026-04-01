@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-002",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037635",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037635",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/3280986_1772959919.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Cecilia02",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037635"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-28E(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HL7732",
+    "serialNumber": null,
+    "airline": "Asiana Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 03, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Dalian - ZYTL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/002.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/002.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/002.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c775d6628802eebc3412fbe5be13863cadbab6012f96794847146f2ae3bc32ef",
+    "sizeBytes": 3285192
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:22.702Z"
+}

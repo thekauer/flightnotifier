@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-020",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037343",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037343",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/547792_1772929991.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "1219qiuda",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037343"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "VH-ZNE",
+    "serialNumber": null,
+    "airline": "Qantas"
+  },
+  "photo": {
+    "photoDate": "Sep 19, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/020.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/020.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/020.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "017743fbe3afd39b590772fd71c61a49aea7a8cec5d896bd74515d6224118aa2",
+    "sizeBytes": 684171
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:56.823Z"
+}

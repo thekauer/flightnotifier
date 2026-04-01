@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-050",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036995",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036995",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/662573_1772898006.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Casper A Y",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036995"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-323ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "N717AN",
+    "serialNumber": null,
+    "airline": "American Airlines"
+  },
+  "photo": {
+    "photoDate": "Jun 01, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/050.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/050.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/050.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4658e104483d150a5af8c4c23d4d7a897f483fa027dd47956a17f1bd9121ae67",
+    "sizeBytes": 661827
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:20.912Z"
+}

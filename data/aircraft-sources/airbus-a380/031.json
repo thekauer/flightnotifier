@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-031",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035883",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035883",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/454209_1772793376.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Gavan Louis",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035883"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "9V-SKZ",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Sydney Kingsford Smith Int'l Airport - YSSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/031.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/031.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/031.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "961c56ac7e2ee6c98976444f0fbeaedbd050dd021233e94d75e2bcf971a506ae",
+    "sizeBytes": 441176
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:29.766Z"
+}

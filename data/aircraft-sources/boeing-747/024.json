@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-024",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036887",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036887",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1031134_1772892078.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Andrey Minaev",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036887"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-446",
+    "normalizedFamily": "Boeing 747",
+    "registration": "RA-73286",
+    "serialNumber": null,
+    "airline": "Rossiya Airlines"
+  },
+  "photo": {
+    "photoDate": "Jun 23, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Moscow Sheremetyevo - UUEE",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/024.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/024.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/024.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e452acd18584e2d3a17c33fddb00e2fedf0b30a2151edb661250cef4c6f655ee",
+    "sizeBytes": 1012707
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:32.427Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-078",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036704",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036704",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/411747_1772877047.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "CAN-SOAR",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036704"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-F",
+    "normalizedFamily": "Boeing 777",
+    "registration": "ET-AVT",
+    "serialNumber": null,
+    "airline": "Ethiopian Cargo"
+  },
+  "photo": {
+    "photoDate": "Nov 22, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/078.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/078.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/078.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a8f5f48134a9b1f2a3895a1218f1370fedbfd7c8227b2b926186f1be16c3776f",
+    "sizeBytes": 453127
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:53.435Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-019",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037388",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037388",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/266339_1772941664.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Sducken",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037388"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-39LER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-2037",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Jun 05, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai-Hongqiao - ZSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/019.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/019.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "db1a452430e28b8a1b32220077e77e1ff31b6e3827b84499f13d418af380d483",
+    "sizeBytes": 272483
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:42.755Z"
+}

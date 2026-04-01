@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-048",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037285",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037285",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1945160_1772924070.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Radiance777",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037285"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "G-VEVE",
+    "serialNumber": null,
+    "airline": "Virgin Atlantic Airways"
+  },
+  "photo": {
+    "photoDate": "Jan 05, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/048.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/048.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7c39bfc8b1b1fde974b9d8f478f32346beec42c8920b590dbfdf653ef46d9286",
+    "sizeBytes": 2012964
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:37.440Z"
+}

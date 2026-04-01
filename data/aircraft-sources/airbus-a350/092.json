@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-092",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036511",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036511",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/859761_1772849134.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "NKG Spotter",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036511"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "N502DN",
+    "serialNumber": null,
+    "airline": "Delta Air Lines"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/092.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/092.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/092.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f7d7ae0175b0081b75da7e664fb3596882209d2f7d08e6c402a7fe06ed5322bc",
+    "sizeBytes": 806199
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:26.162Z"
+}

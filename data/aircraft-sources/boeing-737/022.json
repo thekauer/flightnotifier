@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-022",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038019",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038019",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/415747_1772981069.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "LANG",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038019"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-823",
+    "normalizedFamily": "Boeing 737",
+    "registration": "N921NN",
+    "serialNumber": null,
+    "airline": "American Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/022.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/022.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/022.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "0a7bd2b8edfc27b7a3d610aae28ed361deeee3cdb24ddad35c8bb8683542e133",
+    "sizeBytes": 411191
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:12.347Z"
+}

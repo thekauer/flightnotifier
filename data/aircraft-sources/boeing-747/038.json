@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-038",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036434",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036434",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1666624_1772837582.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Radiance777",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036434"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-4R7F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "4K-SW888",
+    "serialNumber": null,
+    "airline": "Silk Way Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Birmingham/Elmdon Int'l Airport - EGBB",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/038.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/038.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/038.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "34425dd3229c01fc0004ee6a250a6b082f5fbf725f5f810ddc90446e75006628",
+    "sizeBytes": 1711047
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:50.685Z"
+}

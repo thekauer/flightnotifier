@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-025",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037151",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037151",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1625420_1772912079.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Marvin Knitl",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037151"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-302P2F",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EI-LKD",
+    "serialNumber": null,
+    "airline": "Saudi Arabian Airlines Cargo (ASL Airlines)"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/025.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/025.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/025.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "69fbdebe8d0841d7c739f884d372fc591eb27afbef8e5ed0c4f5a5c9f97d2503",
+    "sizeBytes": 1599677
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:20.919Z"
+}

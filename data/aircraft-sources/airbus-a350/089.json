@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-089",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036572",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036572",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1207195_1772857756.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Victor_",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036572"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "9V-SJD",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 07, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/089.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/089.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/089.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "96c8331aa0a6b8ed3b6117a4e2b6f0eb6309a37806655f325a31cd55aaa38f38",
+    "sizeBytes": 792887
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:23.043Z"
+}

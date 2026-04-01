@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-088",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036195",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036195",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1229218_1772814120.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Yunjin Lee",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036195"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JA825A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (ANA)"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Fukuoka Airport - RJFF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/088.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/088.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/088.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e9528f8465443dc69d7999f64599a793afc3a3ce16dae28369998e8d9ee13ced",
+    "sizeBytes": 1505179
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:15.923Z"
+}

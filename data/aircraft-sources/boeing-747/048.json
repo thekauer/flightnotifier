@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-048",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036234",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036234",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1341951_1772815631.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "HaoxiGuo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036234"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-830",
+    "normalizedFamily": "Boeing 747",
+    "registration": "D-ABYT",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Dec 15, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/048.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/048.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1201deac2b3e2c9356d359ac539439304bb8557a5bfcfb99468eb11f8f1cc505",
+    "sizeBytes": 1430183
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:01.737Z"
+}

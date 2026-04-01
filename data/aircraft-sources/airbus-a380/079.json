@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-079",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032386",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032386",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1316964_1772460363.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Pedro Bonatto",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032386"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-842",
+    "normalizedFamily": "Airbus A380",
+    "registration": "VH-OQC",
+    "serialNumber": null,
+    "airline": "Qantas"
+  },
+  "photo": {
+    "photoDate": "Feb 22, 2026",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/079.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/079.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/079.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "28431ca98c939a2f315c40897f5c6a77d0686063ea7f47465850e7d376a9e39f",
+    "sizeBytes": 1266021
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:31.961Z"
+}

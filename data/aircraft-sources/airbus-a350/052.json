@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-052",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037125",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037125",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/894069_1772908168.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Neil Misra",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037125"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "SE-RSC",
+    "serialNumber": null,
+    "airline": "Scandinavian Airlines (SAS)"
+  },
+  "photo": {
+    "photoDate": "Dec 27, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "San Francisco Int'l Airport - KSFO",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/052.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/052.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/052.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "34eada9842bc78ca0ab5dbc2bef56bef7e14efe7610094bc167ab3b9a5b258e3",
+    "sizeBytes": 872508
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:41.527Z"
+}

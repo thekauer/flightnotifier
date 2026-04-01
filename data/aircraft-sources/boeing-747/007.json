@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-007",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037486",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037486",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/949170_1772945692.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Filip Kapera",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037486"
+  },
+  "aircraft": {
+    "exactType": "N75987",
+    "normalizedFamily": "Boeing 747",
+    "registration": "LX-ECV",
+    "serialNumber": null,
+    "airline": "Cargolux Airlines International"
+  },
+  "photo": {
+    "photoDate": "May 11, 2021",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Chicago O'Hare Int'l Airport - KORD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/007.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/007.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/007.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "0e8c5695919345ce99cf0e2f132d91afbe9b4cb39dec97c41233721c48450e81",
+    "sizeBytes": 874118
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:11.767Z"
+}

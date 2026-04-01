@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-055",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12028921",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12028921",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/957286_1772191796.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Gilda Thode",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12028921"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-211",
+    "normalizedFamily": "Airbus A340",
+    "registration": "SU-GGG",
+    "serialNumber": null,
+    "airline": "Egypt - Government"
+  },
+  "photo": {
+    "photoDate": "Jan 20, 2026",
+    "uploadedDate": "Mar 18, 2026",
+    "locationName": "Zurich-Kloten Airport - LSZH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/055.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/055.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/055.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d3293ed54a0b40c4a0b443905bf96df1884bdc3b9d2e944742aa9ab0e61daa8a",
+    "sizeBytes": 770857
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:32.165Z"
+}

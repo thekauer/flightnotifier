@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-065",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036711",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036711",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/856389_1772877971.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Marko_Aviation",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036711"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-207U",
+    "serialNumber": null,
+    "airline": "Hainan Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 24, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Belgrade Nikola Tesla - LYBE",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/065.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/065.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/065.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4ddc5ea7ba460987f68aa17f5a0bd4030c0b3deb4b2fba9dbb443202e109235d",
+    "sizeBytes": 832066
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:48.490Z"
+}

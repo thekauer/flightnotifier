@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-034",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037920",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037920",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1428354_1772977883.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Francesco Morello",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037920"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "G-TUMO",
+    "serialNumber": null,
+    "airline": "TUI"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Turin - Caselle (Sandro Pertini) - LIMF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/034.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/034.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/034.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "90d00b2aadd96d625428fcbaadfd7bf3fa1816f4c0c9def9d04caac217b3b9b5",
+    "sizeBytes": 1419969
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:27.253Z"
+}

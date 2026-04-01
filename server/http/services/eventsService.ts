@@ -103,6 +103,7 @@ export function createStateEventsStream({
 
         const emitSchedule = async () => {
           const event = await buildScheduleEvent(stateManager.getState());
+          if (event.type !== 'schedule_updated') return;
           const snapshot = JSON.stringify(event.schedule);
           if (snapshot === lastScheduleSnapshot) {
             return;

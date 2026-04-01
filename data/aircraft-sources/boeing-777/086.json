@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-086",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036580",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036580",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1272826_1772859855.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Huajijay",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036580"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-FDZ",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A7-BFG",
+    "serialNumber": null,
+    "airline": "Qatar Airways Cargo"
+  },
+  "photo": {
+    "photoDate": "Feb 27, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Dallas/Fort Worth Int'l Airport - KDFW",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/086.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/086.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/086.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "85bc76a106e7e8b7ce41650d0bb0d3c03d5e021c411b40d7bbb064c317d354da",
+    "sizeBytes": 1274922
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:04.486Z"
+}

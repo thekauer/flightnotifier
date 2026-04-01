@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-043",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036829",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036829",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/463795_1772885085.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "aviation Mo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036829"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-302",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-18311",
+    "serialNumber": null,
+    "airline": "China Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/043.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/043.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/043.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6a373ab230bc503217fa486ba3a0e8141d366c678b43791771c2aa16724e0299",
+    "sizeBytes": 455703
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:43.552Z"
+}

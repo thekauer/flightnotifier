@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-048",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036781",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036781",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/562975_1772885850.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "B-1741",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036781"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243F",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-LDP",
+    "serialNumber": null,
+    "airline": "DHL (Air Hong Kong)"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/048.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/048.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "51f0e3b62d11e054cd6e7652e31b1f097d2cd20f4c4bdd9b4e801894319ce507",
+    "sizeBytes": 603975
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:48.935Z"
+}

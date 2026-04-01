@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-080",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036373",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036373",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/389117_1772830523.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Blagovest Antov",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036373"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "4X-EDC",
+    "serialNumber": null,
+    "airline": "El Al Israel Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Sofia Vasil Levski Int'l Airport - LBSF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/080.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/080.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/080.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "589228dcddf9c718277af8a079afb91294df01ebdc0f0997c0157ce42fe2b5bd",
+    "sizeBytes": 423215
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:06.759Z"
+}

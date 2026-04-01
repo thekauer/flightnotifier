@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-029",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037183",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037183",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1373495_1772916960.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Nathan Bartlett",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037183"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "HL7206",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Brisbane Int'l Airport - YBBN",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/029.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/029.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4f00d9ebcefca60ccbb772f47f3039e1d1faa4bc7f332ec27fe57cfea6f05047",
+    "sizeBytes": 1382060
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:06.441Z"
+}

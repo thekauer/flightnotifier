@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-008",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037609",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037609",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/584850_1772956943.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Nicozzz",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037609"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "9V-SKT",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Oct 01, 2023",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/008.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/008.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/008.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3076098f7e1af768d93f5b77abec9bc4c9fcf8b88b4ce6d501e25e4f6928df0d",
+    "sizeBytes": 576838
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:00.498Z"
+}

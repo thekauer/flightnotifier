@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-027",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037266",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037266",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/493352_1772923470.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "1219qiuda",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037266"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-333ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "C-FNNW",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Nov 16, 2024",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Toronto Lester B. Pearson Int'l Airport - CYYZ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/027.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/027.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/027.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e25c2353113ab2f799f0d12b221a70f99a7291aac2fe0932d410cecec34ab8d1",
+    "sizeBytes": 593338
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:52.398Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-019",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035578",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035578",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2194917_1772747700.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "AoBanMa",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035578"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MMQ",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "May 12, 2025",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/019.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/019.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "242d71f363e8025a0005775360812b06277c2d5c832f07e5c56ef71fd8819e37",
+    "sizeBytes": 2185730
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:46.011Z"
+}

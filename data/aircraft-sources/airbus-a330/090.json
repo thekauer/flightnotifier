@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-090",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036292",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036292",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/521515_1772823442.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Pat Marsala",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036292"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EC-MAJ",
+    "serialNumber": null,
+    "airline": "Wamos Air"
+  },
+  "photo": {
+    "photoDate": "Sep 01, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Rome Leonardo da Vinci/Fiumicino - LIRF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/090.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/090.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/090.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "35b8838ee2c8f0d8849cd231e5e1f62608dd77ea41b6cfb08d8a31fd80be0023",
+    "sizeBytes": 451643
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:23.293Z"
+}

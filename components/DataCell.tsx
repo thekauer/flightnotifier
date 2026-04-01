@@ -6,84 +6,7 @@ import { AircraftTypeBadge } from './AircraftTypeBadge';
 import { useStaggeredValue } from '@/hooks/useStaggeredValue';
 import { getAirlineLogoUrl } from '@/lib/airlineLogo';
 import { useEtaFormat } from '@/lib/etaFormatContext';
-
-const COUNTRY_CODES: Record<string, string> = {
-  'Kingdom of the Netherlands': 'NL',
-  'Netherlands': 'NL',
-  'Germany': 'DE',
-  'France': 'FR',
-  'United Kingdom': 'GB',
-  'United States': 'US',
-  'Spain': 'ES',
-  'Italy': 'IT',
-  'Belgium': 'BE',
-  'Switzerland': 'CH',
-  'Turkey': 'TR',
-  'Norway': 'NO',
-  'Sweden': 'SE',
-  'Denmark': 'DK',
-  'Ireland': 'IE',
-  'Portugal': 'PT',
-  'Austria': 'AT',
-  'Poland': 'PL',
-  'Greece': 'GR',
-  'Finland': 'FI',
-  'Czech Republic': 'CZ',
-  'Czechia': 'CZ',
-  'Romania': 'RO',
-  'Hungary': 'HU',
-  'Luxembourg': 'LU',
-  'Iceland': 'IS',
-  'Canada': 'CA',
-  'China': 'CN',
-  'Japan': 'JP',
-  'South Korea': 'KR',
-  'Australia': 'AU',
-  'Brazil': 'BR',
-  'India': 'IN',
-  'Russia': 'RU',
-  'Saudi Arabia': 'SA',
-  'United Arab Emirates': 'AE',
-  'Israel': 'IL',
-  'Mexico': 'MX',
-  'Singapore': 'SG',
-  'Thailand': 'TH',
-  'Indonesia': 'ID',
-  'Malaysia': 'MY',
-  'South Africa': 'ZA',
-  'Argentina': 'AR',
-  'Colombia': 'CO',
-  'Egypt': 'EG',
-  'Morocco': 'MA',
-  'Qatar': 'QA',
-  'Kuwait': 'KW',
-  'Oman': 'OM',
-  'Bahrain': 'BH',
-  'Ethiopia': 'ET',
-  'Kenya': 'KE',
-  'Nigeria': 'NG',
-  'Taiwan': 'TW',
-  'Philippines': 'PH',
-  'Vietnam': 'VN',
-  'New Zealand': 'NZ',
-  'Croatia': 'HR',
-  'Bulgaria': 'BG',
-  'Serbia': 'RS',
-  'Ukraine': 'UA',
-  'Lithuania': 'LT',
-  'Latvia': 'LV',
-  'Estonia': 'EE',
-  'Slovakia': 'SK',
-  'Slovenia': 'SI',
-  'Malta': 'MT',
-  'Cyprus': 'CY',
-};
-
-function countryToFlag(country: string): string | null {
-  const code = COUNTRY_CODES[country];
-  if (!code) return null;
-  return String.fromCodePoint(...[...code].map(c => 0x1F1E6 + c.charCodeAt(0) - 65));
-}
+import { countryNameToFlag } from '@/lib/constants/countryCodes';
 
 export type DataCellProps =
   | { type: 'text'; value: string; className?: string }
@@ -148,7 +71,7 @@ function CallsignCell({ value, isExpanded, isApproaching, isInZone, className }:
 }
 
 function CountryCell({ value, className }: { value: string; className?: string }) {
-  const flag = countryToFlag(value);
+  const flag = countryNameToFlag(value);
   return (
     <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>
       {flag ? (

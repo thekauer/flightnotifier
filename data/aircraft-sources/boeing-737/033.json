@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-033",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037924",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037924",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/515419_1772977735.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "gruppe6",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037924"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-86N",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5326",
+    "serialNumber": null,
+    "airline": "Air Changan"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beihai - ZGBH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/033.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/033.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/033.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "6cd2b4ec6c6289e90339d5ee57c8f1a61e8ebdd8e8bef74ba34407afe4e4bdd8",
+    "sizeBytes": 524003
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:26.214Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-018",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037355",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037355",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/2360548_1772933041.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "John-Alexander Siebert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037355"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "D-ABPU",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Mar 05, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/018.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/018.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/018.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2b74358aa1c3ba47534c3ef1434cafaff02e7ccb8ed2355880e3780d9dd4159c",
+    "sizeBytes": 2447587
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:54.259Z"
+}

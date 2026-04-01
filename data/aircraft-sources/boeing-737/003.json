@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-003",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038111",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038111",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/523410_1772985562.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "KEOKEOKEO",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038111"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "HS-VZE",
+    "serialNumber": null,
+    "airline": "Thai VietJetAir"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Camranh - VVCR",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/003.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/003.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/003.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7b9917c8a9a9aa4aa6ac7cb8054a2e49a1735d2134ebc5bbad57b57b5d9ed3c1",
+    "sizeBytes": 538184
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:44.679Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-030",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036667",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036667",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1154673_1772871787.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "ZSHC_CR",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036667"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-430",
+    "normalizedFamily": "Boeing 747",
+    "registration": "D-ABTK",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Feb 22, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/030.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/030.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/030.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1dcd2d8b8b42b5dff0520b6f42b0ad85472a47874625d816720f894184821fd7",
+    "sizeBytes": 1243166
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:40.788Z"
+}

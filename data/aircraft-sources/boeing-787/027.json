@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-027",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037262",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037262",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1180637_1772923079.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Vicknesh PS",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037262"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-10 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JA900A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (Air Japan)"
+  },
+  "photo": {
+    "photoDate": "Jan 13, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/027.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/027.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/027.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8ec5ebedff2c4ef835dfa90551e49226cccfb1b1e7e253c1ecd0851b7f9bd2d2",
+    "sizeBytes": 1258548
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:03.640Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-014",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036010",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036010",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/859189_1772797274.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Flight Seran",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036010"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "D-AIHY",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Oct 25, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/014.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/014.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/014.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9da1962be9e6fb29b5c9fc937136141825dc4b2be23f3ad75e36b295b860cc04",
+    "sizeBytes": 891836
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:39.589Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-039",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037112",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037112",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/446095_1772907161.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Luming Yu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037112"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-31HER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A6-EPC",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Mar 03, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/039.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/039.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/039.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3a8fd0b03d253c15e9265580f60946d9a6618c95b3fea8af8f8adbfb83d2a5cf",
+    "sizeBytes": 496855
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:06.340Z"
+}

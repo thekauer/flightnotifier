@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-055",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036771",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036771",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/480012_1772885400.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Pat Marsala",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036771"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "EI-XIN",
+    "serialNumber": null,
+    "airline": "Neos"
+  },
+  "photo": {
+    "photoDate": "Sep 01, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Rome Leonardo da Vinci/Fiumicino - LIRF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/055.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/055.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/055.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "bcaae36035c8fe0edb72ce64d5f16ef1d47d6e0103855dbe3e8d45f02fa3e2a5",
+    "sizeBytes": 423487
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:37.486Z"
+}

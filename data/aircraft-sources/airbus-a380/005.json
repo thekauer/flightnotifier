@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-005",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037789",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037789",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/590085_1772969924.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Yoshiharu Ozaki",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037789"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "JA382A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (ANA)"
+  },
+  "photo": {
+    "photoDate": "Mar 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/005.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/005.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/005.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c08683305b5976fbab68cc467295638f280efe981924d4c10667eb7b8ebd6afc",
+    "sizeBytes": 500482
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:59:57.017Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-012",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038047",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038047",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/892575_1772983371.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "CZX",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038047"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-84P",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-7988",
+    "serialNumber": null,
+    "airline": "Lucky Air"
+  },
+  "photo": {
+    "photoDate": "Feb 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Nanjing Lukou International Airport - ZSNJ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/012.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/012.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/012.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1637fce88585e1b716cb2763190d6a4e75d1b8fd38f139ab0605a277c5078748",
+    "sizeBytes": 963351
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:59.212Z"
+}

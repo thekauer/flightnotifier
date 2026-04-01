@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-044",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036967",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036967",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/500392_1772896708.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "af8Wuy",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036967"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JA839J",
+    "serialNumber": null,
+    "airline": "Japan Airlines (JAL)"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/044.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/044.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/044.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1e7c1b4c8d7d01ccffc235f4f2559832e52e96a1f5ceaff1ac54f217fc5a3884",
+    "sizeBytes": 499600
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:24.249Z"
+}

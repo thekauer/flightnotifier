@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-045",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036810",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036810",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/784124_1772884633.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Jackie Xie",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036810"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-HLO",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Jan 24, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/045.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/045.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b496270e7b9f524e5f727d13566f2fdf52e9ff540527802134eb2cde5bef663b",
+    "sizeBytes": 750740
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:45.897Z"
+}

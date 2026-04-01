@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-075",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036573",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036573",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/600105_1772858056.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Rodrigo Ehnis Borja",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036573"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-302",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EI-EIM",
+    "serialNumber": null,
+    "airline": "Aer Lingus"
+  },
+  "photo": {
+    "photoDate": "Apr 23, 2022",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Orlando Int'l Airport - KMCO",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/075.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/075.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/075.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "da99bcfdc2c3c83c3b74159560d8c4a134be0dfda36929c1245a7beead0deb96",
+    "sizeBytes": 584023
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:23.867Z"
+}

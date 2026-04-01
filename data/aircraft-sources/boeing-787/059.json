@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-059",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036740",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036740",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1246219_1772881356.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Gábor Kovács Dödi",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036740"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-1111",
+    "serialNumber": null,
+    "airline": "Shanghai Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Budapest Liszt Ferenc - LHBP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/059.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/059.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/059.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "11df32791c1b4b54b272cf6ce335f7192a28c4dc7522803edeb89fbd20d3b5f0",
+    "sizeBytes": 1222476
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:42.330Z"
+}

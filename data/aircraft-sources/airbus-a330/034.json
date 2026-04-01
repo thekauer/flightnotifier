@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-034",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036918",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036918",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/493255_1772892939.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "DimageA1",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036918"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-5953",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 04, 2024",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/034.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/034.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/034.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "891a31085cd5a57e57bb20b5a3a022ad98db7da27fe5ee83bd28ade0fa50f491",
+    "sizeBytes": 439239
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:33.521Z"
+}

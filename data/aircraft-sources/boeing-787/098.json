@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-098",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036021",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036021",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/722112_1772802160.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Sam Guo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036021"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "9V-OJJ",
+    "serialNumber": null,
+    "airline": "Scoot"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/098.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/098.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/098.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "409eb77d804a05a86acfc5b1eb3f414900d510ef08489fbb5812a797823e3a9b",
+    "sizeBytes": 713732
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:28.590Z"
+}

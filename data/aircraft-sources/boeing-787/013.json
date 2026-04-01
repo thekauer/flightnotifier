@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-013",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037396",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037396",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/727591_1772942368.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "D-AWTR",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037396"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "VT-TSP",
+    "serialNumber": null,
+    "airline": "Vistara (Air India)"
+  },
+  "photo": {
+    "photoDate": "Feb 15, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/013.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/013.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/013.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4e4218132fb7c6f9b9f89c18915c2fe4734581cf5bf5f11d3f166c88f6432eff",
+    "sizeBytes": 803993
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:47.944Z"
+}

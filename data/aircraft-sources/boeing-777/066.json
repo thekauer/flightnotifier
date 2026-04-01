@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-066",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036815",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036815",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/749185_1772885505.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Daniel Beliso",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036815"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-306ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "PH-BVB",
+    "serialNumber": null,
+    "airline": "KLM Asia"
+  },
+  "photo": {
+    "photoDate": "May 05, 2024",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/066.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/066.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/066.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f4fe2dd95de60309398ade6cd197f9a20b7c7337e9cdbc9e73d4ede8419cea95",
+    "sizeBytes": 741756
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:39.904Z"
+}

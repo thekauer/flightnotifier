@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-023",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038013",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038013",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/946199_1772981358.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "LANG",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038013"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-866",
+    "normalizedFamily": "Boeing 737",
+    "registration": "SU-GCZ",
+    "serialNumber": null,
+    "airline": "EgyptAir"
+  },
+  "photo": {
+    "photoDate": "Dec 27, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Rome Leonardo da Vinci/Fiumicino - LIRF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/023.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/023.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/023.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8969ac433d0a3a0e71da52dfbebfce6b95b9458d787438cc58b3df688629bfee",
+    "sizeBytes": 1002218
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:13.954Z"
+}

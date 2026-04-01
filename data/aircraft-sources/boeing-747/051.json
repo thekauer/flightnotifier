@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-051",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036158",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036158",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1851218_1772811212.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "DeRu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036158"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-83QF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "VQ-BVC",
+    "serialNumber": null,
+    "airline": "Silk Way West Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Zhengzhou Xinzheng Airport - ZHCC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/051.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/051.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/051.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7ea817ae2a52fbd8998c50cc2740109413de33e543f7593777c2273581e9a7e6",
+    "sizeBytes": 1855681
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:04.704Z"
+}

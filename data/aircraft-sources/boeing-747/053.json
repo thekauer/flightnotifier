@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-053",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036126",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036126",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1848018_1772809774.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Chung1124",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036126"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-228F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "EX-47004",
+    "serialNumber": null,
+    "airline": "Aerostan"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Macau Int'l - VMMC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/053.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/053.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/053.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "57b69b0b1c1486d1b0f8cfa16adf560bb414c0fbde5a55d757498a0482943230",
+    "sizeBytes": 1858589
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:07.952Z"
+}

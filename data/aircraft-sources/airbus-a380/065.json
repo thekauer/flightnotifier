@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-065",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12033247",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12033247",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1310949_1772542477.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Planespottingperth ",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12033247"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EOC",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Mar 02, 2026",
+    "uploadedDate": "Mar 24, 2026",
+    "locationName": "Perth Int'l Airport - YPPH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/065.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/065.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/065.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ed53e6349283f6dc9e742191d152e57e08ef40bafbfa0c13d8812f72bfd68ece",
+    "sizeBytes": 1283474
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:13.028Z"
+}

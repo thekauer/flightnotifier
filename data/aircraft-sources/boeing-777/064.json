@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-064",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036841",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036841",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/365296_1772887733.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "CHOCOLATE1006",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036841"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-31HER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A6-ENV",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Aug 15, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/064.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/064.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/064.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7f35b78cec3e92fcaec57e1effeeb15228986b2962c55a42bf53507950ada026",
+    "sizeBytes": 406592
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:38.215Z"
+}

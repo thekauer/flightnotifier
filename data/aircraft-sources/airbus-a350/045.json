@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-045",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037350",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037350",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/489772_1772933490.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "FreelancerChen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037350"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "HS-THF",
+    "serialNumber": null,
+    "airline": "Thai Airways International"
+  },
+  "photo": {
+    "photoDate": "Dec 20, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/045.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/045.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "fd3c450d20b46d464787d40fc9a50d3dcf8d137adcae0c45d06334859a872ba1",
+    "sizeBytes": 450874
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:33.874Z"
+}

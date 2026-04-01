@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-037",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036879",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036879",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/917489_1772891623.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "B-1942",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036879"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-6512",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Jan 24, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/037.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/037.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/037.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "260c7bfdd9e32b310b350697504468a427b2cf52990d94b6dcabb60fba8c9dd8",
+    "sizeBytes": 956797
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:36.579Z"
+}

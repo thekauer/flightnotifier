@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-018",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038027",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038027",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/836316_1772981892.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Borut",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038027"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8KN",
+    "normalizedFamily": "Boeing 737",
+    "registration": "A6-FGI",
+    "serialNumber": null,
+    "airline": "flydubai"
+  },
+  "photo": {
+    "photoDate": "Mar 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Ljubljana-Brnik - LJLJ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/018.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/018.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/018.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "45067171033a2169327c2b890edd234a0be682390737e877bce6e09b06e1998c",
+    "sizeBytes": 847597
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:08.316Z"
+}

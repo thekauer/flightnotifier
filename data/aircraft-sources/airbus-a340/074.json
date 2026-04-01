@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-074",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12025575",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12025575",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1468512_1771931801.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Christian Winkel",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12025575"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "HS-TNF",
+    "serialNumber": null,
+    "airline": "Thai Airways International"
+  },
+  "photo": {
+    "photoDate": "Sep 10, 2009",
+    "uploadedDate": "Mar 14, 2026",
+    "locationName": "Zurich-Kloten Airport - LSZH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/074.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/074.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/074.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b380ef3bfef18ffe2f1c5fb71b22b80921217779d2b84f5f3de7e90b1f5194dd",
+    "sizeBytes": 1463356
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:56.020Z"
+}

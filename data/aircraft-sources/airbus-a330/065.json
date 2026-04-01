@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-065",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036634",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036634",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1778708_1772867411.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Eyal Zarrad",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036634"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-323",
+    "normalizedFamily": "Airbus A330",
+    "registration": "HL7587",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/065.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/065.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/065.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a6dddffd06464099622294999ba5f0489485a8235452a7e076425fe5d7960fca",
+    "sizeBytes": 1792673
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:11.370Z"
+}

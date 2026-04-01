@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-056",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12028887",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12028887",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/409216_1772192865.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "sxd",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12028887"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MMQ",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2023",
+    "uploadedDate": "Mar 18, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/056.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/056.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/056.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9039a8ab48d71781dd28d2b65a9420e91668e34d3e14c2898b2dc8760716a6de",
+    "sizeBytes": 405734
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:33.332Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-030",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037936",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037936",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1677060_1772978601.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "ZUUULoong",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037936"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8KF",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-1450",
+    "serialNumber": null,
+    "airline": "OK Air"
+  },
+  "photo": {
+    "photoDate": "Feb 24, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Chengdu Tianfu International Airport - ZUTF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/030.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/030.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/030.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f45d1e873da70c9d26e484e403d7b2d18f203790b15d00dc0b97de00463314dc",
+    "sizeBytes": 1795337
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:22.601Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-044",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036278",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036278",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/665108_1772820497.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Florian vom Bovert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036278"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-47UF(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "N476MC",
+    "serialNumber": null,
+    "airline": "Atlas Air"
+  },
+  "photo": {
+    "photoDate": "Jan 18, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Liege-Bierset - EBLG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/044.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/044.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/044.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "177fd22d591b4225ab0a5f052b8ee337e40600fc0cfeab9f0c3d4bcf6ab0ba4a",
+    "sizeBytes": 646312
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:58.115Z"
+}

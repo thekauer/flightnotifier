@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-009",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037458",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037458",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/809891_1772945341.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Boeing 787-9",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037458"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "9V-SKZ",
+    "serialNumber": null,
+    "airline": "Singapore Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 03, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/009.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/009.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/009.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "942d161ffcd40d125cc28dc45d3758d65f4e8d920d4ee11182b145d980a94799",
+    "sizeBytes": 801622
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:01.867Z"
+}

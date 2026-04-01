@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-078",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12025347",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12025347",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/417540_1771908069.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "rsa",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12025347"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-311",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MJC",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "Feb 19, 2026",
+    "uploadedDate": "Mar 14, 2026",
+    "locationName": "Istanbul Airport - LTFM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/078.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/078.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/078.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "bce09b7b77b7a84b0bbe0e959fa431eb3111028e36327a7db2171757795c2c77",
+    "sizeBytes": 459134
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:01.156Z"
+}

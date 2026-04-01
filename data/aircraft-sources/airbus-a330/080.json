@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-080",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036477",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036477",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1607124_1772849267.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Ehco",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036477"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243P2F",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-LMA",
+    "serialNumber": null,
+    "airline": "Hong Kong Airlines Cargo"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/080.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/080.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/080.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3b0eb681e2ce5383e5ce9ae7e773c8e01aec55d90618bbaa9482efab9afd87dd",
+    "sizeBytes": 1682004
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:11.857Z"
+}

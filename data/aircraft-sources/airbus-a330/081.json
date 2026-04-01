@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-081",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036424",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036424",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/396352_1772835142.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Alexander Tarasenkov",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036424"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-223",
+    "normalizedFamily": "Airbus A330",
+    "registration": "N860NW",
+    "serialNumber": null,
+    "airline": "Delta Air Lines"
+  },
+  "photo": {
+    "photoDate": "Oct 05, 2013",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/081.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/081.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/081.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7cb8656d6c05f46e4ca9c255576bdbe72ea2446e43d8a8cf8a9f1ca2f6c3f520",
+    "sizeBytes": 367554
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:13.565Z"
+}

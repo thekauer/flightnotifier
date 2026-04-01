@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-061",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035877",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035877",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/712891_1772791258.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Gerrit Griem",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035877"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-87UF",
+    "normalizedFamily": "Boeing 747",
+    "registration": "OO-LFC",
+    "serialNumber": null,
+    "airline": "Sichuan Logistics (Air Belgium)"
+  },
+  "photo": {
+    "photoDate": "Mar 02, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Brussels Zaventem Int'l Airport - EBBR",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/061.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/061.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/061.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b998e700675cf62e2e071eacafa83a3058da46647ed576456621590277e7574b",
+    "sizeBytes": 788547
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:17.727Z"
+}

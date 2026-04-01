@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-034",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037531",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037531",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1247992_1772952585.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Ben Lingge",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037531"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-30CE",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Nov 23, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/034.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/034.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/034.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5d825b06afdbfe10f1fc6d9d3273cafa2dcd8b17858cfbb2c5518201b93054a2",
+    "sizeBytes": 1325916
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:19.630Z"
+}

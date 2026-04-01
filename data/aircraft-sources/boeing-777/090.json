@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-090",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036550",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036550",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1601591_1772854880.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Steve Chang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036550"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3ALER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HS-TKM",
+    "serialNumber": null,
+    "airline": "Thai Airways International"
+  },
+  "photo": {
+    "photoDate": "Feb 15, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Taipei Taoyuan Int'l Airport - RCTP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/090.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/090.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/090.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1d5094f1ae077b66b4db53708641d629004b116b3b81c20bb634112ecb11ace0",
+    "sizeBytes": 1538033
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:08.517Z"
+}

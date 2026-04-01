@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-047",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037293",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037293",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1098331_1772924334.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Nemo04",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037293"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-18912",
+    "serialNumber": null,
+    "airline": "China Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Ho Chi Minh City Tan Son Nhat - VVTS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/047.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/047.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/047.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "72842a5928aead12882e36c36b6bd33efe4d91e949a03e69101f140102e2f4c2",
+    "sizeBytes": 1214728
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:35.750Z"
+}

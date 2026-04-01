@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-061",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036661",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036661",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/865325_1772871329.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": " Michal Weber",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036661"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "A7-AER",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Jan 05, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Warsaw Chopin Airport - EPWA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/061.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/061.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/061.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "13c405f7cacb72f0ac07b1abfcb9507a263362817cb51a978deb371fc2ac3175",
+    "sizeBytes": 904936
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:06.782Z"
+}

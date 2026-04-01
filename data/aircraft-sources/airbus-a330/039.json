@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-039",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036854",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036854",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/611397_1772889317.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Jack_huang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036854"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-5931",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 23, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shenyang-Taoxian - ZYTX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/039.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/039.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/039.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "dc96cbe47c966e227949a629a46008e5344a1a36be3d64d19bec41bb644eef0d",
+    "sizeBytes": 655121
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:38.252Z"
+}

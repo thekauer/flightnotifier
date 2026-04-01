@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-070",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035778",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035778",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/939234_1772778113.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "RenCaiNina",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035778"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-48E(BDSF)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "HL7421",
+    "serialNumber": null,
+    "airline": "Asiana Cargo"
+  },
+  "photo": {
+    "photoDate": "Oct 04, 2023",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/070.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/070.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/070.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cae53d78d93e96401afdb1c5a099954dc2a77ed0deb43a3239bc95f006f6cd40",
+    "sizeBytes": 1068029
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:29.202Z"
+}

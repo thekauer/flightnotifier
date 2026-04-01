@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-050",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037823",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037823",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/693414_1772972814.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Brian T Richards",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037823"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "N378SC",
+    "serialNumber": null,
+    "airline": "American Airlines"
+  },
+  "photo": {
+    "photoDate": "Oct 15, 2022",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Miami Int'l Airport - KMIA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/050.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/050.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/050.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e0931af4ebdba8eea3febe5dd0630e6db7f4a2a064d778ac0e32d0f78f2f0429",
+    "sizeBytes": 629787
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:54.328Z"
+}

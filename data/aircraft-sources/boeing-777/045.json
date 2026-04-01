@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-045",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037052",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037052",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/347671_1772901680.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Smiling ZSQD",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037052"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-F6N",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-222V",
+    "serialNumber": null,
+    "airline": "China Cargo Airlines"
+  },
+  "photo": {
+    "photoDate": "Aug 17, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/045.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/045.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d59a792b547f8db78ea7de665510496f39a322a77a70a460ec3207e705795b91",
+    "sizeBytes": 317989
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:14.249Z"
+}

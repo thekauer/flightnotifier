@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-023",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036908",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036908",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/419734_1772891983.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Bernd Oberschelp",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036908"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-467",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-HOY",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "May 01, 1999",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/023.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/023.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/023.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a8e5ad380c35c4454a85b84678c1b249f9e20a5131297b174f03ae827fd50a05",
+    "sizeBytes": 398858
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:31.442Z"
+}

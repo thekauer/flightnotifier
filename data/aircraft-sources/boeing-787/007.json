@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-007",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037551",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037551",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/822161_1772953894.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Maximilian Haertl",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037551"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "TC-LLH",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "München Franz Josef Strauss - EDDM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/007.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/007.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/007.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5283d7b8d59d24f4f427d7899133b30b25bdc252c630d3c35b292cb5216af7b4",
+    "sizeBytes": 802186
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:40.926Z"
+}

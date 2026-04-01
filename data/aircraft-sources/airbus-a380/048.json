@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-048",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12034696",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12034696",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1619835_1772464057.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Mixz",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12034696"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EOE",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Feb 09, 2026",
+    "uploadedDate": "Mar 25, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/048.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/048.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "661169072189c51e54647de4f9446cfc638c4ed7cbce4ff2929cc77bf489c79d",
+    "sizeBytes": 1500224
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:50.657Z"
+}

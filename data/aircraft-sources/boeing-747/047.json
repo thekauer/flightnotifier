@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-047",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036274",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036274",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/562842_1772820142.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Florian vom Bovert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036274"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-409F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "OE-ILC",
+    "serialNumber": null,
+    "airline": "ASL Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 18, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Liege-Bierset - EBLG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/047.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/047.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/047.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ce42861b0c1e1c2cb0378c3e35251500b35165bebf55f0cbff909a14b3a27556",
+    "sizeBytes": 544639
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:00.899Z"
+}

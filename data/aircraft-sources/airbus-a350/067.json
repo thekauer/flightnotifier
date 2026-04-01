@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-067",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036948",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036948",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/632319_1772894843.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "cc12214",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036948"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "HS-THR",
+    "serialNumber": null,
+    "airline": "Thai Airways International"
+  },
+  "photo": {
+    "photoDate": "Feb 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/067.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/067.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/067.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "62ed9b3b745db53e858c08f056b531289870dc1162b62d2bd8a0da883e70e508",
+    "sizeBytes": 584817
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:58.339Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-019",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036669",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036669",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1103682_1772872373.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "R-H Chen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036669"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "HL7634",
+    "serialNumber": null,
+    "airline": "Asiana Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Taipei Taoyuan Int'l Airport - RCTP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/019.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/019.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "aa8b42aaeb366a0ab356dbcfb3850edad4eb6a38313be91f5b7023d6caa621ad",
+    "sizeBytes": 1005412
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:13.740Z"
+}

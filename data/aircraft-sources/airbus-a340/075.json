@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-075",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12025531",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12025531",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1662401_1771926380.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "ZBAA xujunpeng",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12025531"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-541",
+    "normalizedFamily": "Airbus A340",
+    "registration": "7T-VPP",
+    "serialNumber": null,
+    "airline": "Algeria - Government"
+  },
+  "photo": {
+    "photoDate": "Jul 18, 2023",
+    "uploadedDate": "Mar 14, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/075.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/075.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/075.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "fd2ae636e341a553c99f10aa4e579f2a0c4ca50f9356882a1f19c2111343b05e",
+    "sizeBytes": 1526142
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:57.086Z"
+}

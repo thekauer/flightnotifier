@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-064",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036717",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036717",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1327550_1772872568.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "R-H Chen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036717"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-10 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "HL8537",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 11, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Taipei Taoyuan Int'l Airport - RCTP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/064.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/064.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/064.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "afaf6100d246e9372e9fb7d925a6925230323da1aa6a596ee1c8c7b6162634cb",
+    "sizeBytes": 1302486
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:47.524Z"
+}

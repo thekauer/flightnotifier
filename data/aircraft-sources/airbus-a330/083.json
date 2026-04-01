@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-083",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036375",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036375",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1385872_1772830630.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Sierra Aviation Photography",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036375"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-941",
+    "normalizedFamily": "Airbus A330",
+    "registration": "D-ANRI",
+    "serialNumber": null,
+    "airline": "Condor"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/083.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/083.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/083.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "0d3a10931fcabef5fa079c2207d9d6b058910c4f79850cedaa91e61f0066df46",
+    "sizeBytes": 1399250
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:15.688Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-040",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036853",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036853",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/641138_1772889064.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Ali Utkilbaev",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036853"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243F",
+    "normalizedFamily": "Airbus A330",
+    "registration": "D-ALMD",
+    "serialNumber": null,
+    "airline": "DHL (European Air Transport)"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Almaty - UAAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/040.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/040.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/040.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "703c40be301061e8908556e4f7e3bd15f1214ef867e6cf854c8c6b97928a536d",
+    "sizeBytes": 729578
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:39.499Z"
+}

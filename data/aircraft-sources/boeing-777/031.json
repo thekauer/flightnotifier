@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-031",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037212",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037212",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1249150_1772919599.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Spotter_DF767",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037212"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-236(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "G-YMMU",
+    "serialNumber": null,
+    "airline": "British Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/031.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/031.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/031.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c5a06a4a2585b8b8d62a7ddcf5dced3782e5ec1705683c7812794187d4df2822",
+    "sizeBytes": 1373125
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:57.725Z"
+}

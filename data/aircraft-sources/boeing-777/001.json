@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-001",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037636",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037636",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/672963_1772959979.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "B-58201",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037636"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3B5ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HL8218",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/001.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/001.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/001.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "895903edb33df7f381cb9de75315a8b9de1343065f3f7dcd92411746dcbdbfdf",
+    "sizeBytes": 651450
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:21.116Z"
+}

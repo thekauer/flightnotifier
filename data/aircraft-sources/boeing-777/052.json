@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-052",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036980",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036980",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/571401_1772897184.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Zhaisa",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036980"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-F",
+    "normalizedFamily": "Boeing 777",
+    "registration": "N708GT",
+    "serialNumber": null,
+    "airline": "MSC Air Cargo (Atlas Air)"
+  },
+  "photo": {
+    "photoDate": "Jan 08, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Xiamen Gaoqi - ZSAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/052.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/052.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/052.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ea1d5e779fba4800b4b8ca8058ac05ae6fd86c0ba9147719ff8e349f7327ceb9",
+    "sizeBytes": 562154
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:23.867Z"
+}

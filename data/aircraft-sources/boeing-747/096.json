@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-096",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035084",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035084",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1312800_1772711288.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Qian",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035084"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-830",
+    "normalizedFamily": "Boeing 747",
+    "registration": "D-ABYH",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Mar 02, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/096.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/096.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/096.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "861945705ebf54447d1c44bcbcad746f98891f69691d0a6929dd6d074aa09f91",
+    "sizeBytes": 1400006
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:04:02.373Z"
+}

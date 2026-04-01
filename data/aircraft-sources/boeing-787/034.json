@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-034",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037157",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037157",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/332601_1772913013.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Oliver Barker",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037157"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "G-VMAP",
+    "serialNumber": null,
+    "airline": "Virgin Atlantic Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/034.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/034.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/034.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e809ff12e78921eb39b0cb535a022fec9f131b5d6ac26f8219a9c7e2cfbb005a",
+    "sizeBytes": 374820
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:12.709Z"
+}

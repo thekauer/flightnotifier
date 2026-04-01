@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-012",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037400",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037400",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/804845_1772942917.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "YK Wang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037400"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-20DT",
+    "serialNumber": null,
+    "airline": "Juneyao Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 21, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/012.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/012.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/012.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ec61c7d2cdf97993afd7e4c233970a921ff5b970221ee9214988bf865c8bc57e",
+    "sizeBytes": 867071
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:46.771Z"
+}

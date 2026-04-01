@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-062",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036728",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036728",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1595950_1772880645.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Coel Anthony",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036728"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "G-CKOF",
+    "serialNumber": null,
+    "airline": "Norse Atlantic Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 14, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Manchester Ringway Int'l Airport - EGCC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/062.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/062.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/062.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4147c0ed62fff891e4d828f14d73f7e58dfdc5b754c8b95e471630f57d96c31e",
+    "sizeBytes": 1611354
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:44.839Z"
+}

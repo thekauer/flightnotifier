@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-036",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032299",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032299",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2299221_1772455815.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "yiran",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032299"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "16-01",
+    "serialNumber": null,
+    "airline": "Germany - Air Force"
+  },
+  "photo": {
+    "photoDate": "Nov 04, 2022",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/036.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/036.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/036.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "064a0a8bb32d87dd06ccd954fed12a712f49e36a789af4f2016d9775d1051111",
+    "sizeBytes": 2188513
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:07.160Z"
+}

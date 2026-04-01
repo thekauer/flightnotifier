@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-039",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032034",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032034",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1031977_1772426518.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Adam P",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032034"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313E",
+    "normalizedFamily": "Airbus A340",
+    "registration": "ZS-SXD",
+    "serialNumber": null,
+    "airline": "South African Airways"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Perth Int'l Airport - YPPH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/039.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/039.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/039.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "bb64b5d3837d6d890141fe6666a2c0b8db9571d5e80b3204ee8f69e350a66610",
+    "sizeBytes": 865173
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:10.699Z"
+}

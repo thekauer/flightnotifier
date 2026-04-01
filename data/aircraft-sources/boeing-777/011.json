@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-011",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037518",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037518",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1292334_1772948968.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Guo7ieGeGe",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037518"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-36NER(BDSF)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "N780CK",
+    "serialNumber": null,
+    "airline": "Kalitta Air"
+  },
+  "photo": {
+    "photoDate": "Jan 25, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/011.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/011.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/011.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "eaddfc736fa959e94e05f8feae139d88ba0bb00f1ce6f27f806796bd9682db9c",
+    "sizeBytes": 1505835
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:33.504Z"
+}

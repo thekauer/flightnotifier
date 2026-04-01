@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-015",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037249",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037249",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/711130_1772919675.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Youchiuan Wei",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037249"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-467F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "LX-GCL",
+    "serialNumber": null,
+    "airline": "Cargolux Airlines International"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Taipei Taoyuan Int'l Airport - RCTP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/015.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/015.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/015.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "93ec3c66c7adcccdccefb9c47abc07947baf4efb817129f51198745f237eaafa",
+    "sizeBytes": 706832
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:22.619Z"
+}

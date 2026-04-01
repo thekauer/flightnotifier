@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-017",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038036",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038036",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1852025_1772982187.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Yushen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038036"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-39P",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-2573",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Other Location - China Eastern Technology Application Research and Development Center",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/017.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/017.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/017.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "007e31b5aaaf1f2771cffd5df23a4d91b54d56f5f18370d582d69fc2da0879fc",
+    "sizeBytes": 1908437
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:07.086Z"
+}

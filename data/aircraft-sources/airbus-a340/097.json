@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-097",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12022081",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12022081",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/949959_1771625174.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Neon_spottingz",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12022081"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "D-AIGP",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Aug 26, 2025",
+    "uploadedDate": "Mar 11, 2026",
+    "locationName": "Frankfurt Rhein-Main Int'l Airport - EDDF",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/097.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/097.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/097.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "65dc7ef6fbbf66514491aa5222a62f84ecb3c5444d92b126c3043d128c88b196",
+    "sizeBytes": 897801
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:24.380Z"
+}

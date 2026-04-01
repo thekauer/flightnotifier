@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-020",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038024",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038024",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/953276_1772981827.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Lewis Edward Latham",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038024"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8AS",
+    "normalizedFamily": "Boeing 737",
+    "registration": "HL8089",
+    "serialNumber": null,
+    "airline": "Jeju Air"
+  },
+  "photo": {
+    "photoDate": "Feb 16, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Macau Int'l - VMMC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/020.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/020.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/020.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1d57c7794c2156a9a8332589304b0957353109e94433c75e37c316597068fb89",
+    "sizeBytes": 930977
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:09.855Z"
+}

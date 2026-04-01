@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-032",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036926",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036926",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1276554_1772893446.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "limwoojin",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036926"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-323",
+    "normalizedFamily": "Airbus A330",
+    "registration": "HL7553",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Jan 20, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/032.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/032.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/032.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "087c43fd6ebb6aabcc5d2d45f5e8ebbe853477223ce654ae59fd6597644bdb1b",
+    "sizeBytes": 1251830
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:30.914Z"
+}

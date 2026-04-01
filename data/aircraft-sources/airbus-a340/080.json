@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-080",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12024938",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12024938",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/2350830_1771868631.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Christoph Plank",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12024938"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-312",
+    "normalizedFamily": "Airbus A340",
+    "registration": "9H-BIG",
+    "serialNumber": null,
+    "airline": "Air X Charter"
+  },
+  "photo": {
+    "photoDate": "Jul 20, 2025",
+    "uploadedDate": "Mar 13, 2026",
+    "locationName": "Salzburg W. A. Mozart - LOWS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/080.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/080.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/080.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d3fc64a16fcc5e3fb3327dc43a609aa486ecd7276da060527da1e8b1f9e0daa8",
+    "sizeBytes": 2272508
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:03.456Z"
+}

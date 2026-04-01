@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-029",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037042",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037042",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/385344_1772901073.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Smiling ZSQD",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037042"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243",
+    "normalizedFamily": "Airbus A330",
+    "registration": "B-5936",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Aug 17, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai-Hongqiao - ZSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/029.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/029.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "1b63a19e34d1f3e7366da1dc0245e28d747fdda83a6c1a87222d2d0665e4e22e",
+    "sizeBytes": 358515
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:26.469Z"
+}

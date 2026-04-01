@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-099",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036476",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036476",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1941918_1772849232.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Ehco",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036476"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-28E(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HL7755",
+    "serialNumber": null,
+    "airline": "Asiana Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 09, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/099.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/099.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/099.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8abc8e6d799fbedb4f8a10a3e971389e8ddaafd52e44bc573b9b41fe0273925f",
+    "sizeBytes": 2091565
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:19.524Z"
+}

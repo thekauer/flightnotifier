@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { SUN_ICON, MOON_ICON } from '@/lib/constants/icons';
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false);
@@ -44,7 +45,7 @@ export function ThemeSwitcher() {
       className="rounded-md p-2 hover:bg-accent transition-colors"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {isDark ? '☀︎' : '🌙'}
+      {isDark ? SUN_ICON : MOON_ICON}
     </button>
   );
 }

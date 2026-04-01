@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-017",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037437",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037437",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/335150_1772943777.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "leibbbbb",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037437"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-39LER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-2032",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Jan 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/017.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/017.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/017.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "94d64401e23a6664283223ad46b52f576e5e454f3d4bb4a343bb6be84b74c553",
+    "sizeBytes": 403488
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:40.407Z"
+}

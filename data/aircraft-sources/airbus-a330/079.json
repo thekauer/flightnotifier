@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-079",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036486",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036486",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1771170_1772844833.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Ernesto1503",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036486"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-202",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EC-NUL",
+    "serialNumber": null,
+    "airline": "Plus Ultra Líneas Aéreas"
+  },
+  "photo": {
+    "photoDate": "May 31, 2024",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Santa Lucia Felipe Angeles Int'l. - MMSM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/079.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/079.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/079.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c6bdc08f7ae18d59fd481cf65d981310cb1ede2fde2ef0a9c8778d5863bf5d99",
+    "sizeBytes": 1722282
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:09.893Z"
+}

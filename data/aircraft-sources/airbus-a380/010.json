@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-010",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037259",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037259",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1048571_1772922073.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Patrice_spotting",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037259"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "D-AIMH",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "München Franz Josef Strauss - EDDM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/010.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/010.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/010.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e77bf1cd77f387c45ef3fdfb890eedfb9d67388fc5e5a35b3189db113f310da4",
+    "sizeBytes": 1207144
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:03.121Z"
+}

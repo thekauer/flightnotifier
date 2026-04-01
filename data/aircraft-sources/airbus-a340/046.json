@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-046",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031163",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031163",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1158755_1772371122.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "YuPeng Liu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031163"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "G-ECLN",
+    "serialNumber": null,
+    "airline": "European Cargo"
+  },
+  "photo": {
+    "photoDate": "Mar 01, 2026",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Chengdu Shuangliu - ZUUU",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/046.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/046.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/046.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "acb3259d9eed1c79c5d2b7d58048efe4dfb5601f8ad6de1108f7f80d9bcdc7cb",
+    "sizeBytes": 1128774
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:20.607Z"
+}

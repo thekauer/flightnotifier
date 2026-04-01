@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-040",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036377",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036377",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/585708_1772821027.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Florian vom Bovert",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036377"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-48EF(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "TF-AMU",
+    "serialNumber": null,
+    "airline": "Network Aviation Group (Air Atlanta Icelandic)"
+  },
+  "photo": {
+    "photoDate": "Jan 18, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Liege-Bierset - EBLG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/040.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/040.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/040.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "15343364edd6eb9cc19a6e24085bc71d82ea1f8eeded2ef4478138a330b50c07",
+    "sizeBytes": 574357
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:53.048Z"
+}

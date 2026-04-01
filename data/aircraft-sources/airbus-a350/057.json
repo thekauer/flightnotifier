@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-057",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037048",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037048",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/359431_1772901435.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Smiling ZSQD",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037048"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-309W",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Aug 17, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai-Hongqiao - ZSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/057.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/057.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/057.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "576839c0df1abd47175247c328e230ecf980cb39004358cbc9a7937a41d32c36",
+    "sizeBytes": 337233
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:47.840Z"
+}

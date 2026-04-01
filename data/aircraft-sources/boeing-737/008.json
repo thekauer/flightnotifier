@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-008",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038092",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038092",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/960244_1772984037.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "flying_TCZ",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038092"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-7LY",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-7872",
+    "serialNumber": null,
+    "airline": "Kunming Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 02, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tengchong Airport - ZPTC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/008.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/008.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/008.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c99bae35b85edfff22436cbb7666f590110c35bd937857d8662a6b0ff02e63b4",
+    "sizeBytes": 913764
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:53.593Z"
+}

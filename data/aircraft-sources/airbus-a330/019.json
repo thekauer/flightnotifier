@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-019",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037245",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037245",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/843817_1772921674.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "R Skywalker",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037245"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-302P2F",
+    "normalizedFamily": "Airbus A330",
+    "registration": "EI-LKD",
+    "serialNumber": null,
+    "airline": "Saudi Arabian Airlines Cargo (ASL Airlines)"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Amsterdam Schiphol Airport - EHAM",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/019.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/019.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "54eab7e924c76fb7ea8ccc284bde4f44d9de9675861b4d292243edd1b141134b",
+    "sizeBytes": 771128
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:14.039Z"
+}

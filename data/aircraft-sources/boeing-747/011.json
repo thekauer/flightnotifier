@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-011",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037368",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037368",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/933678_1772937395.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "TPS00",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037368"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-89L",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-2487",
+    "serialNumber": null,
+    "airline": "Air China"
+  },
+  "photo": {
+    "photoDate": "Feb 24, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Inflight",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/011.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/011.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/011.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "3e0c73f0544abfd8b6f65cb41929276119c634f85956ee0df720c68348cdd769",
+    "sizeBytes": 1029120
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:17.412Z"
+}

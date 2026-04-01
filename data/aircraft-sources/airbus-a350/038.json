@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-038",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037479",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037479",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/297258_1772945741.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "By_Stander",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037479"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "A7-ALB",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 15, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/038.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/038.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/038.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2bb3f1a34daf76983467b5e5b6245ca791a9209d27f38f2d97476d28d0ed67c3",
+    "sizeBytes": 283917
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:24.733Z"
+}

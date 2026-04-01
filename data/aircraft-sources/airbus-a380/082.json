@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-082",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031695",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031695",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/814873_1772392399.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Yushen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031695"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EOB",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Dec 09, 2025",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/082.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/082.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/082.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8eb2dac9bb57a42f709108bf76bf901a459f48da4f3db66e410a0158de37272c",
+    "sizeBytes": 778461
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:36.377Z"
+}

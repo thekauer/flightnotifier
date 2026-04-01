@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-047",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037839",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037839",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1846627_1772973827.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "J.M.Carballo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037839"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-86Q(SF)",
+    "normalizedFamily": "Boeing 737",
+    "registration": "EI-AZG",
+    "serialNumber": null,
+    "airline": "Amazon Prime Air (ASL Airlines)"
+  },
+  "photo": {
+    "photoDate": "Feb 26, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Madrid Barajas - LEMD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/047.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/047.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/047.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cdd5c39e414b09d99d78d66b7b0d422436cb5471605118e828a21926f24f08c4",
+    "sizeBytes": 1853240
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:50.770Z"
+}

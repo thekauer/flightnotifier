@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-022",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037174",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037174",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/510838_1772915898.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "SunsetHill",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037174"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-941",
+    "normalizedFamily": "Airbus A330",
+    "registration": "I-ITYE",
+    "serialNumber": null,
+    "airline": "ITA Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/022.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/022.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/022.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9450386a581a46eb2cef16c837269f016fc7fb130896f3c09d529134ee137a65",
+    "sizeBytes": 453895
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:17.674Z"
+}

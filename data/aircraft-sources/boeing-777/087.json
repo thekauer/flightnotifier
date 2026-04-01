@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-087",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036562",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036562",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/737292_1772851849.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "CSR-RR3",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036562"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-39PER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-7883",
+    "serialNumber": null,
+    "airline": "China Eastern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 15, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/087.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/087.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/087.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "974176976b161470525e7121678a806a6a3f89b2d85224ea57beb868bee237fa",
+    "sizeBytes": 733662
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:05.699Z"
+}

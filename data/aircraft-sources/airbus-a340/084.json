@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-084",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12024370",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12024370",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/2034742_1771824260.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Edward Zhu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12024370"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "G-VEIL",
+    "serialNumber": null,
+    "airline": "Virgin Atlantic Airways"
+  },
+  "photo": {
+    "photoDate": "Dec 02, 2013",
+    "uploadedDate": "Mar 12, 2026",
+    "locationName": "Sydney Kingsford Smith Int'l Airport - YSSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/084.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/084.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/084.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "110979e8b2ce97aa50949af621954229ed8afb988ae14a9eab7fa3c7e4eb3579",
+    "sizeBytes": 2355827
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:08.672Z"
+}

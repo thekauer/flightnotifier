@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-038",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037875",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037875",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1275628_1772975887.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Jakub Komaniecki",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037875"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-94XER",
+    "normalizedFamily": "Boeing 737",
+    "registration": "UR-SLW",
+    "serialNumber": null,
+    "airline": "Skyline Express Airline"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Poznan-Lawica - EPPO",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/038.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/038.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/038.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "09e6e0a9091ed6893f6905764eeb4dce5198f7f5908e731f82e6917c2c458072",
+    "sizeBytes": 1203243
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:33.176Z"
+}

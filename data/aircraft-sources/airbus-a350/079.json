@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-079",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036725",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036725",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/317302_1772879781.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "HuyBay",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036725"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-1041",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-LXF",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Ho Chi Minh City Tan Son Nhat - VVTS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/079.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/079.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/079.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d99e46946a74a59cca2936830193e5ee1113e23cdb2a0c17f1b41676527600f3",
+    "sizeBytes": 291136
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:12.009Z"
+}

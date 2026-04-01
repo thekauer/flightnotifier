@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-080",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12032382",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12032382",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1186175_1772460116.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Pedro Bonatto",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12032382"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "HL7621",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 22, 2026",
+    "uploadedDate": "Mar 23, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/080.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/080.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/080.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "df65f3ce198046e267e9cc7b0de564840162f6c508a7d6e2556fcd782f97ec8e",
+    "sizeBytes": 1169333
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:33.614Z"
+}

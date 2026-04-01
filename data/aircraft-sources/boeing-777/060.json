@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-060",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036886",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036886",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/749355_1772890268.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Bastian Ding",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036886"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-367ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-KQZ",
+    "serialNumber": null,
+    "airline": "Cathay Pacific Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 13, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/060.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/060.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/060.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4cda6e3961f5d807653806e55a34d4b8a2e915c7bfc08d2936c40c381ada9d02",
+    "sizeBytes": 715501
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:33.089Z"
+}

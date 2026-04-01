@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-086",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036619",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036619",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/314697_1772866487.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "FLX-Aviation",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036619"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "A7-ALZ",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 03, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/086.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/086.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/086.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "810e9c0775d392b792df60472f8c6a1319aa13347eb4b1d0e1c65a416f7dbedf",
+    "sizeBytes": 313668
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:19.835Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-021",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037354",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037354",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/2072018_1772934320.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Edward Zhu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037354"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3ZGER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "VH-VOZ",
+    "serialNumber": null,
+    "airline": "Virgin Australia Airlines"
+  },
+  "photo": {
+    "photoDate": "Sep 12, 2013",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Sydney Kingsford Smith Int'l Airport - YSSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/021.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/021.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/021.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "85833c844f4f6e9c3baa3aadf51f73a22f9c5e7523f8810270e961d049f3a64b",
+    "sizeBytes": 2471246
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:44.828Z"
+}

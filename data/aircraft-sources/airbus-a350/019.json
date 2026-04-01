@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-019",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037780",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037780",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/446736_1772969322.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "BJ6123C7C4D",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037780"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "A7-ALF",
+    "serialNumber": null,
+    "airline": "Qatar Airways"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beijing Daxing Airport - ZBAD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/019.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/019.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/019.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ec963d4666fd01c8cf699de0a664529109c40c5f732cd9828e2a02f42ac3c90f",
+    "sizeBytes": 371811
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:02.276Z"
+}

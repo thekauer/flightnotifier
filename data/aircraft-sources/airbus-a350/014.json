@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-014",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037853",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037853",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1878218_1772971544.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "PAIYUAN_PENG_1997",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037853"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "OH-LWA",
+    "serialNumber": null,
+    "airline": "Finnair"
+  },
+  "photo": {
+    "photoDate": "Jan 20, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/014.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/014.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/014.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "75add0eb7788b790acb4461fa9876df6300a59053e96b1af3d5698e2a9ea6b93",
+    "sizeBytes": 1642039
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:54:56.742Z"
+}

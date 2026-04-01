@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-007",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036929",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036929",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1728445_1772893576.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Kyan Rossignol",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036929"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "G-ECLM",
+    "serialNumber": null,
+    "airline": "European Cargo"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Maastricht-Aachen Airport - EHBK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/007.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/007.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/007.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "78e334cd40f32cb9d01b16d2e9e6498b9e8cc751df779880c0416aa678f49e59",
+    "sizeBytes": 1721499
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:30.087Z"
+}

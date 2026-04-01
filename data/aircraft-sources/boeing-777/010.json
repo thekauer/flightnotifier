@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-010",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037522",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037522",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1841393_1772950161.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "HaoxiGuo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037522"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-328ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "F-GZNC",
+    "serialNumber": null,
+    "airline": "Air France"
+  },
+  "photo": {
+    "photoDate": "Dec 20, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/010.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/010.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/010.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8f2b47b25efb4080d8ccc01faba6d362c299166bd8bd6f45b7f326a67d24f07f",
+    "sizeBytes": 1946457
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:32.176Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-030",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12033985",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12033985",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1709305_1772604361.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Jueyu Tang",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12033985"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "HB-JMD",
+    "serialNumber": null,
+    "airline": "Edelweiss Air"
+  },
+  "photo": {
+    "photoDate": "Feb 26, 2026",
+    "uploadedDate": "Mar 25, 2026",
+    "locationName": "Phuket Int'l - VTSP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/030.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/030.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/030.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "444b49737da32780fd3dc1328c4642b66471fa2f4c374ab16d6f933757fa5ff9",
+    "sizeBytes": 1715616
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:58.786Z"
+}

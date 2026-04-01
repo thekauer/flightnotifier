@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-013",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037357",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037357",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/742758_1772933321.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Kenneth Mora Flores KMF777",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037357"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-446(BCF)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "N936CA",
+    "serialNumber": null,
+    "airline": "National Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "San Jose Juan Santamaria Int'l - MROC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/013.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/013.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/013.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8e0f1f6875405db4033500441f2c5ca2eb5524b569876f60f61a84f2c2de127d",
+    "sizeBytes": 699267
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:20.536Z"
+}

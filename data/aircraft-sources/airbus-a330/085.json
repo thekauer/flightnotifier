@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-085",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036347",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036347",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/821151_1772828394.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Kacper Polit",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036347"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-243(MRTT) Phenix",
+    "normalizedFamily": "Airbus A330",
+    "registration": "046",
+    "serialNumber": null,
+    "airline": "France - Air Force"
+  },
+  "photo": {
+    "photoDate": "Sep 21, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Rzeszow-Jasionka - EPRZ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/085.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/085.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/085.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a529dcecb93dc2b86493e00ab161daec11f76ee0614b27d52621a28201098a88",
+    "sizeBytes": 854644
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:17.997Z"
+}

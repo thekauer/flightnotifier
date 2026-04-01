@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-092",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036265",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036265",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/796003_1772819073.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Cecilia02",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036265"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "RP-C8789",
+    "serialNumber": null,
+    "airline": "Philippine Airlines"
+  },
+  "photo": {
+    "photoDate": "Dec 08, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/092.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/092.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/092.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e39946ff22af88de09f6291e8a9e6a395db7fbedbfed240ab08d593533dc9f34",
+    "sizeBytes": 744817
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:21:24.944Z"
+}

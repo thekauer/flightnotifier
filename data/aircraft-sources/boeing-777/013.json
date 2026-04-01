@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-013",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037478",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037478",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/870821_1772945708.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Henryyy",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037478"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3B5ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HL7783",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Feb 06, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Sapporo New Chitose - RJCC",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/013.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/013.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/013.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8cad0c7f20fc951bd8bda11c9f170e7fefdc1fc4ae0b3ff96fa549340528e411",
+    "sizeBytes": 905884
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:35.640Z"
+}

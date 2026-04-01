@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-024",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037330",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037330",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1308473_1772927532.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Hanys",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037330"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-F",
+    "normalizedFamily": "Boeing 777",
+    "registration": "VP-BAA",
+    "serialNumber": null,
+    "airline": "Silk Way West Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Ostrava Leos Janacek Airport - LKMT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/024.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/024.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/024.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "0f6b1aa3e00cf8d6d54b916e7f4693a85dab10dcbfac87687f24b0d477dee44b",
+    "sizeBytes": 1218043
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:49.147Z"
+}

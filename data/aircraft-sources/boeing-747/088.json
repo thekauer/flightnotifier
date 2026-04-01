@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-088",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035179",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035179",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1067249_1772718237.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Whiskey Bravo Quebec",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035179"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-412F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "9V-SFK",
+    "serialNumber": null,
+    "airline": "Singapore Airlines Cargo"
+  },
+  "photo": {
+    "photoDate": "Dec 17, 2024",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Hong Kong-Chek Lap Kok Int'l Airport - VHHH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/088.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/088.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/088.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "ddec9702fb2d646e5fba6b418bbd8c2759b58089bba3950f0c5ac32d73a62376",
+    "sizeBytes": 1148783
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:03:54.102Z"
+}

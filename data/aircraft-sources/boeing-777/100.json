@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-100",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036469",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036469",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1117906_1772847875.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Limit_aviation",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036469"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-367ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "HL8706",
+    "serialNumber": null,
+    "airline": "T'Way Air"
+  },
+  "photo": {
+    "photoDate": "Feb 22, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/100.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/100.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/100.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "51897ca8791df0e9865e71934b463a9d3f279ddc4f28677f103a5cb62a9ad406",
+    "sizeBytes": 1074785
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:09:20.559Z"
+}

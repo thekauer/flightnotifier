@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-051",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037820",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037820",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/840719_1772972281.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "ikeharel",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037820"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-958ER",
+    "normalizedFamily": "Boeing 737",
+    "registration": "4X-EHE",
+    "serialNumber": null,
+    "airline": "El Al Israel Airlines"
+  },
+  "photo": {
+    "photoDate": "Mar 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tel Aviv Ben Gurion - LLBG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/051.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/051.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/051.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "201bc659bdc54fe71cb2b072427fc1b2504b6db7c6293151db9d7af4d3c89812",
+    "sizeBytes": 764447
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:12:55.412Z"
+}

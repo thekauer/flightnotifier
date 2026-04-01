@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-011",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038061",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038061",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1386888_1772983600.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "shook ",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038061"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-85C",
+    "normalizedFamily": "Boeing 737",
+    "registration": "B-5499",
+    "serialNumber": null,
+    "airline": "Xiamen Airlines"
+  },
+  "photo": {
+    "photoDate": "Sep 17, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Urumqi-Diwopu - ZWWW",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/011.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/011.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/011.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "40eee7cb8fac2f640312d14053c53cb6c5ac32ceb333b23919c074d665e05d26",
+    "sizeBytes": 1444996
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:57.958Z"
+}

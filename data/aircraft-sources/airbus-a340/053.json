@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-053",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12029820",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12029820",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/446585_1772270158.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Houjc",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12029820"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MMQ",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "Oct 03, 2024",
+    "uploadedDate": "Mar 20, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/053.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/053.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/053.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d31f566bada1506289e3c940497710fdded2e839ca5a6bdf753db6bf69aeb7bf",
+    "sizeBytes": 486877
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:50:30.012Z"
+}

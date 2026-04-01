@@ -112,7 +112,7 @@ function parseCliArgs(): ImportArgs {
     options: {
       family: { type: 'string' },
       target: { type: 'string', default: '100' },
-      pages: { type: 'string', default: '5' },
+      pages: { type: 'string', default: '0' },
       delay: { type: 'string', default: String(DEFAULT_DELAY_MS) },
       quality: { type: 'string', default: '82' },
     },
@@ -132,7 +132,7 @@ function parseCliArgs(): ImportArgs {
   return {
     families,
     target: Math.max(1, parseInt(values.target ?? '100', 10) || 100),
-    pages: Math.max(1, parseInt(values.pages ?? '5', 10) || 5),
+    pages: Math.max(0, parseInt(values.pages ?? '0', 10) || 0),
     delay: Math.max(0, parseInt(values.delay ?? String(DEFAULT_DELAY_MS), 10) || DEFAULT_DELAY_MS),
     quality: Math.max(1, parseInt(values.quality ?? '82', 10) || 82),
   };
@@ -557,32 +557,47 @@ async function importFamily(
   const outputDir = path.join(SOURCE_ROOT, familyId);
 
   await mkdir(outputDir, { recursive: true });
-  logStep(familyId, `starting import for ${familyConfig.name}`);
-  logStep(familyId, `target=${args.target}, pages=${args.pages}, delay=${args.delay}ms, quality=${args.quality}`);
 
-  const allPhotoLinks: string[] = [];
+  const existingCount = (await getNextSlotNumber(outputDir)) - 1;
+  if (existingCount >= args.target) {
+    logStep(familyId, `already has ${existingCount}/${args.target} images, skipping`);
+    return;
+  }
+
+  const remaining = args.target - existingCount;
+  logStep(familyId, `starting import for ${familyConfig.name}`);
+  logStep(familyId, `existing=${existingCount}, need=${remaining} more (target=${args.target}), delay=${args.delay}ms, quality=${args.quality}`);
+
+  const allPhotoLinks = new Set<string>();
   for (const searchValue of familyConfig.searches) {
-    for (let page = 1; page <= args.pages; page += 1) {
+    for (let page = 1; ; page += 1) {
+      if (args.pages > 0 && page > args.pages) break;
       const searchUrl = buildSearchUrl(searchValue, page);
       logStep(familyId, `fetching search page ${page}: ${searchUrl}`);
       const html = await fetchText(searchUrl, args.delay);
       const pageLinks = extractPhotoLinks(html);
       logStep(familyId, `found ${pageLinks.length} photo links on page ${page}`);
-      allPhotoLinks.push(...pageLinks);
+      if (pageLinks.length === 0) break;
+      const sizeBefore = allPhotoLinks.size;
+      for (const link of pageLinks) allPhotoLinks.add(link);
+      if (allPhotoLinks.size === sizeBefore) {
+        logStep(familyId, `no new links on page ${page}, stopping pagination`);
+        break;
+      }
+      if (allPhotoLinks.size >= remaining * 2) break;
     }
   }
 
-  const dedupedPhotoLinks = [...new Set(allPhotoLinks)];
-  if (dedupedPhotoLinks.length === 0) {
+  if (allPhotoLinks.size === 0) {
     logStep(familyId, 'no result links found, skipping');
     return;
   }
 
-  logStep(familyId, `discovered ${dedupedPhotoLinks.length} unique photo pages`);
+  logStep(familyId, `discovered ${allPhotoLinks.size} unique photo pages`);
   const accepted = await inspectCandidatesSequential(
-    dedupedPhotoLinks,
+    [...allPhotoLinks],
     familyId,
-    args.target,
+    remaining,
     args.delay,
   );
 
@@ -611,7 +626,8 @@ async function importFamily(
     nextSlot += 1;
   }
 
-  logStep(familyId, `done: downloaded ${accepted.length} image(s) into ${path.relative(REPO_ROOT, outputDir)}`);
+  const totalNow = existingCount + accepted.length;
+  logStep(familyId, `done: downloaded ${accepted.length} image(s), now at ${totalNow}/${args.target}`);
 }
 
 async function run(): Promise<void> {
@@ -619,9 +635,10 @@ async function run(): Promise<void> {
 
   try {
     if (args.families.length > 1) {
-      const totalEstReqs = args.families.length * (args.pages * 2 + args.target * 1.5 + args.target);
+      const pagesEst = args.pages > 0 ? args.pages : 10;
+      const totalEstReqs = args.families.length * (pagesEst * 2 + args.target * 1.5 + args.target);
       const estMinutes = Math.round((totalEstReqs * (args.delay + 3000)) / 60_000);
-      console.log(`Importing ${args.families.length} families, ~${Math.round(totalEstReqs)} requests, est. ~${estMinutes} min`);
+      console.log(`Importing ${args.families.length} families, ~${Math.round(totalEstReqs)} requests, est. ~${estMinutes} min (families with enough images will be skipped)`);
       console.log(`Families: ${args.families.join(', ')}`);
     }
 

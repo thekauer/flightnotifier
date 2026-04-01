@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-057",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036754",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036754",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1086257_1772882974.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "JohnRMurdoch",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036754"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JY-BAE",
+    "serialNumber": null,
+    "airline": "Royal Jordanian"
+  },
+  "photo": {
+    "photoDate": "Nov 12, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/057.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/057.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/057.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "39772595e2259eb72343ec81891fc5a6a64a387e9469181ae149c6776803a5a5",
+    "sizeBytes": 1145460
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:40.281Z"
+}

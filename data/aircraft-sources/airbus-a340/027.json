@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-027",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12034259",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12034259",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1161066_1772630789.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Kazuchika Naya",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12034259"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "A6-EHJ",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Nov 20, 2016",
+    "uploadedDate": "Mar 25, 2026",
+    "locationName": "Tokyo Narita Int'l Airport - RJAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/027.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/027.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/027.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "52adcf9afaa9920a7eef619f25f00261a0e9ef6a36b8c145e11610b0500ad0bc",
+    "sizeBytes": 1106476
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:55.084Z"
+}

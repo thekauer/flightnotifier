@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-038",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037091",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037091",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/416481_1772904375.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "2010Xu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037091"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "N840AN",
+    "serialNumber": null,
+    "airline": "American Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/038.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/038.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/038.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f011cdde3a92ff4f7b3bf00a84d4ffcb3be24e52fe44a2c06563813312395959",
+    "sizeBytes": 384033
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:17.017Z"
+}

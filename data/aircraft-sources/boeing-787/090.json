@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-090",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036149",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036149",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/588527_1772810796.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Chacc",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036149"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-8 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JA846J",
+    "serialNumber": null,
+    "airline": "Japan Airlines (JAL)"
+  },
+  "photo": {
+    "photoDate": "Mar 06, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/090.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/090.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/090.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "9589c41e2acab4b0ebb01772b73616cb863a893f8e1a05e7ab426a9b2a26f6bd",
+    "sizeBytes": 657946
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:18.598Z"
+}

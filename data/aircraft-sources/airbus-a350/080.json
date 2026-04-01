@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-080",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036705",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036705",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/447345_1772877218.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "CAN-SOAR",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036705"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-304V",
+    "serialNumber": null,
+    "airline": "Sichuan Airlines"
+  },
+  "photo": {
+    "photoDate": "Nov 22, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/080.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/080.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/080.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "54512cedad4024f3b5b2f2031198c0984d0842e703bf16880b8e42f11852f41f",
+    "sizeBytes": 490030
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:56:13.513Z"
+}

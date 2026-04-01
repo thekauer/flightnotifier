@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-002",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038007",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038007",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/789701_1772981213.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "LANG",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038007"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "D-AIHY",
+    "serialNumber": null,
+    "airline": "Lufthansa"
+  },
+  "photo": {
+    "photoDate": "Feb 05, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "New York John F. Kennedy Int'l Airport - KJFK",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/002.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/002.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/002.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4539dde6c5bfc881779565f625864d17374fc28e03b0962a93a6f71e7defc0ac",
+    "sizeBytes": 844918
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:24.229Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-025",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037311",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037311",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/921684_1772925240.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Hanachan",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037311"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3U3ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "PK-GIF",
+    "serialNumber": null,
+    "airline": "Indonesia - Government (Garuda Indonesia)"
+  },
+  "photo": {
+    "photoDate": "Feb 17, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/025.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/025.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/025.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a853fd886609d6c9f6e6557ae83d349bf62679ee98513427a450c7c7e5c673a9",
+    "sizeBytes": 911810
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:50.033Z"
+}

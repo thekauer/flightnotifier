@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-081",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036668",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036668",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/822673_1772872221.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Zhang Bocong",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036668"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-3F2ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "TC-JJI",
+    "serialNumber": null,
+    "airline": "Turkish Airlines"
+  },
+  "photo": {
+    "photoDate": "Jul 25, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Guangzhou Baiyun Airport - ZGGG",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/081.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/081.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/081.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "752c4c0ee75b234a14e092e6f82d574f3a0e8b36140e1f254136918263576dd3",
+    "sizeBytes": 926393
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:57.428Z"
+}

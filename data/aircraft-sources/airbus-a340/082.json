@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-082",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12024522",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12024522",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1060146_1771841352.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Daniel Beliso",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12024522"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-642",
+    "normalizedFamily": "Airbus A340",
+    "registration": "EP-MMG",
+    "serialNumber": null,
+    "airline": "Mahan Air"
+  },
+  "photo": {
+    "photoDate": "Dec 30, 2025",
+    "uploadedDate": "Mar 12, 2026",
+    "locationName": "Dubai Int'l - OMDB",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/082.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/082.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/082.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "8d251198878e9690520e277d72e6ef2967acb093d6f2e857a3400dad3329fa3d",
+    "sizeBytes": 1040313
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:51:06.213Z"
+}

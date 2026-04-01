@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-067",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036693",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036693",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/943519_1772876189.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Richard Toft",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036693"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "XA-ADL",
+    "serialNumber": null,
+    "airline": "Aeromexico"
+  },
+  "photo": {
+    "photoDate": "Sep 06, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Madrid Barajas - LEMD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/067.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/067.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/067.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f376a8c0782cd09ab51e3d5809f530a05371174ebd95c05bf355f7757277d124",
+    "sizeBytes": 909740
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:50.876Z"
+}

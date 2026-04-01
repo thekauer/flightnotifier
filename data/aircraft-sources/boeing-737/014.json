@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-014",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038041",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038041",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/600988_1772982954.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Luqman Alif",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038041"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-9LPER",
+    "normalizedFamily": "Boeing 737",
+    "registration": "HS-LVO",
+    "serialNumber": null,
+    "airline": "Thai Lion Air"
+  },
+  "photo": {
+    "photoDate": "Jan 10, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Bangkok Don Muang Int'l Airport - VTBD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/014.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/014.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/014.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "48f7296ea7f52ee61d6fb183d9045001d8afa33034e5a3a77ba46c43ecd1a14a",
+    "sizeBytes": 673550
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:01.612Z"
+}

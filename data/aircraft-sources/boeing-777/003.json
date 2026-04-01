@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-003",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037617",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037617",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/400770_1772943798.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Shahaam Kayani",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037617"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-31HER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "A6-ENI",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Feb 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Lahore Allama Iqbal Int'l Airport - OPLA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/003.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/003.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/003.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2413833eaabff79f2166ef3e8cff0ca3b31988d327f40cf4d3e8d82879dc22e1",
+    "sizeBytes": 437589
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:23.927Z"
+}

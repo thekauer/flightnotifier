@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-042",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037859",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037859",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1217516_1772974795.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Emil K Svendsen",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037859"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "LN-FGJ",
+    "serialNumber": null,
+    "airline": "Norwegian"
+  },
+  "photo": {
+    "photoDate": "Mar 08, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Molde-Aro - ENML",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/042.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/042.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/042.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4090382fabeb8612d6eec8c5970b7fe1f1badad603429f2a4c9cfbd2d2bb71a8",
+    "sizeBytes": 1216279
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:37.877Z"
+}

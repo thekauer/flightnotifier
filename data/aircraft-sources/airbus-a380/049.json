@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-049",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12034690",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12034690",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/708115_1772527539.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "James Kirkland",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12034690"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-842",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EVJ",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Mar 03, 2026",
+    "uploadedDate": "Mar 25, 2026",
+    "locationName": "Christchurch Int'l Airport - NZCH",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/049.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/049.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/049.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "18656e80923f0efa9000c0251706308ea3472e339f21e4bfd933677403e8c5b1",
+    "sizeBytes": 667503
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:00:52.327Z"
+}

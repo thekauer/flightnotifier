@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-016",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038037",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038037",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1932878_1772982884.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Jiaming",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038037"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8AL",
+    "normalizedFamily": "Boeing 737",
+    "registration": "JA87AN",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (ANA Wings)"
+  },
+  "photo": {
+    "photoDate": "Dec 15, 2025",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/016.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/016.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/016.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f3003206e34e5fc39ae7533ca1139fec11548c8ea6fc4187b15d835fe6e61656",
+    "sizeBytes": 1925910
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:05.393Z"
+}

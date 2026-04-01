@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-015",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037312",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037312",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1213772_1772925373.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "Nemo04",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037312"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "VN-A815",
+    "serialNumber": null,
+    "airline": "VietJet Air"
+  },
+  "photo": {
+    "photoDate": "Jan 01, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Ho Chi Minh City Tan Son Nhat - VVTS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/015.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/015.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/015.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "57455d30edcf272bfd2448156a5202ecc41f332701d0508f76e15ed3a0b67585",
+    "sizeBytes": 1336780
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:08.204Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-038",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036855",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036855",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/654693_1772889598.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "jxclbx",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036855"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-343",
+    "normalizedFamily": "Airbus A330",
+    "registration": "D-AXEO",
+    "serialNumber": null,
+    "airline": "K5 Aviation"
+  },
+  "photo": {
+    "photoDate": "Jan 10, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/038.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/038.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/038.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7f6263cd05f56d4da0a3f80811345afc73419ae405bdf7d1155326bb3f184f31",
+    "sizeBytes": 765553
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:18:37.313Z"
+}

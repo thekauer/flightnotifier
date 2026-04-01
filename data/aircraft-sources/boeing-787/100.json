@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-100",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036007",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036007",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/2152427_1772795185.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Wayne Song",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036007"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-10 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "A6-BMB",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 12, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Phuket Int'l - VTSP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/100.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/100.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/100.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "b044206943a81dc3ca37e7395ec61c52365acb2cad4c47a3c99be62fe3a9df19",
+    "sizeBytes": 2187042
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:31.495Z"
+}

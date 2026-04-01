@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-060",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036738",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036738",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/310162_1772880185.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "HuyBay",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036738"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "EI-UBN",
+    "serialNumber": null,
+    "airline": "MIAT Mongolian Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 28, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Ho Chi Minh City Tan Son Nhat - VVTS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/060.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/060.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/060.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a475a9a114af1aecd71963d902a416bd3bf09cb17523e81d726660e5e554f7c5",
+    "sizeBytes": 295168
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:43.096Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-083",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031517",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031517",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/862301_1772385924.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Herbert Sandla",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031517"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-EEE",
+    "serialNumber": null,
+    "airline": "Emirates"
+  },
+  "photo": {
+    "photoDate": "Feb 24, 2026",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Vienna Schwechat - LOWW",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/083.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/083.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/083.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "37238e8774daa6d2cc8fb1822f36df1f28416205b1965ed3dda8c2187a25a457",
+    "sizeBytes": 715863
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:37.872Z"
+}

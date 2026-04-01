@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-007",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12038095",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12038095",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1673031_1772984246.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "TasKforce404-HK416",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12038095"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-9GPER",
+    "normalizedFamily": "Boeing 737",
+    "registration": "HS-LVS",
+    "serialNumber": null,
+    "airline": "Thai Lion Air"
+  },
+  "photo": {
+    "photoDate": "Feb 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Changsha - ZGHA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/007.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/007.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/007.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "f127dbb8733e396fd4bf2d8292fae6eedde15de953653f4117daae3e4753a9bd",
+    "sizeBytes": 1664671
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:03:52.580Z"
+}

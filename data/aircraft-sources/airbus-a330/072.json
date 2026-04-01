@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a330-072",
+  "familyId": "airbus-a330",
+  "familyName": "Airbus A330",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036578",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036578",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/789566_1772859345.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A330%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A330;",
+    "photographer": "itz3ason",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036578"
+  },
+  "aircraft": {
+    "exactType": "Airbus A330-941",
+    "normalizedFamily": "Airbus A330",
+    "registration": "D-ANRC",
+    "serialNumber": null,
+    "airline": "Condor"
+  },
+  "photo": {
+    "photoDate": "Feb 27, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Phuket Int'l - VTSP",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a330/072.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a330/072.json",
+    "publicWebp": "public/assets/aircraft/airbus-a330/072.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5a985c8c211d870b34c5275f62565638af810763833eda1859621b367d0842b4",
+    "sizeBytes": 778268
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:19:19.806Z"
+}

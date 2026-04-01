@@ -1,0 +1,47 @@
+{
+  "id": "boeing-737-029",
+  "familyId": "boeing-737",
+  "familyName": "Boeing 737",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037938",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037938",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/778826_1772977226.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+737%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 737;",
+    "photographer": "Hin Volvo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037938"
+  },
+  "aircraft": {
+    "exactType": "Boeing 737-8 MAX",
+    "normalizedFamily": "Boeing 737",
+    "registration": "HL8567",
+    "serialNumber": null,
+    "airline": "Korean Air"
+  },
+  "photo": {
+    "photoDate": "Mar 07, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Tianjin Binhai - ZBTJ",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-737/029.jpg",
+    "sidecar": "data/aircraft-sources/boeing-737/029.json",
+    "publicWebp": "public/assets/aircraft/boeing-737/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "06cb97fd6bf4475ee88de3364d82188e98301d7fed7c5cee7634c6227329e2f1",
+    "sizeBytes": 751088
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:04:21.430Z"
+}

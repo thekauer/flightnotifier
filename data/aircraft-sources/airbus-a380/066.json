@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-066",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12033132",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12033132",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1612470_1772524290.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "Mischa Oordijk",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12033132"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-861",
+    "normalizedFamily": "Airbus A380",
+    "registration": "A6-APG",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 22, 2026",
+    "uploadedDate": "Mar 24, 2026",
+    "locationName": "Singapore Changi Int'l Airport - WSSS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/066.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/066.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/066.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "cca4ca358faf6eb06352a8029621d5fc36204b78f067ddcb3732f1a76088b535",
+    "sizeBytes": 1959677
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:13.985Z"
+}

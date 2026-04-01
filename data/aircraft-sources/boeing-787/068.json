@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-068",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036674",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036674",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/445579_1772873197.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Jinhui Rao",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036674"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-7880",
+    "serialNumber": null,
+    "airline": "Hainan Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 08, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/068.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/068.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/068.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "2ae92404c662a43d5e7ffce3c7a6f645e5f99efacfc3f3a54fe2af3a01e4be5f",
+    "sizeBytes": 474735
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:51.599Z"
+}

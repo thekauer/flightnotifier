@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-050",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036827",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036827",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/568678_1772884103.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Kevin Chung",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036827"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "JA884A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (Air Japan)"
+  },
+  "photo": {
+    "photoDate": "Dec 07, 2025",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Tokyo Haneda Int'l - RJTT",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/050.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/050.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/050.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "a316132e96db779cc484c8de4769151d68cd7e68c09b245a2c99d69022fbeca3",
+    "sizeBytes": 553053
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:31.095Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-023",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037337",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037337",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/664188_1772929424.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "1219qiuda",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037337"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-35EER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-16706",
+    "serialNumber": null,
+    "airline": "Eva Air"
+  },
+  "photo": {
+    "photoDate": "Aug 30, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Los Angeles Int'l Airport - KLAX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/023.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/023.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/023.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "85edbad7998d14dd8dfd6dd19d311c87d166ef9012abb8fba21bd2029f3837bc",
+    "sizeBytes": 751213
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:47.659Z"
+}

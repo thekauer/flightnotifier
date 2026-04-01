@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-029",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037239",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037239",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/425405_1772920657.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Gabriele Fontana",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037239"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-233LR",
+    "normalizedFamily": "Boeing 777",
+    "registration": "C-FIUA",
+    "serialNumber": null,
+    "airline": "Air Canada"
+  },
+  "photo": {
+    "photoDate": "Jun 30, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "London Heathrow Int'l - EGLL",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/029.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/029.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "4ea9b6821298e58bd3425071cf289ed0ddd31b1de7602f5e13c4c0aef5c1cb42",
+    "sizeBytes": 389359
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:54.646Z"
+}

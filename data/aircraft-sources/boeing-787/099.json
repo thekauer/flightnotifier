@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-099",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036019",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036019",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/643065_1772800150.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "Naive",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036019"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-1499",
+    "serialNumber": null,
+    "airline": "Hainan Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 23, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Shenyang-Taoxian - ZYTX",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/099.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/099.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/099.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5fe2cfb1a4314c2da59119860f6098ce2adea8a6735f82fc29042926021e18db",
+    "sizeBytes": 342675
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:14:29.990Z"
+}

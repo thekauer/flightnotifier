@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import type { FlightState } from '@/lib/types';
 
-const FlightMapInner = dynamic(() => import('./FlightMapInner'), { ssr: false });
+const FlightMapInner = dynamic(() => import('./flight-map/FlightMapInner'), { ssr: false });
 
 interface FlightMapProps {
   state: FlightState;

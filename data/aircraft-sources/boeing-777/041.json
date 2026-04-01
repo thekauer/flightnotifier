@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-041",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037102",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037102",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/888771_1772906455.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "zwzhou",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037102"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-206(ER)",
+    "normalizedFamily": "Boeing 777",
+    "registration": "PH-BQC",
+    "serialNumber": null,
+    "airline": "KLM Royal Dutch Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 12, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/041.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/041.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/041.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "44e403451f7aa9940a0c89359748f6355119b27a2d11989c61dff5d5a9fbbdd0",
+    "sizeBytes": 998246
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:09.319Z"
+}

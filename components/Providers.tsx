@@ -11,6 +11,7 @@ import { StaggerProvider } from '@/lib/staggerContext';
 import { SelectedFlightProvider } from '@/lib/selectedFlightContext';
 import { EtaFormatProvider } from '@/lib/etaFormatContext';
 import { AnimateProvider } from '@/lib/animateContext';
+import { FlightEventsProvider } from '@/lib/flightEventsContext';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -24,7 +25,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
                 <AircraftFilterProvider>
                   <EtaFormatProvider>
                     <AnimateProvider>
-                      <SelectedFlightProvider>{children}</SelectedFlightProvider>
+                      <SelectedFlightProvider>
+                        <FlightEventsProvider>{children}</FlightEventsProvider>
+                      </SelectedFlightProvider>
                     </AnimateProvider>
                   </EtaFormatProvider>
                 </AircraftFilterProvider>

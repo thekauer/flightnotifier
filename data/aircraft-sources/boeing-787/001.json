@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-001",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037643",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037643",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/521354_1772960312.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "love B-6093",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037643"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "B-1566",
+    "serialNumber": null,
+    "airline": "Xiamen Airlines"
+  },
+  "photo": {
+    "photoDate": "Jan 11, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Beijing Daxing Airport - ZBAD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/001.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/001.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/001.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "aa0291fe6bfcc097d0663815356e30c8ac5bb9e78dea2c6a1587860071558ea4",
+    "sizeBytes": 557386
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:12:34.034Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-043",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037384",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037384",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/1064168_1772941069.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "Acom",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037384"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "B-32FR",
+    "serialNumber": null,
+    "airline": "China Southern Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 09, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Sanya Fenghuang - ZJSY",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/043.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/043.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/043.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c4ccc111e85b5a4f47ab910f2ec68658c619dcce09d1463bcf528178a163c699",
+    "sizeBytes": 1040072
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:55:31.280Z"
+}

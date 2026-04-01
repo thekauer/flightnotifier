@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-098",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035071",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035071",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/850667_1772710065.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Kuba Kawczynski",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035071"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-4B5F(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "N716CK",
+    "serialNumber": null,
+    "airline": "Kalitta Air"
+  },
+  "photo": {
+    "photoDate": "Feb 28, 2026",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Warsaw Chopin Airport - EPWA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/098.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/098.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/098.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "e5ddfd3c8d890341d4f07016205fb32b406a55c3980481d462325e929dc5866e",
+    "sizeBytes": 771272
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:04:04.743Z"
+}

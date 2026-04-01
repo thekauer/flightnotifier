@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a380-086",
+  "familyId": "airbus-a380",
+  "familyName": "Airbus A380",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12031325",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12031325",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/907234_1772377427.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A380%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A380;",
+    "photographer": "HGHCheng",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12031325"
+  },
+  "aircraft": {
+    "exactType": "Airbus A380-841",
+    "normalizedFamily": "Airbus A380",
+    "registration": "HL7641",
+    "serialNumber": null,
+    "airline": "Asiana Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 11, 2026",
+    "uploadedDate": "Mar 22, 2026",
+    "locationName": "Seoul Incheon Int'l - RKSI",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a380/086.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a380/086.json",
+    "publicWebp": "public/assets/aircraft/airbus-a380/086.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "5a15176d9f36467b8fcb6583b629fef9e60fe9009b54e12fc36c1bab16d909ea",
+    "sizeBytes": 987875
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T21:01:41.839Z"
+}

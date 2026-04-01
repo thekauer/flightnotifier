@@ -1,0 +1,47 @@
+{
+  "id": "boeing-747-029",
+  "familyId": "boeing-747",
+  "familyName": "Boeing 747",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036751",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036751",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/392633_1772882367.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+747%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 747;",
+    "photographer": "Sam Guo",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036751"
+  },
+  "aircraft": {
+    "exactType": "Boeing 747-4FTF(SCD)",
+    "normalizedFamily": "Boeing 747",
+    "registration": "B-2475",
+    "serialNumber": null,
+    "airline": "Air China Cargo"
+  },
+  "photo": {
+    "photoDate": "Jan 01, 2026",
+    "uploadedDate": "Mar 27, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-747/029.jpg",
+    "sidecar": "data/aircraft-sources/boeing-747/029.json",
+    "publicWebp": "public/assets/aircraft/boeing-747/029.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "7e1b7e137fb40ced576dd2479b47a4efe8858c70e9c8dd43d0973f44f1682477",
+    "sizeBytes": 403781
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:02:39.245Z"
+}

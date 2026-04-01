@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a340-015",
+  "familyId": "airbus-a340",
+  "familyName": "Airbus A340",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12035937",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12035937",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/1310130_1772798042.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A340%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A340;",
+    "photographer": "Flight Seran",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12035937"
+  },
+  "aircraft": {
+    "exactType": "Airbus A340-313X",
+    "normalizedFamily": "Airbus A340",
+    "registration": "HB-JMB",
+    "serialNumber": null,
+    "airline": "Swiss"
+  },
+  "photo": {
+    "photoDate": "Oct 01, 2025",
+    "uploadedDate": "Mar 26, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a340/015.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a340/015.json",
+    "publicWebp": "public/assets/aircraft/airbus-a340/015.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "c1397c820210a0840cf34e6d33b8ecf162a6cdff0c5ae73023873260c37572b1",
+    "sizeBytes": 1310086
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:49:40.553Z"
+}

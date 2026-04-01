@@ -1,0 +1,47 @@
+{
+  "id": "boeing-787-045",
+  "familyId": "boeing-787",
+  "familyName": "Boeing 787",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12036945",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12036945",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/656916_1772894010.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+787%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 787;",
+    "photographer": "TSN_CA1369",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12036945"
+  },
+  "aircraft": {
+    "exactType": "Boeing 787-9 Dreamliner",
+    "normalizedFamily": "Boeing 787",
+    "registration": "A6-BND",
+    "serialNumber": null,
+    "airline": "Etihad Airways"
+  },
+  "photo": {
+    "photoDate": "Feb 12, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-787/045.jpg",
+    "sidecar": "data/aircraft-sources/boeing-787/045.json",
+    "publicWebp": "public/assets/aircraft/boeing-787/045.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "d94f2b68182b96c45a26a77f59dd880434bbc55d2b9d19727acb77ec10fc896e",
+    "sizeBytes": 649020
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:13:25.819Z"
+}

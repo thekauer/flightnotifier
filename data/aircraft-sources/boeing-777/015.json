@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-015",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037447",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037447",
+    "imageUrl": "https://cdn.jetphotos.com/full/5/805645_1772944097.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Hafit Irawan",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037447"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-35EER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "B-16740",
+    "serialNumber": null,
+    "airline": "Eva Air"
+  },
+  "photo": {
+    "photoDate": "Jan 08, 2026",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Bangkok Suvarnabhumi Int'l - VTBS",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/015.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/015.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/015.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "62a90c095d6abe7df71812bc2aa0d2cfc659dea2cdf4d64e8f470996e2ada1f4",
+    "sizeBytes": 966536
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:07:37.311Z"
+}

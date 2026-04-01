@@ -1,0 +1,47 @@
+{
+  "id": "boeing-777-048",
+  "familyId": "boeing-777",
+  "familyName": "Boeing 777",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037007",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037007",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/806159_1772897756.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Boeing+777%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Boeing 777;",
+    "photographer": "Yuxuan Lu",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037007"
+  },
+  "aircraft": {
+    "exactType": "Boeing 777-381ER",
+    "normalizedFamily": "Boeing 777",
+    "registration": "JA790A",
+    "serialNumber": null,
+    "airline": "All Nippon Airways (ANA)"
+  },
+  "photo": {
+    "photoDate": "Nov 16, 2025",
+    "uploadedDate": "Mar 28, 2026",
+    "locationName": "Beijing Capital - ZBAA",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/boeing-777/048.jpg",
+    "sidecar": "data/aircraft-sources/boeing-777/048.json",
+    "publicWebp": "public/assets/aircraft/boeing-777/048.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "64d8abedd6d70a0d56fdd63656cbf7ef2a8b92ac29a2e12e9069d38b9ef4ad5a",
+    "sizeBytes": 862534
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T10:08:17.881Z"
+}

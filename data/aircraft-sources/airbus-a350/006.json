@@ -1,0 +1,47 @@
+{
+  "id": "airbus-a350-006",
+  "familyId": "airbus-a350",
+  "familyName": "Airbus A350",
+  "source": {
+    "provider": "jetphotos",
+    "originalLink": "https://www.jetphotos.com/photo/12037940",
+    "photoPageUrl": "https://www.jetphotos.com/photo/12037940",
+    "imageUrl": "https://cdn.jetphotos.com/full/6/630719_1772977074.jpg",
+    "searchUrl": "https://www.jetphotos.com/showphotos.php?aircraft=Airbus+A350%3B&airline=all&country-location=all&photographer-group=all&keywords-contain=3&keywords=&photo-year=all&width=&height=&genre=&search-type=Advanced&sort-order=0",
+    "searchAircraft": "Airbus A350;",
+    "photographer": "zsfz_lly",
+    "licenseStatus": "unknown",
+    "termsNote": "JetPhotos page says to contact photographer for terms of use.",
+    "jetphotosPhotoId": "12037940"
+  },
+  "aircraft": {
+    "exactType": "Airbus A350-941",
+    "normalizedFamily": "Airbus A350",
+    "registration": "ET-AUB",
+    "serialNumber": null,
+    "airline": "Ethiopian Airlines"
+  },
+  "photo": {
+    "photoDate": "Feb 06, 2026",
+    "uploadedDate": "Mar 29, 2026",
+    "locationName": "Shanghai Pudong - ZSPD",
+    "locationCountry": null,
+    "notes": null
+  },
+  "files": {
+    "sourceJpg": "data/aircraft-sources/airbus-a350/006.jpg",
+    "sidecar": "data/aircraft-sources/airbus-a350/006.json",
+    "publicWebp": "public/assets/aircraft/airbus-a350/006.webp"
+  },
+  "image": {
+    "width": null,
+    "height": null,
+    "sha256": "66e93fcf5987cf0a2a937ff4b602f5071be0abb165211b746cd674a4ce1e4abf",
+    "sizeBytes": 657232
+  },
+  "curation": {
+    "approved": false,
+    "notes": ""
+  },
+  "importedAt": "2026-03-29T20:54:46.679Z"
+}
