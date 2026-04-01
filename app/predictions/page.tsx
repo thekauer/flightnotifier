@@ -2,17 +2,28 @@
 
 import { useMemo } from 'react';
 import { useFlightState } from '@/lib/flightEventsContext';
+import { useAircraftFilter } from '@/lib/aircraftFilterContext';
 import { useNotificationZone } from '@/lib/notificationZoneContext';
 import { ConeFlightsTable } from '@/components/ConeFlightsTable';
 import { ScheduledArrivalsTable } from '@/components/ScheduledArrivalsTable';
 
 export default function PredictionsPage() {
   const { state } = useFlightState();
+  const { isTypeEnabled } = useAircraftFilter();
   const { zone, isInZone } = useNotificationZone();
 
+  const filteredAllFlights = useMemo(
+    () => state.allFlights.filter((flight) => isTypeEnabled(flight.aircraftType)),
+    [isTypeEnabled, state.allFlights],
+  );
+  const filteredApproachingFlights = useMemo(
+    () => state.approachingFlights.filter((flight) => isTypeEnabled(flight.aircraftType)),
+    [isTypeEnabled, state.approachingFlights],
+  );
+
   const zoneFlights = useMemo(
-    () => (zone ? state.allFlights.filter((f) => !f.onGround && isInZone(f.lat, f.lon)) : []),
-    [zone, isInZone, state.allFlights],
+    () => (zone ? filteredAllFlights.filter((f) => !f.onGround && isInZone(f.lat, f.lon)) : []),
+    [zone, isInZone, filteredAllFlights],
   );
 
   return (
@@ -30,7 +41,7 @@ export default function PredictionsPage() {
           emptyLabel="No aircraft currently inside the zone"
         />
       )}
-      <ConeFlightsTable flights={state.approachingFlights} />
+      <ConeFlightsTable flights={filteredApproachingFlights} />
       <ScheduledArrivalsTable />
     </main>
   );

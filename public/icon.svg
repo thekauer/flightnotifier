@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Flight Notifier icon">
+  <rect width="256" height="256" rx="48" fill="#0f172a" />
+  <path
+    d="M48 146l160-52c7-2 13 7 7 12l-54 33 18 45c2 6-5 11-10 7l-35-27-24 32c-4 5-13 3-13-4v-38l-49-1c-7 0-8-11 0-14z"
+    fill="#38bdf8"
+  />
+  <circle cx="187" cy="74" r="14" fill="#f8fafc" />
+</svg>

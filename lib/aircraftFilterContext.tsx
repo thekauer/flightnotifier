@@ -1,97 +1,116 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import {
   getAllTypeCodes,
   getCodesForFamily,
   getCodesForCategory,
 } from '@/lib/aircraftTypes';
 
+const AIRCRAFT_FILTER_STORAGE_KEY = 'flightnotifier-aircraft-type-filter';
+
+interface AircraftFilterStoreState {
+  enabledTypeCodes: string[];
+  toggleType: (code: string) => void;
+  toggleFamily: (family: string) => void;
+  toggleCategory: (category: string) => void;
+  selectAll: () => void;
+  deselectAll: () => void;
+}
+
 interface AircraftFilterContextValue {
   enabledTypes: Set<string>;
   toggleType: (code: string) => void;
   toggleFamily: (family: string) => void;
   toggleCategory: (category: string) => void;
-  isTypeEnabled: (code: string) => boolean;
+  isTypeEnabled: (code: string | null | undefined) => boolean;
   selectAll: () => void;
   deselectAll: () => void;
 }
 
-const AircraftFilterContext = createContext<AircraftFilterContextValue | null>(null);
+const ALL_TYPE_CODES = getAllTypeCodes();
+
+const useAircraftFilterStore = create<AircraftFilterStoreState>()(
+  persist(
+    (set) => ({
+      enabledTypeCodes: ALL_TYPE_CODES,
+      toggleType: (code) =>
+        set((state) => {
+          const enabledTypes = new Set(state.enabledTypeCodes);
+          if (enabledTypes.has(code)) {
+            enabledTypes.delete(code);
+          } else {
+            enabledTypes.add(code);
+          }
+          return { enabledTypeCodes: Array.from(enabledTypes) };
+        }),
+      toggleFamily: (family) =>
+        set((state) => {
+          const codes = getCodesForFamily(family);
+          const enabledTypes = new Set(state.enabledTypeCodes);
+          const allEnabled = codes.every((code) => enabledTypes.has(code));
+
+          for (const code of codes) {
+            if (allEnabled) {
+              enabledTypes.delete(code);
+            } else {
+              enabledTypes.add(code);
+            }
+          }
+
+          return { enabledTypeCodes: Array.from(enabledTypes) };
+        }),
+      toggleCategory: (category) =>
+        set((state) => {
+          const codes = getCodesForCategory(category);
+          const enabledTypes = new Set(state.enabledTypeCodes);
+          const allEnabled = codes.every((code) => enabledTypes.has(code));
+
+          for (const code of codes) {
+            if (allEnabled) {
+              enabledTypes.delete(code);
+            } else {
+              enabledTypes.add(code);
+            }
+          }
+
+          return { enabledTypeCodes: Array.from(enabledTypes) };
+        }),
+      selectAll: () => set({ enabledTypeCodes: ALL_TYPE_CODES }),
+      deselectAll: () => set({ enabledTypeCodes: [] }),
+    }),
+    {
+      name: AIRCRAFT_FILTER_STORAGE_KEY,
+      partialize: (state) => ({
+        enabledTypeCodes: state.enabledTypeCodes,
+      }),
+    },
+  ),
+);
 
 export function AircraftFilterProvider({ children }: { children: ReactNode }) {
-  const [enabledTypes, setEnabledTypes] = useState<Set<string>>(
-    () => new Set(getAllTypeCodes()),
-  );
-
-  const toggleType = useCallback((code: string) => {
-    setEnabledTypes((prev) => {
-      const next = new Set(prev);
-      if (next.has(code)) {
-        next.delete(code);
-      } else {
-        next.add(code);
-      }
-      return next;
-    });
-  }, []);
-
-  const toggleFamily = useCallback((family: string) => {
-    setEnabledTypes((prev) => {
-      const codes = getCodesForFamily(family);
-      const allEnabled = codes.every((c) => prev.has(c));
-      const next = new Set(prev);
-      if (allEnabled) {
-        // Uncheck all in this family
-        for (const c of codes) next.delete(c);
-      } else {
-        // Check all in this family
-        for (const c of codes) next.add(c);
-      }
-      return next;
-    });
-  }, []);
-
-  const toggleCategory = useCallback((category: string) => {
-    setEnabledTypes((prev) => {
-      const codes = getCodesForCategory(category);
-      const allEnabled = codes.every((c) => prev.has(c));
-      const next = new Set(prev);
-      if (allEnabled) {
-        for (const c of codes) next.delete(c);
-      } else {
-        for (const c of codes) next.add(c);
-      }
-      return next;
-    });
-  }, []);
-
-  const isTypeEnabled = useCallback(
-    (code: string) => enabledTypes.has(code),
-    [enabledTypes],
-  );
-
-  const selectAll = useCallback(() => {
-    setEnabledTypes(new Set(getAllTypeCodes()));
-  }, []);
-
-  const deselectAll = useCallback(() => {
-    setEnabledTypes(new Set());
-  }, []);
-
-  return (
-    <AircraftFilterContext.Provider
-      value={{ enabledTypes, toggleType, toggleFamily, toggleCategory, isTypeEnabled, selectAll, deselectAll }}
-    >
-      {children}
-    </AircraftFilterContext.Provider>
-  );
+  return children;
 }
 
 export function useAircraftFilter(): AircraftFilterContextValue {
-  const ctx = useContext(AircraftFilterContext);
-  if (!ctx) {
-    throw new Error('useAircraftFilter must be used within an AircraftFilterProvider');
-  }
-  return ctx;
+  const enabledTypeCodes = useAircraftFilterStore((state) => state.enabledTypeCodes);
+  const toggleType = useAircraftFilterStore((state) => state.toggleType);
+  const toggleFamily = useAircraftFilterStore((state) => state.toggleFamily);
+  const toggleCategory = useAircraftFilterStore((state) => state.toggleCategory);
+  const selectAll = useAircraftFilterStore((state) => state.selectAll);
+  const deselectAll = useAircraftFilterStore((state) => state.deselectAll);
+
+  const enabledTypes = new Set(enabledTypeCodes);
+
+  return {
+    enabledTypes,
+    toggleType,
+    toggleFamily,
+    toggleCategory,
+    isTypeEnabled: (code) => (code ? enabledTypes.has(code) : false),
+    selectAll,
+    deselectAll,
+  };
 }

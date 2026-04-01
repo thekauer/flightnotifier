@@ -1,21 +1,25 @@
 'use client';
 
 import { useState } from 'react';
+import { showAppNotification } from '@/lib/notifications';
 
 export function TestNotificationCard() {
-  const [status, setStatus] = useState<'idle' | 'sent' | 'denied' | 'unsupported'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sent' | 'denied' | 'unsupported' | 'failed'>(
+    'idle',
+  );
 
-  const sendTestNotification = () => {
+  const sendTestNotification = async () => {
     if (typeof Notification === 'undefined') {
       setStatus('unsupported');
       return;
     }
 
-    if (Notification.permission === 'granted') {
-      new Notification('Flight Notifier Test', {
-        body: 'Notifications are working correctly!',
-        icon: '/favicon.ico',
-      });
+    const sent = await showAppNotification('Flight Notifier Test', {
+      body: 'Notifications are working correctly!',
+      tag: `flight-notifier-test-${Date.now()}`,
+    });
+
+    if (sent) {
       setStatus('sent');
       return;
     }
@@ -25,17 +29,7 @@ export function TestNotificationCard() {
       return;
     }
 
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        new Notification('Flight Notifier Test', {
-          body: 'Notifications are working correctly!',
-          icon: '/favicon.ico',
-        });
-        setStatus('sent');
-      } else {
-        setStatus('denied');
-      }
-    });
+    setStatus('failed');
   };
 
   return (
@@ -64,6 +58,11 @@ export function TestNotificationCard() {
         {status === 'unsupported' && (
           <span className="text-xs text-muted-foreground">
             Notifications not supported in this browser.
+          </span>
+        )}
+        {status === 'failed' && (
+          <span className="text-xs text-amber-600 dark:text-amber-400">
+            Notification could not be shown. Try reloading the page.
           </span>
         )}
       </div>
