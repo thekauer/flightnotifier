@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo, useCallback, useRef, useState, useSyncExternalStore } from 'react';
-import { MapContainer, TileLayer, Polygon, Rectangle, Tooltip, Marker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Polygon, Rectangle, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
@@ -9,7 +9,6 @@ import { useAnimate } from '@/lib/animateContext';
 import { APPROACH_CONE_27 } from '@/lib/approachCone';
 import { useSelectedFlight } from '@/lib/selectedFlightContext';
 import {
-  SCHIPHOL_POS,
   SCHIPHOL_LAT,
   SCHIPHOL_LON,
   EHAM_RUNWAYS,
@@ -54,24 +53,19 @@ function useIsDarkMode(): boolean {
 }
 
 // ---------------------------------------------------------------------------
-// FitBounds helper
+// Initial bounds (computed once from approach cone)
 // ---------------------------------------------------------------------------
 
-function FitBounds() {
-  const map = useMap();
-  useMemo(() => {
-    const lats = APPROACH_CONE_27.map((p) => p[0]);
-    const lons = APPROACH_CONE_27.map((p) => p[1]);
-    map.fitBounds(
-      [
-        [Math.min(...lats), Math.min(...lons)],
-        [Math.max(...lats), Math.max(...lons)],
-      ],
-      { padding: [10, 10] }
-    );
-  }, [map]);
-  return null;
-}
+const INITIAL_BOUNDS: L.LatLngBoundsExpression = (() => {
+  const lats = APPROACH_CONE_27.map((p) => p[0]);
+  const lons = APPROACH_CONE_27.map((p) => p[1]);
+  return [
+    [Math.min(...lats), Math.min(...lons)],
+    [Math.max(...lats), Math.max(...lons)],
+  ] as L.LatLngBoundsExpression;
+})();
+
+const noZone = () => false;
 
 // ---------------------------------------------------------------------------
 // Main component
@@ -300,8 +294,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
       <div className="relative flex-1 min-h-0">
         <MapContainer
-          center={SCHIPHOL_POS}
-          zoom={14}
+          bounds={INITIAL_BOUNDS}
+          boundsOptions={{ padding: [10, 10] }}
           minZoom={9}
           maxZoom={16}
           maxBounds={[
@@ -319,8 +313,6 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             attribution={TILE_ATTRIBUTION}
             url={isDark ? TILE_DARK : TILE_LIGHT}
           />
-          <FitBounds />
-
           {showArea && (
             <Rectangle
               bounds={[
@@ -460,6 +452,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
               isSelected={selectedFlightId === flight.id}
               onSelect={handleSelectFlight}
               isInZone={!!zone && isInZone(flight.lat, flight.lon)}
+              checkInZone={zone ? isInZone : noZone}
             />
           ))}
         </MapContainer>

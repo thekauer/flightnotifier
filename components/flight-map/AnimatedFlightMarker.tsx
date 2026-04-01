@@ -60,6 +60,7 @@ export function AnimatedFlightMarker({
   isSelected,
   onSelect,
   isInZone,
+  checkInZone,
 }: {
   flight: Flight;
   isApproaching: boolean;
@@ -68,17 +69,36 @@ export function AnimatedFlightMarker({
   isSelected: boolean;
   onSelect: (flightId: string) => void;
   isInZone: boolean;
+  checkInZone: (lat: number, lon: number) => boolean;
 }) {
   const markerRef = useRef<L.Marker | null>(null);
   const rafRef = useRef<number>(0);
   const posRef = useRef<{ lat: number; lon: number }>({ lat: flight.lat, lon: flight.lon });
   const lastFrameRef = useRef<number>(performance.now());
   const flightRef = useRef(flight);
+  const inZoneRef = useRef(isInZone);
+  const iconRef = useRef<L.DivIcon | null>(null);
 
   if (flightRef.current.lat !== flight.lat || flightRef.current.lon !== flight.lon) {
     posRef.current = { lat: flight.lat, lon: flight.lon };
   }
   flightRef.current = flight;
+  inZoneRef.current = isInZone;
+
+  const buildIcon = useCallback(
+    (zoneStatus: boolean) => {
+      if (labelMode) {
+        return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected, zoneStatus);
+      }
+      return createFlightIcon(flight.track, isApproaching, flight.aircraftType, zoneStatus, isSelected);
+    },
+    [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode],
+  );
+
+  const checkInZoneRef = useRef(checkInZone);
+  checkInZoneRef.current = checkInZone;
+  const buildIconRef = useRef(buildIcon);
+  buildIconRef.current = buildIcon;
 
   const tick = useCallback(() => {
     const now = performance.now();
@@ -94,6 +114,15 @@ export function AnimatedFlightMarker({
     pos.lon += (speedDegPerSec * Math.sin(trackRad) * dt) / Math.cos((pos.lat * Math.PI) / 180);
 
     markerRef.current?.setLatLng([pos.lat, pos.lon]);
+
+    const nowInZone = checkInZoneRef.current(pos.lat, pos.lon);
+    if (nowInZone !== inZoneRef.current) {
+      inZoneRef.current = nowInZone;
+      const newIcon = buildIconRef.current(nowInZone);
+      iconRef.current = newIcon;
+      markerRef.current?.setIcon(newIcon);
+    }
+
     rafRef.current = requestAnimationFrame(tick);
   }, []);
 
@@ -113,11 +142,10 @@ export function AnimatedFlightMarker({
   const displayLon = animate ? posRef.current.lon : flight.lon;
 
   const icon = useMemo(() => {
-    if (labelMode) {
-      return createLabelIcon(flight.track, flight.aircraftType, isApproaching, isSelected, isInZone);
-    }
-    return createFlightIcon(flight.track, isApproaching, flight.aircraftType, isInZone, isSelected);
-  }, [flight.track, flight.aircraftType, isApproaching, isSelected, labelMode, isInZone]);
+    const newIcon = buildIcon(isInZone);
+    iconRef.current = newIcon;
+    return newIcon;
+  }, [buildIcon, isInZone]);
 
   const eventHandlers = useMemo(
     () => ({

@@ -7,6 +7,7 @@ import { SpottingModeCard } from './settings/SpottingModeCard';
 import { StaggerCard } from './settings/StaggerCard';
 import { EtaFormatCard } from './settings/EtaFormatCard';
 import { AnimateCard } from './settings/AnimateCard';
+import { TestNotificationCard } from './settings/TestNotificationCard';
 
 export function SettingsPage() {
   return (
@@ -18,6 +19,7 @@ export function SettingsPage() {
       <AnimateCard />
       <StaggerCard />
       <EtaFormatCard />
+      <TestNotificationCard />
     </div>
   );
 }

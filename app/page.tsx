@@ -34,8 +34,8 @@ export default function DashboardPage() {
         onEnableNotifications={requestNotificationPermission}
       />
 
-      <main className="flex flex-1 flex-col gap-5 px-6 pb-6">
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+      <main className="flex flex-1 flex-col gap-3 px-2 pb-4 sm:gap-5 sm:px-6 sm:pb-6">
+        <div className="grid grid-cols-1 gap-3 sm:gap-5 lg:grid-cols-3">
           <div className="rounded-xl border bg-card shadow-sm lg:row-span-2">
             <div className="px-5 py-3">
               <h2 className="text-sm font-semibold">Map</h2>
@@ -62,7 +62,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:gap-5 lg:grid-cols-2">
           <ScheduledArrivalsTable />
           <WeatherCard weather={state.weather ?? null} />
         </div>

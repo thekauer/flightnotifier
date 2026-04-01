@@ -1,8 +1,10 @@
 import { access, mkdir, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 
-export const REPO_ROOT = path.resolve(import.meta.dir, '..', '..', '..');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+export const REPO_ROOT = path.resolve(__dirname, '..', '..', '..');
 export const SOURCE_ROOT = path.join(REPO_ROOT, 'data', 'aircraft-sources');
 export const PUBLIC_ASSET_ROOT = path.join(REPO_ROOT, 'public', 'assets', 'aircraft');
 export const QUIZ_INVENTORY_PATH = path.join(REPO_ROOT, 'data', 'spotting', 'image-inventory.json');
