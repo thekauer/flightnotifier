@@ -91,3 +91,32 @@ export const flightyArrivals = ingestSchema.table(
     index('idx_fa_flight_number').on(table.flightNumber),
   ],
 );
+
+export const openskyTracks = ingestSchema.table(
+  'opensky_tracks',
+  {
+    id: bigserial({ mode: 'number' }).primaryKey(),
+    fetchedAt: timestamp('fetched_at', { withTimezone: true }).notNull().defaultNow(),
+    icao24: text('icao24').notNull(),
+    requestedTime: integer('requested_time').notNull(),
+    startTime: integer('start_time'),
+    endTime: integer('end_time'),
+    callsign: text('callsign'),
+    path: jsonb('path').$type<
+      readonly [
+        number,
+        number | null,
+        number | null,
+        number | null,
+        number | null,
+        boolean,
+      ][]
+    | null>(),
+    source: text('source').notNull().default('state_vectors'),
+  },
+  (table) => [
+    index('idx_ost_icao24').on(table.icao24),
+    index('idx_ost_fetched_at').on(table.fetchedAt),
+    index('idx_ost_icao24_requested_time').on(table.icao24, table.requestedTime),
+  ],
+);

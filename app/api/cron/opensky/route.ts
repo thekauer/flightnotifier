@@ -1,9 +1,15 @@
 import { NextResponse } from 'next/server';
 import { ingestOpenSky } from '@/cron/opensky';
+import { authorizeCron } from '@/lib/cron/auth';
 
 export const dynamic = 'force-dynamic';
 
-export async function POST() {
+async function handleCron(request: Request) {
+  const unauthorized = authorizeCron(request);
+  if (unauthorized) {
+    return unauthorized;
+  }
+
   try {
     const result = await ingestOpenSky();
     return NextResponse.json(result);
@@ -11,4 +17,12 @@ export async function POST() {
     console.error('[Cron/OpenSky]', error);
     return NextResponse.json({ error: String(error) }, { status: 500 });
   }
+}
+
+export async function GET(request: Request) {
+  return handleCron(request);
+}
+
+export async function POST(request: Request) {
+  return handleCron(request);
 }

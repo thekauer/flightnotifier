@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { ingestFlighty } from '@/cron/flighty';
+
+import { ingestOpenSkyTracks } from '@/cron/tracks';
 import { authorizeCron } from '@/lib/cron/auth';
 
 export const dynamic = 'force-dynamic';
@@ -11,10 +12,10 @@ async function handleCron(request: Request) {
   }
 
   try {
-    const result = await ingestFlighty();
+    const result = await ingestOpenSkyTracks();
     return NextResponse.json(result);
   } catch (error) {
-    console.error('[Cron/Flighty]', error);
+    console.error('[Cron/OpenSkyTracks]', error);
     return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }
