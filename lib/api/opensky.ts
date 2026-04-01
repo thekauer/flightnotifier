@@ -53,6 +53,24 @@ function parseNumberHeader(value: string | null): number | null {
 }
 
 /**
+ * Parse an OpenSky HTTP response, handling rate-limit and non-2xx errors.
+ */
+export async function parseRawResponse(res: Response): Promise<OpenSkyResponse> {
+  if (!res.ok) {
+    const retryAfterSeconds =
+      parseNumberHeader(res.headers.get('x-rate-limit-retry-after-seconds')) ??
+      parseNumberHeader(res.headers.get('retry-after'));
+    const remainingCredits = parseNumberHeader(res.headers.get('x-rate-limit-remaining'));
+    throw new OpenSkyHttpError(res.status, `OpenSky HTTP ${res.status}: ${res.statusText}`, {
+      retryAfterSeconds,
+      remainingCredits,
+    });
+  }
+
+  return res.json() as Promise<OpenSkyResponse>;
+}
+
+/**
  * Parse an OpenSky state vector array into a Flight object.
  */
 export function parseStateVector(
@@ -94,18 +112,7 @@ export function buildStateVectorsUrl(bounds: OpenSkyBoundingBox): string {
 }
 
 export async function parseStateVectorsResponse(res: Response): Promise<Flight[]> {
-  if (!res.ok) {
-    const retryAfterSeconds =
-      parseNumberHeader(res.headers.get('x-rate-limit-retry-after-seconds')) ??
-      parseNumberHeader(res.headers.get('retry-after'));
-    const remainingCredits = parseNumberHeader(res.headers.get('x-rate-limit-remaining'));
-    throw new OpenSkyHttpError(res.status, `OpenSky HTTP ${res.status}: ${res.statusText}`, {
-      retryAfterSeconds,
-      remainingCredits,
-    });
-  }
-
-  const data: OpenSkyResponse = await res.json();
+  const data = await parseRawResponse(res);
   if (!data.states) return [];
 
   return data.states

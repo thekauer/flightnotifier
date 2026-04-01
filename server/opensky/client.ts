@@ -1,5 +1,6 @@
 import {
   buildStateVectorsUrl,
+  parseRawResponse,
   parseStateVectorsResponse,
   buildArrivalsUrl,
   parseArrivalsResponse,
@@ -9,6 +10,7 @@ import {
   OPENSKY_TRACK_ENDPOINTS,
   type OpenSkyArrival,
   type OpenSkyTrackResponse,
+  type OpenSkyResponse,
   OpenSkyHttpError,
 } from '@/lib/api/opensky';
 import type { BoundingBox, Flight } from './types';
@@ -129,6 +131,32 @@ export class OpenSkyClient {
       const flights = await parseStateVectorsResponse(res);
       this.rateLimitUntil = 0;
       return flights;
+    } catch (err) {
+      if (err instanceof OpenSkyHttpError && err.status === 429) {
+        const retryAfterMs = Math.max((err.retryAfterSeconds ?? 300) * 1000, 60_000);
+        this.rateLimitUntil = Date.now() + retryAfterMs;
+        console.warn(
+          `[OpenSky] Rate limited. Backing off for ${Math.round(retryAfterMs / 1000)}s`,
+        );
+      } else {
+        console.error('[OpenSky]', err);
+      }
+      return null;
+    }
+  }
+
+  async fetchRawStates(bounds: BoundingBox): Promise<OpenSkyResponse | null> {
+    if (Date.now() < this.rateLimitUntil) {
+      return null;
+    }
+
+    const url = buildStateVectorsUrl(bounds);
+
+    try {
+      const res = await this.openSkyRequest(url);
+      const data = await parseRawResponse(res);
+      this.rateLimitUntil = 0;
+      return data;
     } catch (err) {
       if (err instanceof OpenSkyHttpError && err.status === 429) {
         const retryAfterMs = Math.max((err.retryAfterSeconds ?? 300) * 1000, 60_000);
