@@ -7,11 +7,21 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "aws:cron:build": "bash scripts/aws/with-env.sh bash scripts/aws/build-crons.sh",
+    "aws:cron:package": "bash scripts/aws/with-env.sh bash -lc 'bash scripts/aws/build-crons.sh && bunx serverless package --config serverless.aws-cron.yml'",
+    "aws:cron:deploy": "bash scripts/aws/with-env.sh bash -lc 'bash scripts/aws/build-crons.sh && bunx serverless deploy --config serverless.aws-cron.yml'",
+    "aws:cron:remove": "bash scripts/aws/with-env.sh bunx serverless remove --config serverless.aws-cron.yml",
+    "aws:cron:print": "bash scripts/aws/with-env.sh bunx serverless print --config serverless.aws-cron.yml",
+    "aws:cron:list": "bash scripts/aws/with-env.sh bash scripts/aws/list-crons.sh",
+    "aws:cron:invoke": "bash scripts/aws/with-env.sh bash scripts/aws/invoke-cron.sh",
+    "aws:cron:logs": "bash scripts/aws/with-env.sh bash scripts/aws/logs-cron.sh",
+    "aws:cron:local": "bash scripts/aws/with-env.sh bash scripts/aws/local-cron.sh",
     "db:generate": "bunx drizzle-kit generate",
     "db:migrate": "bunx drizzle-kit migrate",
     "db:studio": "bunx drizzle-kit studio",
     "assets:import:jetphotos": "bun run scripts/aircraft/import-jetphotos.ts",
-    "assets:webp": "bun run scripts/aircraft/publish-assets.ts"
+    "assets:webp": "bun run scripts/aircraft/publish-assets.ts",
+    "db:seed-runways": "bun run scripts/seed-runways.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^8.5.0",
@@ -43,6 +53,7 @@
     "@types/react-dom": "^19.0.4",
     "drizzle-kit": "^0.31.10",
     "prettier": "^3.5.3",
+    "serverless": "^3.39.0",
     "typescript": "~5.9.3"
   }
 }
