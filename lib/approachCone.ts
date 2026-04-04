@@ -42,7 +42,7 @@ function bearing(a: [number, number], b: [number, number]): number {
 // Cone generation
 // ---------------------------------------------------------------------------
 
-interface ConeConfig {
+export interface ConeConfig {
   /** Threshold position [lat, lon] — the narrow end of the cone. */
   threshold: [number, number];
   /**
@@ -71,7 +71,7 @@ interface ConeConfig {
  * Returns vertices in order: nearLeft, farLeft, farRight, nearRight
  * (a closed polygon when rendered by Leaflet).
  */
-function buildConePolygon(cfg: ConeConfig): [number, number][] {
+export function buildConePolygon(cfg: ConeConfig): [number, number][] {
   const { threshold, approachBearing, halfAngleDeg, lengthM } = cfg;
 
   const midLat = threshold[0];
