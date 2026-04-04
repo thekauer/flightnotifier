@@ -9,6 +9,8 @@ import { HistoricApproachMap } from './HistoricApproachMap';
 import { usePredictionHorizon } from '@/lib/predictionHorizonContext';
 import { useScheduleData } from '@/hooks/useScheduleData';
 import { useSelectedFlight } from '@/lib/selectedFlightContext';
+import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 
 function formatTimestamp(seconds: number): string {
   return new Date(seconds * 1000).toLocaleString([], {
@@ -168,7 +170,8 @@ export function ScheduledArrivalsTable() {
   const { horizonMinutes } = usePredictionHorizon();
   const { selectedFlightId } = useSelectedFlight();
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const { arrivals, isLoading } = useScheduleData(horizonMinutes);
+  const airportIdent = useSelectedAirportsStore((state) => state.selectedAirports[0]?.ident ?? DEFAULT_AIRPORT.ident);
+  const { arrivals, isLoading } = useScheduleData(horizonMinutes, airportIdent);
 
   return (
     <div className="rounded-xl border bg-card shadow-sm">

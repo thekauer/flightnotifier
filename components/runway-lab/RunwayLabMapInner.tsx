@@ -6,6 +6,8 @@ import L from 'leaflet';
 import { useRunways, type Runway } from '@/hooks/useRunways';
 import type { AirportSearchRecord } from '@/lib/airport-catalog';
 import { buildConePolygon } from '@/lib/buildConePolygon';
+import type { SelectedRunwayRecord } from '@/lib/runwaySelection';
+import { coneMatchesSelection, runwayMatchesSelection } from '@/lib/runwaySelection';
 import {
   TILE_LIGHT,
   TILE_DARK,
@@ -74,19 +76,31 @@ function runwayPolygon(le: [number, number], he: [number, number], widthFt: numb
 }
 
 interface ConeData {
+  airportIdent: string;
   key: string;
   polygon: [number, number][];
+  runwayKey: string;
+  leIdent: string;
+  heIdent: string;
 }
 
-function buildConesFromRunways(runways: Runway[]): ConeData[] {
+function buildConesFromRunways(runways: Runway[], airportIdent: string): ConeData[] {
   const cones: ConeData[] = [];
 
   for (const rwy of runways) {
+    const runwayKey = `strip-${rwy.id}`;
+    const leIdent = rwy.leIdent ?? '';
+    const heIdent = rwy.heIdent ?? '';
+
     // LE approach cone: planes land heading le_heading, so they approach from the reciprocal
     if (rwy.leLatitudeDeg != null && rwy.leLongitudeDeg != null && rwy.leHeadingDegT != null) {
       const approachBearing = (rwy.leHeadingDegT + 180) % 360;
       cones.push({
+        airportIdent,
         key: `${rwy.id}-le-${rwy.leIdent}`,
+        runwayKey,
+        leIdent,
+        heIdent,
         polygon: buildConePolygon({
           threshold: [rwy.leLatitudeDeg, rwy.leLongitudeDeg],
           approachBearing,
@@ -100,7 +114,11 @@ function buildConesFromRunways(runways: Runway[]): ConeData[] {
     if (rwy.heLatitudeDeg != null && rwy.heLongitudeDeg != null && rwy.heHeadingDegT != null) {
       const approachBearing = (rwy.heHeadingDegT + 180) % 360;
       cones.push({
+        airportIdent,
         key: `${rwy.id}-he-${rwy.heIdent}`,
+        runwayKey,
+        leIdent,
+        heIdent,
         polygon: buildConePolygon({
           threshold: [rwy.heLatitudeDeg, rwy.heLongitudeDeg],
           approachBearing,
@@ -115,6 +133,7 @@ function buildConesFromRunways(runways: Runway[]): ConeData[] {
 }
 
 interface RunwayStripData {
+  airportIdent: string;
   key: string;
   corners: [number, number][];
   leIdent: string;
@@ -123,7 +142,7 @@ interface RunwayStripData {
   he: [number, number];
 }
 
-function buildRunwayStrips(runways: Runway[]): RunwayStripData[] {
+function buildRunwayStrips(runways: Runway[], airportIdent: string): RunwayStripData[] {
   const strips: RunwayStripData[] = [];
 
   for (const rwy of runways) {
@@ -137,6 +156,7 @@ function buildRunwayStrips(runways: Runway[]): RunwayStripData[] {
     const he: [number, number] = [rwy.heLatitudeDeg, rwy.heLongitudeDeg];
 
     strips.push({
+      airportIdent,
       key: `strip-${rwy.id}`,
       corners: runwayPolygon(le, he, rwy.widthFt * RUNWAY_WIDTH_SCALE),
       leIdent: rwy.leIdent ?? '',
@@ -183,14 +203,50 @@ function MapViewportController({
   return null;
 }
 
-export default function RunwayLabMapInner({ airport }: { airport: AirportSearchRecord }) {
+interface RunwayLabMapInnerProps {
+  airport: AirportSearchRecord;
+  selectedRunways?: SelectedRunwayRecord[];
+  interactiveRunways?: boolean;
+  hideUnselectedRunways?: boolean;
+  dashSelectedRunways?: boolean;
+  onRunwaySelect?: (runway: SelectedRunwayRecord) => void;
+}
+
+export default function RunwayLabMapInner({
+  airport,
+  selectedRunways = [],
+  interactiveRunways = false,
+  hideUnselectedRunways = false,
+  dashSelectedRunways = false,
+  onRunwaySelect,
+}: RunwayLabMapInnerProps) {
   const isDark = useIsDarkMode();
   const { data: runways = [], isLoading } = useRunways(airport.ident);
   const [hoveredConeKey, setHoveredConeKey] = useState<string | null>(null);
+  const [hoveredStripKey, setHoveredStripKey] = useState<string | null>(null);
 
-  const cones = useMemo(() => buildConesFromRunways(runways), [runways]);
-  const strips = useMemo(() => buildRunwayStrips(runways), [runways]);
+  const cones = useMemo(() => buildConesFromRunways(runways, airport.ident), [airport.ident, runways]);
+  const strips = useMemo(() => buildRunwayStrips(runways, airport.ident), [airport.ident, runways]);
   const center = useMemo<[number, number]>(() => [airport.latitude, airport.longitude], [airport.latitude, airport.longitude]);
+  const selectedForAirport = useMemo(
+    () => selectedRunways.filter((runway) => runway.airportIdent === airport.ident),
+    [airport.ident, selectedRunways],
+  );
+  const hasSelectedRunways = selectedForAirport.length > 0;
+  const visibleStrips = useMemo(
+    () =>
+      hideUnselectedRunways && hasSelectedRunways
+        ? strips.filter((strip) => runwayMatchesSelection(strip, selectedForAirport))
+        : strips,
+    [hasSelectedRunways, hideUnselectedRunways, selectedForAirport, strips],
+  );
+  const visibleCones = useMemo(
+    () =>
+      hideUnselectedRunways && hasSelectedRunways
+        ? cones.filter((cone) => coneMatchesSelection(cone, selectedForAirport))
+        : cones,
+    [cones, hasSelectedRunways, hideUnselectedRunways, selectedForAirport],
+  );
 
   return (
     <div className="relative h-full w-full">
@@ -210,41 +266,79 @@ export default function RunwayLabMapInner({ airport }: { airport: AirportSearchR
           url={isDark ? TILE_DARK : TILE_LIGHT}
         />
 
-        <MapViewportController center={center} strips={strips} />
+        <MapViewportController center={center} strips={visibleStrips} />
 
-        {cones.map((cone) => (
+        {visibleCones.map((cone) => (
           <Polygon
             key={cone.key}
             positions={cone.polygon}
             eventHandlers={{
-              mouseover: () => setHoveredConeKey(cone.key),
+              mouseover: (event) => {
+                setHoveredConeKey(cone.key);
+                if (interactiveRunways) {
+                  event.target.getElement()?.style.setProperty('cursor', 'pointer');
+                }
+              },
               mouseout: () => setHoveredConeKey((current) => (current === cone.key ? null : current)),
+              click: () => {
+                if (!interactiveRunways || !onRunwaySelect) return;
+                onRunwaySelect({
+                  airportIdent: cone.airportIdent,
+                  key: cone.runwayKey,
+                  leIdent: cone.leIdent,
+                  heIdent: cone.heIdent,
+                  coneKey: cone.key,
+                });
+              },
             }}
             pathOptions={{
               color: COLOR_CONE,
               fillColor: COLOR_CONE,
-              fillOpacity: hoveredConeKey === cone.key ? 0.14 : 0,
-              opacity: hoveredConeKey === cone.key ? 1 : 0.45,
+              fillOpacity: hoveredConeKey === cone.key ? 0.2 : 0.08,
+              opacity: hoveredConeKey === cone.key ? 1 : 0.7,
               weight: hoveredConeKey === cone.key ? 2 : 1,
               dashArray: hoveredConeKey === cone.key ? undefined : '6 3',
             }}
           />
         ))}
 
-        {strips.map((strip) => (
+        {visibleStrips.map((strip) => {
+          const isSelected = runwayMatchesSelection(strip, selectedForAirport);
+          const isHovered = hoveredStripKey === strip.key;
+          return (
           <Polygon
             key={strip.key}
             positions={strip.corners}
+            eventHandlers={{
+              mouseover: (event) => {
+                setHoveredStripKey(strip.key);
+                if (interactiveRunways) {
+                  event.target.getElement()?.style.setProperty('cursor', 'pointer');
+                }
+              },
+              mouseout: () => setHoveredStripKey((current) => (current === strip.key ? null : current)),
+              click: () => {
+                if (!interactiveRunways || !onRunwaySelect) return;
+                onRunwaySelect({
+                  airportIdent: strip.airportIdent,
+                  key: strip.key,
+                  leIdent: strip.leIdent,
+                  heIdent: strip.heIdent,
+                });
+              },
+            }}
             pathOptions={{
-              color: isDark ? '#a1a1aa' : '#555',
-              fillColor: isDark ? '#71717a' : '#333',
-              fillOpacity: 0.7,
-              weight: 1,
+              color: isSelected ? '#f97316' : isDark ? '#a1a1aa' : '#555',
+              fillColor: isSelected ? '#f59e0b' : isDark ? '#71717a' : '#333',
+              fillOpacity: isSelected ? 0.85 : isHovered ? 0.82 : 0.7,
+              weight: isSelected ? 2 : isHovered ? 1.6 : 1,
+              dashArray: isSelected && dashSelectedRunways ? '10 6' : undefined,
             }}
           />
-        ))}
+          );
+        })}
 
-        {strips.map((strip) => (
+        {visibleStrips.map((strip) => (
           <React.Fragment key={`lbl-${strip.key}`}>
             <Marker position={strip.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
               <Tooltip permanent direction="center" className="runway-label">
@@ -266,7 +360,7 @@ export default function RunwayLabMapInner({ airport }: { airport: AirportSearchR
         </div>
       ) : null}
 
-      {!isLoading && strips.length === 0 ? (
+      {!isLoading && visibleStrips.length === 0 ? (
         <div className="pointer-events-none absolute inset-x-4 top-4 z-[500] rounded-2xl border border-black/8 bg-white/88 px-4 py-3 text-sm text-muted-foreground shadow-lg backdrop-blur dark:border-white/10 dark:bg-slate-950/80">
           No runway geometry was found for {airport.ident}, so the map is centered on the airport only.
         </div>

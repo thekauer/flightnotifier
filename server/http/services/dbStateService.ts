@@ -10,6 +10,8 @@ import {
   isCanceledOrDiverted,
 } from '@/server/arrivals/flightRow';
 import { resolveIcaoFromIata } from '@/lib/airports';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
+import { findAirportByIdent } from '@/lib/server/airportCatalog';
 import { callsignMatchesFlighty } from '@/lib/callsignMatch';
 import { detectApproachDirection, isBuitenveldertbaanApproach } from '@/server/opensky/detector';
 import { buildSchedule } from '@/server/opensky/schedule';
@@ -26,6 +28,13 @@ const APPROACH_BOUNDS = {
   west: 4.46,
   north: 52.52,
   east: 5.24,
+};
+
+const APPROACH_BOUNDS_OFFSET = {
+  south: DEFAULT_AIRPORT.latitude - APPROACH_BOUNDS.south,
+  west: DEFAULT_AIRPORT.longitude - APPROACH_BOUNDS.west,
+  north: APPROACH_BOUNDS.north - DEFAULT_AIRPORT.latitude,
+  east: APPROACH_BOUNDS.east - DEFAULT_AIRPORT.longitude,
 };
 
 type AdsbLolSnapshotRow = {
@@ -126,7 +135,7 @@ type TimedPromiseCache<T> = {
 };
 
 const globalForDbStateCache = globalThis as typeof globalThis & {
-  __flightNotifierDbStateCache?: TimedPromiseCache<FlightState>;
+  __flightNotifierDbStateCache?: Map<string, TimedPromiseCache<FlightState>>;
   __flightNotifierDbScheduleCache?: Map<string, TimedPromiseCache<ScheduledArrival[]>>;
 };
 
@@ -147,6 +156,25 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
     Math.sin(dLat / 2) ** 2 +
     Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function getAirportBounds(airportIdent: string) {
+  const airport = findAirportByIdent(airportIdent) ?? DEFAULT_AIRPORT;
+  return {
+    south: airport.latitude - APPROACH_BOUNDS_OFFSET.south,
+    west: airport.longitude - APPROACH_BOUNDS_OFFSET.west,
+    north: airport.latitude + APPROACH_BOUNDS_OFFSET.north,
+    east: airport.longitude + APPROACH_BOUNDS_OFFSET.east,
+  };
+}
+
+function isFlightWithinBounds(flight: Flight, bounds: { south: number; west: number; north: number; east: number }): boolean {
+  return (
+    flight.lat >= bounds.south &&
+    flight.lat <= bounds.north &&
+    flight.lon >= bounds.west &&
+    flight.lon <= bounds.east
+  );
 }
 
 function countryFromFlagPath(flag?: string): string {
@@ -213,13 +241,24 @@ async function getCachedValue<T>(
 }
 
 function getDbStateCache(): TimedPromiseCache<FlightState> {
-  const cache = getOrCreateTimedCache<FlightState>(globalForDbStateCache.__flightNotifierDbStateCache);
-  globalForDbStateCache.__flightNotifierDbStateCache = cache;
+  const airportIdent = DEFAULT_AIRPORT.ident;
+  const cacheMap = globalForDbStateCache.__flightNotifierDbStateCache ?? new Map();
+  globalForDbStateCache.__flightNotifierDbStateCache = cacheMap;
+  const cache = getOrCreateTimedCache<FlightState>(cacheMap.get(airportIdent));
+  cacheMap.set(airportIdent, cache);
   return cache;
 }
 
-function getDbScheduleCache(horizonMinutes: number | null): TimedPromiseCache<ScheduledArrival[]> {
-  const key = horizonMinutes === null ? 'all' : String(horizonMinutes);
+function getDbStateCacheForAirport(airportIdent: string): TimedPromiseCache<FlightState> {
+  const cacheMap = globalForDbStateCache.__flightNotifierDbStateCache ?? new Map();
+  globalForDbStateCache.__flightNotifierDbStateCache = cacheMap;
+  const cache = getOrCreateTimedCache<FlightState>(cacheMap.get(airportIdent));
+  cacheMap.set(airportIdent, cache);
+  return cache;
+}
+
+function getDbScheduleCache(horizonMinutes: number | null, airportIdent: string): TimedPromiseCache<ScheduledArrival[]> {
+  const key = `${airportIdent}:${horizonMinutes === null ? 'all' : String(horizonMinutes)}`;
   const cacheMap = globalForDbStateCache.__flightNotifierDbScheduleCache ?? new Map();
   globalForDbStateCache.__flightNotifierDbScheduleCache = cacheMap;
 
@@ -372,18 +411,15 @@ async function queryLatestOpenSkySnapshot(): Promise<Flight[]> {
   }
 }
 
-export async function getLatestDbFlights(): Promise<Flight[]> {
+export async function getLatestDbFlights(airportIdent: string = DEFAULT_AIRPORT.ident): Promise<Flight[]> {
   const adsbLolFlights = await queryLatestAdsbLolSnapshot();
+  const bounds = getAirportBounds(airportIdent);
   return adsbLolFlights.filter(
-    (flight) =>
-      flight.lat >= APPROACH_BOUNDS.south &&
-      flight.lat <= APPROACH_BOUNDS.north &&
-      flight.lon >= APPROACH_BOUNDS.west &&
-      flight.lon <= APPROACH_BOUNDS.east,
+    (flight) => isFlightWithinBounds(flight, bounds),
   );
 }
 
-export async function getLatestDbWeather(): Promise<MetarData | null> {
+export async function getLatestDbWeather(station: string): Promise<MetarData | null> {
   let result;
   try {
     result = await db.execute(sql`
@@ -403,6 +439,7 @@ export async function getLatestDbWeather(): Promise<MetarData | null> {
         qnh,
         flight_category
       FROM ingest.metar
+      WHERE station = ${station}
       ORDER BY fetched_at DESC, id DESC
       LIMIT 1
     `);
@@ -556,10 +593,11 @@ export async function enrichFlightsFromDb(flights: Flight[]): Promise<Flight[]> 
   return flights;
 }
 
-async function loadDbState(): Promise<FlightState> {
+async function loadDbState(airportIdent: string): Promise<FlightState> {
+  const weatherStation = airportIdent.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
   const [rawFlights, weather] = await Promise.all([
-    getLatestDbFlights(),
-    getLatestDbWeather(),
+    getLatestDbFlights(weatherStation),
+    getLatestDbWeather(weatherStation),
   ]);
 
   const allFlights = await enrichFlightsFromDb(rawFlights);
@@ -582,6 +620,7 @@ async function loadDbState(): Promise<FlightState> {
     allFlights.reduce((max, flight) => Math.max(max, flight.timestamp), 0) || Date.now();
 
   return {
+    focusAirportIdent: weatherStation,
     allFlights,
     approachingFlights,
     buitenveldertbaanActive: approachingFlights.length > 0,
@@ -591,8 +630,45 @@ async function loadDbState(): Promise<FlightState> {
   };
 }
 
-export async function getDbState(): Promise<FlightState> {
-  return getCachedValue(getDbStateCache(), DB_STATE_CACHE_TTL_MS, loadDbState);
+function filterFlightsForAirport(allFlights: Flight[], airportIdent: string): Flight[] {
+  const bounds = getAirportBounds(airportIdent);
+  return allFlights.filter(
+    (flight) =>
+      flight.origin === airportIdent ||
+      flight.destination === airportIdent ||
+      isFlightWithinBounds(flight, bounds),
+  );
+}
+
+function scopeStateToAirport(baseState: FlightState, airportIdent: string): FlightState {
+  const allFlights = filterFlightsForAirport(baseState.allFlights, airportIdent);
+  const approachingFlights = allFlights.filter(
+    (flight) =>
+      !flight.onGround &&
+      (flight.destination === airportIdent || (airportIdent === DEFAULT_AIRPORT.ident && isBuitenveldertbaanApproach(flight))),
+  );
+
+  return {
+    ...baseState,
+    focusAirportIdent: airportIdent,
+    allFlights,
+    approachingFlights,
+    buitenveldertbaanActive: approachingFlights.length > 0,
+    runwayPredictions: [],
+  };
+}
+
+export async function getDbState(airportIdent: string = DEFAULT_AIRPORT.ident): Promise<FlightState> {
+  const normalizedAirportIdent = airportIdent.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
+  if (normalizedAirportIdent === DEFAULT_AIRPORT.ident) {
+    return getCachedValue(getDbStateCache(), DB_STATE_CACHE_TTL_MS, () => loadDbState(normalizedAirportIdent));
+  }
+
+  return getCachedValue(
+    getDbStateCacheForAirport(normalizedAirportIdent),
+    DB_STATE_CACHE_TTL_MS,
+    async () => scopeStateToAirport(await loadDbState(normalizedAirportIdent), normalizedAirportIdent),
+  );
 }
 
 function findLiveFlight(
@@ -651,21 +727,24 @@ function rowToScheduledArrival(
   };
 }
 
-async function loadDbSchedule(horizonMinutes: number | null): Promise<ScheduledArrival[]> {
-  const state = await getDbState();
+async function loadDbSchedule(horizonMinutes: number | null, airportIdent: string): Promise<ScheduledArrival[]> {
+  const normalizedAirportIdent = airportIdent.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
+  const state = await getDbState(normalizedAirportIdent);
   const approachingIds = new Set(state.approachingFlights.map((flight) => flight.id));
-  const rows = await getLatestDbFlightyArrivals();
+  const rows = normalizedAirportIdent === DEFAULT_AIRPORT.ident ? await getLatestDbFlightyArrivals() : [];
+  const airport = findAirportByIdent(normalizedAirportIdent) ?? DEFAULT_AIRPORT;
 
   let schedule =
     rows.length > 0
       ? rows
           .map((row) => rowToScheduledArrival(row, state.lastUpdateMs, approachingIds, state.allFlights))
           .filter((row): row is ScheduledArrival => row !== null)
+          .filter((row) => row.destination === normalizedAirportIdent)
           .sort((a, b) => a.estimatedMinutes - b.estimatedMinutes)
-      : buildSchedule(state.allFlights, approachingIds);
+      : buildSchedule(state.allFlights, approachingIds, airport);
 
   if (schedule.length === 0) {
-    schedule = buildSchedule(state.allFlights, approachingIds);
+    schedule = buildSchedule(state.allFlights, approachingIds, airport);
   }
 
   if (horizonMinutes !== null && !isNaN(horizonMinutes) && horizonMinutes > 0) {
@@ -676,10 +755,14 @@ async function loadDbSchedule(horizonMinutes: number | null): Promise<ScheduledA
   return schedule;
 }
 
-export async function getDbSchedule(horizonMinutes: number | null): Promise<ScheduledArrival[]> {
+export async function getDbSchedule(
+  horizonMinutes: number | null,
+  airportIdent: string = DEFAULT_AIRPORT.ident,
+): Promise<ScheduledArrival[]> {
+  const normalizedAirportIdent = airportIdent.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
   return getCachedValue(
-    getDbScheduleCache(horizonMinutes),
+    getDbScheduleCache(horizonMinutes, normalizedAirportIdent),
     DB_SCHEDULE_CACHE_TTL_MS,
-    () => loadDbSchedule(horizonMinutes),
+    () => loadDbSchedule(horizonMinutes, normalizedAirportIdent),
   );
 }

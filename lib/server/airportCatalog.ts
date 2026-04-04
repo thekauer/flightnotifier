@@ -293,6 +293,12 @@ export function searchAirportCatalog(queryText: string, limit = 12): AirportSear
     .map((entry) => entry.airport);
 }
 
+export function findAirportByIdent(ident: string): AirportSearchRecord | null {
+  const normalizedIdent = ident.trim().toUpperCase();
+  if (!normalizedIdent) return null;
+  return loadAirportCatalog().find((airport) => airport.ident === normalizedIdent) ?? null;
+}
+
 export function findNearestAirport(latitude: number, longitude: number): AirportSearchRecord | null {
   const airports = loadAirportCatalog();
 

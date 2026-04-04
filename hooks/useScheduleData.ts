@@ -4,13 +4,13 @@ import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import type { ScheduledArrival } from '@/lib/types';
 
-export const SCHEDULE_KEY = ['schedule'] as const;
+export const getScheduleKey = (airportIdent: string) => ['schedule', airportIdent] as const;
 
-export function useScheduleData(horizonMinutes: number) {
+export function useScheduleData(horizonMinutes: number, airportIdent: string) {
   const { data: schedule = [], isLoading } = useQuery<ScheduledArrival[]>({
-    queryKey: SCHEDULE_KEY,
+    queryKey: getScheduleKey(airportIdent),
     queryFn: async () => {
-      const res = await fetch('/api/schedule');
+      const res = await fetch(`/api/schedule?airport=${encodeURIComponent(airportIdent)}`);
       if (!res.ok) {
         throw new Error('Failed to fetch schedule');
       }

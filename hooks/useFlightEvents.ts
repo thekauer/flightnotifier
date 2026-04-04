@@ -6,24 +6,25 @@ import type { FlightState, StateChangeEvent, Flight, VisibilityPrediction, Runwa
 import { getAircraftImageFamilyId } from '@/lib/aircraftTypes';
 import { useAircraftFilter } from '@/lib/aircraftFilterContext';
 import { countryCodeToFlag, getAirportInfo } from '@/lib/airports';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 import { useNotificationZone } from '@/lib/notificationZoneContext';
+import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
 import { useVisibilitySettings } from '@/lib/visibilitySettingsContext';
 import {
   requestBrowserNotificationPermission,
   showAppNotification,
 } from '@/lib/notifications';
 import notificationPhotoManifest from '@/data/spotting/notification-photo-manifest.json';
-import { SCHEDULE_KEY } from './useScheduleData';
+import { getScheduleKey } from './useScheduleData';
 import { PREDICTIONS_KEY } from './useVisibilityPredictions';
 
 const INITIAL_STATE: FlightState = {
+  focusAirportIdent: DEFAULT_AIRPORT.ident,
   allFlights: [],
   approachingFlights: [],
   buitenveldertbaanActive: false,
   lastUpdateMs: 0,
 };
-
-const FLIGHT_STATE_KEY = ['flightState'] as const;
 export const RUNWAY_PREDICTIONS_KEY = ['runwayPredictions'] as const;
 
 interface NotificationPhotoCandidate {
@@ -165,6 +166,30 @@ function notifyZoneEntry(flight: Flight): void {
   });
 }
 
+function filterFlightsForAirport(flights: Flight[], airportIdent: string): Flight[] {
+  return flights.filter(
+    (flight) =>
+      flight.origin === airportIdent ||
+      flight.destination === airportIdent,
+  );
+}
+
+function filterStateForAirport(state: FlightState, airportIdent: string): FlightState {
+  const allFlights = filterFlightsForAirport(state.allFlights, airportIdent);
+  const approachingFlights =
+    state.focusAirportIdent === airportIdent
+      ? state.approachingFlights.filter((flight) => allFlights.some((candidate) => candidate.id === flight.id))
+      : allFlights.filter((flight) => !flight.onGround && flight.destination === airportIdent);
+
+  return {
+    ...state,
+    focusAirportIdent: airportIdent,
+    allFlights,
+    approachingFlights,
+    buitenveldertbaanActive: approachingFlights.length > 0,
+  };
+}
+
 export function useFlightEvents() {
   const queryClient = useQueryClient();
   const [connected, setConnected] = useState(false);
@@ -172,11 +197,13 @@ export function useFlightEvents() {
   const { isTypeEnabled } = useAircraftFilter();
   const { zone } = useNotificationZone();
   const { settings: visibilitySettings } = useVisibilitySettings();
+  const focusedAirportIdent = useSelectedAirportsStore((state) => state.selectedAirports[0]?.ident ?? DEFAULT_AIRPORT.ident);
   const visibilitySettingsRef = useRef(visibilitySettings);
   const isTypeEnabledRef = useRef(isTypeEnabled);
   const zoneRef = useRef(zone);
   const zoneFlightIdsRef = useRef<Set<string>>(new Set());
   const hasPrimedZoneEntriesRef = useRef(false);
+  const flightStateKey = ['flightState', focusedAirportIdent] as const;
 
   // Keep refs in sync so the useEffect dependency triggers reconnection
   zoneRef.current = zone;
@@ -186,10 +213,11 @@ export function useFlightEvents() {
   // Backend SSE mode — zone is included in deps so the stream reconnects with fresh bounds.
   useEffect(() => {
     // Build URL with optional zone bounds
-    let sseUrl = '/api/events';
+    let sseUrl = `/api/events?airport=${encodeURIComponent(focusedAirportIdent)}`;
     const currentZone = zoneRef.current;
     if (currentZone) {
       const params = new URLSearchParams({
+        airport: focusedAirportIdent,
         south: String(currentZone.south),
         west: String(currentZone.west),
         north: String(currentZone.north),
@@ -220,9 +248,10 @@ export function useFlightEvents() {
         const parsed = JSON.parse(event.data) as StateChangeEvent;
         switch (parsed.type) {
           case 'flights_updated': {
+            const scopedState = filterStateForAirport(parsed.state, focusedAirportIdent);
             const currentZone = zoneRef.current;
             if (currentZone) {
-              const currentZoneFlights = parsed.state.allFlights.filter(
+              const currentZoneFlights = scopedState.allFlights.filter(
                 (flight) =>
                   !flight.onGround &&
                   flight.lat >= currentZone.south &&
@@ -251,7 +280,7 @@ export function useFlightEvents() {
               hasPrimedZoneEntriesRef.current = false;
             }
 
-            queryClient.setQueryData<FlightState>(FLIGHT_STATE_KEY, parsed.state);
+            queryClient.setQueryData<FlightState>(flightStateKey, scopedState);
             break;
           }
           case 'buitenveldertbaan_activated':
@@ -289,13 +318,14 @@ export function useFlightEvents() {
             break;
           }
           case 'schedule_updated':
-            queryClient.setQueryData(SCHEDULE_KEY, parsed.schedule);
+            queryClient.setQueryData(getScheduleKey(focusedAirportIdent), parsed.schedule);
             break;
           case 'weather_updated':
-            queryClient.setQueryData<FlightState>(FLIGHT_STATE_KEY, (current) => {
+            queryClient.setQueryData<FlightState>(flightStateKey, (current) => {
               if (!current) {
                 return {
                   ...INITIAL_STATE,
+                  focusAirportIdent: focusedAirportIdent,
                   weather: parsed.weather ?? null,
                 };
               }
@@ -315,14 +345,15 @@ export function useFlightEvents() {
     return () => {
       es.close();
     };
-  }, [queryClient, zone]);
+  }, [flightStateKey, focusedAirportIdent, queryClient, zone]);
 
   const { data: state = INITIAL_STATE } = useQuery<FlightState>({
-    queryKey: FLIGHT_STATE_KEY,
+    queryKey: flightStateKey,
     queryFn: async () => {
-      const res = await fetch('/api/state');
+      const res = await fetch(`/api/state?airport=${encodeURIComponent(focusedAirportIdent)}`);
       if (!res.ok) throw new Error('Failed to fetch flight state');
-      return res.json();
+      const raw = (await res.json()) as FlightState;
+      return filterStateForAirport(raw, focusedAirportIdent);
     },
     staleTime: Infinity,
     refetchOnWindowFocus: false,

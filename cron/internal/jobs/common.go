@@ -67,14 +67,42 @@ const (
 	trackBatchSize               = 10
 	adsbdbBatchSize              = 5
 	adsbdbMaxCandidates          = 20
-	metarStation                 = "EHAM"
-	flightyURL                   = "https://flighty.com/airports/amsterdam-schiphol-ams/arrivals"
 	adsblolBaseURL               = "https://api.adsb.lol"
 	openskyBaseURL               = "https://opensky-network.org/api"
 	openskyAuthURL               = "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token"
 	aviationWeatherBaseURL       = "https://aviationweather.gov/api/data/metar"
 	adsbdbBaseURL                = "https://api.adsbdb.com/v0"
 )
+
+type monitoredAirport struct {
+	Ident              string
+	IATA               string
+	Name               string
+	Latitude           float64
+	Longitude          float64
+	MetarStation       string
+	FlightyArrivalsURL string
+}
+
+var monitoredAirports = []monitoredAirport{
+	{
+		Ident:              "EHAM",
+		IATA:               "AMS",
+		Name:               "Amsterdam Airport Schiphol",
+		Latitude:           52.308601,
+		Longitude:          4.76389,
+		MetarStation:       "EHAM",
+		FlightyArrivalsURL: "https://flighty.com/airports/amsterdam-schiphol-ams/arrivals",
+	},
+	{
+		Ident:        "LHBP",
+		IATA:         "BUD",
+		Name:         "Budapest Liszt Ferenc International Airport",
+		Latitude:     47.43018,
+		Longitude:    19.262393,
+		MetarStation: "LHBP",
+	},
+}
 
 var approachBounds = struct {
 	LAMin float64

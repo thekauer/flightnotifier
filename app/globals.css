@@ -194,3 +194,23 @@
   height: 38px !important;
   line-height: 38px !important;
 }
+
+.airport-map-transition {
+  view-transition-name: airport-map;
+  contain: layout;
+}
+
+.page-shell-transition {
+  view-transition-name: page-shell;
+}
+
+.airport-selector-transition {
+  view-transition-name: airport-selector;
+}
+
+::view-transition-group(airport-map),
+::view-transition-group(page-shell),
+::view-transition-group(airport-selector) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}

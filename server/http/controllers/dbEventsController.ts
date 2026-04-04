@@ -1,8 +1,10 @@
 import { createDbEventsStream, parseZoneBounds } from '@/server/http/services/dbEventsService';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 
 export async function handleDbEventsGet(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const stream = createDbEventsStream(parseZoneBounds(url));
+  const airportIdent = url.searchParams.get('airport')?.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
+  const stream = createDbEventsStream(parseZoneBounds(url), airportIdent);
 
   return new Response(stream, {
     headers: {

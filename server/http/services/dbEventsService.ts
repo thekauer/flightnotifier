@@ -37,7 +37,7 @@ function buildVisibilityEvent(state: FlightState, zoneBounds: ZoneBounds): State
   };
 }
 
-export function createDbEventsStream(zoneBounds: ZoneBounds | null): ReadableStream<Uint8Array> {
+export function createDbEventsStream(zoneBounds: ZoneBounds | null, airportIdent: string): ReadableStream<Uint8Array> {
   const encoder = new TextEncoder();
   let stateInterval: ReturnType<typeof setInterval> | null = null;
   let scheduleInterval: ReturnType<typeof setInterval> | null = null;
@@ -57,7 +57,7 @@ export function createDbEventsStream(zoneBounds: ZoneBounds | null): ReadableStr
       };
 
       const emitState = async () => {
-        const state = await getDbState();
+        const state = await getDbState(airportIdent);
         const stateSnapshot = JSON.stringify(state);
         const runwaySnapshot = JSON.stringify(state.runwayPredictions ?? []);
         const weatherSnapshot = JSON.stringify(state.weather ?? null);
@@ -103,7 +103,7 @@ export function createDbEventsStream(zoneBounds: ZoneBounds | null): ReadableStr
       };
 
       const emitSchedule = async () => {
-        const schedule = await getDbSchedule(null);
+        const schedule = await getDbSchedule(null, airportIdent);
         const snapshot = JSON.stringify(schedule);
         if (snapshot === lastScheduleSnapshot) {
           return;

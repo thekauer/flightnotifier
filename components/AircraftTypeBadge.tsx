@@ -10,6 +10,8 @@ import {
 import { getAircraftSpottingTraits } from '@/lib/aircraftSpottingTraits';
 import { useSpottingMode } from '@/lib/spottingModeContext';
 
+const AIRCRAFT_BADGE_OPEN_EVENT = 'flightnotifier:aircraft-badge-open';
+
 export type AircraftCategory =
   | 'wide-body'
   | 'narrow-body'
@@ -139,8 +141,8 @@ function AircraftSpottingPopover({
       const rect = anchor.getBoundingClientRect();
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
-      const width = Math.min(448, viewportWidth - 16);
-      const height = Math.min(280, viewportHeight - 16);
+      const width = Math.min(384, viewportWidth - 12);
+      const height = Math.min(240, viewportHeight - 12);
       const left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), viewportWidth - width - 8);
       const preferredTop = rect.top - 12 - height;
       const top = preferredTop >= 8 ? preferredTop : Math.min(viewportHeight - height - 8, rect.bottom + 12);
@@ -193,12 +195,14 @@ function AircraftSpottingPopover({
         position: 'fixed',
         positionAnchor: anchorName,
         positionArea: 'top center',
+        positionTryFallbacks: 'flip-block, flip-inline, flip-block flip-inline',
+        positionTryOrder: 'most-height',
         justifySelf: 'anchor-center',
         margin: 0,
         marginBottom: '12px',
-        width: 'min(28rem, calc(100vw - 1rem))',
-        maxWidth: 'calc(100vw - 1rem)',
-        maxHeight: 'calc(100vh - 1rem)',
+        width: 'min(24rem, calc(100vw - 0.75rem))',
+        maxWidth: 'calc(100vw - 0.75rem)',
+        maxHeight: 'calc(100vh - 0.75rem)',
       } as React.CSSProperties & Record<string, string | number>)
     : {
         position: 'fixed',
@@ -210,7 +214,7 @@ function AircraftSpottingPopover({
   return createPortal(
     <div
       ref={popoverRef}
-      className="z-[100] rounded-[32px]"
+      className="z-[100] overflow-hidden rounded-[28px]"
       style={anchorStyle}
       role="dialog"
       aria-label="Aircraft spotting traits"
@@ -230,8 +234,24 @@ export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProp
   const badgeRef = useRef<HTMLButtonElement | null>(null);
   const anchorId = useId().replace(/:/g, '');
   const anchorName = `--aircraft-badge-${anchorId}`;
+  const popupId = `aircraft-badge-${anchorId}`;
   const spottingQuiz = useMemo(() => getSpottingOptions(typeCode), [typeCode]);
   const spottingTraits = useMemo(() => getAircraftSpottingTraits(typeCode), [typeCode]);
+
+  useEffect(() => {
+    const handleOtherBadgeOpened = (event: Event) => {
+      const customEvent = event as CustomEvent<{ id?: string }>;
+      if (customEvent.detail?.id !== popupId) {
+        setTraitsOpen(false);
+      }
+    };
+
+    document.addEventListener(AIRCRAFT_BADGE_OPEN_EVENT, handleOtherBadgeOpened as EventListener);
+
+    return () => {
+      document.removeEventListener(AIRCRAFT_BADGE_OPEN_EVENT, handleOtherBadgeOpened as EventListener);
+    };
+  }, [popupId]);
 
   if (!typeCode) {
     return <span className="text-muted-foreground">-</span>;
@@ -250,7 +270,13 @@ export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProp
           if (!spottingTraits) {
             return;
           }
-          setTraitsOpen((open) => !open);
+          setTraitsOpen((open) => {
+            const nextOpen = !open;
+            if (nextOpen) {
+              document.dispatchEvent(new CustomEvent(AIRCRAFT_BADGE_OPEN_EVENT, { detail: { id: popupId } }));
+            }
+            return nextOpen;
+          });
         }}
         className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${styles} ${
           result === 'right'

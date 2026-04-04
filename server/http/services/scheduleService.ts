@@ -1,4 +1,5 @@
 import type { ScheduledArrival } from '@/lib/types';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 import { resolveIcaoFromIata } from '@/lib/airports';
 import { callsignMatchesFlighty } from '@/lib/callsignMatch';
 import { getFlightyArrivals } from '@/server/arrivals/flightyClient';
@@ -131,7 +132,7 @@ export async function getScheduleForRequest(
   }
 
   if (schedule.length === 0) {
-    schedule = buildSchedule(state.allFlights, approachingIds);
+    schedule = buildSchedule(state.allFlights, approachingIds, DEFAULT_AIRPORT);
   }
 
   return applyHorizon(schedule, horizonMinutes);

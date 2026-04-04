@@ -7,13 +7,44 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math"
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/jackc/pgx/v5"
 )
+
+type adsblolAirportConfig struct {
+	Ident     string
+	Name      string
+	Latitude  float64
+	Longitude float64
+}
+
+type adsblolBounds struct {
+	LAMin float64
+	LOMin float64
+	LAMax float64
+	LOMax float64
+}
+
+type adsblolBoundsOffset struct {
+	South float64
+	West  float64
+	North float64
+	East  float64
+}
+
+type adsblolAirportPoll struct {
+	Airport       adsblolAirportConfig
+	QueryRadius   int
+	RequestURL    string
+	UpstreamTotal int
+	Filtered      *adsblolResponse
+}
 
 type adsblolResponse struct {
 	Now   int64                    `json:"now"`
@@ -23,35 +54,176 @@ type adsblolResponse struct {
 	AC    []map[string]interface{} `json:"ac"`
 }
 
+type adsblolAirportResult struct {
+	Airport       string `json:"airport"`
+	QueryRadius   int    `json:"queryRadiusNm"`
+	UpstreamTotal int    `json:"upstreamTotal"`
+	Matched       int    `json:"matched"`
+	Inserted      int    `json:"inserted"`
+}
+
 type adsblolResult struct {
-	Inserted int `json:"inserted"`
-	Total    int `json:"total"`
+	Inserted int                    `json:"inserted"`
+	Airports []adsblolAirportResult `json:"airports"`
 }
 
 func RunAdsbLol(ctx context.Context) (any, error) {
 	client := newAdsbLolHTTPClient()
+	polls, err := fetchAdsbLolAirportPolls(ctx, client)
+	if err != nil {
+		return nil, fmt.Errorf("adsblol airport pulls failed: %w", err)
+	}
+
 	conn, err := openDB(ctx)
 	if err != nil {
 		return nil, err
 	}
 	defer conn.Close(ctx)
 
-	data, err := fetchAdsbLolStates(ctx, client)
+	tx, err := conn.Begin(ctx)
 	if err != nil {
+		return nil, fmt.Errorf("begin adsblol transaction: %w", err)
+	}
+	defer tx.Rollback(ctx)
+
+	airportResults := make([]adsblolAirportResult, 0, len(polls))
+	totalInserted := 0
+	polledAt := time.Now().UTC()
+	for _, poll := range polls {
+		result, err := insertAdsbLolAirportStates(ctx, tx, poll, polledAt)
+		if err != nil {
+			return nil, err
+		}
+		airportResults = append(airportResults, result)
+		totalInserted += result.Inserted
+	}
+
+	if err := tx.Commit(ctx); err != nil {
+		return nil, fmt.Errorf("commit adsblol transaction: %w", err)
+	}
+
+	return adsblolResult{Inserted: totalInserted, Airports: airportResults}, nil
+}
+
+var adsblolAirports = func() []adsblolAirportConfig {
+	airports := make([]adsblolAirportConfig, 0, len(monitoredAirports))
+	for _, airport := range monitoredAirports {
+		airports = append(airports, adsblolAirportConfig{
+			Ident:     airport.Ident,
+			Name:      airport.Name,
+			Latitude:  airport.Latitude,
+			Longitude: airport.Longitude,
+		})
+	}
+	return airports
+}()
+
+var adsblolReferenceBoundsOffset = adsblolBoundsOffset{
+	South: adsblolAirports[0].Latitude - approachBounds.LAMin,
+	West:  adsblolAirports[0].Longitude - approachBounds.LOMin,
+	North: approachBounds.LAMax - adsblolAirports[0].Latitude,
+	East:  approachBounds.LOMax - adsblolAirports[0].Longitude,
+}
+
+func fetchAdsbLolAirportPolls(ctx context.Context, client *http.Client) ([]adsblolAirportPoll, error) {
+	polls := make([]adsblolAirportPoll, len(adsblolAirports))
+	errs := make([]error, len(adsblolAirports))
+
+	var wg sync.WaitGroup
+	for i, airport := range adsblolAirports {
+		wg.Add(1)
+		go func(index int, airport adsblolAirportConfig) {
+			defer wg.Done()
+
+			poll, err := fetchAdsbLolAirportPoll(ctx, client, airport)
+			if err != nil {
+				errs[index] = fmt.Errorf("%s fetch failed: %w", airport.Ident, err)
+				return
+			}
+			polls[index] = poll
+		}(i, airport)
+	}
+
+	wg.Wait()
+	if err := joinAdsbLolErrors(errs); err != nil {
 		return nil, err
 	}
-	if len(data.AC) == 0 {
-		return adsblolResult{Inserted: 0, Total: data.Total}, nil
+
+	return polls, nil
+}
+
+func fetchAdsbLolAirportPoll(ctx context.Context, client *http.Client, airport adsblolAirportConfig) (adsblolAirportPoll, error) {
+	bounds := adsblolBoundsForAirport(airport)
+	queryRadius := adsblolQueryRadiusNM(airport, bounds)
+	requestURL := fmt.Sprintf(
+		"%s/v2/lat/%.6f/lon/%.6f/dist/%d",
+		adsblolBaseURL,
+		airport.Latitude,
+		airport.Longitude,
+		queryRadius,
+	)
+
+	data, err := fetchAdsbLolStates(ctx, client, requestURL)
+	if err != nil {
+		return adsblolAirportPoll{}, err
+	}
+
+	filteredAircraft := filterAdsbLolAircraft(bounds, data.AC)
+	return adsblolAirportPoll{
+		Airport:       airport,
+		QueryRadius:   queryRadius,
+		RequestURL:    requestURL,
+		UpstreamTotal: data.Total,
+		Filtered: &adsblolResponse{
+			Now:   data.Now,
+			Ctime: data.Ctime,
+			Ptime: data.Ptime,
+			Total: len(filteredAircraft),
+			AC:    filteredAircraft,
+		},
+	}, nil
+}
+
+func fetchAdsbLolStates(ctx context.Context, client *http.Client, requestURL string) (*adsblolResponse, error) {
+
+	const maxAttempts = 2
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		data, shouldRetry, err := fetchAdsbLolStatesOnce(ctx, client, requestURL)
+		if err == nil {
+			return data, nil
+		}
+		if !shouldRetry || attempt == maxAttempts {
+			return nil, err
+		}
+
+		wait := adsblolRetryDelay(attempt)
+		log.Printf("[cron/adsblol] upstream backoff attempt=%d wait_ms=%d", attempt, wait.Milliseconds())
+		if err := sleepWithContext(ctx, wait); err != nil {
+			return nil, err
+		}
+	}
+
+	return nil, errors.New("adsblol retry loop exhausted")
+}
+
+func insertAdsbLolAirportStates(ctx context.Context, tx pgx.Tx, poll adsblolAirportPoll, polledAt time.Time) (adsblolAirportResult, error) {
+	result := adsblolAirportResult{
+		Airport:       poll.Airport.Ident,
+		QueryRadius:   poll.QueryRadius,
+		UpstreamTotal: poll.UpstreamTotal,
+		Matched:       len(poll.Filtered.AC),
+	}
+	if len(poll.Filtered.AC) == 0 {
+		return result, nil
 	}
 
 	pollID := newPollUUID()
-	polledAt := time.Now().UTC()
 	batch := &pgx.Batch{}
 	inserted := 0
 
-	for _, aircraft := range data.AC {
+	for _, aircraft := range poll.Filtered.AC {
 		if err := ctx.Err(); err != nil {
-			return nil, err
+			return adsblolAirportResult{}, fmt.Errorf("%s insert cancelled: %w", poll.Airport.Ident, err)
 		}
 
 		icao24 := trimString(adsblolString(aircraft["hex"]))
@@ -61,11 +233,11 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 
 		rawJSON, err := mustJSON(aircraft)
 		if err != nil {
-			return nil, err
+			return adsblolAirportResult{}, fmt.Errorf("%s encode raw state for %s: %w", poll.Airport.Ident, icao24, err)
 		}
 		navModesJSON, err := mustJSON(adsblolStringSlice(aircraft["nav_modes"]))
 		if err != nil {
-			return nil, err
+			return adsblolAirportResult{}, fmt.Errorf("%s encode nav modes for %s: %w", poll.Airport.Ident, icao24, err)
 		}
 
 		batch.Queue(
@@ -88,7 +260,7 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 			)`,
 			pollID,
 			polledAt,
-			data.Now,
+			poll.Filtered.Now,
 			icao24,
 			trimNullableString(adsblolStringPtr(aircraft["flight"])),
 			trimNullableString(adsblolStringPtr(aircraft["r"])),
@@ -140,46 +312,83 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 		inserted++
 	}
 
-	results := conn.SendBatch(ctx, batch)
+	results := tx.SendBatch(ctx, batch)
 	for i := 0; i < inserted; i++ {
 		if _, err := results.Exec(); err != nil {
 			results.Close()
-			return nil, fmt.Errorf("insert adsblol state vectors: %w", err)
+			return adsblolAirportResult{}, fmt.Errorf("%s insert adsblol state vectors: %w", poll.Airport.Ident, err)
 		}
 	}
 	if err := results.Close(); err != nil {
-		return nil, fmt.Errorf("close adsblol batch: %w", err)
+		return adsblolAirportResult{}, fmt.Errorf("%s close adsblol batch: %w", poll.Airport.Ident, err)
 	}
 
-	return adsblolResult{Inserted: inserted, Total: data.Total}, nil
+	result.Inserted = inserted
+	return result, nil
 }
 
-func fetchAdsbLolStates(ctx context.Context, client *http.Client) (*adsblolResponse, error) {
-	requestURL := fmt.Sprintf(
-		"%s/v2/lat/%v/lon/%v/dist/25",
-		adsblolBaseURL,
-		52.3086,
-		4.7639,
-	)
+func adsblolBoundsForAirport(airport adsblolAirportConfig) adsblolBounds {
+	return adsblolBounds{
+		LAMin: airport.Latitude - adsblolReferenceBoundsOffset.South,
+		LOMin: airport.Longitude - adsblolReferenceBoundsOffset.West,
+		LAMax: airport.Latitude + adsblolReferenceBoundsOffset.North,
+		LOMax: airport.Longitude + adsblolReferenceBoundsOffset.East,
+	}
+}
 
-	const maxAttempts = 2
-	for attempt := 1; attempt <= maxAttempts; attempt++ {
-		data, shouldRetry, err := fetchAdsbLolStatesOnce(ctx, client, requestURL)
-		if err == nil {
-			return data, nil
-		}
-		if !shouldRetry || attempt == maxAttempts {
-			return nil, err
-		}
+func adsblolQueryRadiusNM(airport adsblolAirportConfig, bounds adsblolBounds) int {
+	corners := [][2]float64{
+		{bounds.LAMin, bounds.LOMin},
+		{bounds.LAMin, bounds.LOMax},
+		{bounds.LAMax, bounds.LOMin},
+		{bounds.LAMax, bounds.LOMax},
+	}
 
-		wait := adsblolRetryDelay(attempt)
-		log.Printf("[cron/adsblol] upstream backoff attempt=%d wait_ms=%d", attempt, wait.Milliseconds())
-		if err := sleepWithContext(ctx, wait); err != nil {
-			return nil, err
+	maxDistanceNM := 0.0
+	for _, corner := range corners {
+		distanceNM := adsblolDistanceNM(airport.Latitude, airport.Longitude, corner[0], corner[1])
+		if distanceNM > maxDistanceNM {
+			maxDistanceNM = distanceNM
 		}
 	}
 
-	return nil, errors.New("adsblol retry loop exhausted")
+	return int(math.Ceil(maxDistanceNM)) + 1
+}
+
+func adsblolDistanceNM(lat1, lon1, lat2, lon2 float64) float64 {
+	meanLatRadians := ((lat1 + lat2) / 2) * math.Pi / 180
+	latNM := math.Abs(lat2-lat1) * 60
+	lonNM := math.Abs(lon2-lon1) * 60 * math.Cos(meanLatRadians)
+	return math.Sqrt((latNM * latNM) + (lonNM * lonNM))
+}
+
+func filterAdsbLolAircraft(bounds adsblolBounds, aircraft []map[string]interface{}) []map[string]interface{} {
+	filtered := make([]map[string]interface{}, 0, len(aircraft))
+	for _, state := range aircraft {
+		lat, latOK := adsblolFloat64(state["lat"])
+		lon, lonOK := adsblolFloat64(state["lon"])
+		if !latOK || !lonOK {
+			continue
+		}
+		if lat < bounds.LAMin || lat > bounds.LAMax || lon < bounds.LOMin || lon > bounds.LOMax {
+			continue
+		}
+		filtered = append(filtered, state)
+	}
+	return filtered
+}
+
+func joinAdsbLolErrors(errs []error) error {
+	messages := make([]string, 0, len(errs))
+	for _, err := range errs {
+		if err != nil {
+			messages = append(messages, err.Error())
+		}
+	}
+	if len(messages) == 0 {
+		return nil
+	}
+	return errors.New(strings.Join(messages, "; "))
 }
 
 func fetchAdsbLolStatesOnce(ctx context.Context, client *http.Client, requestURL string) (*adsblolResponse, bool, error) {
@@ -303,14 +512,21 @@ func adsblolStringSlice(value interface{}) []string {
 }
 
 func adsblolFloat64Ptr(value interface{}) *float64 {
+	typed, ok := adsblolFloat64(value)
+	if !ok {
+		return nil
+	}
+	return &typed
+}
+
+func adsblolFloat64(value interface{}) (float64, bool) {
 	switch typed := value.(type) {
 	case float64:
-		return &typed
+		return typed, true
 	case int:
-		converted := float64(typed)
-		return &converted
+		return float64(typed), true
 	default:
-		return nil
+		return 0, false
 	}
 }
 

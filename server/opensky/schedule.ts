@@ -1,7 +1,5 @@
 import type { ScheduledArrival, Flight } from '@/lib/types';
-
-const SCHIPHOL_LAT = 52.3105;
-const SCHIPHOL_LON = 4.7683;
+import type { AirportSearchRecord } from '@/lib/airport-catalog';
 
 function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371;
@@ -13,20 +11,20 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-/** Scheduled arrivals table only includes flights explicitly destined for Schiphol. */
-function isLikelyInbound(f: Flight): boolean {
+function isLikelyInbound(f: Flight, airportIdent: string): boolean {
   if (f.onGround || f.speed <= 0) return false;
-  return f.destination === 'EHAM';
+  return f.destination === airportIdent;
 }
 
 export function buildSchedule(
   flights: Flight[],
   approachingIds: Set<string>,
+  airport: AirportSearchRecord,
 ): ScheduledArrival[] {
   return flights
-    .filter(isLikelyInbound)
+    .filter((flight) => isLikelyInbound(flight, airport.ident))
     .map((f) => {
-      const distKm = haversineKm(f.lat, f.lon, SCHIPHOL_LAT, SCHIPHOL_LON);
+      const distKm = haversineKm(f.lat, f.lon, airport.latitude, airport.longitude);
       const speedKmh = f.speed * 1.852; // knots to km/h
       const etaMinutes = speedKmh > 0 ? Math.round((distKm / speedKmh) * 60) : 999;
       return {

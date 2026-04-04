@@ -112,6 +112,17 @@ func RunFlighty(ctx context.Context) (any, error) {
 }
 
 func fetchFlightyRows(ctx context.Context, client *http.Client) ([]flightyArrivalRow, error) {
+	flightyURL := ""
+	for _, airport := range monitoredAirports {
+		if airport.FlightyArrivalsURL != "" {
+			flightyURL = airport.FlightyArrivalsURL
+			break
+		}
+	}
+	if flightyURL == "" {
+		return nil, nil
+	}
+
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, flightyURL, nil)
 	if err != nil {
 		return nil, err

@@ -12,11 +12,13 @@ import { SelectedFlightProvider } from '@/lib/selectedFlightContext';
 import { EtaFormatProvider } from '@/lib/etaFormatContext';
 import { AnimateProvider } from '@/lib/animateContext';
 import { FlightEventsProvider } from '@/lib/flightEventsContext';
+import { AirportPresenceBridge } from '@/components/AirportPresenceBridge';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
   return (
     <QueryClientProvider client={queryClient}>
+      <AirportPresenceBridge />
       <SpottingModeProvider>
         <StaggerProvider>
           <NotificationZoneProvider>

@@ -21,6 +21,7 @@ export interface Flight {
 }
 
 export interface FlightState {
+  focusAirportIdent: string;
   allFlights: Flight[];
   approachingFlights: Flight[];
   buitenveldertbaanActive: boolean;

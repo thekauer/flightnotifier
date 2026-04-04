@@ -6,12 +6,13 @@ import L from 'leaflet';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
 import { useAnimate } from '@/lib/animateContext';
-import { APPROACH_CONE_27 } from '@/lib/approachCone';
+import { buildConePolygon } from '@/lib/buildConePolygon';
+import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 import { useSelectedFlight } from '@/lib/selectedFlightContext';
+import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
+import { coneMatchesSelection, runwayMatchesSelection } from '@/lib/runwaySelection';
+import { useRunways, type Runway } from '@/hooks/useRunways';
 import {
-  SCHIPHOL_LAT,
-  SCHIPHOL_LON,
-  EHAM_RUNWAYS,
   TILE_LIGHT,
   TILE_DARK,
   TILE_ATTRIBUTION,
@@ -21,8 +22,9 @@ import {
   COLOR_RUNWAY_FILL_DARK,
   COLOR_RUNWAY_STROKE_LIGHT,
   COLOR_RUNWAY_STROKE_DARK,
+  RUNWAY_WIDTH_SCALE,
 } from './mapConstants';
-import { EHAM_RUNWAY_POLYGONS, haversineKm } from './mapGeometry';
+import { haversineKm, runwayPolygon } from './mapGeometry';
 import { SelectedFlightPanel } from './SelectedFlightPanel';
 import { DrawZoneHandler, FirstCornerMarker, DragHandle } from './DrawZoneHandler';
 import { AnimatedFlightMarker } from './AnimatedFlightMarker';
@@ -52,20 +54,118 @@ function useIsDarkMode(): boolean {
   return useSyncExternalStore(subscribeToDarkMode, getIsDark, getIsDarkServer);
 }
 
-// ---------------------------------------------------------------------------
-// Initial bounds (computed once from approach cone)
-// ---------------------------------------------------------------------------
+const CONE_HALF_ANGLE_DEG = 6;
+const CONE_LENGTH_M = 28_000;
 
-const INITIAL_BOUNDS: L.LatLngBoundsExpression = (() => {
-  const lats = APPROACH_CONE_27.map((p) => p[0]);
-  const lons = APPROACH_CONE_27.map((p) => p[1]);
+const noZone = () => false;
+
+interface RunwayPolygonData {
+  key: string;
+  corners: [number, number][];
+  le: [number, number];
+  he: [number, number];
+  leIdent: string;
+  heIdent: string;
+}
+
+interface ConeData {
+  key: string;
+  runwayKey: string;
+  polygon: [number, number][];
+  leIdent: string;
+  heIdent: string;
+}
+
+function buildRunwayPolygons(runways: Runway[]): RunwayPolygonData[] {
+  return runways.flatMap((rwy) => {
+    if (
+      rwy.leLatitudeDeg == null ||
+      rwy.leLongitudeDeg == null ||
+      rwy.heLatitudeDeg == null ||
+      rwy.heLongitudeDeg == null ||
+      rwy.widthFt == null
+    ) {
+      return [];
+    }
+
+    const le: [number, number] = [rwy.leLatitudeDeg, rwy.leLongitudeDeg];
+    const he: [number, number] = [rwy.heLatitudeDeg, rwy.heLongitudeDeg];
+
+    return [{
+      key: `strip-${rwy.id}`,
+      corners: runwayPolygon(le, he, rwy.widthFt * RUNWAY_WIDTH_SCALE),
+      le,
+      he,
+      leIdent: rwy.leIdent ?? '',
+      heIdent: rwy.heIdent ?? '',
+    }];
+  });
+}
+
+function buildRunwayCones(runways: Runway[]): ConeData[] {
+  const cones: ConeData[] = [];
+
+  for (const rwy of runways) {
+    const runwayKey = `strip-${rwy.id}`;
+    const leIdent = rwy.leIdent ?? '';
+    const heIdent = rwy.heIdent ?? '';
+
+    if (rwy.leLatitudeDeg != null && rwy.leLongitudeDeg != null && rwy.leHeadingDegT != null) {
+      cones.push({
+        key: `${rwy.id}-le-${leIdent}`,
+        runwayKey,
+        leIdent,
+        heIdent,
+        polygon: buildConePolygon({
+          threshold: [rwy.leLatitudeDeg, rwy.leLongitudeDeg],
+          approachBearing: (rwy.leHeadingDegT + 180) % 360,
+          halfAngleDeg: CONE_HALF_ANGLE_DEG,
+          lengthM: CONE_LENGTH_M,
+        }),
+      });
+    }
+
+    if (rwy.heLatitudeDeg != null && rwy.heLongitudeDeg != null && rwy.heHeadingDegT != null) {
+      cones.push({
+        key: `${rwy.id}-he-${heIdent}`,
+        runwayKey,
+        leIdent,
+        heIdent,
+        polygon: buildConePolygon({
+          threshold: [rwy.heLatitudeDeg, rwy.heLongitudeDeg],
+          approachBearing: (rwy.heHeadingDegT + 180) % 360,
+          halfAngleDeg: CONE_HALF_ANGLE_DEG,
+          lengthM: CONE_LENGTH_M,
+        }),
+      });
+    }
+  }
+
+  return cones;
+}
+
+function buildAirportBounds(
+  airport: { latitude: number; longitude: number },
+  runways: RunwayPolygonData[],
+  cones: ConeData[],
+): L.LatLngBoundsExpression {
+  const points = [...runways.flatMap((runway) => runway.corners), ...cones.flatMap((cone) => cone.polygon)];
+  if (points.length === 0) {
+    const lat = airport.latitude;
+    const lon = airport.longitude;
+    return [
+      [lat - 0.12, lon - 0.18],
+      [lat + 0.12, lon + 0.18],
+    ];
+  }
+
+  const lats = points.map((point) => point[0]);
+  const lons = points.map((point) => point[1]);
   return [
     [Math.min(...lats), Math.min(...lons)],
     [Math.max(...lats), Math.max(...lons)],
-  ] as L.LatLngBoundsExpression;
-})();
-
-const noZone = () => false;
+  ];
+}
 
 // ---------------------------------------------------------------------------
 // Main component
@@ -81,6 +181,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const isDark = useIsDarkMode();
   const { zone, visible, setZone, clearZone, toggleVisible, isInZone } = useNotificationZone();
   const { animateEnabled: animate } = useAnimate();
+  const focusedAirport = useSelectedAirportsStore((state) => state.selectedAirports[0] ?? DEFAULT_AIRPORT);
+  const selectedRunways = useSelectedAirportsStore((state) => state.selectedRunways);
+  const { data: runways = [] } = useRunways(focusedAirport.ident);
 
   // --- Label mode toggle (persisted to localStorage) ---
   const LABEL_MODE_KEY = 'flightnotifier-label-mode';
@@ -253,8 +356,35 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
   const selectedFlightDistance = useMemo(() => {
     if (!selectedFlight) return null;
-    return Math.round(haversineKm(selectedFlight.lat, selectedFlight.lon, SCHIPHOL_LAT, SCHIPHOL_LON));
-  }, [selectedFlight]);
+    return Math.round(haversineKm(selectedFlight.lat, selectedFlight.lon, focusedAirport.latitude, focusedAirport.longitude));
+  }, [focusedAirport.latitude, focusedAirport.longitude, selectedFlight]);
+
+  const selectedRunwaysForAirport = useMemo(
+    () => selectedRunways.filter((runway) => runway.airportIdent === focusedAirport.ident),
+    [focusedAirport.ident, selectedRunways],
+  );
+  const hasRunwayFocus = selectedRunwaysForAirport.length > 0;
+  const runwayPolygons = useMemo(() => buildRunwayPolygons(runways), [runways]);
+  const runwayCones = useMemo(() => buildRunwayCones(runways), [runways]);
+  const visibleRunwayPolygons = useMemo(
+    () =>
+      hasRunwayFocus
+        ? runwayPolygons.filter((runway) => runwayMatchesSelection(runway, selectedRunwaysForAirport))
+        : runwayPolygons,
+    [hasRunwayFocus, runwayPolygons, selectedRunwaysForAirport],
+  );
+  const visibleRunwayCones = useMemo(
+    () =>
+      hasRunwayFocus
+        ? runwayCones.filter((cone) => coneMatchesSelection(cone, selectedRunwaysForAirport))
+        : runwayCones,
+    [hasRunwayFocus, runwayCones, selectedRunwaysForAirport],
+  );
+  const airportBounds = useMemo(
+    () => buildAirportBounds(focusedAirport, visibleRunwayPolygons, visibleRunwayCones),
+    [focusedAirport, visibleRunwayCones, visibleRunwayPolygons],
+  );
+  const showAreaForAirport = showArea && focusedAirport.ident === 'EHAM';
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -295,7 +425,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
         <div
           className={`justify-self-end ${selectedFlight && selectedFlightDistance != null ? 'visible' : 'invisible'}`.trim()}
-          title="Distance to Schiphol"
+          title={`Distance to ${focusedAirport.name}`}
         >
           {selectedFlightDistance != null ? (
             <>
@@ -313,15 +443,11 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
       <div className="relative flex-1 min-h-0">
         <MapContainer
-          bounds={INITIAL_BOUNDS}
+          key={focusedAirport.ident}
+          bounds={airportBounds}
           boundsOptions={{ padding: [10, 10] }}
-          minZoom={9}
+          minZoom={3}
           maxZoom={16}
-          maxBounds={[
-            [52.0, 4.2],
-            [52.6, 5.5],
-          ]}
-          maxBoundsViscosity={1.0}
           style={{ height: '100%', width: '100%' }}
           scrollWheelZoom={true}
           zoomControl={false}
@@ -332,7 +458,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             attribution={TILE_ATTRIBUTION}
             url={isDark ? TILE_DARK : TILE_LIGHT}
           />
-          {showArea && (
+          {showAreaForAirport && (
             <Rectangle
               bounds={[
                 [52.13, 4.46],
@@ -364,16 +490,19 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             }}
           />
 
-          <Polygon
-            positions={APPROACH_CONE_27}
-            pathOptions={{
-              color: COLOR_CONE,
-              fillColor: COLOR_CONE,
-              fillOpacity: 0.08,
-              weight: 2,
-              dashArray: '6 3',
-            }}
-          />
+          {visibleRunwayCones.map((cone) => (
+            <Polygon
+              key={cone.key}
+              positions={cone.polygon}
+              pathOptions={{
+                color: COLOR_CONE,
+                fillColor: COLOR_CONE,
+                fillOpacity: 0.08,
+                weight: 2,
+                dashArray: '6 3',
+              }}
+            />
+          ))}
 
           {zone && visible && zoneBounds && (
             <>
@@ -434,19 +563,23 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
 
           {drawing && firstCorner && <FirstCornerMarker position={firstCorner} />}
 
-          {EHAM_RUNWAY_POLYGONS.map((rwy) => (
+          {visibleRunwayPolygons.map((rwy) => {
+            const isSelectedRunway = hasRunwayFocus && runwayMatchesSelection(rwy, selectedRunwaysForAirport);
+            return (
             <Polygon
               key={`${rwy.leIdent}/${rwy.heIdent}`}
               positions={rwy.corners}
               pathOptions={{
-                color: isDark ? COLOR_RUNWAY_STROKE_DARK : COLOR_RUNWAY_STROKE_LIGHT,
-                fillColor: isDark ? COLOR_RUNWAY_FILL_DARK : COLOR_RUNWAY_FILL_LIGHT,
+                color: isSelectedRunway ? '#f97316' : isDark ? COLOR_RUNWAY_STROKE_DARK : COLOR_RUNWAY_STROKE_LIGHT,
+                fillColor: isSelectedRunway ? '#f59e0b' : isDark ? COLOR_RUNWAY_FILL_DARK : COLOR_RUNWAY_FILL_LIGHT,
                 fillOpacity: 0.7,
-                weight: 1,
+                weight: isSelectedRunway ? 2 : 1,
+                dashArray: isSelectedRunway ? '10 6' : undefined,
               }}
             />
-          ))}
-          {EHAM_RUNWAYS.map((rwy) => (
+            );
+          })}
+          {visibleRunwayPolygons.map((rwy) => (
             <React.Fragment key={`lbl-${rwy.leIdent}`}>
               <Marker position={rwy.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
                 <Tooltip permanent direction="center" className="runway-label">

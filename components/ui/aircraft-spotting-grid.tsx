@@ -20,31 +20,32 @@ export function AircraftSpottingGrid({
   return (
     <AppleSixGridCard
       className={cn(
-        isPopover ? 'h-[280px] max-w-none bg-card/98 shadow-xl' : 'h-[360px] max-w-3xl bg-card/98 shadow-md',
+        isPopover ? 'h-[240px] max-w-none bg-card/98 shadow-xl' : 'h-[360px] max-w-3xl bg-card/98 shadow-md',
         className,
       )}
-      cellClassName={cn(isPopover ? 'p-3 sm:p-3.5' : 'p-4 sm:p-5')}
+      cellClassName={cn(isPopover ? 'p-2.5 sm:p-3' : 'p-4 sm:p-5')}
       minCellHeight={0}
-      dividerInset={isPopover ? 14 : 18}
+      dividerInset={isPopover ? 12 : 18}
       dividerThickness={1.5}
     >
       {items.slice(0, 6).map((item, index) => (
         <div
           key={`${item.title}-${index}`}
           className={cn(
-            'flex h-full w-full flex-col justify-start rounded-[18px] px-3 py-3 transition-colors',
+            'flex h-full w-full flex-col justify-start rounded-[16px] transition-colors',
+            isPopover ? 'px-2.5 py-2.5' : 'px-3 py-3',
             item.highlighted && 'bg-accent/70',
           )}
         >
           <div className={cn(
             'font-semibold uppercase tracking-[0.16em] text-muted-foreground',
-            isPopover ? 'text-[10px]' : 'text-[11px]',
+            isPopover ? 'text-[9px]' : 'text-[11px]',
           )}>
             {item.title}
           </div>
           <div className={cn(
             'mt-2 leading-snug text-foreground',
-            isPopover ? 'text-[13px] sm:text-sm' : 'text-sm sm:text-[15px]',
+            isPopover ? 'text-[12px] sm:text-[13px]' : 'text-sm sm:text-[15px]',
           )}>
             {item.detail ?? ' '}
           </div>

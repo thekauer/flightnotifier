@@ -3,26 +3,30 @@ package jobs
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
 	"strings"
+	"sync"
 	"time"
+
+	"github.com/jackc/pgx/v5"
 )
 
 type aviationWeatherResponse struct {
-	ICAOID string            `json:"icaoId"`
-	RawOb  string            `json:"rawOb"`
-	ObsTime int64            `json:"obsTime"`
-	Temp   *float64          `json:"temp"`
-	DEWP   *float64          `json:"dewp"`
-	WDir   interface{}       `json:"wdir"`
-	WSpd   *float64          `json:"wspd"`
-	WGST   *float64          `json:"wgst"`
-	Visib  interface{}       `json:"visib"`
-	Clouds []aviationCloud   `json:"clouds"`
-	Altim  *float64          `json:"altim"`
-	FLTCat string            `json:"fltCat"`
+	ICAOID  string          `json:"icaoId"`
+	RawOb   string          `json:"rawOb"`
+	ObsTime int64           `json:"obsTime"`
+	Temp    *float64        `json:"temp"`
+	DEWP    *float64        `json:"dewp"`
+	WDir    interface{}     `json:"wdir"`
+	WSpd    *float64        `json:"wspd"`
+	WGST    *float64        `json:"wgst"`
+	Visib   interface{}     `json:"visib"`
+	Clouds  []aviationCloud `json:"clouds"`
+	Altim   *float64        `json:"altim"`
+	FLTCat  string          `json:"fltCat"`
 }
 
 type aviationCloud struct {
@@ -31,6 +35,12 @@ type aviationCloud struct {
 }
 
 type metarResult struct {
+	Inserted int                  `json:"inserted"`
+	Stations []metarStationResult `json:"stations"`
+}
+
+type metarStationResult struct {
+	Airport string `json:"airport"`
 	Station string `json:"station"`
 	Raw     string `json:"raw"`
 }
@@ -43,52 +53,119 @@ func RunMetar(ctx context.Context) (any, error) {
 	}
 	defer conn.Close(ctx)
 
-	data, err := fetchMetar(ctx, client, metarStation)
+	items, err := fetchMetars(ctx, client)
 	if err != nil {
 		return nil, err
 	}
-
-	cloudsJSON, err := mustJSON(data.Clouds)
-	if err != nil {
-		return nil, err
+	if len(items) == 0 {
+		return metarResult{Inserted: 0, Stations: nil}, nil
 	}
 
-	observationTime := time.Unix(data.ObsTime, 0).UTC()
-	windDirection := parseWindDirection(data.WDir)
-	visibility := parseVisibility(data.Visib)
-	ceiling := parseCeiling(data.Clouds)
+	fetchedAt := time.Now().UTC()
+	batch := &pgx.Batch{}
+	results := make([]metarStationResult, 0, len(items))
+	for _, item := range items {
+		cloudsJSON, err := mustJSON(item.Data.Clouds)
+		if err != nil {
+			return nil, fmt.Errorf("%s encode metar clouds: %w", item.Airport.Ident, err)
+		}
 
-	_, err = conn.Exec(
-		ctx,
-		`INSERT INTO ingest.metar (
-			fetched_at, station, raw, observation_time, temp, dewpoint,
-			wind_direction, wind_speed, wind_gust, visibility, clouds,
-			ceiling, qnh, flight_category
-		) VALUES (
-			$1,$2,$3,$4,$5,$6,
-			$7,$8,$9,$10,$11,
-			$12,$13,$14
-		)`,
-		time.Now().UTC(),
-		data.ICAOID,
-		data.RawOb,
-		observationTime,
-		data.Temp,
-		data.DEWP,
-		windDirection,
-		int16PtrFromFloat(data.WSpd),
-		int16PtrFromFloat(data.WGST),
-		visibility,
-		cloudsJSON,
-		ceiling,
-		data.Altim,
-		toFlightCategory(data.FLTCat),
-	)
-	if err != nil {
-		return nil, fmt.Errorf("insert metar: %w", err)
+		observationTime := time.Unix(item.Data.ObsTime, 0).UTC()
+		windDirection := parseWindDirection(item.Data.WDir)
+		visibility := parseVisibility(item.Data.Visib)
+		ceiling := parseCeiling(item.Data.Clouds)
+
+		batch.Queue(
+			`INSERT INTO ingest.metar (
+				fetched_at, station, raw, observation_time, temp, dewpoint,
+				wind_direction, wind_speed, wind_gust, visibility, clouds,
+				ceiling, qnh, flight_category
+			) VALUES (
+				$1,$2,$3,$4,$5,$6,
+				$7,$8,$9,$10,$11,
+				$12,$13,$14
+			)`,
+			fetchedAt,
+			item.Data.ICAOID,
+			item.Data.RawOb,
+			observationTime,
+			item.Data.Temp,
+			item.Data.DEWP,
+			windDirection,
+			int16PtrFromFloat(item.Data.WSpd),
+			int16PtrFromFloat(item.Data.WGST),
+			visibility,
+			cloudsJSON,
+			ceiling,
+			item.Data.Altim,
+			toFlightCategory(item.Data.FLTCat),
+		)
+
+		results = append(results, metarStationResult{
+			Airport: item.Airport.Ident,
+			Station: item.Data.ICAOID,
+			Raw:     item.Data.RawOb,
+		})
 	}
 
-	return metarResult{Station: data.ICAOID, Raw: data.RawOb}, nil
+	batchResults := conn.SendBatch(ctx, batch)
+	for i := 0; i < len(items); i++ {
+		if _, err := batchResults.Exec(); err != nil {
+			batchResults.Close()
+			return nil, fmt.Errorf("insert metar rows: %w", err)
+		}
+	}
+	if err := batchResults.Close(); err != nil {
+		return nil, fmt.Errorf("close metar batch: %w", err)
+	}
+
+	return metarResult{Inserted: len(results), Stations: results}, nil
+}
+
+type metarFetchResult struct {
+	Airport monitoredAirport
+	Data    *aviationWeatherResponse
+}
+
+func fetchMetars(ctx context.Context, client *http.Client) ([]metarFetchResult, error) {
+	airports := make([]monitoredAirport, 0, len(monitoredAirports))
+	for _, airport := range monitoredAirports {
+		if airport.MetarStation != "" {
+			airports = append(airports, airport)
+		}
+	}
+
+	results := make([]metarFetchResult, len(airports))
+	errs := make([]error, len(airports))
+
+	var wg sync.WaitGroup
+	for i, airport := range airports {
+		wg.Add(1)
+		go func(index int, airport monitoredAirport) {
+			defer wg.Done()
+
+			data, err := fetchMetar(ctx, client, airport.MetarStation)
+			if err != nil {
+				errs[index] = fmt.Errorf("%s metar fetch failed: %w", airport.Ident, err)
+				return
+			}
+			results[index] = metarFetchResult{Airport: airport, Data: data}
+		}(i, airport)
+	}
+
+	wg.Wait()
+
+	var messages []string
+	for _, err := range errs {
+		if err != nil {
+			messages = append(messages, err.Error())
+		}
+	}
+	if len(messages) > 0 {
+		return nil, errors.New(strings.Join(messages, "; "))
+	}
+
+	return results, nil
 }
 
 func fetchMetar(ctx context.Context, client *http.Client, station string) (*aviationWeatherResponse, error) {
