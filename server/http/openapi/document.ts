@@ -201,6 +201,7 @@ const scheduledArrivalSchema = {
     verticalRate: { type: 'number' },
     distanceToAmsKm: { type: 'number' },
     estimatedMinutes: { type: 'number' },
+    etaTimestampMs: { type: 'number' },
     isBuitenveldertbaan: { type: 'boolean' },
   },
 };

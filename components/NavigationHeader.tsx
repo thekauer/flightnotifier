@@ -14,9 +14,13 @@ const NAV_ITEMS = [
 
 export function NavigationHeader() {
   const pathname = usePathname();
+  const navItems =
+    process.env.NODE_ENV === 'development'
+      ? [...NAV_ITEMS, { href: '/component', label: 'Components' }]
+      : NAV_ITEMS;
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-[1200] border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex items-center justify-between px-3 py-3 sm:px-6 sm:py-4">
         <div className="hidden sm:block">
           <h1 className="text-xl font-bold tracking-tight">Flight Notifier</h1>
@@ -24,7 +28,7 @@ export function NavigationHeader() {
         </div>
 
         <nav className="flex flex-1 gap-1 overflow-x-auto sm:flex-none sm:ml-8" aria-label="Main navigation">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
             return (
               <Link

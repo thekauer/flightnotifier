@@ -26,9 +26,9 @@ async function enrichOriginsFromFlighty(flights: Flight[]): Promise<void> {
   if (needOrigin.length === 0) return;
 
   for (const flight of needOrigin) {
-    const cs = flight.callsign;
+    const cs = flight.flight ?? flight.callsign;
     const match = flighty.rows.find((row) =>
-      callsignMatchesFlighty(cs, row.airline.iata, row.flightNumber),
+      callsignMatchesFlighty(cs, row.airline.iata, row.flightNumber, row.flight),
     );
     if (!match) continue;
 

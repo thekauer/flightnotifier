@@ -35,8 +35,16 @@ function countryFromFlagPath(flag?: string): string {
   }
 }
 
-function findLiveFlight(rows: Flight[], airlineIata: string, flightNum: string): Flight | undefined {
-  return rows.find((f) => f.callsign && callsignMatchesFlighty(f.callsign, airlineIata, flightNum));
+function findLiveFlight(
+  rows: Flight[],
+  airlineIata: string,
+  flightNum: string,
+  flight?: string,
+): Flight | undefined {
+  return rows.find((f) => {
+    const liveFlight = f.flight ?? f.callsign;
+    return liveFlight && callsignMatchesFlighty(liveFlight, airlineIata, flightNum, flight);
+  });
 }
 
 function rowToScheduledArrival(
@@ -51,7 +59,7 @@ function rowToScheduledArrival(
   if (etaMin === null) return null;
 
   const callsign = flightyDisplayCallsign(row);
-  const live = findLiveFlight(allFlights, row.airline.iata, row.flightNumber);
+  const live = findLiveFlight(allFlights, row.airline.iata, row.flightNumber, row.flight);
   const id = live?.id ?? `flighty:${row.id}`;
   const depIata = row.departure.iata?.toUpperCase() ?? '';
   const originIcao = resolveIcaoFromIata(depIata);
@@ -64,7 +72,7 @@ function rowToScheduledArrival(
 
   return {
     id,
-    callsign: live?.callsign?.trim() || callsign,
+    callsign: live?.flight?.trim() || live?.callsign?.trim() || callsign,
     aircraftType: live?.aircraftType ?? null,
     manufacturer: live?.manufacturer ?? null,
     registration: live?.registration ?? null,
@@ -78,6 +86,7 @@ function rowToScheduledArrival(
     verticalRate: live?.verticalRate ?? 0,
     distanceToAmsKm: live ? Math.round(distKm) : 0,
     estimatedMinutes: etaMin,
+    etaTimestampMs: nowMs + etaMin * 60_000,
     isBuitenveldertbaan: id !== `flighty:${row.id}` && approachingIds.has(id),
   };
 }

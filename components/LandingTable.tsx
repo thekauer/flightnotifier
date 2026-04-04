@@ -103,6 +103,7 @@ export function LandingTable({ flights, weather }: LandingTableProps) {
           <tbody>
             {landingFlights.map((f) => {
               const inZone = zone ? isInZone(f.lat, f.lon) : false;
+              const etaMinutes = estimateEtaMinutes(f);
               return (
                 <tr
                   key={f.id}
@@ -119,7 +120,11 @@ export function LandingTable({ flights, weather }: LandingTableProps) {
                   <DataCell type="altitude" value={f.alt} />
                   <DataCell type="speed" value={f.speed} />
                   <DataCell type="verticalSpeed" value={f.verticalRate} />
-                  <DataCell type="eta" value={estimateEtaMinutes(f)} />
+                  <DataCell
+                    type="eta"
+                    value={etaMinutes}
+                    etaTimestampMs={Number.isFinite(etaMinutes) ? f.timestamp + etaMinutes * 60_000 : undefined}
+                  />
                   {zone && (
                     <VisibilityCountdown prediction={predictionsByFlightId.get(f.id)} />
                   )}

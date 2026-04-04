@@ -7,6 +7,7 @@ export interface BoundingBox {
 
 export interface Flight {
   id: string; // icao24 hex
+  flight?: string; // raw flight identifier from the upstream state source
   callsign: string;
   lat: number;
   lon: number;

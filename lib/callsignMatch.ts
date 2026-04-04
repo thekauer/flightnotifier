@@ -1,5 +1,9 @@
 import { resolveAirlineIcao } from '@/lib/airlineCodeMap';
 
+function normalizeFlightCode(value: string): string {
+  return value.toUpperCase().replace(/\s+/g, '');
+}
+
 /**
  * Check whether an OpenSky ADS-B callsign (ICAO prefix + flight number)
  * corresponds to a Flighty arrival row identified by its IATA airline code
@@ -15,8 +19,15 @@ export function callsignMatchesFlighty(
   openskyCallsign: string,
   airlineIata: string,
   flightNum: string,
+  flight?: string,
 ): boolean {
-  const cs = openskyCallsign.toUpperCase().replace(/\s+/g, '');
+  const cs = normalizeFlightCode(openskyCallsign);
+  const directFlight = normalizeFlightCode(flight ?? '');
+
+  if (directFlight && cs === directFlight) {
+    return true;
+  }
+
   const rawNum = flightNum.toUpperCase();
   const num = rawNum.replace(/^0+/, '') || '0';
 

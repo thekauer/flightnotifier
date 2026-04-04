@@ -34,3 +34,14 @@ export const runways = pgTable('runways', {
 }, (table) => [
   index('runways_airport_ident_idx').on(table.airportIdent),
 ]);
+
+export const flightRoutes = pgTable('flight_routes', {
+  callsign: text('callsign').primaryKey(),
+  origin: text('origin'),
+  destination: text('destination'),
+  route: text('route'),
+  firstSeenAt: timestamp('first_seen_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [
+  index('flight_routes_updated_at_idx').on(table.updatedAt),
+]);

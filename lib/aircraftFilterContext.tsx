@@ -31,6 +31,7 @@ interface AircraftFilterContextValue {
 }
 
 const ALL_TYPE_CODES = getAllTypeCodes();
+const ALL_TYPE_CODE_SET = new Set(ALL_TYPE_CODES);
 
 const useAircraftFilterStore = create<AircraftFilterStoreState>()(
   persist(
@@ -109,7 +110,18 @@ export function useAircraftFilter(): AircraftFilterContextValue {
     toggleType,
     toggleFamily,
     toggleCategory,
-    isTypeEnabled: (code) => (code ? enabledTypes.has(code) : false),
+    isTypeEnabled: (code) => {
+      const normalized = code?.trim().toUpperCase();
+      if (!normalized) {
+        // Keep uncategorized aircraft visible until we know what they are.
+        return true;
+      }
+      if (!ALL_TYPE_CODE_SET.has(normalized)) {
+        // New/unknown ICAO type codes should not disappear from the UI.
+        return true;
+      }
+      return enabledTypes.has(normalized);
+    },
     selectAll,
     deselectAll,
   };

@@ -349,6 +349,25 @@ export interface SpottingOption {
   category: string;
 }
 
+const AIRCRAFT_FAMILY_IMAGE_IDS: Record<string, string> = {
+  B747: 'boeing-747',
+  B777: 'boeing-777',
+  B787: 'boeing-787',
+  A330: 'airbus-a330',
+  A340: 'airbus-a340',
+  A350: 'airbus-a350',
+  A380: 'airbus-a380',
+  B737: 'boeing-737',
+  B757: 'boeing-757',
+  B767: 'boeing-767',
+  A320: 'airbus-a320',
+  'E-Jet E2': 'embraer-ejet',
+  ATR: 'atr-72',
+  DHC8: 'dash-8',
+  CRJ: 'bombardier-crj',
+  ERJ: 'embraer-ejet',
+};
+
 function shuffle<T>(items: T[]): T[] {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
@@ -408,4 +427,13 @@ export function getSpottingOptions(
     correctOption,
     options: shuffle([correctOption, ...distractors.slice(0, totalOptions - 1)]),
   };
+}
+
+export function getAircraftImageFamilyId(typeCode: string | null | undefined): string | null {
+  const familyInfo = getAircraftFamilyInfo(typeCode);
+  if (!familyInfo) {
+    return null;
+  }
+
+  return AIRCRAFT_FAMILY_IMAGE_IDS[familyInfo.family] ?? null;
 }

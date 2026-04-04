@@ -132,6 +132,7 @@ export async function buildZodOpenApiDocument(baseUrl: string): Promise<object |
     verticalRate: z.number(),
     distanceToAmsKm: z.number(),
     estimatedMinutes: z.number(),
+    etaTimestampMs: z.number().optional(),
     isBuitenveldertbaan: z.boolean(),
   }).openapi('ScheduledArrival');
 

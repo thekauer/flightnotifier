@@ -1,6 +1,7 @@
 /** Shape of each arrival row embedded in Flighty's Next.js RSC HTML payload. */
 export interface FlightyArrivalRow {
   id: string;
+  flight?: string;
   city: string;
   status: Array<{ type: string; text?: string; icon?: string; style?: string }>;
   originalTime: { text: string; style: string };

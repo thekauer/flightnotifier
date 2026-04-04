@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { DataCell } from './DataCell';
 import { VsCell } from './VsCell';
@@ -8,34 +7,14 @@ import { AirportCell } from './AirportCell';
 import { RunwayPredictionBadge } from './RunwayPredictionBadge';
 import { RUNWAY_PREDICTIONS_KEY } from '@/hooks/useFlightEvents';
 import { usePredictionHorizon } from '@/lib/predictionHorizonContext';
-import type { RunwayPrediction } from '@/lib/types';
-
-interface ScheduledArrival {
-  id: string;
-  callsign: string;
-  aircraftType: string | null;
-  manufacturer: string | null;
-  registration: string | null;
-  owner: string | null;
-  originCountry: string;
-  origin?: string;
-  destination?: string;
-  route?: string;
-  altitude: number;
-  speed: number;
-  verticalRate?: number;
-  distanceToAmsKm: number;
-  estimatedMinutes: number;
-  isBuitenveldertbaan: boolean;
-}
+import type { RunwayPrediction, ScheduledArrival } from '@/lib/types';
 
 
 
 export function Timetable() {
-  const [, setTick] = useState(0);
   const queryClient = useQueryClient();
   const { horizonMinutes } = usePredictionHorizon();
-  const { data: arrivals = [], isLoading, dataUpdatedAt } = useQuery<ScheduledArrival[]>({
+  const { data: arrivals = [], isLoading } = useQuery<ScheduledArrival[]>({
     queryKey: ['schedule', horizonMinutes],
     queryFn: async () => {
       const res = await fetch(`/api/schedule?horizon=${horizonMinutes}`);
@@ -48,13 +27,6 @@ export function Timetable() {
   // Read runway predictions from the query cache (populated by SSE in useFlightEvents)
   const predictions = queryClient.getQueryData<RunwayPrediction[]>(RUNWAY_PREDICTIONS_KEY) ?? [];
   const predictionMap = new Map(predictions.map((p) => [p.flightId, p]));
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTick((t) => t + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   if (isLoading) {
     return (
@@ -89,38 +61,32 @@ export function Timetable() {
           </tr>
         </thead>
         <tbody>
-          {arrivals.map((a) => {
-            const elapsedSinceRefetchMs = Date.now() - dataUpdatedAt;
-            const elapsedMinutes = elapsedSinceRefetchMs / 60000;
-            const liveEtaMinutes = Math.max(0, a.estimatedMinutes - elapsedMinutes);
-
-            return (
-              <tr
-                key={a.id}
-                className={`border-b border-border/50 transition-colors hover:bg-muted/50 ${a.isBuitenveldertbaan ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}`}
-              >
-                <DataCell type="callsign" value={a.callsign || a.id} isApproaching={a.isBuitenveldertbaan} />
-                <AirportCell icaoCode={a.origin} />
-                <AirportCell icaoCode={a.destination} />
-                <DataCell type="aircraftType" value={a.aircraftType} />
-                <VsCell value={a.verticalRate ?? 0} />
-                <DataCell type="distance" value={a.distanceToAmsKm} />
-                <DataCell type="eta" value={liveEtaMinutes} />
-                <td className="px-3 py-1.5 text-center">
-                  {predictionMap.has(a.id) ? (
-                    <RunwayPredictionBadge prediction={predictionMap.get(a.id)!} />
-                  ) : ''}
-                </td>
-                <td className="px-3 py-1.5 text-center">
-                  {a.isBuitenveldertbaan ? (
-                    <span className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-xs font-bold">
-                      &#10003;
-                    </span>
-                  ) : ''}
-                </td>
-              </tr>
-            );
-          })}
+          {arrivals.map((a) => (
+            <tr
+              key={a.id}
+              className={`border-b border-border/50 transition-colors hover:bg-muted/50 ${a.isBuitenveldertbaan ? 'bg-emerald-50/50 dark:bg-emerald-950/30' : ''}`}
+            >
+              <DataCell type="callsign" value={a.callsign || a.id} isApproaching={a.isBuitenveldertbaan} />
+              <AirportCell icaoCode={a.origin} />
+              <AirportCell icaoCode={a.destination} />
+              <DataCell type="aircraftType" value={a.aircraftType} />
+              <VsCell value={a.verticalRate ?? 0} />
+              <DataCell type="distance" value={a.distanceToAmsKm} />
+              <DataCell type="eta" value={a.estimatedMinutes} etaTimestampMs={a.etaTimestampMs} />
+              <td className="px-3 py-1.5 text-center">
+                {predictionMap.has(a.id) ? (
+                  <RunwayPredictionBadge prediction={predictionMap.get(a.id)!} />
+                ) : ''}
+              </td>
+              <td className="px-3 py-1.5 text-center">
+                {a.isBuitenveldertbaan ? (
+                  <span className="inline-flex items-center justify-center rounded-full w-5 h-5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 text-xs font-bold">
+                    &#10003;
+                  </span>
+                ) : ''}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

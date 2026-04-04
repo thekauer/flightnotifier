@@ -3,13 +3,16 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import type { FlightState, StateChangeEvent, Flight, VisibilityPrediction, RunwayPrediction } from '@/lib/types';
+import { getAircraftImageFamilyId } from '@/lib/aircraftTypes';
 import { useAircraftFilter } from '@/lib/aircraftFilterContext';
+import { countryCodeToFlag, getAirportInfo } from '@/lib/airports';
 import { useNotificationZone } from '@/lib/notificationZoneContext';
 import { useVisibilitySettings } from '@/lib/visibilitySettingsContext';
 import {
   requestBrowserNotificationPermission,
   showAppNotification,
 } from '@/lib/notifications';
+import notificationPhotoManifest from '@/data/spotting/notification-photo-manifest.json';
 import { SCHEDULE_KEY } from './useScheduleData';
 import { PREDICTIONS_KEY } from './useVisibilityPredictions';
 
@@ -22,6 +25,120 @@ const INITIAL_STATE: FlightState = {
 
 const FLIGHT_STATE_KEY = ['flightState'] as const;
 export const RUNWAY_PREDICTIONS_KEY = ['runwayPredictions'] as const;
+
+interface NotificationPhotoCandidate {
+  registration: string | null;
+  airline: string | null;
+  imageUrl: string;
+}
+
+const NOTIFICATION_PHOTO_MANIFEST = notificationPhotoManifest as Record<
+  string,
+  NotificationPhotoCandidate[]
+>;
+
+function getShortAirportCode(icaoCode?: string): string {
+  if (!icaoCode) return '???';
+  const airport = getAirportInfo(icaoCode);
+  return airport?.iata ?? icaoCode.toUpperCase();
+}
+
+function getAirportBadge(icaoCode?: string): string {
+  if (!icaoCode) {
+    return '???';
+  }
+
+  const airport = getAirportInfo(icaoCode);
+  const code = airport?.iata ?? icaoCode.toUpperCase();
+  const flag = airport?.countryCode ? countryCodeToFlag(airport.countryCode) : null;
+
+  return flag ? `${flag} ${code}` : code;
+}
+
+function getFlightNotificationTitle(flight: Flight): string {
+  const origin = getAirportBadge(flight.origin);
+  const destination = getAirportBadge(flight.destination);
+  const aircraftType = flight.aircraftType ?? 'Unknown aircraft';
+  return `${origin} → ${destination} · ${aircraftType}`;
+}
+
+function getFlightNotificationBody(flight: Flight): string {
+  return flight.callsign || flight.id;
+}
+
+function normalizeRegistration(value: string | null | undefined): string {
+  return (value ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+}
+
+function normalizeAirlineName(value: string | null | undefined): string {
+  return (value ?? '')
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/airlines?|airways|express|group|cargo|regional|mainline|ltd|limited|inc|co\b|company/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function getAirlineMatchScore(flight: Flight, candidate: NotificationPhotoCandidate): number {
+  const flightAirline = normalizeAirlineName(flight.owner);
+  const candidateAirline = normalizeAirlineName(candidate.airline);
+
+  if (!flightAirline || !candidateAirline) {
+    return 0;
+  }
+
+  if (flightAirline === candidateAirline) {
+    return 100;
+  }
+
+  if (flightAirline.includes(candidateAirline) || candidateAirline.includes(flightAirline)) {
+    return 75;
+  }
+
+  const flightTokens = new Set(flightAirline.split(' '));
+  const candidateTokens = candidateAirline.split(' ');
+  const sharedTokens = candidateTokens.filter((token) => token.length >= 3 && flightTokens.has(token));
+
+  return sharedTokens.length * 10;
+}
+
+function getFlightNotificationImage(flight: Flight): string | undefined {
+  const familyId = getAircraftImageFamilyId(flight.aircraftType);
+  if (!familyId) {
+    return undefined;
+  }
+
+  const candidates = NOTIFICATION_PHOTO_MANIFEST[familyId] ?? [];
+  if (candidates.length === 0) {
+    return undefined;
+  }
+
+  const flightRegistration = normalizeRegistration(flight.registration);
+  let bestCandidate: NotificationPhotoCandidate | null = null;
+  let bestScore = -1;
+
+  for (const candidate of candidates) {
+    let score = 0;
+
+    if (
+      flightRegistration &&
+      flightRegistration === normalizeRegistration(candidate.registration)
+    ) {
+      score += 1000;
+    }
+
+    score += getAirlineMatchScore(flight, candidate);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestCandidate = candidate;
+    }
+  }
+
+  return bestCandidate?.imageUrl ?? candidates[0]?.imageUrl;
+}
+
 function notifyBuitenveldertbaan(flights: Flight[]): void {
   if (flights.length === 0) return;
   void showAppNotification('Buitenveldertbaan Active!', {
@@ -31,19 +148,19 @@ function notifyBuitenveldertbaan(flights: Flight[]): void {
 }
 
 function notifyNewApproach(flight: Flight): void {
-  const label = flight.callsign || flight.id;
-  const type = flight.aircraftType || '?';
-  void showAppNotification(`New Approach: ${label}`, {
-    body: `${label} (${type}) at ${flight.alt}ft`,
+  const image = getFlightNotificationImage(flight);
+  void showAppNotification(getFlightNotificationTitle(flight), {
+    body: getFlightNotificationBody(flight),
+    ...(image ? { icon: image, image } : {}),
     tag: `approach-${flight.id}`,
   });
 }
 
 function notifyZoneEntry(flight: Flight): void {
-  const label = flight.callsign || flight.id;
-  const type = flight.aircraftType || '?';
-  void showAppNotification(`Entered Blue Zone: ${label}`, {
-    body: `${label} (${type}) is now inside your notification zone`,
+  const image = getFlightNotificationImage(flight);
+  void showAppNotification(getFlightNotificationTitle(flight), {
+    body: getFlightNotificationBody(flight),
+    ...(image ? { icon: image, image } : {}),
     tag: `zone-entry-${flight.id}-${Date.now()}`,
   });
 }

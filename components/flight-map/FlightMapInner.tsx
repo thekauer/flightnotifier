@@ -259,8 +259,8 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   return (
     <div className="flex flex-col h-full w-full">
       {/* Radar-style HUD header */}
-      <div className="flex items-center justify-between px-3 py-1.5 border-b font-mono text-[11px] text-muted-foreground shrink-0">
-        <div title="Wind direction / speed">
+      <div className="grid grid-cols-3 items-center px-3 py-1.5 border-b font-mono text-[11px] text-muted-foreground shrink-0">
+        <div className="justify-self-start" title="Wind direction / speed">
           {weather && weather.windSpeed != null ? (
             <span>
               <span className="font-semibold text-foreground">
@@ -277,19 +277,38 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
           )}
         </div>
 
-        {selectedFlight && (
-          <div className="border rounded px-2 py-0.5 font-semibold text-foreground">
-            HDG {String(selectedFlight.track).padStart(3, '0')}{'\u00B0'}
-          </div>
-        )}
+        <div
+          className={`justify-self-center border rounded px-2 py-0.5 font-semibold text-foreground ${
+            selectedFlight ? 'visible' : 'invisible'
+          }`.trim()}
+        >
+          {selectedFlight ? (
+            <>
+              HDG {String(selectedFlight.track).padStart(3, '0')}{'\u00B0'}
+            </>
+          ) : (
+            <>
+              HDG 000{'\u00B0'}
+            </>
+          )}
+        </div>
 
-        {selectedFlight && selectedFlightDistance != null && (
-          <div title="Distance to Schiphol">
-            <span className="font-semibold text-foreground">{selectedFlightDistance}</span>
-            <span className="ml-0.5">km</span>
-          </div>
-        )}
-        {!selectedFlight && <div />}
+        <div
+          className={`justify-self-end ${selectedFlight && selectedFlightDistance != null ? 'visible' : 'invisible'}`.trim()}
+          title="Distance to Schiphol"
+        >
+          {selectedFlightDistance != null ? (
+            <>
+              <span className="font-semibold text-foreground">{selectedFlightDistance}</span>
+              <span className="ml-0.5">km</span>
+            </>
+          ) : (
+            <>
+              <span className="font-semibold text-foreground">000</span>
+              <span className="ml-0.5">km</span>
+            </>
+          )}
+        </div>
       </div>
 
       <div className="relative flex-1 min-h-0">
@@ -513,24 +532,15 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
       </div>
 
       {/* Selected flight detail panel */}
-      <div className="shrink-0 border-t">
-        <div
-          className="grid transition-[grid-template-rows] duration-300 ease-out"
-          style={{ gridTemplateRows: selectedFlight ? '0fr' : '1fr' }}
-        >
-          <div className="overflow-hidden min-h-0">
-            <div className="flex items-center justify-center h-[80px] text-xs text-muted-foreground/50 font-mono select-none">
+      <div className="h-[312px] shrink-0 border-t">
+        <div className="h-full overflow-hidden min-h-0">
+          {selectedFlight ? (
+            <SelectedFlightPanel flight={selectedFlight} />
+          ) : (
+            <div className="flex h-full items-center justify-center text-xs text-muted-foreground/50 font-mono select-none">
               Click an aircraft to see details
             </div>
-          </div>
-        </div>
-        <div
-          className="grid transition-[grid-template-rows] duration-300 ease-out"
-          style={{ gridTemplateRows: selectedFlight ? '1fr' : '0fr' }}
-        >
-          <div className="overflow-hidden min-h-0">
-            {selectedFlight && <SelectedFlightPanel flight={selectedFlight} />}
-          </div>
+          )}
         </div>
       </div>
     </div>

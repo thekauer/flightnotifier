@@ -4,6 +4,7 @@ const DEFAULT_NOTIFICATION_ICON = '/icon.svg';
 
 export interface AppNotificationOptions extends NotificationOptions {
   requireInteraction?: boolean;
+  image?: string;
 }
 
 export async function requestBrowserNotificationPermission(): Promise<NotificationPermission> {

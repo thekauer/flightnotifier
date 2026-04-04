@@ -1,0 +1,160 @@
+service: flightnotifier-crons
+frameworkVersion: '3'
+configValidationMode: error
+
+provider:
+  name: aws
+  runtime: provided.al2023
+  architecture: arm64
+  region: ${opt:region, env:AWS_REGION, 'eu-central-1'}
+  stage: ${opt:stage, 'dev'}
+  memorySize: 128
+  timeout: 8
+  logRetentionInDays: 7
+  environment:
+    APP_ENV: ${sls:stage}
+    LOG_LEVEL: info
+    OPENSKY_CLIENT_ID: ${env:OPENSKY_CLIENT_ID, ''}
+    OPENSKY_CLIENT_SECRET: ${env:OPENSKY_CLIENT_SECRET, ''}
+    DATABASE_URL: ${env:DATABASE_URL, ''}
+  tags:
+    project: flightnotifier
+    system: cron
+    managed-by: serverless
+  stackTags:
+    project: flightnotifier
+    system: cron
+    managed-by: serverless
+
+package:
+  individually: true
+
+functions:
+  opensky:
+    timeout: 35
+    memorySize: 256
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/opensky.zip
+    events:
+      - schedule:
+          rate: cron(0/15 * * * ? *)
+          enabled: false
+          input:
+            job: opensky
+  metar:
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/metar.zip
+    events:
+      - schedule:
+          rate: cron(2/15 * * * ? *)
+          enabled: true
+          input:
+            job: metar
+  flighty:
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/flighty.zip
+    events:
+      - schedule:
+          rate: cron(5/15 * * * ? *)
+          enabled: true
+          input:
+            job: flighty
+  adsbdb:
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/adsbdb.zip
+    events:
+      - schedule:
+          rate: cron(12 * * * ? *)
+          enabled: true
+          input:
+            job: adsbdb
+  adsblol:
+    timeout: 15
+    memorySize: 128
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/adsblol.zip
+    events:
+      - schedule:
+          rate: cron(* * * * ? *)
+          enabled: true
+          input:
+            job: adsblol
+  tracks:
+    timeout: 35
+    memorySize: 256
+    handler: bootstrap
+    package:
+      artifact: .aws-cron-build/tracks.zip
+    events:
+      - schedule:
+          rate: cron(25,55 * * * ? *)
+          enabled: true
+          input:
+            job: tracks
+
+resources:
+  Conditions:
+    CreateCronBudget:
+      Fn::Equals:
+        - ${env:AWS_ENABLE_BUDGET_ALERTS, 'false'}
+        - 'true'
+  Resources:
+    CronMonthlyBudget:
+      Type: AWS::Budgets::Budget
+      Condition: CreateCronBudget
+      Properties:
+        Budget:
+          BudgetName: ${self:service}-${sls:stage}-monthly
+          BudgetLimit:
+            Amount: ${env:AWS_CRON_BUDGET_LIMIT_USD, '1'}
+            Unit: USD
+          BudgetType: COST
+          TimeUnit: MONTHLY
+          CostTypes:
+            IncludeCredit: false
+            IncludeDiscount: true
+            IncludeOtherSubscription: true
+            IncludeRecurring: true
+            IncludeRefund: false
+            IncludeSubscription: true
+            IncludeSupport: true
+            IncludeTax: true
+            IncludeUpfront: true
+            UseAmortized: false
+            UseBlended: false
+        NotificationsWithSubscribers:
+          - Notification:
+              ComparisonOperator: GREATER_THAN
+              NotificationType: ACTUAL
+              Threshold: 50
+              ThresholdType: PERCENTAGE
+            Subscribers:
+              - Address: ${env:AWS_CRON_BUDGET_ALERT_EMAIL, 'alerts@example.com'}
+                SubscriptionType: EMAIL
+          - Notification:
+              ComparisonOperator: GREATER_THAN
+              NotificationType: ACTUAL
+              Threshold: 80
+              ThresholdType: PERCENTAGE
+            Subscribers:
+              - Address: ${env:AWS_CRON_BUDGET_ALERT_EMAIL, 'alerts@example.com'}
+                SubscriptionType: EMAIL
+          - Notification:
+              ComparisonOperator: GREATER_THAN
+              NotificationType: ACTUAL
+              Threshold: 100
+              ThresholdType: PERCENTAGE
+            Subscribers:
+              - Address: ${env:AWS_CRON_BUDGET_ALERT_EMAIL, 'alerts@example.com'}
+                SubscriptionType: EMAIL
+
+  Outputs:
+    CronServiceName:
+      Value: ${self:service}
+    CronRegion:
+      Value: ${aws:region}

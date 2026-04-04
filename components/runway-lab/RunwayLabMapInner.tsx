@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useMemo, useSyncExternalStore } from 'react';
-import { MapContainer, TileLayer, Polygon, Marker, Tooltip } from 'react-leaflet';
+import React, { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
+import { MapContainer, Marker, Polygon, TileLayer, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { useRunways, type Runway } from '@/hooks/useRunways';
-import { buildConePolygon } from '@/lib/approachCone';
+import type { AirportSearchRecord } from '@/lib/airport-catalog';
+import { buildConePolygon } from '@/lib/buildConePolygon';
 import {
-  SCHIPHOL_LAT,
-  SCHIPHOL_LON,
   TILE_LIGHT,
   TILE_DARK,
   TILE_ATTRIBUTION,
@@ -154,82 +153,124 @@ function buildRunwayStrips(runways: Runway[]): RunwayStripData[] {
 // Component
 // ---------------------------------------------------------------------------
 
-export default function RunwayLabMapInner() {
+function MapViewportController({
+  center,
+  strips,
+}: {
+  center: [number, number];
+  strips: RunwayStripData[];
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (strips.length > 0) {
+      const points = strips.flatMap((strip) => strip.corners);
+      map.fitBounds(points, {
+        padding: [48, 48],
+        maxZoom: 13,
+        animate: true,
+        duration: 1.2,
+      });
+      return;
+    }
+
+    map.flyTo(center, 11, {
+      animate: true,
+      duration: 1.2,
+    });
+  }, [center, map, strips]);
+
+  return null;
+}
+
+export default function RunwayLabMapInner({ airport }: { airport: AirportSearchRecord }) {
   const isDark = useIsDarkMode();
-  const { data: runways = [], isLoading } = useRunways('EHAM');
+  const { data: runways = [], isLoading } = useRunways(airport.ident);
+  const [hoveredConeKey, setHoveredConeKey] = useState<string | null>(null);
 
   const cones = useMemo(() => buildConesFromRunways(runways), [runways]);
   const strips = useMemo(() => buildRunwayStrips(runways), [runways]);
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-full text-muted-foreground text-sm font-mono">
-        Loading runway data...
-      </div>
-    );
-  }
+  const center = useMemo<[number, number]>(() => [airport.latitude, airport.longitude], [airport.latitude, airport.longitude]);
 
   return (
-    <MapContainer
-      center={[SCHIPHOL_LAT, SCHIPHOL_LON]}
-      zoom={11}
-      minZoom={9}
-      maxZoom={16}
-      style={{ height: '100%', width: '100%' }}
-      scrollWheelZoom={true}
-      zoomControl={false}
-      attributionControl={false}
-    >
-      <TileLayer
-        key={isDark ? 'dark' : 'light'}
-        attribution={TILE_ATTRIBUTION}
-        url={isDark ? TILE_DARK : TILE_LIGHT}
-      />
-
-      {/* Approach cones — muted green */}
-      {cones.map((cone) => (
-        <Polygon
-          key={cone.key}
-          positions={cone.polygon}
-          pathOptions={{
-            color: COLOR_CONE,
-            fillColor: COLOR_CONE,
-            fillOpacity: 0.05,
-            weight: 1,
-            dashArray: '6 3',
-          }}
+    <div className="relative h-full w-full">
+      <MapContainer
+        center={center}
+        zoom={11}
+        minZoom={3}
+        maxZoom={16}
+        style={{ height: '100%', width: '100%' }}
+        scrollWheelZoom={true}
+        zoomControl={true}
+        attributionControl={false}
+      >
+        <TileLayer
+          key={isDark ? 'dark' : 'light'}
+          attribution={TILE_ATTRIBUTION}
+          url={isDark ? TILE_DARK : TILE_LIGHT}
         />
-      ))}
 
-      {/* Runway strips */}
-      {strips.map((strip) => (
-        <Polygon
-          key={strip.key}
-          positions={strip.corners}
-          pathOptions={{
-            color: isDark ? '#a1a1aa' : '#555',
-            fillColor: isDark ? '#71717a' : '#333',
-            fillOpacity: 0.7,
-            weight: 1,
-          }}
-        />
-      ))}
+        <MapViewportController center={center} strips={strips} />
 
-      {/* Runway labels */}
-      {strips.map((strip) => (
-        <React.Fragment key={`lbl-${strip.key}`}>
-          <Marker position={strip.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
-            <Tooltip permanent direction="center" className="runway-label">
-              {strip.leIdent}
-            </Tooltip>
-          </Marker>
-          <Marker position={strip.he} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
-            <Tooltip permanent direction="center" className="runway-label">
-              {strip.heIdent}
-            </Tooltip>
-          </Marker>
-        </React.Fragment>
-      ))}
-    </MapContainer>
+        {cones.map((cone) => (
+          <Polygon
+            key={cone.key}
+            positions={cone.polygon}
+            eventHandlers={{
+              mouseover: () => setHoveredConeKey(cone.key),
+              mouseout: () => setHoveredConeKey((current) => (current === cone.key ? null : current)),
+            }}
+            pathOptions={{
+              color: COLOR_CONE,
+              fillColor: COLOR_CONE,
+              fillOpacity: hoveredConeKey === cone.key ? 0.14 : 0,
+              opacity: hoveredConeKey === cone.key ? 1 : 0.45,
+              weight: hoveredConeKey === cone.key ? 2 : 1,
+              dashArray: hoveredConeKey === cone.key ? undefined : '6 3',
+            }}
+          />
+        ))}
+
+        {strips.map((strip) => (
+          <Polygon
+            key={strip.key}
+            positions={strip.corners}
+            pathOptions={{
+              color: isDark ? '#a1a1aa' : '#555',
+              fillColor: isDark ? '#71717a' : '#333',
+              fillOpacity: 0.7,
+              weight: 1,
+            }}
+          />
+        ))}
+
+        {strips.map((strip) => (
+          <React.Fragment key={`lbl-${strip.key}`}>
+            <Marker position={strip.le} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
+              <Tooltip permanent direction="center" className="runway-label">
+                {strip.leIdent}
+              </Tooltip>
+            </Marker>
+            <Marker position={strip.he} icon={L.divIcon({ html: '', iconSize: [0, 0], className: '' })}>
+              <Tooltip permanent direction="center" className="runway-label">
+                {strip.heIdent}
+              </Tooltip>
+            </Marker>
+          </React.Fragment>
+        ))}
+      </MapContainer>
+
+      {isLoading ? (
+        <div className="pointer-events-none absolute inset-x-4 top-4 z-[500] rounded-full border border-black/8 bg-white/88 px-4 py-2 text-sm text-muted-foreground shadow-lg backdrop-blur dark:border-white/10 dark:bg-slate-950/80">
+          Loading runway data for {airport.ident}...
+        </div>
+      ) : null}
+
+      {!isLoading && strips.length === 0 ? (
+        <div className="pointer-events-none absolute inset-x-4 top-4 z-[500] rounded-2xl border border-black/8 bg-white/88 px-4 py-3 text-sm text-muted-foreground shadow-lg backdrop-blur dark:border-white/10 dark:bg-slate-950/80">
+          No runway geometry was found for {airport.ident}, so the map is centered on the airport only.
+        </div>
+      ) : null}
+    </div>
   );
 }

@@ -132,7 +132,11 @@ export function ConeFlightsTable({
                   <DataCell type="speed" value={flight.speed} />
                   <DataCell type="verticalSpeed" value={flight.verticalRate} />
                   <DataCell type="distance" value={flight.distanceToAmsKm} />
-                  <DataCell type="eta" value={flight.estimatedMinutes} />
+                  <DataCell
+                    type="eta"
+                    value={flight.estimatedMinutes}
+                    etaTimestampMs={Number.isFinite(flight.estimatedMinutes) ? flight.timestamp + flight.estimatedMinutes * 60_000 : undefined}
+                  />
                 </tr>
               ))}
             </tbody>

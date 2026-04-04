@@ -45,6 +45,7 @@ export function buildSchedule(
         verticalRate: f.verticalRate,
         distanceToAmsKm: Math.round(distKm),
         estimatedMinutes: etaMinutes,
+        etaTimestampMs: f.timestamp + etaMinutes * 60_000,
         isBuitenveldertbaan: approachingIds.has(f.id),
       };
     })

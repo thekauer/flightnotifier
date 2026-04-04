@@ -1,4 +1,4 @@
-const CACHE_NAME = 'flight-notifier-v1';
+const CACHE_NAME = 'flight-notifier-v2';
 
 const STATIC_ASSETS = [
   '/',
@@ -35,7 +35,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
 
   // Never cache SSE or API routes — always go to network
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/_next/')) {
     return;
   }
 

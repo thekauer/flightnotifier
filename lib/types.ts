@@ -1,5 +1,6 @@
 export interface Flight {
   id: string;
+  flight?: string; // raw flight identifier from the upstream state source
   callsign: string;
   lat: number;
   lon: number;
@@ -44,6 +45,7 @@ export interface ScheduledArrival {
   verticalRate: number;
   distanceToAmsKm: number;
   estimatedMinutes: number;
+  etaTimestampMs?: number;
   isBuitenveldertbaan: boolean;
 }
 

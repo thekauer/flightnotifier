@@ -1,10 +1,13 @@
 'use client';
 
-import { useMemo, useState, type MouseEvent } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type MouseEvent } from 'react';
+import { createPortal } from 'react-dom';
+import { AircraftSpottingGrid } from '@/components/ui/aircraft-spotting-grid';
 import {
   AIRCRAFT_TYPE_HIERARCHY,
   getSpottingOptions,
 } from '@/lib/aircraftTypes';
+import { getAircraftSpottingTraits } from '@/lib/aircraftSpottingTraits';
 import { useSpottingMode } from '@/lib/spottingModeContext';
 
 export type AircraftCategory =
@@ -101,12 +104,134 @@ interface AircraftTypeBadgeProps {
   className?: string;
 }
 
+function AircraftSpottingPopover({
+  anchorRef,
+  anchorName,
+  onClose,
+  traits,
+}: {
+  anchorRef: React.RefObject<HTMLElement | null>;
+  anchorName: string;
+  onClose: () => void;
+  traits: NonNullable<ReturnType<typeof getAircraftSpottingTraits>>;
+}) {
+  const popoverRef = useRef<HTMLDivElement | null>(null);
+  const [style, setStyle] = useState<React.CSSProperties | null>(null);
+  const supportsAnchorPositioning = useMemo(() => {
+    if (typeof CSS === 'undefined' || typeof CSS.supports !== 'function') {
+      return false;
+    }
+
+    return CSS.supports('anchor-name: --test-anchor') && CSS.supports('position-anchor: --test-anchor');
+  }, []);
+
+  useEffect(() => {
+    if (supportsAnchorPositioning) {
+      return;
+    }
+
+    const updatePosition = () => {
+      const anchor = anchorRef.current;
+      if (!anchor) {
+        return;
+      }
+
+      const rect = anchor.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const width = Math.min(448, viewportWidth - 16);
+      const height = Math.min(280, viewportHeight - 16);
+      const left = Math.min(Math.max(8, rect.left + rect.width / 2 - width / 2), viewportWidth - width - 8);
+      const preferredTop = rect.top - 12 - height;
+      const top = preferredTop >= 8 ? preferredTop : Math.min(viewportHeight - height - 8, rect.bottom + 12);
+
+      setStyle({
+        left,
+        top,
+        width,
+      });
+    };
+
+    const handlePointerDown = (event: MouseEvent | globalThis.MouseEvent) => {
+      const target = event.target as Node | null;
+      if (
+        target &&
+        !anchorRef.current?.contains(target) &&
+        !popoverRef.current?.contains(target)
+      ) {
+        onClose();
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    updatePosition();
+
+    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition, true);
+    document.addEventListener('mousedown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition, true);
+      document.removeEventListener('mousedown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [anchorRef, onClose, supportsAnchorPositioning]);
+
+  if (!supportsAnchorPositioning && !style) {
+    return null;
+  }
+
+  const anchorStyle: React.CSSProperties = supportsAnchorPositioning
+    ? ({
+        position: 'fixed',
+        positionAnchor: anchorName,
+        positionArea: 'top center',
+        justifySelf: 'anchor-center',
+        margin: 0,
+        marginBottom: '12px',
+        width: 'min(28rem, calc(100vw - 1rem))',
+        maxWidth: 'calc(100vw - 1rem)',
+        maxHeight: 'calc(100vh - 1rem)',
+      } as React.CSSProperties & Record<string, string | number>)
+    : {
+        position: 'fixed',
+        width: style?.width,
+        left: style?.left,
+        top: style?.top,
+      };
+
+  return createPortal(
+    <div
+      ref={popoverRef}
+      className="z-[100] rounded-[32px]"
+      style={anchorStyle}
+      role="dialog"
+      aria-label="Aircraft spotting traits"
+    >
+      <AircraftSpottingGrid items={traits} variant="popover" className="w-full" />
+    </div>,
+    document.body,
+  );
+}
+
 export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProps) {
   const { spottingModeEnabled } = useSpottingMode();
   const [quizOpen, setQuizOpen] = useState(false);
+  const [traitsOpen, setTraitsOpen] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [result, setResult] = useState<'right' | 'wrong' | null>(null);
+  const badgeRef = useRef<HTMLButtonElement | null>(null);
+  const anchorId = useId().replace(/:/g, '');
+  const anchorName = `--aircraft-badge-${anchorId}`;
   const spottingQuiz = useMemo(() => getSpottingOptions(typeCode), [typeCode]);
+  const spottingTraits = useMemo(() => getAircraftSpottingTraits(typeCode), [typeCode]);
 
   if (!typeCode) {
     return <span className="text-muted-foreground">-</span>;
@@ -117,18 +242,30 @@ export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProp
 
   const revealedBadge = (
     <span className="inline-flex items-center gap-1">
-      <span
+      <button
+        ref={badgeRef}
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          if (!spottingTraits) {
+            return;
+          }
+          setTraitsOpen((open) => !open);
+        }}
         className={`inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${styles} ${
           result === 'right'
             ? 'ring-1 ring-emerald-500/50'
             : result === 'wrong'
               ? 'ring-1 ring-rose-500/50'
               : ''
-        } ${className ?? ''}`.trim()}
+        } ${spottingTraits ? 'cursor-pointer transition-transform hover:-translate-y-px' : ''} ${className ?? ''}`.trim()}
+        style={{ anchorName } as React.CSSProperties}
         title={getAircraftFullName(typeCode) ?? spottingQuiz?.correctOption.label ?? category.replace('-', ' ')}
+        aria-haspopup={spottingTraits ? 'dialog' : undefined}
+        aria-expanded={spottingTraits ? traitsOpen : undefined}
       >
         {typeCode}
-      </span>
+      </button>
       {spottingModeEnabled && result && (
         <span
           className={`text-[10px] font-semibold uppercase ${
@@ -142,7 +279,19 @@ export function AircraftTypeBadge({ typeCode, className }: AircraftTypeBadgeProp
   );
 
   if (!spottingModeEnabled || revealed || !spottingQuiz) {
-    return revealedBadge;
+    return (
+      <>
+        {revealedBadge}
+        {traitsOpen && spottingTraits && (
+          <AircraftSpottingPopover
+            anchorRef={badgeRef}
+            anchorName={anchorName}
+            onClose={() => setTraitsOpen(false)}
+            traits={spottingTraits}
+          />
+        )}
+      </>
+    );
   }
 
   const handleToggle = (event: MouseEvent<HTMLButtonElement>) => {

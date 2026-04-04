@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import NumberFlow from '@number-flow/react';
 import { VsCell } from './VsCell';
 import { AircraftTypeBadge } from './AircraftTypeBadge';
@@ -17,8 +18,47 @@ export type DataCellProps =
   | { type: 'verticalSpeed'; value: number; className?: string }
   | { type: 'heading'; value: number; className?: string }
   | { type: 'distance'; value: number; className?: string }
-  | { type: 'eta'; value: number; className?: string }
+  | { type: 'eta'; value: number; etaTimestampMs?: number; className?: string }
   | { type: 'aircraftType'; value: string | null; className?: string }
+
+let etaClockNow = Date.now();
+const etaClockListeners = new Set<() => void>();
+let etaClockInterval: ReturnType<typeof setInterval> | null = null;
+
+function subscribeToEtaClock(listener: () => void) {
+  etaClockListeners.add(listener);
+
+  if (!etaClockInterval) {
+    etaClockInterval = setInterval(() => {
+      etaClockNow = Date.now();
+      for (const notify of etaClockListeners) {
+        notify();
+      }
+    }, 1000);
+  }
+
+  return () => {
+    etaClockListeners.delete(listener);
+    if (etaClockListeners.size === 0 && etaClockInterval) {
+      clearInterval(etaClockInterval);
+      etaClockInterval = null;
+    }
+  };
+}
+
+function useEtaClockNow() {
+  const [now, setNow] = useState(etaClockNow);
+
+  useEffect(() => {
+    etaClockNow = Date.now();
+    setNow(etaClockNow);
+    return subscribeToEtaClock(() => {
+      setNow(etaClockNow);
+    });
+  }, []);
+
+  return now;
+}
 
 function TextCell({ value, className }: { value: string; className?: string }) {
   return <td className={`px-3 py-1.5 ${className ?? ''}`.trim()}>{value}</td>;
@@ -165,14 +205,35 @@ function DistanceCell({ value, className }: { value: number; className?: string 
   );
 }
 
-function EtaCell({ value: rawMinutes, className }: { value: number; className?: string }) {
-  // ETA is never staggered — always shows real-time countdown
-  useStaggeredValue(rawMinutes, 6000); // call hook to maintain stable hook order
+function EtaCell({
+  value: rawMinutes,
+  etaTimestampMs,
+  className,
+}: {
+  value: number;
+  etaTimestampMs?: number;
+  className?: string;
+}) {
+  const now = useEtaClockNow();
   const { etaFormat } = useEtaFormat();
-  const valid = Number.isFinite(rawMinutes) && rawMinutes >= 0;
+  const [derivedEtaTimestampMs, setDerivedEtaTimestampMs] = useState<number | null>(() =>
+    Number.isFinite(rawMinutes) && rawMinutes >= 0 ? Date.now() + rawMinutes * 60_000 : null,
+  );
 
-  // Convert rawMinutes to total seconds, then decompose
-  const totalSeconds = valid ? Math.round(rawMinutes * 60) : 0;
+  useEffect(() => {
+    if (!Number.isFinite(rawMinutes) || rawMinutes < 0) {
+      setDerivedEtaTimestampMs(null);
+      return;
+    }
+
+    setDerivedEtaTimestampMs(Date.now() + rawMinutes * 60_000);
+  }, [rawMinutes]);
+
+  const targetTimestampMs = etaTimestampMs ?? derivedEtaTimestampMs;
+  const remainingMs = targetTimestampMs === null ? NaN : Math.max(0, targetTimestampMs - now);
+  const valid = Number.isFinite(remainingMs);
+
+  const totalSeconds = valid ? Math.ceil(remainingMs / 1000) : 0;
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
@@ -199,7 +260,7 @@ function EtaCell({ value: rawMinutes, className }: { value: number; className?: 
             <NumberFlow value={seconds} willChange trend={-1} style={{ fontVariantNumeric: 'tabular-nums' }} suffix={'"'} />
           </>
         )
-      ) : rawMinutes < 1 ? (
+      ) : totalSeconds < 60 ? (
         // < 1 min: 0:SS or 0'SS"
         isColon ? (
           <>
@@ -257,7 +318,7 @@ export function DataCell(props: DataCellProps) {
     case 'distance':
       return <DistanceCell value={props.value} className={props.className} />;
     case 'eta':
-      return <EtaCell value={props.value} className={props.className} />;
+      return <EtaCell value={props.value} etaTimestampMs={props.etaTimestampMs} className={props.className} />;
     case 'aircraftType':
       return <AircraftTypeCell value={props.value} className={props.className} />;
   }

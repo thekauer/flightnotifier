@@ -14,9 +14,11 @@ export function TestNotificationCard() {
       return;
     }
 
-    const sent = await showAppNotification('Flight Notifier Test', {
-      body: 'Notifications are working correctly!',
+    const sent = await showAppNotification('🇭🇺 BUD → 🇳🇱 AMS · A321neo', {
+      body: 'WZZ1234',
       tag: `flight-notifier-test-${Date.now()}`,
+      icon: '/assets/aircraft/airbus-a320/001.webp',
+      image: '/assets/aircraft/airbus-a320/001.webp',
     });
 
     if (sent) {

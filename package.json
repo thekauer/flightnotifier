@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "bash scripts/dev-with-cron.sh",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
@@ -16,6 +16,7 @@
     "aws:cron:invoke": "bash scripts/aws/with-env.sh bash scripts/aws/invoke-cron.sh",
     "aws:cron:logs": "bash scripts/aws/with-env.sh bash scripts/aws/logs-cron.sh",
     "aws:cron:local": "bash scripts/aws/with-env.sh bash scripts/aws/local-cron.sh",
+    "aws:cron:watch": "bash scripts/aws/with-env.sh go run -C ./cron ./cmd/local all --watch",
     "db:generate": "bunx drizzle-kit generate",
     "db:migrate": "bunx drizzle-kit migrate",
     "db:studio": "bunx drizzle-kit studio",

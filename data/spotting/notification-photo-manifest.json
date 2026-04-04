@@ -1,0 +1,3775 @@
+{
+  "boeing-787": [
+    {
+      "registration": "JA884A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/050.webp"
+    },
+    {
+      "registration": "TC-LLH",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/007.webp"
+    },
+    {
+      "registration": "N826AN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/011.webp"
+    },
+    {
+      "registration": "5Y-KZG",
+      "airline": "Kenya Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/046.webp"
+    },
+    {
+      "registration": "JA885A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/085.webp"
+    },
+    {
+      "registration": "A6-BMG",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/093.webp"
+    },
+    {
+      "registration": "B-20D8",
+      "airline": "Shanghai Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/031.webp"
+    },
+    {
+      "registration": "EC-NEI",
+      "airline": "Air Europa",
+      "imageUrl": "/assets/aircraft/boeing-787/066.webp"
+    },
+    {
+      "registration": "B-220K",
+      "airline": "Shanghai Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/089.webp"
+    },
+    {
+      "registration": "N782HA",
+      "airline": "Hawaiian Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/070.webp"
+    },
+    {
+      "registration": "JA900A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/027.webp"
+    },
+    {
+      "registration": "N22995",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/026.webp"
+    },
+    {
+      "registration": "JA829J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/071.webp"
+    },
+    {
+      "registration": "XA-ADL",
+      "airline": "Aeromexico",
+      "imageUrl": "/assets/aircraft/boeing-787/067.webp"
+    },
+    {
+      "registration": "JA825A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-787/088.webp"
+    },
+    {
+      "registration": "JY-BAB",
+      "airline": "Royal Jordanian",
+      "imageUrl": "/assets/aircraft/boeing-787/030.webp"
+    },
+    {
+      "registration": "G-TUIH",
+      "airline": "TUI",
+      "imageUrl": "/assets/aircraft/boeing-787/092.webp"
+    },
+    {
+      "registration": "JA887A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/084.webp"
+    },
+    {
+      "registration": "9V-OJJ",
+      "airline": "Scoot",
+      "imageUrl": "/assets/aircraft/boeing-787/047.webp"
+    },
+    {
+      "registration": "4X-EDN",
+      "airline": "El Al Israel Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/010.webp"
+    },
+    {
+      "registration": "N61101",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/006.webp"
+    },
+    {
+      "registration": "B-7899",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-787/051.webp"
+    },
+    {
+      "registration": "JA822A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/037.webp"
+    },
+    {
+      "registration": "EI-UBN",
+      "airline": "MIAT Mongolian Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/060.webp"
+    },
+    {
+      "registration": "JA840J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/076.webp"
+    },
+    {
+      "registration": "B-1499",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/099.webp"
+    },
+    {
+      "registration": "B-227L",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/021.webp"
+    },
+    {
+      "registration": "SP-LRG",
+      "airline": "LOT Polish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/056.webp"
+    },
+    {
+      "registration": "B-1566",
+      "airline": "Xiamen Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/001.webp"
+    },
+    {
+      "registration": "C-GHPX",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-787/017.webp"
+    },
+    {
+      "registration": "B-1341",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/040.webp"
+    },
+    {
+      "registration": "D-ABPB",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-787/083.webp"
+    },
+    {
+      "registration": "JA874J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/095.webp"
+    },
+    {
+      "registration": "A7-BHM",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/094.webp"
+    },
+    {
+      "registration": "A6-BMG",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/082.webp"
+    },
+    {
+      "registration": "B-7839",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/041.webp"
+    },
+    {
+      "registration": "B-6969",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/016.webp"
+    },
+    {
+      "registration": "JY-BAE",
+      "airline": "Royal Jordanian",
+      "imageUrl": "/assets/aircraft/boeing-787/057.webp"
+    },
+    {
+      "registration": "VH-ZNE",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/boeing-787/020.webp"
+    },
+    {
+      "registration": "B-20CD",
+      "airline": "Shanghai Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/077.webp"
+    },
+    {
+      "registration": "9V-OJJ",
+      "airline": "Scoot",
+      "imageUrl": "/assets/aircraft/boeing-787/098.webp"
+    },
+    {
+      "registration": "EC-OMC",
+      "airline": "Air Europa",
+      "imageUrl": "/assets/aircraft/boeing-787/061.webp"
+    },
+    {
+      "registration": "TC-LMD",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/036.webp"
+    },
+    {
+      "registration": "F-HRBD",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/boeing-787/023.webp"
+    },
+    {
+      "registration": "SU-GET",
+      "airline": "EgyptAir",
+      "imageUrl": "/assets/aircraft/boeing-787/074.webp"
+    },
+    {
+      "registration": "G-CKOF",
+      "airline": "Norse Atlantic Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/062.webp"
+    },
+    {
+      "registration": "G-ZBKD",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/035.webp"
+    },
+    {
+      "registration": "C-GWUU",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-787/019.webp"
+    },
+    {
+      "registration": "HL8393",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/058.webp"
+    },
+    {
+      "registration": "HL8084",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/097.webp"
+    },
+    {
+      "registration": "JA894A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/078.webp"
+    },
+    {
+      "registration": "A6-BMA",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/081.webp"
+    },
+    {
+      "registration": "B-226Q",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/039.webp"
+    },
+    {
+      "registration": "B-1499",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/042.webp"
+    },
+    {
+      "registration": "VT-TSN",
+      "airline": "Vistara (Air India)",
+      "imageUrl": "/assets/aircraft/boeing-787/015.webp"
+    },
+    {
+      "registration": "JA837J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/003.webp"
+    },
+    {
+      "registration": "HZ-ARF",
+      "airline": "Saudi Arabian Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/054.webp"
+    },
+    {
+      "registration": "EI-XIN",
+      "airline": "Neos",
+      "imageUrl": "/assets/aircraft/boeing-787/055.webp"
+    },
+    {
+      "registration": "D-ABPS",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-787/002.webp"
+    },
+    {
+      "registration": "B-1169",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/014.webp"
+    },
+    {
+      "registration": "A9C-FE",
+      "airline": "Gulf Air",
+      "imageUrl": "/assets/aircraft/boeing-787/043.webp"
+    },
+    {
+      "registration": "N840AN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/038.webp"
+    },
+    {
+      "registration": "4X-EDC",
+      "airline": "El Al Israel Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/080.webp"
+    },
+    {
+      "registration": "9V-SCW",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/096.webp"
+    },
+    {
+      "registration": "D-ABPU",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-787/079.webp"
+    },
+    {
+      "registration": "B-1111",
+      "airline": "Shanghai Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/059.webp"
+    },
+    {
+      "registration": "D-ABPU",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-787/018.webp"
+    },
+    {
+      "registration": "G-VMAP",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/034.webp"
+    },
+    {
+      "registration": "VN-A873",
+      "airline": "Vietnam Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/063.webp"
+    },
+    {
+      "registration": "TC-LLS",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/075.webp"
+    },
+    {
+      "registration": "N24988",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/022.webp"
+    },
+    {
+      "registration": "HL7206",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/029.webp"
+    },
+    {
+      "registration": "A6-BMF",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/091.webp"
+    },
+    {
+      "registration": "VP-BBS",
+      "airline": "AZAL Azerbaijan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/087.webp"
+    },
+    {
+      "registration": "B-7880",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/068.webp"
+    },
+    {
+      "registration": "JA839J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/044.webp"
+    },
+    {
+      "registration": "VT-TSP",
+      "airline": "Vistara (Air India)",
+      "imageUrl": "/assets/aircraft/boeing-787/013.webp"
+    },
+    {
+      "registration": "9V-SCF",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/005.webp"
+    },
+    {
+      "registration": "A7-BHQ",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/052.webp"
+    },
+    {
+      "registration": "JA806A",
+      "airline": "All Nippon Airways (Air Japan)",
+      "imageUrl": "/assets/aircraft/boeing-787/025.webp"
+    },
+    {
+      "registration": "JA830J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/072.webp"
+    },
+    {
+      "registration": "HL8537",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/064.webp"
+    },
+    {
+      "registration": "A7-BHM",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/033.webp"
+    },
+    {
+      "registration": "N836AA",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/048.webp"
+    },
+    {
+      "registration": "HL8576",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/009.webp"
+    },
+    {
+      "registration": "C-FGEO",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-787/008.webp"
+    },
+    {
+      "registration": "PH-BHP",
+      "airline": "KLM Royal Dutch Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/049.webp"
+    },
+    {
+      "registration": "JA830A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-787/032.webp"
+    },
+    {
+      "registration": "B-207U",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/065.webp"
+    },
+    {
+      "registration": "F-OLRB",
+      "airline": "Air Austral",
+      "imageUrl": "/assets/aircraft/boeing-787/073.webp"
+    },
+    {
+      "registration": "LN-FNE",
+      "airline": "Norse Atlantic Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/024.webp"
+    },
+    {
+      "registration": "UK78706",
+      "airline": "Uzbekistan Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/053.webp"
+    },
+    {
+      "registration": "HL7208",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-787/004.webp"
+    },
+    {
+      "registration": "B-20DT",
+      "airline": "Juneyao Airlines",
+      "imageUrl": "/assets/aircraft/boeing-787/012.webp"
+    },
+    {
+      "registration": "A6-BND",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/045.webp"
+    },
+    {
+      "registration": "A6-BMB",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/100.webp"
+    },
+    {
+      "registration": "B-17807",
+      "airline": "Eva Air",
+      "imageUrl": "/assets/aircraft/boeing-787/086.webp"
+    },
+    {
+      "registration": "A6-BMD",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/boeing-787/069.webp"
+    },
+    {
+      "registration": "JA846J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-787/090.webp"
+    },
+    {
+      "registration": "C-FVLX",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-787/028.webp"
+    }
+  ],
+  "airbus-a330": [
+    {
+      "registration": "N416DX",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a330/050.webp"
+    },
+    {
+      "registration": "B-5945",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/007.webp"
+    },
+    {
+      "registration": "B-5968",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/011.webp"
+    },
+    {
+      "registration": "LN-RKM",
+      "airline": "Scandinavian Airlines (SAS)",
+      "imageUrl": "/assets/aircraft/airbus-a330/046.webp"
+    },
+    {
+      "registration": "046",
+      "airline": "France - Air Force",
+      "imageUrl": "/assets/aircraft/airbus-a330/085.webp"
+    },
+    {
+      "registration": "ZZ330",
+      "airline": "United Kingdom - Royal Air Force (RAF)",
+      "imageUrl": "/assets/aircraft/airbus-a330/093.webp"
+    },
+    {
+      "registration": "B-8951",
+      "airline": "Tibet Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/031.webp"
+    },
+    {
+      "registration": "B-5906",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/066.webp"
+    },
+    {
+      "registration": "ZZ331",
+      "airline": "United Kingdom - Royal Air Force (RAF)",
+      "imageUrl": "/assets/aircraft/airbus-a330/089.webp"
+    },
+    {
+      "registration": "D-ANRT",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/070.webp"
+    },
+    {
+      "registration": "B-32D2",
+      "airline": "Sichuan Airlines Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a330/027.webp"
+    },
+    {
+      "registration": "4R-ALH",
+      "airline": "SriLankan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/026.webp"
+    },
+    {
+      "registration": "9M-MTD",
+      "airline": "Malaysia Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/071.webp"
+    },
+    {
+      "registration": "RP-C3904",
+      "airline": "Cebu Pacific Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/067.webp"
+    },
+    {
+      "registration": "OY-VKP",
+      "airline": "Sunclass Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/088.webp"
+    },
+    {
+      "registration": "C-GUFZ",
+      "airline": "Air Transat",
+      "imageUrl": "/assets/aircraft/airbus-a330/030.webp"
+    },
+    {
+      "registration": "RP-C8789",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/092.webp"
+    },
+    {
+      "registration": "B-5912",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/084.webp"
+    },
+    {
+      "registration": "PK-GPW",
+      "airline": "Garuda Indonesia",
+      "imageUrl": "/assets/aircraft/airbus-a330/047.webp"
+    },
+    {
+      "registration": "N898CA",
+      "airline": "National Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/010.webp"
+    },
+    {
+      "registration": "B-300V",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/006.webp"
+    },
+    {
+      "registration": "9N-ALY",
+      "airline": "Nepal Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/051.webp"
+    },
+    {
+      "registration": "B-6512",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/037.webp"
+    },
+    {
+      "registration": "PK-GPY",
+      "airline": "Garuda Indonesia",
+      "imageUrl": "/assets/aircraft/airbus-a330/060.webp"
+    },
+    {
+      "registration": "B-32MU",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/076.webp"
+    },
+    {
+      "registration": "N411DX",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a330/099.webp"
+    },
+    {
+      "registration": "TC-LNC",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/021.webp"
+    },
+    {
+      "registration": "C-GXZD",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/airbus-a330/056.webp"
+    },
+    {
+      "registration": "EC-MKJ",
+      "airline": "Iberia",
+      "imageUrl": "/assets/aircraft/airbus-a330/001.webp"
+    },
+    {
+      "registration": "HL7740",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/017.webp"
+    },
+    {
+      "registration": "D-ALMD",
+      "airline": "DHL (European Air Transport)",
+      "imageUrl": "/assets/aircraft/airbus-a330/040.webp"
+    },
+    {
+      "registration": "D-ANRI",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/083.webp"
+    },
+    {
+      "registration": "EC-KCP",
+      "airline": "World2Fly",
+      "imageUrl": "/assets/aircraft/airbus-a330/095.webp"
+    },
+    {
+      "registration": "TC-JNB",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/094.webp"
+    },
+    {
+      "registration": "EC-LUX",
+      "airline": "Iberia",
+      "imageUrl": "/assets/aircraft/airbus-a330/082.webp"
+    },
+    {
+      "registration": "B-6513",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/041.webp"
+    },
+    {
+      "registration": "C-GKUG",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/airbus-a330/016.webp"
+    },
+    {
+      "registration": "B-LBK",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/057.webp"
+    },
+    {
+      "registration": "G-VUFO",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/020.webp"
+    },
+    {
+      "registration": "9M-MTD",
+      "airline": "Malaysia Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/077.webp"
+    },
+    {
+      "registration": "PR-AIN",
+      "airline": "Azul Linhas Aereas Brasileiras",
+      "imageUrl": "/assets/aircraft/airbus-a330/098.webp"
+    },
+    {
+      "registration": "A7-AER",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/061.webp"
+    },
+    {
+      "registration": "B-5930",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/036.webp"
+    },
+    {
+      "registration": "UK33032",
+      "airline": "Centrum Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/023.webp"
+    },
+    {
+      "registration": "B-5943",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/074.webp"
+    },
+    {
+      "registration": "EI-HPA",
+      "airline": "ITA Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/062.webp"
+    },
+    {
+      "registration": "B-5912",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/035.webp"
+    },
+    {
+      "registration": "EI-LKD",
+      "airline": "Saudi Arabian Airlines Cargo (ASL Airlines)",
+      "imageUrl": "/assets/aircraft/airbus-a330/019.webp"
+    },
+    {
+      "registration": "B-304A",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/058.webp"
+    },
+    {
+      "registration": "B-5931",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/097.webp"
+    },
+    {
+      "registration": "HL7701",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/078.webp"
+    },
+    {
+      "registration": "N860NW",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a330/081.webp"
+    },
+    {
+      "registration": "B-5931",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/039.webp"
+    },
+    {
+      "registration": "TC-JNA",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/042.webp"
+    },
+    {
+      "registration": "VN-A815",
+      "airline": "VietJet Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/015.webp"
+    },
+    {
+      "registration": "B-58303",
+      "airline": "Starlux",
+      "imageUrl": "/assets/aircraft/airbus-a330/003.webp"
+    },
+    {
+      "registration": "TC-LNF",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/054.webp"
+    },
+    {
+      "registration": "9K-APK",
+      "airline": "Kuwait Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/055.webp"
+    },
+    {
+      "registration": "B-5929",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/002.webp"
+    },
+    {
+      "registration": "HB-JHB",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a330/014.webp"
+    },
+    {
+      "registration": "B-18311",
+      "airline": "China Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/043.webp"
+    },
+    {
+      "registration": "D-AXEO",
+      "airline": "K5 Aviation",
+      "imageUrl": "/assets/aircraft/airbus-a330/038.webp"
+    },
+    {
+      "registration": "B-LMA",
+      "airline": "Hong Kong Airlines Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a330/080.webp"
+    },
+    {
+      "registration": "B-5977",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/096.webp"
+    },
+    {
+      "registration": "EC-NUL",
+      "airline": "Plus Ultra Líneas Aéreas",
+      "imageUrl": "/assets/aircraft/airbus-a330/079.webp"
+    },
+    {
+      "registration": "VH-QPA",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a330/059.webp"
+    },
+    {
+      "registration": "N404DX",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a330/018.webp"
+    },
+    {
+      "registration": "B-5953",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/034.webp"
+    },
+    {
+      "registration": "D-ANRN",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/063.webp"
+    },
+    {
+      "registration": "EI-EIM",
+      "airline": "Aer Lingus",
+      "imageUrl": "/assets/aircraft/airbus-a330/075.webp"
+    },
+    {
+      "registration": "I-ITYE",
+      "airline": "ITA Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/022.webp"
+    },
+    {
+      "registration": "B-5936",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/029.webp"
+    },
+    {
+      "registration": "EC-KCP",
+      "airline": "World2Fly",
+      "imageUrl": "/assets/aircraft/airbus-a330/091.webp"
+    },
+    {
+      "registration": "D-ANRD",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/087.webp"
+    },
+    {
+      "registration": "F-HKYS",
+      "airline": "Corsair",
+      "imageUrl": "/assets/aircraft/airbus-a330/068.webp"
+    },
+    {
+      "registration": "EC-KCP",
+      "airline": "World2Fly",
+      "imageUrl": "/assets/aircraft/airbus-a330/044.webp"
+    },
+    {
+      "registration": "CP-3208",
+      "airline": "Boliviana de Aviación (BoA)",
+      "imageUrl": "/assets/aircraft/airbus-a330/013.webp"
+    },
+    {
+      "registration": "B-5929",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/005.webp"
+    },
+    {
+      "registration": "EC-KCP",
+      "airline": "World2Fly",
+      "imageUrl": "/assets/aircraft/airbus-a330/052.webp"
+    },
+    {
+      "registration": "EI-LKD",
+      "airline": "Saudi Arabian Airlines Cargo (ASL Airlines)",
+      "imageUrl": "/assets/aircraft/airbus-a330/025.webp"
+    },
+    {
+      "registration": "D-ANRC",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/072.webp"
+    },
+    {
+      "registration": "9M-MTL",
+      "airline": "Malaysia Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/064.webp"
+    },
+    {
+      "registration": "HL7587",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/033.webp"
+    },
+    {
+      "registration": "B-LDP",
+      "airline": "DHL (Air Hong Kong)",
+      "imageUrl": "/assets/aircraft/airbus-a330/048.webp"
+    },
+    {
+      "registration": "F-WWYU",
+      "airline": "ITA Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/009.webp"
+    },
+    {
+      "registration": "B-8385",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a330/008.webp"
+    },
+    {
+      "registration": "EI-LKD",
+      "airline": "Saudi Arabian Airlines Cargo (ASL Airlines)",
+      "imageUrl": "/assets/aircraft/airbus-a330/049.webp"
+    },
+    {
+      "registration": "HL7553",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/032.webp"
+    },
+    {
+      "registration": "HL7587",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/065.webp"
+    },
+    {
+      "registration": "D-ANRE",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/073.webp"
+    },
+    {
+      "registration": "UK33032",
+      "airline": "Centrum Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/024.webp"
+    },
+    {
+      "registration": "RP-C3908",
+      "airline": "Cebu Pacific Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/053.webp"
+    },
+    {
+      "registration": "VH-EBP",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a330/004.webp"
+    },
+    {
+      "registration": "C-GEFA",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/airbus-a330/012.webp"
+    },
+    {
+      "registration": "B-HLO",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a330/045.webp"
+    },
+    {
+      "registration": "C-FDHU",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/airbus-a330/100.webp"
+    },
+    {
+      "registration": "D-ANRN",
+      "airline": "Condor",
+      "imageUrl": "/assets/aircraft/airbus-a330/086.webp"
+    },
+    {
+      "registration": "B-300V",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a330/069.webp"
+    },
+    {
+      "registration": "EC-MAJ",
+      "airline": "Wamos Air",
+      "imageUrl": "/assets/aircraft/airbus-a330/090.webp"
+    },
+    {
+      "registration": "N411DX",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a330/028.webp"
+    }
+  ],
+  "airbus-a340": [
+    {
+      "registration": "EP-MJF",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/050.webp"
+    },
+    {
+      "registration": "G-ECLM",
+      "airline": "European Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a340/007.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/011.webp"
+    },
+    {
+      "registration": "G-ECLN",
+      "airline": "European Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a340/046.webp"
+    },
+    {
+      "registration": "D-AIHX",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/085.webp"
+    },
+    {
+      "registration": "D-AIHW",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/093.webp"
+    },
+    {
+      "registration": "EP-MJA",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/031.webp"
+    },
+    {
+      "registration": "EP-MJF",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/066.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/089.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/070.webp"
+    },
+    {
+      "registration": "A6-EHJ",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a340/027.webp"
+    },
+    {
+      "registration": "D-AIHY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/026.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/071.webp"
+    },
+    {
+      "registration": "D-AIHZ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/067.webp"
+    },
+    {
+      "registration": "G-ECLN",
+      "airline": "European Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a340/088.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/030.webp"
+    },
+    {
+      "registration": "D-AIGN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/092.webp"
+    },
+    {
+      "registration": "G-VEIL",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/airbus-a340/084.webp"
+    },
+    {
+      "registration": "HB-JMF",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/047.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/010.webp"
+    },
+    {
+      "registration": "Z-FLD",
+      "airline": "FlyX Aero",
+      "imageUrl": "/assets/aircraft/airbus-a340/006.webp"
+    },
+    {
+      "registration": "D-AIFF",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/051.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/037.webp"
+    },
+    {
+      "registration": "D-AIGU",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/060.webp"
+    },
+    {
+      "registration": "EP-MJD",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/076.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/099.webp"
+    },
+    {
+      "registration": "D-AIGN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/021.webp"
+    },
+    {
+      "registration": "EP-MMQ",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/056.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/001.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/017.webp"
+    },
+    {
+      "registration": "D-AIHX",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/040.webp"
+    },
+    {
+      "registration": "EP-MMU",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/083.webp"
+    },
+    {
+      "registration": "EP-MMT",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/095.webp"
+    },
+    {
+      "registration": "HS-TYV",
+      "airline": "Thailand - Royal Thai Air Force",
+      "imageUrl": "/assets/aircraft/airbus-a340/094.webp"
+    },
+    {
+      "registration": "EP-MMG",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/082.webp"
+    },
+    {
+      "registration": "D-AIGO",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/041.webp"
+    },
+    {
+      "registration": "HB-JMA",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/016.webp"
+    },
+    {
+      "registration": "D-AIGO",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/057.webp"
+    },
+    {
+      "registration": "D-AIFF",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/020.webp"
+    },
+    {
+      "registration": "EP-MJE",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/077.webp"
+    },
+    {
+      "registration": "9H-BIG",
+      "airline": "Air X Charter",
+      "imageUrl": "/assets/aircraft/airbus-a340/098.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/061.webp"
+    },
+    {
+      "registration": "16-01",
+      "airline": "Germany - Air Force",
+      "imageUrl": "/assets/aircraft/airbus-a340/036.webp"
+    },
+    {
+      "registration": "D-AUSC",
+      "airline": "Universal Sky Carrier (USC)",
+      "imageUrl": "/assets/aircraft/airbus-a340/023.webp"
+    },
+    {
+      "registration": "HS-TNF",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a340/074.webp"
+    },
+    {
+      "registration": "G-ECLN",
+      "airline": "European Cargo",
+      "imageUrl": "/assets/aircraft/airbus-a340/062.webp"
+    },
+    {
+      "registration": "EC-HGV",
+      "airline": "Iberia",
+      "imageUrl": "/assets/aircraft/airbus-a340/035.webp"
+    },
+    {
+      "registration": "EP-MMQ",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/019.webp"
+    },
+    {
+      "registration": "D-AIGP",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/058.webp"
+    },
+    {
+      "registration": "D-AIGP",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/097.webp"
+    },
+    {
+      "registration": "EP-MJC",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/078.webp"
+    },
+    {
+      "registration": "9H-BIG",
+      "airline": "Air X Charter",
+      "imageUrl": "/assets/aircraft/airbus-a340/081.webp"
+    },
+    {
+      "registration": "ZS-SXD",
+      "airline": "South African Airways",
+      "imageUrl": "/assets/aircraft/airbus-a340/039.webp"
+    },
+    {
+      "registration": "D-AUSZ",
+      "airline": "Universal Sky Carrier (USC)",
+      "imageUrl": "/assets/aircraft/airbus-a340/042.webp"
+    },
+    {
+      "registration": "HB-JMB",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/015.webp"
+    },
+    {
+      "registration": "D-AIHF",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/003.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/054.webp"
+    },
+    {
+      "registration": "SU-GGG",
+      "airline": "Egypt - Government",
+      "imageUrl": "/assets/aircraft/airbus-a340/055.webp"
+    },
+    {
+      "registration": "D-AIHY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/002.webp"
+    },
+    {
+      "registration": "D-AIHY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/014.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/043.webp"
+    },
+    {
+      "registration": "HB-JMH",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/038.webp"
+    },
+    {
+      "registration": "9H-BIG",
+      "airline": "Air X Charter",
+      "imageUrl": "/assets/aircraft/airbus-a340/080.webp"
+    },
+    {
+      "registration": "HZ-SKY1",
+      "airline": "Alpha Star Aviation Services",
+      "imageUrl": "/assets/aircraft/airbus-a340/096.webp"
+    },
+    {
+      "registration": "EP-MMQ",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/079.webp"
+    },
+    {
+      "registration": "EP-MMU",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/059.webp"
+    },
+    {
+      "registration": "D-AIGZ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/018.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/034.webp"
+    },
+    {
+      "registration": "D-AUSC",
+      "airline": "Universal Sky Carrier (USC)",
+      "imageUrl": "/assets/aircraft/airbus-a340/063.webp"
+    },
+    {
+      "registration": "7T-VPP",
+      "airline": "Algeria - Government",
+      "imageUrl": "/assets/aircraft/airbus-a340/075.webp"
+    },
+    {
+      "registration": "D-AIHX",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/022.webp"
+    },
+    {
+      "registration": "EP-MJC",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/029.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/091.webp"
+    },
+    {
+      "registration": "D-AIHY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/087.webp"
+    },
+    {
+      "registration": "D-AIHX",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/068.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/044.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/013.webp"
+    },
+    {
+      "registration": "9H-BIG",
+      "airline": "Air X Charter",
+      "imageUrl": "/assets/aircraft/airbus-a340/005.webp"
+    },
+    {
+      "registration": "YA-KMH",
+      "airline": "Kam Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/052.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/025.webp"
+    },
+    {
+      "registration": "3DC-SDF",
+      "airline": "Eswatini - Government",
+      "imageUrl": "/assets/aircraft/airbus-a340/072.webp"
+    },
+    {
+      "registration": "TC-JDJ",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a340/064.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/033.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/048.webp"
+    },
+    {
+      "registration": "HB-JMI",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/009.webp"
+    },
+    {
+      "registration": "D-AIGU",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/008.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/049.webp"
+    },
+    {
+      "registration": "D-AIHI",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/032.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/065.webp"
+    },
+    {
+      "registration": "D-AIHY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/073.webp"
+    },
+    {
+      "registration": "D-AIGW",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/024.webp"
+    },
+    {
+      "registration": "EP-MMQ",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/053.webp"
+    },
+    {
+      "registration": "D-AIHF",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a340/004.webp"
+    },
+    {
+      "registration": "HB-JME",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/012.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/045.webp"
+    },
+    {
+      "registration": "HB-JMD",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/100.webp"
+    },
+    {
+      "registration": "HB-JMB",
+      "airline": "Swiss",
+      "imageUrl": "/assets/aircraft/airbus-a340/086.webp"
+    },
+    {
+      "registration": "EP-MMU",
+      "airline": "Mahan Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/069.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/090.webp"
+    },
+    {
+      "registration": "HB-JMC",
+      "airline": "Edelweiss Air",
+      "imageUrl": "/assets/aircraft/airbus-a340/028.webp"
+    }
+  ],
+  "boeing-777": [
+    {
+      "registration": "N717AN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/050.webp"
+    },
+    {
+      "registration": "TC-LJH",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/007.webp"
+    },
+    {
+      "registration": "N780CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-777/011.webp"
+    },
+    {
+      "registration": "N843FD",
+      "airline": "FedEx",
+      "imageUrl": "/assets/aircraft/boeing-777/046.webp"
+    },
+    {
+      "registration": "9V-SWI",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/085.webp"
+    },
+    {
+      "registration": "B-7868",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/093.webp"
+    },
+    {
+      "registration": "G-YMMU",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/031.webp"
+    },
+    {
+      "registration": "PH-BVB",
+      "airline": "KLM Asia",
+      "imageUrl": "/assets/aircraft/boeing-777/066.webp"
+    },
+    {
+      "registration": "TC-JJP",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/089.webp"
+    },
+    {
+      "registration": "JA715A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/070.webp"
+    },
+    {
+      "registration": "C-FNNW",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-777/027.webp"
+    },
+    {
+      "registration": "B-16730",
+      "airline": "Eva Air",
+      "imageUrl": "/assets/aircraft/boeing-777/026.webp"
+    },
+    {
+      "registration": "RP-C7773",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/071.webp"
+    },
+    {
+      "registration": "A6-EWD",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/067.webp"
+    },
+    {
+      "registration": "9V-SWJ",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/088.webp"
+    },
+    {
+      "registration": "B-KQW",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/030.webp"
+    },
+    {
+      "registration": "A7-BEM",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/092.webp"
+    },
+    {
+      "registration": "A6-ECT",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/084.webp"
+    },
+    {
+      "registration": "B-222J",
+      "airline": "China Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/047.webp"
+    },
+    {
+      "registration": "F-GZNC",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/boeing-777/010.webp"
+    },
+    {
+      "registration": "A7-BAU",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/006.webp"
+    },
+    {
+      "registration": "A7-BBA",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/051.webp"
+    },
+    {
+      "registration": "ET-ANQ",
+      "airline": "Ethiopian Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/037.webp"
+    },
+    {
+      "registration": "B-KQZ",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/060.webp"
+    },
+    {
+      "registration": "HS-TKQ",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/boeing-777/076.webp"
+    },
+    {
+      "registration": "HL7755",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/099.webp"
+    },
+    {
+      "registration": "VH-VOZ",
+      "airline": "Virgin Australia Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/021.webp"
+    },
+    {
+      "registration": "TC-LJB",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/056.webp"
+    },
+    {
+      "registration": "HL8218",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-777/001.webp"
+    },
+    {
+      "registration": "B-2032",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-777/017.webp"
+    },
+    {
+      "registration": "B-227K",
+      "airline": "China Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/040.webp"
+    },
+    {
+      "registration": "B-HNU",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/083.webp"
+    },
+    {
+      "registration": "A7-BEK",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/095.webp"
+    },
+    {
+      "registration": "HL7782",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-777/094.webp"
+    },
+    {
+      "registration": "HS-TTA",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/boeing-777/082.webp"
+    },
+    {
+      "registration": "PH-BQC",
+      "airline": "KLM Royal Dutch Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/041.webp"
+    },
+    {
+      "registration": "B-KQF",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/016.webp"
+    },
+    {
+      "registration": "B-16740",
+      "airline": "Eva Air",
+      "imageUrl": "/assets/aircraft/boeing-777/057.webp"
+    },
+    {
+      "registration": "TC-JJP",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/020.webp"
+    },
+    {
+      "registration": "N721AN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/077.webp"
+    },
+    {
+      "registration": "JA743A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/098.webp"
+    },
+    {
+      "registration": "B-KQT",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/061.webp"
+    },
+    {
+      "registration": "B-2046",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-777/036.webp"
+    },
+    {
+      "registration": "B-16706",
+      "airline": "Eva Air",
+      "imageUrl": "/assets/aircraft/boeing-777/023.webp"
+    },
+    {
+      "registration": "B-221W",
+      "airline": "China Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/074.webp"
+    },
+    {
+      "registration": "A7-BAA",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/062.webp"
+    },
+    {
+      "registration": "A7-BOG",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/035.webp"
+    },
+    {
+      "registration": "B-2037",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-777/019.webp"
+    },
+    {
+      "registration": "JA755A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/058.webp"
+    },
+    {
+      "registration": "JA715A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/097.webp"
+    },
+    {
+      "registration": "ET-AVT",
+      "airline": "Ethiopian Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/078.webp"
+    },
+    {
+      "registration": "TC-JJI",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/081.webp"
+    },
+    {
+      "registration": "A6-EPC",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/039.webp"
+    },
+    {
+      "registration": "9K-AOC",
+      "airline": "Kuwait Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/042.webp"
+    },
+    {
+      "registration": "B-16740",
+      "airline": "Eva Air",
+      "imageUrl": "/assets/aircraft/boeing-777/015.webp"
+    },
+    {
+      "registration": "A6-ENI",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/003.webp"
+    },
+    {
+      "registration": "TC-LJA",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/054.webp"
+    },
+    {
+      "registration": "A7-BAL",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/055.webp"
+    },
+    {
+      "registration": "HL7732",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/002.webp"
+    },
+    {
+      "registration": "N751AN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/014.webp"
+    },
+    {
+      "registration": "VP-BMU",
+      "airline": "Silk Way West Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/043.webp"
+    },
+    {
+      "registration": "G-YMME",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/038.webp"
+    },
+    {
+      "registration": "B-2021",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/080.webp"
+    },
+    {
+      "registration": "C-FJZS",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-777/096.webp"
+    },
+    {
+      "registration": "B-KQL",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/079.webp"
+    },
+    {
+      "registration": "JA744A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/059.webp"
+    },
+    {
+      "registration": "N793UA",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/018.webp"
+    },
+    {
+      "registration": "A6-EPF",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/034.webp"
+    },
+    {
+      "registration": "C-FIVM",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-777/063.webp"
+    },
+    {
+      "registration": "B-2090",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-777/075.webp"
+    },
+    {
+      "registration": "A7-BED",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/022.webp"
+    },
+    {
+      "registration": "C-FIUA",
+      "airline": "Air Canada",
+      "imageUrl": "/assets/aircraft/boeing-777/029.webp"
+    },
+    {
+      "registration": "B-18780",
+      "airline": "China Airlines Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/091.webp"
+    },
+    {
+      "registration": "B-7883",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/087.webp"
+    },
+    {
+      "registration": "PH-BVW",
+      "airline": "KLM Royal Dutch Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/068.webp"
+    },
+    {
+      "registration": "A7-BAA",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/044.webp"
+    },
+    {
+      "registration": "HL7783",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-777/013.webp"
+    },
+    {
+      "registration": "G-VIID",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/005.webp"
+    },
+    {
+      "registration": "N708GT",
+      "airline": "MSC Air Cargo (Atlas Air)",
+      "imageUrl": "/assets/aircraft/boeing-777/052.webp"
+    },
+    {
+      "registration": "PK-GIF",
+      "airline": "Indonesia - Government (Garuda Indonesia)",
+      "imageUrl": "/assets/aircraft/boeing-777/025.webp"
+    },
+    {
+      "registration": "A7-BFG",
+      "airline": "Qatar Airways Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/072.webp"
+    },
+    {
+      "registration": "A6-ENV",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/boeing-777/064.webp"
+    },
+    {
+      "registration": "B-HNU",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/033.webp"
+    },
+    {
+      "registration": "JA790A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/boeing-777/048.webp"
+    },
+    {
+      "registration": "A7-BFG",
+      "airline": "Qatar Airways Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/009.webp"
+    },
+    {
+      "registration": "A7-BFB",
+      "airline": "Qatar Airways Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/008.webp"
+    },
+    {
+      "registration": "ET-AWE",
+      "airline": "Ethiopian Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/049.webp"
+    },
+    {
+      "registration": "5N-BVE",
+      "airline": "Air Peace",
+      "imageUrl": "/assets/aircraft/boeing-777/032.webp"
+    },
+    {
+      "registration": "B-2007",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/065.webp"
+    },
+    {
+      "registration": "B-220F",
+      "airline": "China Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/073.webp"
+    },
+    {
+      "registration": "VP-BAA",
+      "airline": "Silk Way West Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/024.webp"
+    },
+    {
+      "registration": "A7-BAB",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/053.webp"
+    },
+    {
+      "registration": "9K-AOC",
+      "airline": "Kuwait Airways",
+      "imageUrl": "/assets/aircraft/boeing-777/004.webp"
+    },
+    {
+      "registration": "JA733J",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/boeing-777/012.webp"
+    },
+    {
+      "registration": "B-222V",
+      "airline": "China Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/045.webp"
+    },
+    {
+      "registration": "HL8706",
+      "airline": "T'Way Air",
+      "imageUrl": "/assets/aircraft/boeing-777/100.webp"
+    },
+    {
+      "registration": "A7-BFG",
+      "airline": "Qatar Airways Cargo",
+      "imageUrl": "/assets/aircraft/boeing-777/086.webp"
+    },
+    {
+      "registration": "N77022",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/069.webp"
+    },
+    {
+      "registration": "HS-TKM",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/boeing-777/090.webp"
+    },
+    {
+      "registration": "TC-LKC",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-777/028.webp"
+    }
+  ],
+  "boeing-747": [
+    {
+      "registration": "B-2476",
+      "airline": "Air China Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/050.webp"
+    },
+    {
+      "registration": "LX-ECV",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/007.webp"
+    },
+    {
+      "registration": "B-2487",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/011.webp"
+    },
+    {
+      "registration": "OO-ACF",
+      "airline": "Challenge Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/046.webp"
+    },
+    {
+      "registration": "N709CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-747/085.webp"
+    },
+    {
+      "registration": "N263SG",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/093.webp"
+    },
+    {
+      "registration": "D-ABYC",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/031.webp"
+    },
+    {
+      "registration": "N706CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-747/066.webp"
+    },
+    {
+      "registration": "N936CA",
+      "airline": "National Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/089.webp"
+    },
+    {
+      "registration": "HL7421",
+      "airline": "Asiana Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/070.webp"
+    },
+    {
+      "registration": "22001",
+      "airline": "South Korea - Air Force",
+      "imageUrl": "/assets/aircraft/boeing-747/027.webp"
+    },
+    {
+      "registration": "EW-465TQ",
+      "airline": "Trans Avia Export Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/026.webp"
+    },
+    {
+      "registration": "B-2485",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/071.webp"
+    },
+    {
+      "registration": "TC-ACF",
+      "airline": "ACT Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/067.webp"
+    },
+    {
+      "registration": "9V-SFK",
+      "airline": "Singapore Airlines Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/088.webp"
+    },
+    {
+      "registration": "D-ABTK",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/030.webp"
+    },
+    {
+      "registration": "ER-BOS",
+      "airline": "Aquiline International (Terra Avia)",
+      "imageUrl": "/assets/aircraft/boeing-747/092.webp"
+    },
+    {
+      "registration": "ER-BOS",
+      "airline": "Terra Avia",
+      "imageUrl": "/assets/aircraft/boeing-747/084.webp"
+    },
+    {
+      "registration": "OE-ILC",
+      "airline": "ASL Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/047.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/010.webp"
+    },
+    {
+      "registration": "ER-BOS",
+      "airline": "Aquiline International (Terra Avia)",
+      "imageUrl": "/assets/aircraft/boeing-747/006.webp"
+    },
+    {
+      "registration": "VQ-BVC",
+      "airline": "Silk Way West Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/051.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/037.webp"
+    },
+    {
+      "registration": "D-ABYJ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/060.webp"
+    },
+    {
+      "registration": "D-ABVX",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/076.webp"
+    },
+    {
+      "registration": "B-LIA",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/099.webp"
+    },
+    {
+      "registration": "OE-IFB",
+      "airline": "ASL Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/021.webp"
+    },
+    {
+      "registration": "TC-ACG",
+      "airline": "ACT Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/056.webp"
+    },
+    {
+      "registration": "PH-CKB",
+      "airline": "KLM Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/001.webp"
+    },
+    {
+      "registration": "N863GT",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/017.webp"
+    },
+    {
+      "registration": "TF-AMU",
+      "airline": "Network Aviation Group (Air Atlanta Icelandic)",
+      "imageUrl": "/assets/aircraft/boeing-747/040.webp"
+    },
+    {
+      "registration": "LX-VCC",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/083.webp"
+    },
+    {
+      "registration": "D-ABTK",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/095.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/094.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/082.webp"
+    },
+    {
+      "registration": "N419MC",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/041.webp"
+    },
+    {
+      "registration": "YR-FSB",
+      "airline": "Rom Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/016.webp"
+    },
+    {
+      "registration": "B-2472",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/057.webp"
+    },
+    {
+      "registration": "22001",
+      "airline": "South Korea - Air Force",
+      "imageUrl": "/assets/aircraft/boeing-747/020.webp"
+    },
+    {
+      "registration": "D-ABVW",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/077.webp"
+    },
+    {
+      "registration": "N716CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-747/098.webp"
+    },
+    {
+      "registration": "OO-LFC",
+      "airline": "Sichuan Logistics (Air Belgium)",
+      "imageUrl": "/assets/aircraft/boeing-747/061.webp"
+    },
+    {
+      "registration": "HL7645",
+      "airline": "Air Zeta",
+      "imageUrl": "/assets/aircraft/boeing-747/036.webp"
+    },
+    {
+      "registration": "B-HOY",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/boeing-747/023.webp"
+    },
+    {
+      "registration": "N575UP",
+      "airline": "United Parcel Service (UPS)",
+      "imageUrl": "/assets/aircraft/boeing-747/074.webp"
+    },
+    {
+      "registration": "ER-BAT",
+      "airline": "Fly Pro Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/062.webp"
+    },
+    {
+      "registration": "N854GT",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/035.webp"
+    },
+    {
+      "registration": "VQ-BLQ",
+      "airline": "Air Bridge Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/019.webp"
+    },
+    {
+      "registration": "B-LIE",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/058.webp"
+    },
+    {
+      "registration": "EC-DNP",
+      "airline": "Iberia",
+      "imageUrl": "/assets/aircraft/boeing-747/097.webp"
+    },
+    {
+      "registration": "B-LIF",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/078.webp"
+    },
+    {
+      "registration": "LX-LCL",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/081.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/039.webp"
+    },
+    {
+      "registration": "ER-BAT",
+      "airline": "Fly Pro Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/042.webp"
+    },
+    {
+      "registration": "LX-GCL",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/015.webp"
+    },
+    {
+      "registration": "B-2447",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/003.webp"
+    },
+    {
+      "registration": "B-2473",
+      "airline": "Air Central",
+      "imageUrl": "/assets/aircraft/boeing-747/054.webp"
+    },
+    {
+      "registration": "LZ-CJA",
+      "airline": "Compass Air Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/055.webp"
+    },
+    {
+      "registration": "N716CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-747/002.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/014.webp"
+    },
+    {
+      "registration": "D-ABYQ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/043.webp"
+    },
+    {
+      "registration": "4K-SW888",
+      "airline": "Silk Way Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/038.webp"
+    },
+    {
+      "registration": "N858GT",
+      "airline": "Atlas Air (Polar Air Cargo)",
+      "imageUrl": "/assets/aircraft/boeing-747/080.webp"
+    },
+    {
+      "registration": "D-ABYH",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/096.webp"
+    },
+    {
+      "registration": "B-LJE",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/079.webp"
+    },
+    {
+      "registration": "LX-VCC",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/059.webp"
+    },
+    {
+      "registration": "EW-465TQ",
+      "airline": "Trans Avia Export Cargo Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/018.webp"
+    },
+    {
+      "registration": "HL7629",
+      "airline": "Korean Air Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/034.webp"
+    },
+    {
+      "registration": "OO-LFC",
+      "airline": "Sichuan Logistics (Air Belgium)",
+      "imageUrl": "/assets/aircraft/boeing-747/063.webp"
+    },
+    {
+      "registration": "B-LJK",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/075.webp"
+    },
+    {
+      "registration": "B-2447",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/022.webp"
+    },
+    {
+      "registration": "B-2475",
+      "airline": "Air China Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/029.webp"
+    },
+    {
+      "registration": "N492MC",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/091.webp"
+    },
+    {
+      "registration": "HL7421",
+      "airline": "Asiana Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/087.webp"
+    },
+    {
+      "registration": "B-2486",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/068.webp"
+    },
+    {
+      "registration": "N476MC",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/044.webp"
+    },
+    {
+      "registration": "N936CA",
+      "airline": "National Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/013.webp"
+    },
+    {
+      "registration": "LX-VCC",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/005.webp"
+    },
+    {
+      "registration": "B-2461",
+      "airline": "Air Central",
+      "imageUrl": "/assets/aircraft/boeing-747/052.webp"
+    },
+    {
+      "registration": "LX-VCF",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/025.webp"
+    },
+    {
+      "registration": "LX-KCL",
+      "airline": "Cargolux Airlines International",
+      "imageUrl": "/assets/aircraft/boeing-747/072.webp"
+    },
+    {
+      "registration": "ER-BAT",
+      "airline": "Fly Pro Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/064.webp"
+    },
+    {
+      "registration": "B-LIE",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/033.webp"
+    },
+    {
+      "registration": "D-ABYT",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/048.webp"
+    },
+    {
+      "registration": "B-2472",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/009.webp"
+    },
+    {
+      "registration": "TF-AMP",
+      "airline": "Magma Aviation (Air Atlanta Icelandic)",
+      "imageUrl": "/assets/aircraft/boeing-747/008.webp"
+    },
+    {
+      "registration": "OE-IFK",
+      "airline": "ASL Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/049.webp"
+    },
+    {
+      "registration": "B-LJB",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/032.webp"
+    },
+    {
+      "registration": "N858GT",
+      "airline": "Atlas Air (Polar Air Cargo)",
+      "imageUrl": "/assets/aircraft/boeing-747/065.webp"
+    },
+    {
+      "registration": "B-LIF",
+      "airline": "Cathay Pacific Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/073.webp"
+    },
+    {
+      "registration": "RA-73286",
+      "airline": "Rossiya Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/024.webp"
+    },
+    {
+      "registration": "EX-47004",
+      "airline": "Aerostan",
+      "imageUrl": "/assets/aircraft/boeing-747/053.webp"
+    },
+    {
+      "registration": "B-2472",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/004.webp"
+    },
+    {
+      "registration": "D-ABYN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/boeing-747/012.webp"
+    },
+    {
+      "registration": "N862GT",
+      "airline": "Atlas Air",
+      "imageUrl": "/assets/aircraft/boeing-747/045.webp"
+    },
+    {
+      "registration": "B-2461",
+      "airline": "Air Central",
+      "imageUrl": "/assets/aircraft/boeing-747/100.webp"
+    },
+    {
+      "registration": "N767CK",
+      "airline": "Kalitta Air",
+      "imageUrl": "/assets/aircraft/boeing-747/086.webp"
+    },
+    {
+      "registration": "B-2487",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/boeing-747/069.webp"
+    },
+    {
+      "registration": "N258SN",
+      "airline": "Western Global Airlines",
+      "imageUrl": "/assets/aircraft/boeing-747/090.webp"
+    },
+    {
+      "registration": "LZ-CJC",
+      "airline": "Compass Air Cargo",
+      "imageUrl": "/assets/aircraft/boeing-747/028.webp"
+    }
+  ],
+  "airbus-a350": [
+    {
+      "registration": "D-AIXZ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/050.webp"
+    },
+    {
+      "registration": "B-32CE",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a350/007.webp"
+    },
+    {
+      "registration": "D-AIXF",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/011.webp"
+    },
+    {
+      "registration": "HS-THQ",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/046.webp"
+    },
+    {
+      "registration": "B-305X",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/085.webp"
+    },
+    {
+      "registration": "VN-A896",
+      "airline": "Vietnam Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/093.webp"
+    },
+    {
+      "registration": "10-03",
+      "airline": "Germany - Air Force",
+      "imageUrl": "/assets/aircraft/airbus-a350/031.webp"
+    },
+    {
+      "registration": "B-LXI",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/066.webp"
+    },
+    {
+      "registration": "9V-SJD",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/089.webp"
+    },
+    {
+      "registration": "B-30CE",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/070.webp"
+    },
+    {
+      "registration": "D-AIXA",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/027.webp"
+    },
+    {
+      "registration": "F-HREN",
+      "airline": "French Bee",
+      "imageUrl": "/assets/aircraft/airbus-a350/026.webp"
+    },
+    {
+      "registration": "B-LRJ",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/071.webp"
+    },
+    {
+      "registration": "HS-THR",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/067.webp"
+    },
+    {
+      "registration": "B-304V",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/088.webp"
+    },
+    {
+      "registration": "D-AIXL",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/030.webp"
+    },
+    {
+      "registration": "N502DN",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/092.webp"
+    },
+    {
+      "registration": "B-LRJ",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/084.webp"
+    },
+    {
+      "registration": "B-18912",
+      "airline": "China Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/047.webp"
+    },
+    {
+      "registration": "D-AIXS",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/010.webp"
+    },
+    {
+      "registration": "ET-AUB",
+      "airline": "Ethiopian Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/006.webp"
+    },
+    {
+      "registration": "JA06WJ",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/airbus-a350/051.webp"
+    },
+    {
+      "registration": "B-LXN",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/037.webp"
+    },
+    {
+      "registration": "B-328Q",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a350/060.webp"
+    },
+    {
+      "registration": "HS-THH",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/076.webp"
+    },
+    {
+      "registration": "TC-LGO",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/099.webp"
+    },
+    {
+      "registration": "B-LXA",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/021.webp"
+    },
+    {
+      "registration": "A7-ANF",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/056.webp"
+    },
+    {
+      "registration": "9V-SMF",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/001.webp"
+    },
+    {
+      "registration": "JA06WJ",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/airbus-a350/017.webp"
+    },
+    {
+      "registration": "D-AIXL",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/040.webp"
+    },
+    {
+      "registration": "ET-AYN",
+      "airline": "Ethiopian Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/083.webp"
+    },
+    {
+      "registration": "9V-SHJ",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/095.webp"
+    },
+    {
+      "registration": "B-LXG",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/094.webp"
+    },
+    {
+      "registration": "RP-C3508",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/082.webp"
+    },
+    {
+      "registration": "A6-XWL",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/041.webp"
+    },
+    {
+      "registration": "9V-SHY",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/016.webp"
+    },
+    {
+      "registration": "B-309W",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/057.webp"
+    },
+    {
+      "registration": "B-329E",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/020.webp"
+    },
+    {
+      "registration": "D-AIXW",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/077.webp"
+    },
+    {
+      "registration": "TC-LGA",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/098.webp"
+    },
+    {
+      "registration": "B-32DW",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/061.webp"
+    },
+    {
+      "registration": "TC-LGB",
+      "airline": "Turkish Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/036.webp"
+    },
+    {
+      "registration": "F-HTYJ",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/airbus-a350/023.webp"
+    },
+    {
+      "registration": "B-LRF",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/074.webp"
+    },
+    {
+      "registration": "N515DN",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/062.webp"
+    },
+    {
+      "registration": "A6-XWN",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/035.webp"
+    },
+    {
+      "registration": "A7-ALF",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/019.webp"
+    },
+    {
+      "registration": "D-AIXS",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/058.webp"
+    },
+    {
+      "registration": "JA03XJ",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/airbus-a350/097.webp"
+    },
+    {
+      "registration": "D-AIXQ",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/078.webp"
+    },
+    {
+      "registration": "F-HUVQ",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/airbus-a350/081.webp"
+    },
+    {
+      "registration": "OH-LWL",
+      "airline": "Finnair",
+      "imageUrl": "/assets/aircraft/airbus-a350/039.webp"
+    },
+    {
+      "registration": "B-308M",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a350/042.webp"
+    },
+    {
+      "registration": "SE-RSG",
+      "airline": "Scandinavian Airlines (SAS)",
+      "imageUrl": "/assets/aircraft/airbus-a350/015.webp"
+    },
+    {
+      "registration": "HS-THK",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/003.webp"
+    },
+    {
+      "registration": "G-VLIB",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/054.webp"
+    },
+    {
+      "registration": "A7-AOB",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/055.webp"
+    },
+    {
+      "registration": "B-301D",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/002.webp"
+    },
+    {
+      "registration": "OH-LWA",
+      "airline": "Finnair",
+      "imageUrl": "/assets/aircraft/airbus-a350/014.webp"
+    },
+    {
+      "registration": "B-32FR",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/043.webp"
+    },
+    {
+      "registration": "A7-ALB",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/038.webp"
+    },
+    {
+      "registration": "B-304V",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/080.webp"
+    },
+    {
+      "registration": "JA07WJ",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/airbus-a350/096.webp"
+    },
+    {
+      "registration": "B-LXF",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/079.webp"
+    },
+    {
+      "registration": "D-AIXV",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/059.webp"
+    },
+    {
+      "registration": "B-LXI",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/018.webp"
+    },
+    {
+      "registration": "B-30CE",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/034.webp"
+    },
+    {
+      "registration": "RP-C3510",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/063.webp"
+    },
+    {
+      "registration": "RP-C3501",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/075.webp"
+    },
+    {
+      "registration": "B-308T",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/022.webp"
+    },
+    {
+      "registration": "B-LXD",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/029.webp"
+    },
+    {
+      "registration": "RP-C3510",
+      "airline": "Philippine Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/091.webp"
+    },
+    {
+      "registration": "N515DN",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/087.webp"
+    },
+    {
+      "registration": "B-323H",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/068.webp"
+    },
+    {
+      "registration": "OH-LWO",
+      "airline": "Finnair",
+      "imageUrl": "/assets/aircraft/airbus-a350/044.webp"
+    },
+    {
+      "registration": "G-VJAM",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/013.webp"
+    },
+    {
+      "registration": "B-58551",
+      "airline": "Starlux",
+      "imageUrl": "/assets/aircraft/airbus-a350/005.webp"
+    },
+    {
+      "registration": "SE-RSC",
+      "airline": "Scandinavian Airlines (SAS)",
+      "imageUrl": "/assets/aircraft/airbus-a350/052.webp"
+    },
+    {
+      "registration": "N521DN",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/025.webp"
+    },
+    {
+      "registration": "N518DZ",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/072.webp"
+    },
+    {
+      "registration": "B-LRE",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/064.webp"
+    },
+    {
+      "registration": "B-LRB",
+      "airline": "Cathay Pacific Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/033.webp"
+    },
+    {
+      "registration": "G-VEVE",
+      "airline": "Virgin Atlantic Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/048.webp"
+    },
+    {
+      "registration": "D-AIXV",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/009.webp"
+    },
+    {
+      "registration": "D-AIXY",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a350/008.webp"
+    },
+    {
+      "registration": "N527DN",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/049.webp"
+    },
+    {
+      "registration": "10-01",
+      "airline": "Germany - Air Force",
+      "imageUrl": "/assets/aircraft/airbus-a350/032.webp"
+    },
+    {
+      "registration": "HS-THK",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/065.webp"
+    },
+    {
+      "registration": "F-HUVI",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/airbus-a350/073.webp"
+    },
+    {
+      "registration": "B-306N",
+      "airline": "Sichuan Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/024.webp"
+    },
+    {
+      "registration": "ET-BCE",
+      "airline": "Ethiopian Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a350/053.webp"
+    },
+    {
+      "registration": "VT-JRF",
+      "airline": "Air India",
+      "imageUrl": "/assets/aircraft/airbus-a350/004.webp"
+    },
+    {
+      "registration": "B-308C",
+      "airline": "Air China",
+      "imageUrl": "/assets/aircraft/airbus-a350/012.webp"
+    },
+    {
+      "registration": "HS-THF",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/045.webp"
+    },
+    {
+      "registration": "JA06WJ",
+      "airline": "Japan Airlines (JAL)",
+      "imageUrl": "/assets/aircraft/airbus-a350/100.webp"
+    },
+    {
+      "registration": "A7-ALZ",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a350/086.webp"
+    },
+    {
+      "registration": "N518DZ",
+      "airline": "Delta Air Lines",
+      "imageUrl": "/assets/aircraft/airbus-a350/069.webp"
+    },
+    {
+      "registration": "HS-THZ",
+      "airline": "Thai Airways International",
+      "imageUrl": "/assets/aircraft/airbus-a350/090.webp"
+    },
+    {
+      "registration": "F-HUVU",
+      "airline": "Air France",
+      "imageUrl": "/assets/aircraft/airbus-a350/028.webp"
+    }
+  ],
+  "airbus-a380": [
+    {
+      "registration": "A6-EDV",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/050.webp"
+    },
+    {
+      "registration": "D-AIMH",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/007.webp"
+    },
+    {
+      "registration": "D-AIMH",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/011.webp"
+    },
+    {
+      "registration": "A6-EED",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/046.webp"
+    },
+    {
+      "registration": "D-AIMM",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/085.webp"
+    },
+    {
+      "registration": "VH-OQI",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a380/093.webp"
+    },
+    {
+      "registration": "9V-SKZ",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/031.webp"
+    },
+    {
+      "registration": "A6-APG",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/066.webp"
+    },
+    {
+      "registration": "A6-EEZ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/089.webp"
+    },
+    {
+      "registration": "9V-SKW",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/070.webp"
+    },
+    {
+      "registration": "JA381A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/airbus-a380/027.webp"
+    },
+    {
+      "registration": "9V-SKP",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/026.webp"
+    },
+    {
+      "registration": "D-AIMM",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/071.webp"
+    },
+    {
+      "registration": "A6-EVJ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/067.webp"
+    },
+    {
+      "registration": "HL7641",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/088.webp"
+    },
+    {
+      "registration": "A6-EDS",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/030.webp"
+    },
+    {
+      "registration": "G-XLED",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/092.webp"
+    },
+    {
+      "registration": "9M-MNF",
+      "airline": "Malaysia Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/084.webp"
+    },
+    {
+      "registration": "A6-EET",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/047.webp"
+    },
+    {
+      "registration": "D-AIMH",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/010.webp"
+    },
+    {
+      "registration": "A6-EDX",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/006.webp"
+    },
+    {
+      "registration": "A6-EUF",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/051.webp"
+    },
+    {
+      "registration": "A6-EOT",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/037.webp"
+    },
+    {
+      "registration": "9V-SKU",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/060.webp"
+    },
+    {
+      "registration": "A6-EOE",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/076.webp"
+    },
+    {
+      "registration": "A6-EET",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/099.webp"
+    },
+    {
+      "registration": "9V-SKW",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/021.webp"
+    },
+    {
+      "registration": "A6-EEV",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/056.webp"
+    },
+    {
+      "registration": "VH-OQJ",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a380/001.webp"
+    },
+    {
+      "registration": "G-XLEH",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/017.webp"
+    },
+    {
+      "registration": "A6-EEU",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/040.webp"
+    },
+    {
+      "registration": "A6-EEE",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/083.webp"
+    },
+    {
+      "registration": "VH-OQA",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a380/095.webp"
+    },
+    {
+      "registration": "A6-EUS",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/094.webp"
+    },
+    {
+      "registration": "A6-EOB",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/082.webp"
+    },
+    {
+      "registration": "A6-EUJ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/041.webp"
+    },
+    {
+      "registration": "A6-EEW",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/016.webp"
+    },
+    {
+      "registration": "A6-EDQ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/057.webp"
+    },
+    {
+      "registration": "D-AIMM",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/020.webp"
+    },
+    {
+      "registration": "HL7635",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/077.webp"
+    },
+    {
+      "registration": "9V-SKM",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/098.webp"
+    },
+    {
+      "registration": "G-XLEB",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/061.webp"
+    },
+    {
+      "registration": "9V-SKZ",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/036.webp"
+    },
+    {
+      "registration": "9V-SKY",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/023.webp"
+    },
+    {
+      "registration": "A6-APH",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/074.webp"
+    },
+    {
+      "registration": "G-XLEG",
+      "airline": "British Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/062.webp"
+    },
+    {
+      "registration": "A6-EUC",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/035.webp"
+    },
+    {
+      "registration": "HL7634",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/019.webp"
+    },
+    {
+      "registration": "HL7640",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/058.webp"
+    },
+    {
+      "registration": "A6-EDS",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/097.webp"
+    },
+    {
+      "registration": "A7-APG",
+      "airline": "Qatar Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/078.webp"
+    },
+    {
+      "registration": "A6-EED",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/081.webp"
+    },
+    {
+      "registration": "A6-EOC",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/039.webp"
+    },
+    {
+      "registration": "A6-EOI",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/042.webp"
+    },
+    {
+      "registration": "HL7634",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/015.webp"
+    },
+    {
+      "registration": "HL7640",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/003.webp"
+    },
+    {
+      "registration": "A6-EUD",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/054.webp"
+    },
+    {
+      "registration": "VH-OQI",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a380/055.webp"
+    },
+    {
+      "registration": "A6-EDY",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/002.webp"
+    },
+    {
+      "registration": "A6-EUH",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/014.webp"
+    },
+    {
+      "registration": "A6-EDP",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/043.webp"
+    },
+    {
+      "registration": "HL7640",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/038.webp"
+    },
+    {
+      "registration": "HL7621",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/airbus-a380/080.webp"
+    },
+    {
+      "registration": "A6-EOO",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/096.webp"
+    },
+    {
+      "registration": "VH-OQC",
+      "airline": "Qantas",
+      "imageUrl": "/assets/aircraft/airbus-a380/079.webp"
+    },
+    {
+      "registration": "A6-APG",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/059.webp"
+    },
+    {
+      "registration": "A6-APD",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/018.webp"
+    },
+    {
+      "registration": "D-AIMA",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/034.webp"
+    },
+    {
+      "registration": "A6-EET",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/063.webp"
+    },
+    {
+      "registration": "A6-EEZ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/075.webp"
+    },
+    {
+      "registration": "A6-EED",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/022.webp"
+    },
+    {
+      "registration": "A6-EEL",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/029.webp"
+    },
+    {
+      "registration": "A6-EET",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/091.webp"
+    },
+    {
+      "registration": "HL7635",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/087.webp"
+    },
+    {
+      "registration": "A6-EET",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/068.webp"
+    },
+    {
+      "registration": "9V-SKW",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/044.webp"
+    },
+    {
+      "registration": "A6-EUH",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/013.webp"
+    },
+    {
+      "registration": "JA382A",
+      "airline": "All Nippon Airways (ANA)",
+      "imageUrl": "/assets/aircraft/airbus-a380/005.webp"
+    },
+    {
+      "registration": "A6-EEV",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/052.webp"
+    },
+    {
+      "registration": "A6-EUK",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/025.webp"
+    },
+    {
+      "registration": "D-AIMN",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/072.webp"
+    },
+    {
+      "registration": "A6-EUK",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/064.webp"
+    },
+    {
+      "registration": "D-AIMB",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/033.webp"
+    },
+    {
+      "registration": "A6-EOE",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/048.webp"
+    },
+    {
+      "registration": "9V-SKZ",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/009.webp"
+    },
+    {
+      "registration": "9V-SKT",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/008.webp"
+    },
+    {
+      "registration": "A6-EVJ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/049.webp"
+    },
+    {
+      "registration": "HL7641",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/032.webp"
+    },
+    {
+      "registration": "A6-EOC",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/065.webp"
+    },
+    {
+      "registration": "D-AIMA",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/073.webp"
+    },
+    {
+      "registration": "9V-SKW",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/024.webp"
+    },
+    {
+      "registration": "A6-EEV",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/053.webp"
+    },
+    {
+      "registration": "A6-EED",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/004.webp"
+    },
+    {
+      "registration": "A6-EOQ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/012.webp"
+    },
+    {
+      "registration": "A6-APF",
+      "airline": "Etihad Airways",
+      "imageUrl": "/assets/aircraft/airbus-a380/045.webp"
+    },
+    {
+      "registration": "A6-EOJ",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/100.webp"
+    },
+    {
+      "registration": "HL7641",
+      "airline": "Asiana Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/086.webp"
+    },
+    {
+      "registration": "D-AIMA",
+      "airline": "Lufthansa",
+      "imageUrl": "/assets/aircraft/airbus-a380/069.webp"
+    },
+    {
+      "registration": "A6-EUP",
+      "airline": "Emirates",
+      "imageUrl": "/assets/aircraft/airbus-a380/090.webp"
+    },
+    {
+      "registration": "9V-SKP",
+      "airline": "Singapore Airlines",
+      "imageUrl": "/assets/aircraft/airbus-a380/028.webp"
+    }
+  ],
+  "dash-8": [
+    {
+      "registration": "LX-LGG",
+      "airline": "Luxair - Luxembourg Airlines",
+      "imageUrl": "/assets/aircraft/dash-8/001.webp"
+    }
+  ],
+  "boeing-737": [
+    {
+      "registration": "N378SC",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/050.webp"
+    },
+    {
+      "registration": "HS-LVS",
+      "airline": "Thai Lion Air",
+      "imageUrl": "/assets/aircraft/boeing-737/007.webp"
+    },
+    {
+      "registration": "B-5499",
+      "airline": "Xiamen Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/011.webp"
+    },
+    {
+      "registration": "B-7996",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/046.webp"
+    },
+    {
+      "registration": "SP-LVB",
+      "airline": "LOT Polish Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/031.webp"
+    },
+    {
+      "registration": "9S-AGA",
+      "airline": "Air Congo",
+      "imageUrl": "/assets/aircraft/boeing-737/027.webp"
+    },
+    {
+      "registration": "JA73AB",
+      "airline": "Skymark Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/026.webp"
+    },
+    {
+      "registration": "B-1450",
+      "airline": "OK Air",
+      "imageUrl": "/assets/aircraft/boeing-737/030.webp"
+    },
+    {
+      "registration": "EI-AZG",
+      "airline": "Amazon Prime Air (ASL Airlines)",
+      "imageUrl": "/assets/aircraft/boeing-737/047.webp"
+    },
+    {
+      "registration": "B-5659",
+      "airline": "Xiamen Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/010.webp"
+    },
+    {
+      "registration": "B-1329",
+      "airline": "Kunming Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/006.webp"
+    },
+    {
+      "registration": "4X-EHE",
+      "airline": "El Al Israel Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/051.webp"
+    },
+    {
+      "registration": "B-5729",
+      "airline": "Dalian Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/037.webp"
+    },
+    {
+      "registration": "B-20DY",
+      "airline": "Xiamen Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/021.webp"
+    },
+    {
+      "registration": "B-2573",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/017.webp"
+    },
+    {
+      "registration": "A4O-MF",
+      "airline": "Oman Air",
+      "imageUrl": "/assets/aircraft/boeing-737/040.webp"
+    },
+    {
+      "registration": "9H-QEO",
+      "airline": "Ryanair (Malta Air)",
+      "imageUrl": "/assets/aircraft/boeing-737/041.webp"
+    },
+    {
+      "registration": "JA87AN",
+      "airline": "All Nippon Airways (ANA Wings)",
+      "imageUrl": "/assets/aircraft/boeing-737/016.webp"
+    },
+    {
+      "registration": "HL8089",
+      "airline": "Jeju Air",
+      "imageUrl": "/assets/aircraft/boeing-737/020.webp"
+    },
+    {
+      "registration": "B-20A3",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/036.webp"
+    },
+    {
+      "registration": "SU-GCZ",
+      "airline": "EgyptAir",
+      "imageUrl": "/assets/aircraft/boeing-737/023.webp"
+    },
+    {
+      "registration": "B-209G",
+      "airline": "China United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/035.webp"
+    },
+    {
+      "registration": "9M-MVD",
+      "airline": "Malaysia Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/019.webp"
+    },
+    {
+      "registration": "B-2694",
+      "airline": "China Southern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/039.webp"
+    },
+    {
+      "registration": "LN-FGJ",
+      "airline": "Norwegian",
+      "imageUrl": "/assets/aircraft/boeing-737/042.webp"
+    },
+    {
+      "registration": "N570AS",
+      "airline": "Alaska Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/015.webp"
+    },
+    {
+      "registration": "HS-VZE",
+      "airline": "Thai VietJetAir",
+      "imageUrl": "/assets/aircraft/boeing-737/003.webp"
+    },
+    {
+      "registration": "B-5691",
+      "airline": "Shanghai Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/002.webp"
+    },
+    {
+      "registration": "HS-LVO",
+      "airline": "Thai Lion Air",
+      "imageUrl": "/assets/aircraft/boeing-737/014.webp"
+    },
+    {
+      "registration": "9M-LRD",
+      "airline": "Batik Air Malaysia",
+      "imageUrl": "/assets/aircraft/boeing-737/043.webp"
+    },
+    {
+      "registration": "UR-SLW",
+      "airline": "Skyline Express Airline",
+      "imageUrl": "/assets/aircraft/boeing-737/038.webp"
+    },
+    {
+      "registration": "A6-FGI",
+      "airline": "flydubai",
+      "imageUrl": "/assets/aircraft/boeing-737/018.webp"
+    },
+    {
+      "registration": "G-TUMO",
+      "airline": "TUI",
+      "imageUrl": "/assets/aircraft/boeing-737/034.webp"
+    },
+    {
+      "registration": "N921NN",
+      "airline": "American Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/022.webp"
+    },
+    {
+      "registration": "HL8567",
+      "airline": "Korean Air",
+      "imageUrl": "/assets/aircraft/boeing-737/029.webp"
+    },
+    {
+      "registration": "B-1310",
+      "airline": "China United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/044.webp"
+    },
+    {
+      "registration": "B-1497",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/013.webp"
+    },
+    {
+      "registration": "B-5821",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/005.webp"
+    },
+    {
+      "registration": "B-6488",
+      "airline": "Xiamen Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/025.webp"
+    },
+    {
+      "registration": "B-5326",
+      "airline": "Air Changan",
+      "imageUrl": "/assets/aircraft/boeing-737/033.webp"
+    },
+    {
+      "registration": "G-DRTD",
+      "airline": "Jet2.com",
+      "imageUrl": "/assets/aircraft/boeing-737/048.webp"
+    },
+    {
+      "registration": "B-5289",
+      "airline": "Lucky Air",
+      "imageUrl": "/assets/aircraft/boeing-737/009.webp"
+    },
+    {
+      "registration": "B-7872",
+      "airline": "Kunming Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/008.webp"
+    },
+    {
+      "registration": "UR-SQC",
+      "airline": "SkyUp Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/049.webp"
+    },
+    {
+      "registration": "B-6063",
+      "airline": "Hainan Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/032.webp"
+    },
+    {
+      "registration": "C-FPHS",
+      "airline": "Skyservice Business Aviation",
+      "imageUrl": "/assets/aircraft/boeing-737/024.webp"
+    },
+    {
+      "registration": "B-5265",
+      "airline": "China Eastern Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/004.webp"
+    },
+    {
+      "registration": "B-7988",
+      "airline": "Lucky Air",
+      "imageUrl": "/assets/aircraft/boeing-737/012.webp"
+    },
+    {
+      "registration": "SE-RTU",
+      "airline": "Norwegian",
+      "imageUrl": "/assets/aircraft/boeing-737/045.webp"
+    },
+    {
+      "registration": "N16732",
+      "airline": "United Airlines",
+      "imageUrl": "/assets/aircraft/boeing-737/028.webp"
+    }
+  ]
+}

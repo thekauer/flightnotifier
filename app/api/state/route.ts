@@ -1,7 +1,7 @@
-import { handleStateGet } from '@/server/http/controllers/stateController';
+import { handleDbStateGet } from '@/server/http/controllers/dbStateController';
 
 export const dynamic = 'force-dynamic';
 
-export function GET() {
-  return handleStateGet();
+export async function GET() {
+  return handleDbStateGet();
 }

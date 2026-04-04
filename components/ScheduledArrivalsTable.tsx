@@ -248,7 +248,7 @@ export function ScheduledArrivalsTable() {
                       <AirportCell icaoCode={arrival.destination} />
                       <DataCell type="aircraftType" value={arrival.aircraftType} />
                       <DataCell type="distance" value={arrival.distanceToAmsKm} />
-                      <DataCell type="eta" value={arrival.estimatedMinutes} />
+                      <DataCell type="eta" value={arrival.estimatedMinutes} etaTimestampMs={arrival.etaTimestampMs} />
                     </tr>
                     <tr className="border-b border-border/50 bg-muted/20">
                       <td colSpan={6} className="p-0">

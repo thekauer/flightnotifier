@@ -1,7 +1,10 @@
 node_modules/
 dist/
 .next/
+.serverless/
+.aws-cron-build/
 *.log
 .env
+.env.cron
 data/runway-history.json
 .DS_Store
