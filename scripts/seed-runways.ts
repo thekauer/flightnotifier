@@ -16,19 +16,69 @@ const db = drizzle(neonClient);
 
 const csvPath = resolve(import.meta.dirname, '../data/ourairports/runways.csv');
 const raw = readFileSync(csvPath, 'utf-8');
-const lines = raw.split('\n').filter((l) => l.trim() !== '');
+const lines = raw.replace(/\r/g, '').split('\n').filter((l) => l.trim() !== '');
 // Skip header
 const dataLines = lines.slice(1);
 
 function parseLine(line: string): string[] {
-  // OurAirports CSV uses simple double-quoted fields, no embedded quotes/commas in values
-  return line.split(',').map((f) => f.replace(/^"|"$/g, '').trim());
+  const fields: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"') {
+        if (i + 1 < line.length && line[i + 1] === '"') {
+          current += '"';
+          i++; // skip escaped quote
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        current += ch;
+      }
+    } else {
+      if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ',') {
+        fields.push(current.trim());
+        current = '';
+      } else {
+        current += ch;
+      }
+    }
+  }
+  fields.push(current.trim());
+  return fields;
 }
 
 type RunwayInsert = typeof runways.$inferInsert;
 
 const BATCH_SIZE = 500;
 let inserted = 0;
+
+const upsertSet = {
+  airportRef: sql`excluded.airport_ref`,
+  airportIdent: sql`excluded.airport_ident`,
+  lengthFt: sql`excluded.length_ft`,
+  widthFt: sql`excluded.width_ft`,
+  surface: sql`excluded.surface`,
+  lighted: sql`excluded.lighted`,
+  closed: sql`excluded.closed`,
+  leIdent: sql`excluded.le_ident`,
+  leLatitudeDeg: sql`excluded.le_latitude_deg`,
+  leLongitudeDeg: sql`excluded.le_longitude_deg`,
+  leElevationFt: sql`excluded.le_elevation_ft`,
+  leHeadingDegT: sql`excluded.le_heading_deg_t`,
+  leDisplacedThresholdFt: sql`excluded.le_displaced_threshold_ft`,
+  heIdent: sql`excluded.he_ident`,
+  heLatitudeDeg: sql`excluded.he_latitude_deg`,
+  heLongitudeDeg: sql`excluded.he_longitude_deg`,
+  heElevationFt: sql`excluded.he_elevation_ft`,
+  heHeadingDegT: sql`excluded.he_heading_deg_t`,
+  heDisplacedThresholdFt: sql`excluded.he_displaced_threshold_ft`,
+};
 
 async function seed() {
   const batch: RunwayInsert[] = [];
@@ -69,27 +119,7 @@ async function seed() {
     if (batch.length >= BATCH_SIZE) {
       await db.insert(runways).values(batch).onConflictDoUpdate({
         target: runways.id,
-        set: {
-          airportRef: sql`excluded.airport_ref`,
-          airportIdent: sql`excluded.airport_ident`,
-          lengthFt: sql`excluded.length_ft`,
-          widthFt: sql`excluded.width_ft`,
-          surface: sql`excluded.surface`,
-          lighted: sql`excluded.lighted`,
-          closed: sql`excluded.closed`,
-          leIdent: sql`excluded.le_ident`,
-          leLatitudeDeg: sql`excluded.le_latitude_deg`,
-          leLongitudeDeg: sql`excluded.le_longitude_deg`,
-          leElevationFt: sql`excluded.le_elevation_ft`,
-          leHeadingDegT: sql`excluded.le_heading_deg_t`,
-          leDisplacedThresholdFt: sql`excluded.le_displaced_threshold_ft`,
-          heIdent: sql`excluded.he_ident`,
-          heLatitudeDeg: sql`excluded.he_latitude_deg`,
-          heLongitudeDeg: sql`excluded.he_longitude_deg`,
-          heElevationFt: sql`excluded.he_elevation_ft`,
-          heHeadingDegT: sql`excluded.he_heading_deg_t`,
-          heDisplacedThresholdFt: sql`excluded.he_displaced_threshold_ft`,
-        },
+        set: upsertSet,
       });
       inserted += batch.length;
       console.log(`Upserted ${inserted} rows...`);
@@ -101,27 +131,7 @@ async function seed() {
   if (batch.length > 0) {
     await db.insert(runways).values(batch).onConflictDoUpdate({
       target: runways.id,
-      set: {
-        airportRef: sql`excluded.airport_ref`,
-        airportIdent: sql`excluded.airport_ident`,
-        lengthFt: sql`excluded.length_ft`,
-        widthFt: sql`excluded.width_ft`,
-        surface: sql`excluded.surface`,
-        lighted: sql`excluded.lighted`,
-        closed: sql`excluded.closed`,
-        leIdent: sql`excluded.le_ident`,
-        leLatitudeDeg: sql`excluded.le_latitude_deg`,
-        leLongitudeDeg: sql`excluded.le_longitude_deg`,
-        leElevationFt: sql`excluded.le_elevation_ft`,
-        leHeadingDegT: sql`excluded.le_heading_deg_t`,
-        leDisplacedThresholdFt: sql`excluded.le_displaced_threshold_ft`,
-        heIdent: sql`excluded.he_ident`,
-        heLatitudeDeg: sql`excluded.he_latitude_deg`,
-        heLongitudeDeg: sql`excluded.he_longitude_deg`,
-        heElevationFt: sql`excluded.he_elevation_ft`,
-        heHeadingDegT: sql`excluded.he_heading_deg_t`,
-        heDisplacedThresholdFt: sql`excluded.he_displaced_threshold_ft`,
-      },
+      set: upsertSet,
     });
     inserted += batch.length;
   }
