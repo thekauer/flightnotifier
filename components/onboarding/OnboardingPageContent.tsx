@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { LocateFixed, PencilLine, Search } from 'lucide-react';
+import { LocateFixed, Search } from 'lucide-react';
 import { RunwayLabMap } from '@/components/runway-lab/RunwayLabMap';
 import { countryCodeToFlag } from '@/lib/airports';
 import type { AirportSearchRecord } from '@/lib/airport-catalog';
@@ -341,7 +341,12 @@ export function OnboardingPageContent() {
                             </div>
                           </div>
                         ) : (
-                          <div className="group flex min-h-[4.5rem] items-center gap-4 rounded-[1.2rem] border border-black/8 bg-neutral-900 px-4 py-3 text-white shadow-[0_20px_45px_-30px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-neutral-950 sm:px-5">
+                          <button
+                            type="button"
+                            onClick={handleEditSelection}
+                            className="group flex min-h-[4.5rem] w-full items-center gap-4 rounded-[1.2rem] border border-black/8 bg-neutral-900 px-4 py-3 text-left text-white shadow-[0_20px_45px_-30px_rgba(15,23,42,0.4)] transition hover:bg-neutral-800/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/25 dark:border-white/10 dark:bg-neutral-950 dark:hover:bg-neutral-900 sm:px-5"
+                            aria-label="Edit selected airport"
+                          >
                             <div className="flex h-14 w-8 shrink-0 items-center justify-center text-[1.75rem]">
                               {countryCodeToFlag(currentAirport.countryCode)}
                             </div>
@@ -356,15 +361,7 @@ export function OnboardingPageContent() {
                               </div>
                               <p className="mt-1 truncate text-sm text-neutral-400">{formatAirportSubtitle(currentAirport)}</p>
                             </div>
-                            <button
-                              type="button"
-                              onClick={handleEditSelection}
-                              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/6 text-neutral-400 opacity-100 transition hover:text-white sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100"
-                              aria-label="Edit selected airport"
-                            >
-                              <PencilLine className="h-4 w-4" />
-                            </button>
-                          </div>
+                          </button>
                         )}
                       </div>
                     </div>

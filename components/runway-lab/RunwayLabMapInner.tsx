@@ -169,6 +169,14 @@ function buildRunwayStrips(runways: Runway[], airportIdent: string): RunwayStrip
   return strips;
 }
 
+const AIRPORT_MARKER_ICON = L.divIcon({
+  className: '',
+  iconSize: [14, 14],
+  iconAnchor: [7, 7],
+  html:
+    '<span style="display:block;width:14px;height:14px;border-radius:9999px;background:#2563eb;border:2px solid white;box-shadow:0 0 0 1px rgba(15,23,42,0.18),0 6px 18px rgba(15,23,42,0.28);"></span>',
+});
+
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
@@ -306,35 +314,35 @@ export default function RunwayLabMapInner({
           const isSelected = runwayMatchesSelection(strip, selectedForAirport);
           const isHovered = hoveredStripKey === strip.key;
           return (
-          <Polygon
-            key={strip.key}
-            positions={strip.corners}
-            eventHandlers={{
-              mouseover: (event) => {
-                setHoveredStripKey(strip.key);
-                if (interactiveRunways) {
-                  event.target.getElement()?.style.setProperty('cursor', 'pointer');
-                }
-              },
-              mouseout: () => setHoveredStripKey((current) => (current === strip.key ? null : current)),
-              click: () => {
-                if (!interactiveRunways || !onRunwaySelect) return;
-                onRunwaySelect({
-                  airportIdent: strip.airportIdent,
-                  key: strip.key,
-                  leIdent: strip.leIdent,
-                  heIdent: strip.heIdent,
-                });
-              },
-            }}
-            pathOptions={{
-              color: isSelected ? '#f97316' : isDark ? '#a1a1aa' : '#555',
-              fillColor: isSelected ? '#f59e0b' : isDark ? '#71717a' : '#333',
-              fillOpacity: isSelected ? 0.85 : isHovered ? 0.82 : 0.7,
-              weight: isSelected ? 2 : isHovered ? 1.6 : 1,
-              dashArray: isSelected && dashSelectedRunways ? '10 6' : undefined,
-            }}
-          />
+            <Polygon
+              key={strip.key}
+              positions={strip.corners}
+              eventHandlers={{
+                mouseover: (event) => {
+                  setHoveredStripKey(strip.key);
+                  if (interactiveRunways) {
+                    event.target.getElement()?.style.setProperty('cursor', 'pointer');
+                  }
+                },
+                mouseout: () => setHoveredStripKey((current) => (current === strip.key ? null : current)),
+                click: () => {
+                  if (!interactiveRunways || !onRunwaySelect) return;
+                  onRunwaySelect({
+                    airportIdent: strip.airportIdent,
+                    key: strip.key,
+                    leIdent: strip.leIdent,
+                    heIdent: strip.heIdent,
+                  });
+                },
+              }}
+              pathOptions={{
+                color: isSelected ? '#f97316' : isDark ? '#a1a1aa' : '#555',
+                fillColor: isSelected ? '#f59e0b' : isDark ? '#71717a' : '#333',
+                fillOpacity: isSelected ? 0.85 : isHovered ? 0.82 : 0.7,
+                weight: isSelected ? 2 : isHovered ? 1.6 : 1,
+                dashArray: isSelected && dashSelectedRunways ? '10 6' : undefined,
+              }}
+            />
           );
         })}
 
@@ -352,6 +360,12 @@ export default function RunwayLabMapInner({
             </Marker>
           </React.Fragment>
         ))}
+
+        <Marker position={center} icon={AIRPORT_MARKER_ICON}>
+          <Tooltip direction="top" offset={[0, -8]}>
+            {airport.ident} · {airport.name}
+          </Tooltip>
+        </Marker>
       </MapContainer>
 
       {isLoading ? (
