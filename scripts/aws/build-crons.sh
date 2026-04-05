@@ -5,7 +5,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 BUILD_DIR="$ROOT_DIR/.aws-cron-build"
 GO_MODULE_DIR="$ROOT_DIR/cron"
-FUNCTIONS=(opensky metar flighty adsbdb tracks adsblol)
+FUNCTIONS=(batch adsblol)
 
 mkdir -p "$BUILD_DIR"
 

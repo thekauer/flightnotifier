@@ -4,6 +4,8 @@ import "context"
 
 func RunByName(name string) func(context.Context) (any, error) {
 	switch name {
+	case "batch":
+		return RunBatch
 	case "adsblol":
 		return RunAdsbLol
 	case "opensky":

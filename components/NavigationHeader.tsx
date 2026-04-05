@@ -4,14 +4,13 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import { InstallPrompt } from '@/components/InstallPrompt';
-import { DEFAULT_AIRPORT, formatAirportCode } from '@/lib/defaultAirport';
+import { formatAirportCode } from '@/lib/defaultAirport';
 import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
 import { countryCodeToFlag } from '@/lib/airports';
 import { runViewTransition } from '@/lib/viewTransitions';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Dashboard' },
-  { href: '/onboarding', label: 'Onboarding' },
   { href: '/predictions', label: 'Predictions' },
   { href: '/spotting', label: 'Spotting' },
   { href: '/settings', label: 'Settings' },
@@ -24,9 +23,8 @@ export function NavigationHeader() {
   const selectedAirport = useSelectedAirportsStore((state) => state.selectedAirports[0] ?? null);
   const hasCompletedOnboarding = useSelectedAirportsStore((state) => state.hasCompletedOnboarding);
   const reopenOnboarding = useSelectedAirportsStore((state) => state.reopenOnboarding);
-  const currentAirport = hasHydrated ? selectedAirport ?? DEFAULT_AIRPORT : DEFAULT_AIRPORT;
-  const airportCode = formatAirportCode(currentAirport);
-  const airportFlag = countryCodeToFlag(currentAirport.countryCode);
+  const currentAirport = hasHydrated ? selectedAirport : null;
+  const airportFlag = currentAirport ? countryCodeToFlag(currentAirport.countryCode) : null;
   const airportBadgeClass = hasCompletedOnboarding ? 'airport-selector-transition ' : '';
   const navItems =
     process.env.NODE_ENV === 'development'
@@ -50,14 +48,16 @@ export function NavigationHeader() {
         <div className="hidden sm:block">
           <div className="flex items-center gap-3">
             <h1 className="text-xl font-bold tracking-tight">Flight Notifier</h1>
-            <Link
-              href="/"
-              onClick={handleAirportBadgeClick}
-              className={`${airportBadgeClass}inline-flex items-center rounded-full border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground transition hover:bg-secondary hover:text-foreground`}
-            >
-              <span className="mr-1.5 text-sm leading-none">{airportFlag}</span>
-              {airportCode}
-            </Link>
+            {currentAirport ? (
+              <Link
+                href="/"
+                onClick={handleAirportBadgeClick}
+                className={`${airportBadgeClass}inline-flex items-center rounded-full border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground transition hover:bg-secondary hover:text-foreground`}
+              >
+                <span className="mr-1.5 text-sm leading-none">{airportFlag}</span>
+                {formatAirportCode(currentAirport)}
+              </Link>
+            ) : null}
           </div>
         </div>
 

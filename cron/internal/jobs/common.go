@@ -45,6 +45,7 @@ const (
 	adsblolJobTimeout            = 12 * time.Second
 	openskyJobTimeout            = 28 * time.Second
 	tracksJobTimeout             = 28 * time.Second
+	batchJobTimeout              = 55 * time.Second
 	defaultHTTPTimeout           = 3200 * time.Millisecond
 	defaultConnectTimeout        = 1200 * time.Millisecond
 	defaultTLSHandshakeTimeout   = 1200 * time.Millisecond
@@ -140,6 +141,8 @@ func JobTimeoutFor(jobName string) time.Duration {
 		return openskyJobTimeout
 	case "tracks":
 		return tracksJobTimeout
+	case "batch":
+		return batchJobTimeout
 	default:
 		return defaultJobTimeout
 	}

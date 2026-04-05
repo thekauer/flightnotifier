@@ -21,11 +21,7 @@ type scheduleEntry struct {
 
 var defaultWatchSchedule = []scheduleEntry{
 	{jobName: "adsblol", interval: 30 * time.Second},
-	{jobName: "flighty", interval: 45 * time.Second},
-	{jobName: "metar", interval: 60 * time.Second},
-	{jobName: "opensky", interval: 2 * time.Minute},
-	{jobName: "adsbdb", interval: 2 * time.Minute},
-	{jobName: "tracks", interval: 3 * time.Minute},
+	{jobName: "batch", interval: 2 * time.Minute},
 }
 
 func main() {

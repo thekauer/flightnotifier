@@ -8,6 +8,6 @@ if [[ $# -lt 1 ]]; then
 fi
 
 JOB="$1"
-STAGE="${SLS_STAGE:-${STAGE:-dev}}"
+STAGE="${SLS_STAGE:-${STAGE:-prod}}"
 
 echo "flightnotifier-crons-${STAGE}-${JOB}"

@@ -12,7 +12,7 @@ provider:
   runtime: provided.al2023
   architecture: arm64
   region: ${opt:region, env:AWS_REGION, 'eu-central-1'}
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'prod'}
   memorySize: 128
   timeout: 8
   logRetentionInDays: 7
@@ -44,48 +44,18 @@ package:
   individually: true
 
 functions:
-  opensky:
-    timeout: 35
+  batch:
+    timeout: 60
     memorySize: 256
     handler: bootstrap
     package:
-      artifact: .aws-cron-build/opensky.zip
+      artifact: .aws-cron-build/batch.zip
     events:
       - schedule:
           rate: cron(0/15 * * * ? *)
-          enabled: false
-          input:
-            job: opensky
-  metar:
-    handler: bootstrap
-    package:
-      artifact: .aws-cron-build/metar.zip
-    events:
-      - schedule:
-          rate: cron(2/15 * * * ? *)
           enabled: true
           input:
-            job: metar
-  flighty:
-    handler: bootstrap
-    package:
-      artifact: .aws-cron-build/flighty.zip
-    events:
-      - schedule:
-          rate: cron(5/15 * * * ? *)
-          enabled: true
-          input:
-            job: flighty
-  adsbdb:
-    handler: bootstrap
-    package:
-      artifact: .aws-cron-build/adsbdb.zip
-    events:
-      - schedule:
-          rate: cron(12 * * * ? *)
-          enabled: true
-          input:
-            job: adsbdb
+            job: batch
   adsblol:
     timeout: 15
     memorySize: 128
@@ -98,18 +68,6 @@ functions:
           enabled: true
           input:
             job: adsblol
-  tracks:
-    timeout: 35
-    memorySize: 256
-    handler: bootstrap
-    package:
-      artifact: .aws-cron-build/tracks.zip
-    events:
-      - schedule:
-          rate: cron(25,55 * * * ? *)
-          enabled: true
-          input:
-            job: tracks
 
 resources:
   Conditions:

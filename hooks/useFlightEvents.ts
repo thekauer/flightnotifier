@@ -67,6 +67,23 @@ function getFlightNotificationBody(flight: Flight): string {
   return flight.callsign || flight.id;
 }
 
+function getSelectedRunwayNotificationLabel(
+  selectedRunwayLabels: string[],
+  airportIdent: string,
+): string {
+  if (selectedRunwayLabels.length === 1) {
+    return `${selectedRunwayLabels[0]} Active!`;
+  }
+
+  if (selectedRunwayLabels.length > 1) {
+    return selectedRunwayLabels.length <= 2
+      ? `${selectedRunwayLabels.join(' + ')} Active!`
+      : `${selectedRunwayLabels.length} Selected Runways Active!`;
+  }
+
+  return airportIdent === DEFAULT_AIRPORT.ident ? 'RWY 09/27 Active!' : 'Approach Active!';
+}
+
 function normalizeRegistration(value: string | null | undefined): string {
   return (value ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '');
 }
@@ -140,9 +157,9 @@ function getFlightNotificationImage(flight: Flight): string | undefined {
   return bestCandidate?.imageUrl ?? candidates[0]?.imageUrl;
 }
 
-function notifyBuitenveldertbaan(flights: Flight[]): void {
+function notifySelectedRunwayActive(flights: Flight[], title: string): void {
   if (flights.length === 0) return;
-  void showAppNotification('Buitenveldertbaan Active!', {
+  void showAppNotification(title, {
     body: `${flights.length} flight(s) approaching`,
     tag: 'buitenveldertbaan-active',
   });
@@ -150,8 +167,8 @@ function notifyBuitenveldertbaan(flights: Flight[]): void {
 
 function notifyNewApproach(flight: Flight): void {
   const image = getFlightNotificationImage(flight);
-  void showAppNotification(getFlightNotificationTitle(flight), {
-    body: getFlightNotificationBody(flight),
+  void showAppNotification(`Approach · ${getFlightNotificationTitle(flight)}`, {
+    body: `On approach: ${getFlightNotificationBody(flight)}`,
     ...(image ? { icon: image, image } : {}),
     tag: `approach-${flight.id}`,
   });
@@ -159,8 +176,8 @@ function notifyNewApproach(flight: Flight): void {
 
 function notifyZoneEntry(flight: Flight): void {
   const image = getFlightNotificationImage(flight);
-  void showAppNotification(getFlightNotificationTitle(flight), {
-    body: getFlightNotificationBody(flight),
+  void showAppNotification(`Visible Now · ${getFlightNotificationTitle(flight)}`, {
+    body: `Visible now: ${getFlightNotificationBody(flight)}`,
     ...(image ? { icon: image, image } : {}),
     tag: `zone-entry-${flight.id}-${Date.now()}`,
   });
@@ -205,6 +222,15 @@ export function useFlightEvents() {
   const { zone } = useNotificationZone();
   const { settings: visibilitySettings } = useVisibilitySettings();
   const focusedAirportIdent = useSelectedAirportsStore((state) => state.selectedAirports[0]?.ident ?? DEFAULT_AIRPORT.ident);
+  const selectedRunwayLabels = useSelectedAirportsStore((state) =>
+    state.selectedRunways
+      .filter((runway) => runway.airportIdent === focusedAirportIdent)
+      .map((runway) => `RWY ${runway.leIdent}/${runway.heIdent}`),
+  );
+  const selectedRunwayNotificationTitle = getSelectedRunwayNotificationLabel(
+    selectedRunwayLabels,
+    focusedAirportIdent,
+  );
   const visibilitySettingsRef = useRef(visibilitySettings);
   const isTypeEnabledRef = useRef(isTypeEnabled);
   const zoneRef = useRef(zone);
@@ -291,8 +317,9 @@ export function useFlightEvents() {
             break;
           }
           case 'buitenveldertbaan_activated':
-            notifyBuitenveldertbaan(
+            notifySelectedRunwayActive(
               parsed.flights.filter((flight) => isTypeEnabledRef.current(flight.aircraftType)),
+              selectedRunwayNotificationTitle,
             );
             break;
           case 'new_approach':
@@ -352,7 +379,7 @@ export function useFlightEvents() {
     return () => {
       es.close();
     };
-  }, [flightStateKey, focusedAirportIdent, queryClient, zone]);
+  }, [flightStateKey, focusedAirportIdent, queryClient, selectedRunwayNotificationTitle, zone]);
 
   const { data: state = INITIAL_STATE } = useQuery<FlightState>({
     queryKey: flightStateKey,

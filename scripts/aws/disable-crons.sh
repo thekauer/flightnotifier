@@ -5,7 +5,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 STAGE="${SLS_STAGE:-${STAGE:-prod}}"
 REGION="${AWS_REGION:-eu-central-1}"
-FUNCTIONS=(opensky metar flighty adsbdb adsblol tracks)
+FUNCTIONS=(batch adsblol)
 
 disable_rules_for_function() {
   local function_name="$1"
