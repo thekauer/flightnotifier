@@ -93,12 +93,18 @@ export function AnimatedFlightMarker({
   const corridorProgressKmRef = useRef(corridorGuidance?.distanceAlongKm ?? 0);
   const inZoneRef = useRef(isInZone);
   const iconRef = useRef<L.DivIcon | null>(null);
+  const hasReceivedUpdateRef = useRef(false);
 
   if (
     flightRef.current.lat !== flight.lat ||
     flightRef.current.lon !== flight.lon ||
     corridorGuidanceRef.current?.corridorId !== corridorGuidance?.corridorId
   ) {
+    if (!hasReceivedUpdateRef.current) {
+      // First position update — snap directly, don't ease
+      posRef.current = { lat: flight.lat, lon: flight.lon };
+      hasReceivedUpdateRef.current = true;
+    }
     if (corridorGuidance) {
       corridorProgressKmRef.current = Math.max(corridorProgressKmRef.current, corridorGuidance.distanceAlongKm);
     } else {
