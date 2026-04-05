@@ -68,6 +68,11 @@ if [[ -f "$ROOT_DIR/.env.cron.dev" ]]; then
   # shellcheck disable=SC1091
   source "$ROOT_DIR/.env.cron.dev"
   set +a
+elif [[ -f "$ROOT_DIR/.env.cron" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$ROOT_DIR/.env.cron"
+  set +a
 elif [[ -f "$ROOT_DIR/.env" ]]; then
   set -a
   # shellcheck disable=SC1091

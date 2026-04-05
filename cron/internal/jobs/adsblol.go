@@ -44,6 +44,7 @@ type adsblolAirportPoll struct {
 	QueryRadius   int
 	RequestURL    string
 	UpstreamTotal int
+	Raw           *adsblolResponse
 	Filtered      *adsblolResponse
 }
 
@@ -86,6 +87,11 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 		return nil, fmt.Errorf("adsblol airport pulls failed: %w", err)
 	}
 
+	polledAt := time.Now().UTC()
+	if _, err := archiveAdsbLolPolls(ctx, conn, polledAt, polls); err != nil {
+		return nil, err
+	}
+
 	tx, err := conn.Begin(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("begin adsblol transaction: %w", err)
@@ -94,7 +100,6 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 
 	airportResults := make([]adsblolAirportResult, 0, len(polls))
 	totalInserted := 0
-	polledAt := time.Now().UTC()
 	for _, poll := range polls {
 		result, err := insertAdsbLolAirportStates(ctx, tx, poll, polledAt)
 		if err != nil {
@@ -184,6 +189,7 @@ func fetchAdsbLolAirportPoll(ctx context.Context, client *http.Client, airport a
 		QueryRadius:   queryRadius,
 		RequestURL:    requestURL,
 		UpstreamTotal: data.Total,
+		Raw:           data,
 		Filtered: &adsblolResponse{
 			Now:   data.Now,
 			Ctime: data.Ctime,

@@ -2,6 +2,11 @@ service: flightnotifier-crons
 frameworkVersion: '3'
 configValidationMode: error
 
+custom:
+  r2ArchiveEnabledByStage:
+    dev: 'false'
+    prod: 'true'
+
 provider:
   name: aws
   runtime: provided.al2023
@@ -17,6 +22,15 @@ provider:
     OPENSKY_CLIENT_ID: ${env:OPENSKY_CLIENT_ID, ''}
     OPENSKY_CLIENT_SECRET: ${env:OPENSKY_CLIENT_SECRET, ''}
     DATABASE_URL: ${env:DATABASE_URL, ''}
+    R2_ARCHIVE_ENABLED: ${env:R2_ARCHIVE_ENABLED, self:custom.r2ArchiveEnabledByStage.${sls:stage}, 'false'}
+    R2_ACCOUNT_ID: ${env:R2_ACCOUNT_ID, ''}
+    R2_ACCESS_KEY_ID: ${env:R2_ACCESS_KEY_ID, ''}
+    R2_SECRET_ACCESS_KEY: ${env:R2_SECRET_ACCESS_KEY, ''}
+    R2_BUCKET: ${env:R2_BUCKET, ''}
+    R2_PREFIX: ${env:R2_PREFIX, 'flightnotifier/${sls:stage}'}
+    R2_ARCHIVE_MAX_BYTES_PER_MONTH: ${env:R2_ARCHIVE_MAX_BYTES_PER_MONTH, ''}
+    R2_ARCHIVE_MAX_OBJECTS_PER_MONTH: ${env:R2_ARCHIVE_MAX_OBJECTS_PER_MONTH, ''}
+    R2_ARCHIVE_MAX_TOTAL_BYTES: ${env:R2_ARCHIVE_MAX_TOTAL_BYTES, ''}
   tags:
     project: flightnotifier
     system: cron

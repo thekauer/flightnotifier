@@ -55,6 +55,21 @@ Required values in `.env.cron` before deploy:
 - `OPENSKY_CLIENT_SECRET`
 - `DATABASE_URL`
 
+Optional raw archive settings for `adsblol`:
+
+- `R2_ARCHIVE_ENABLED=true` to enable dual-write archiving
+- `R2_ACCOUNT_ID`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+- `R2_PREFIX` to group objects under a shared path like `flightnotifier/dev`
+- `R2_ARCHIVE_MAX_BYTES_PER_MONTH` to hard-stop uploads after a byte budget
+- `R2_ARCHIVE_MAX_OBJECTS_PER_MONTH` to hard-stop uploads after an object budget
+- `R2_ARCHIVE_MAX_TOTAL_BYTES` to keep only the newest data within a rolling total storage cap
+
+When either archive cap is set, the cron keeps a monthly usage counter in Postgres and skips R2 uploads once the next object would exceed the configured limit. The regular Postgres ingest path still continues.
+When `R2_ARCHIVE_MAX_TOTAL_BYTES` is set, the cron deletes the oldest archived objects under the source prefix before uploading a new one so the newest archive stays within the configured total size.
+
 ## Guardrails
 
 The Serverless stack config sets:
