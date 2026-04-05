@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import type { FlightState, StateChangeEvent, Flight, VisibilityPrediction, RunwayPrediction } from '@/lib/types';
 import { getAircraftImageFamilyId } from '@/lib/aircraftTypes';
@@ -223,10 +223,13 @@ export function useFlightEvents() {
   const { zone } = useNotificationZone();
   const { settings: visibilitySettings } = useVisibilitySettings();
   const focusedAirportIdent = useSelectedAirportsStore((state) => state.selectedAirports[0]?.ident ?? DEFAULT_AIRPORT.ident);
-  const selectedRunwayLabels = useSelectedAirportsStore((state) =>
-    state.selectedRunways
+  const selectedRunways = useSelectedAirportsStore((state) => state.selectedRunways);
+  const selectedRunwayLabels = useMemo(
+    () =>
+      selectedRunways
       .filter((runway) => runway.airportIdent === focusedAirportIdent)
       .map((runway) => `RWY ${runway.leIdent}/${runway.heIdent}`),
+    [focusedAirportIdent, selectedRunways],
   );
   const selectedRunwayNotificationTitle = getSelectedRunwayNotificationLabel(
     selectedRunwayLabels,
