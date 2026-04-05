@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import type { FlightState, StateChangeEvent, Flight, VisibilityPrediction, RunwayPrediction } from '@/lib/types';
 import { getAircraftImageFamilyId } from '@/lib/aircraftTypes';
 import { useAircraftFilter } from '@/lib/aircraftFilterContext';
@@ -216,6 +216,7 @@ function filterStateForAirport(state: FlightState, airportIdent: string): Flight
 
 export function useFlightEvents() {
   const queryClient = useQueryClient();
+  const [state, setState] = useState<FlightState>(INITIAL_STATE);
   const [connected, setConnected] = useState(false);
   const connectedRef = useRef(false);
   const { isTypeEnabled } = useAircraftFilter();
@@ -236,7 +237,6 @@ export function useFlightEvents() {
   const zoneRef = useRef(zone);
   const zoneFlightIdsRef = useRef<Set<string>>(new Set());
   const hasPrimedZoneEntriesRef = useRef(false);
-  const flightStateKey = ['flightState', focusedAirportIdent] as const;
 
   // Keep refs in sync so the useEffect dependency triggers reconnection
   zoneRef.current = zone;
@@ -313,7 +313,7 @@ export function useFlightEvents() {
               hasPrimedZoneEntriesRef.current = false;
             }
 
-            queryClient.setQueryData<FlightState>(flightStateKey, scopedState);
+            setState(scopedState);
             break;
           }
           case 'buitenveldertbaan_activated':
@@ -355,20 +355,19 @@ export function useFlightEvents() {
             queryClient.setQueryData(getScheduleKey(focusedAirportIdent), parsed.schedule);
             break;
           case 'weather_updated':
-            queryClient.setQueryData<FlightState>(flightStateKey, (current) => {
-              if (!current) {
-                return {
-                  ...INITIAL_STATE,
-                  focusAirportIdent: focusedAirportIdent,
-                  weather: parsed.weather ?? null,
-                };
-              }
-
-              return {
-                ...current,
-                weather: parsed.weather ?? null,
-              };
-            });
+            setState((current) => ({
+              ...(current.focusAirportIdent === focusedAirportIdent
+                ? current
+                : {
+                    ...INITIAL_STATE,
+                    focusAirportIdent: focusedAirportIdent,
+                    allFlights: [],
+                    approachingFlights: [],
+                    buitenveldertbaanActive: false,
+                    lastUpdateMs: 0,
+                  }),
+              weather: parsed.weather ?? null,
+            }));
             break;
         }
       } catch {
@@ -379,21 +378,48 @@ export function useFlightEvents() {
     return () => {
       es.close();
     };
-  }, [flightStateKey, focusedAirportIdent, queryClient, selectedRunwayNotificationTitle, zone]);
+  }, [focusedAirportIdent, queryClient, selectedRunwayNotificationTitle, zone]);
 
-  const { data: state = INITIAL_STATE } = useQuery<FlightState>({
-    queryKey: flightStateKey,
-    queryFn: async () => {
-      const res = await fetch(`/api/state?airport=${encodeURIComponent(focusedAirportIdent)}`);
-      if (!res.ok) throw new Error('Failed to fetch flight state');
-      const raw = (await res.json()) as FlightState;
-      return filterStateForAirport(raw, focusedAirportIdent);
-    },
-    staleTime: Infinity,
-    refetchOnWindowFocus: false,
-    // Bootstrap from /api/state while SSE connects.
-    enabled: !connectedRef.current,
-  });
+  useEffect(() => {
+    let cancelled = false;
+
+    setState((current) =>
+      current.focusAirportIdent === focusedAirportIdent
+        ? current
+        : {
+            ...INITIAL_STATE,
+            focusAirportIdent: focusedAirportIdent,
+          },
+    );
+
+    void (async () => {
+      try {
+        const res = await fetch(`/api/state?airport=${encodeURIComponent(focusedAirportIdent)}`);
+        if (!res.ok) throw new Error('Failed to fetch flight state');
+        const raw = (await res.json()) as FlightState;
+        if (cancelled) {
+          return;
+        }
+        setState(filterStateForAirport(raw, focusedAirportIdent));
+      } catch {
+        if (cancelled) {
+          return;
+        }
+        setState((current) =>
+          current.focusAirportIdent === focusedAirportIdent
+            ? current
+            : {
+                ...INITIAL_STATE,
+                focusAirportIdent: focusedAirportIdent,
+              },
+        );
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [focusedAirportIdent]);
 
   const requestNotificationPermission = useCallback(() => {
     if (typeof Notification !== 'undefined') {

@@ -13,6 +13,7 @@ interface SelectedAirportsState {
   hasCompletedOnboarding: boolean;
   forceAirportEditing: boolean;
   hasHydrated: boolean;
+  selectedAirportChangedAt: number | null;
   setSelectedAirport: (airport: AirportSearchRecord) => void;
   toggleSelectedRunway: (runway: SelectedRunwayRecord) => void;
   clearSelectedRunways: () => void;
@@ -31,12 +32,14 @@ export const useSelectedAirportsStore = create<SelectedAirportsState>()(
       hasCompletedOnboarding: false,
       forceAirportEditing: false,
       hasHydrated: false,
+      selectedAirportChangedAt: null,
       setSelectedAirport: (airport) =>
         set({
           selectedAirports: [airport],
           selectedRunways: [],
           hasCompletedOnboarding: false,
           forceAirportEditing: false,
+          selectedAirportChangedAt: Date.now(),
         }),
       toggleSelectedRunway: (runway) =>
         set((state) => {
@@ -53,7 +56,13 @@ export const useSelectedAirportsStore = create<SelectedAirportsState>()(
       reopenOnboarding: () => set({ hasCompletedOnboarding: false, forceAirportEditing: true }),
       consumeAirportEditingRequest: () => set({ forceAirportEditing: false }),
       clearSelectedAirports: () =>
-        set({ selectedAirports: [], selectedRunways: [], hasCompletedOnboarding: false, forceAirportEditing: false }),
+        set({
+          selectedAirports: [],
+          selectedRunways: [],
+          hasCompletedOnboarding: false,
+          forceAirportEditing: false,
+          selectedAirportChangedAt: null,
+        }),
       setHasHydrated: (hasHydrated) => set({ hasHydrated }),
     }),
     {
@@ -63,6 +72,7 @@ export const useSelectedAirportsStore = create<SelectedAirportsState>()(
         selectedAirports: state.selectedAirports,
         selectedRunways: state.selectedRunways,
         hasCompletedOnboarding: state.hasCompletedOnboarding,
+        selectedAirportChangedAt: state.selectedAirportChangedAt,
       }),
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);

@@ -1,7 +1,11 @@
 'use client';
 
 import NumberFlow from '@number-flow/react';
+import { useEffect, useState } from 'react';
 import type { FlightState } from '@/lib/types';
+import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
+
+const WAITING_FOR_DATA_WINDOW_MS = 2 * 60_000;
 
 interface StatusBannerProps {
   state: FlightState;
@@ -13,18 +17,58 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
   const approachCount = state.approachingFlights.length;
   const totalCount = state.allFlights.length;
   const airborneCount = state.allFlights.filter((f) => !f.onGround).length;
+  const selectedAirportChangedAt = useSelectedAirportsStore((store) => store.selectedAirportChangedAt);
+  const [nowMs, setNowMs] = useState(() => Date.now());
   const notificationsGranted =
     typeof Notification !== 'undefined' && Notification.permission === 'granted';
   const activityLabel = state.focusAirportIdent === 'EHAM' ? 'RWY 09/27' : 'Approach';
+  const isWaitingForData =
+    connected &&
+    totalCount === 0 &&
+    selectedAirportChangedAt !== null &&
+    nowMs - selectedAirportChangedAt < WAITING_FOR_DATA_WINDOW_MS;
+
+  useEffect(() => {
+    if (selectedAirportChangedAt === null) {
+      return;
+    }
+
+    const expiresAt = selectedAirportChangedAt + WAITING_FOR_DATA_WINDOW_MS;
+    const remainingMs = expiresAt - Date.now();
+    if (remainingMs <= 0) {
+      setNowMs(Date.now());
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setNowMs(Date.now());
+    }, remainingMs);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [selectedAirportChangedAt]);
+
+  const connectionDotClass = !connected
+    ? 'bg-red-500'
+    : isWaitingForData
+      ? 'bg-violet-500 animate-pulse'
+      : 'bg-emerald-500 animate-pulse';
+
+  const connectionLabel = !connected
+    ? 'Offline'
+    : isWaitingForData
+      ? 'Waiting for data'
+      : 'Live';
+
+  const connectionTextClass = isWaitingForData ? 'text-violet-700 dark:text-violet-300' : '';
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-card px-2 py-2 mb-1 text-xs sm:px-6 sm:py-2.5 sm:mb-2">
       {/* Connection */}
       <div className="flex items-center gap-1.5">
-        <span
-          className={`h-2 w-2 rounded-full ${connected ? 'bg-emerald-500 animate-pulse' : 'bg-red-500'}`}
-        />
-        <span className="font-medium">{connected ? 'Live' : 'Offline'}</span>
+        <span className={`h-2 w-2 rounded-full ${connectionDotClass}`} />
+        <span className={`font-medium ${connectionTextClass}`}>{connectionLabel}</span>
       </div>
 
       
