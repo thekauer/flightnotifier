@@ -63,11 +63,14 @@ Optional raw archive settings for `adsblol`:
 - `R2_SECRET_ACCESS_KEY`
 - `R2_BUCKET`
 - `R2_PREFIX` to group objects under a shared path like `flightnotifier/dev`
-- `R2_ARCHIVE_MAX_BYTES_PER_MONTH` to hard-stop uploads after a byte budget
+- `R2_ARCHIVE_MAX_BYTES_PER_MONTH` to hard-stop uploads after a byte budget. When unset, the cron defaults to `7 GiB` per month.
+- `R2_ARCHIVE_MAX_BYTES_PER_DAY` to enforce a daily byte ceiling. When unset, the cron derives it from the monthly budget and the number of days in the current month.
+- `R2_ARCHIVE_MAX_OBJECT_BYTES` to cap the size of a single uploaded archive object. When unset, it defaults to the daily byte ceiling.
 - `R2_ARCHIVE_MAX_OBJECTS_PER_MONTH` to hard-stop uploads after an object budget
 - `R2_ARCHIVE_MAX_TOTAL_BYTES` to keep only the newest data within a rolling total storage cap
 
 When either archive cap is set, the cron keeps a monthly usage counter in Postgres and skips R2 uploads once the next object would exceed the configured limit. The regular Postgres ingest path still continues.
+When a single ADSB archive would exceed the object cap, the cron retries the archive using only the always-on airports. If that trimmed payload still exceeds the cap, the upload is skipped while the main ingest continues.
 When `R2_ARCHIVE_MAX_TOTAL_BYTES` is set, the cron deletes the oldest archived objects under the source prefix before uploading a new one so the newest archive stays within the configured total size.
 
 ## Guardrails

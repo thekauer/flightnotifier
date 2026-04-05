@@ -9,7 +9,7 @@ import type { AirportSearchRecord } from '@/lib/airport-catalog';
 import { cn } from '@/lib/utils';
 import { DEFAULT_AIRPORT, formatAirportCode, formatAirportSubtitle } from '@/lib/defaultAirport';
 import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
-import type { SelectedRunwayRecord } from '@/lib/runwaySelection';
+import { formatSelectedRunwayLabel, type SelectedRunwayRecord } from '@/lib/runwaySelection';
 import { runViewTransition } from '@/lib/viewTransitions';
 
 function ResultRow({
@@ -431,7 +431,7 @@ export function OnboardingPageContent() {
                       key={runway.key}
                       className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-amber-800 dark:bg-amber-950/60 dark:text-amber-300"
                     >
-                      {runway.leIdent}/{runway.heIdent}
+                      {formatSelectedRunwayLabel(runway)}
                     </span>
                   ))
                 ) : (

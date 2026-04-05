@@ -43,6 +43,8 @@ type r2ArchiveConfig struct {
 	Bucket             string
 	Prefix             string
 	MaxBytesPerMonth   int64
+	MaxBytesPerDay     int64
+	MaxBytesPerObject  int64
 	MaxObjectsPerMonth int64
 	MaxTotalBytes      int64
 }
@@ -54,6 +56,8 @@ var (
 	archiveUsageTableOnce sync.Once
 	archiveUsageTableErr  error
 )
+
+const defaultArchiveMaxBytesPerMonth int64 = 7 * 1024 * 1024 * 1024
 
 func readR2ArchiveConfig() (*r2ArchiveConfig, bool, error) {
 	enabled := strings.EqualFold(strings.TrimSpace(os.Getenv("R2_ARCHIVE_ENABLED")), "true")
@@ -72,7 +76,18 @@ func readR2ArchiveConfig() (*r2ArchiveConfig, bool, error) {
 	if err != nil {
 		return nil, false, err
 	}
+	if maxBytes == 0 {
+		maxBytes = defaultArchiveMaxBytesPerMonth
+	}
 	maxObjects, err := readInt64Env("R2_ARCHIVE_MAX_OBJECTS_PER_MONTH", 0)
+	if err != nil {
+		return nil, false, err
+	}
+	maxBytesPerDay, err := readInt64Env("R2_ARCHIVE_MAX_BYTES_PER_DAY", 0)
+	if err != nil {
+		return nil, false, err
+	}
+	maxBytesPerObject, err := readInt64Env("R2_ARCHIVE_MAX_OBJECT_BYTES", 0)
 	if err != nil {
 		return nil, false, err
 	}
@@ -81,8 +96,16 @@ func readR2ArchiveConfig() (*r2ArchiveConfig, bool, error) {
 		return nil, false, err
 	}
 	cfg.MaxBytesPerMonth = maxBytes
+	cfg.MaxBytesPerDay = maxBytesPerDay
+	cfg.MaxBytesPerObject = maxBytesPerObject
 	cfg.MaxObjectsPerMonth = maxObjects
 	cfg.MaxTotalBytes = maxTotalBytes
+	if cfg.MaxBytesPerDay == 0 && cfg.MaxBytesPerMonth > 0 {
+		cfg.MaxBytesPerDay = deriveDailyArchiveBudget(time.Now().UTC(), cfg.MaxBytesPerMonth)
+	}
+	if cfg.MaxBytesPerObject == 0 {
+		cfg.MaxBytesPerObject = cfg.MaxBytesPerDay
+	}
 
 	switch {
 	case cfg.AccountID == "":
@@ -156,6 +179,19 @@ func buildAdsbLolArchiveKey(prefix string, archivedAt time.Time) string {
 	return path.Join(segments...)
 }
 
+func deriveDailyArchiveBudget(day time.Time, monthlyBudget int64) int64 {
+	if monthlyBudget <= 0 {
+		return 0
+	}
+
+	daysInMonth := time.Date(day.UTC().Year(), day.UTC().Month()+1, 0, 0, 0, 0, 0, time.UTC).Day()
+	if daysInMonth <= 0 {
+		return monthlyBudget
+	}
+
+	return (monthlyBudget + int64(daysInMonth) - 1) / int64(daysInMonth)
+}
+
 func gzipJSON(value any) ([]byte, error) {
 	var raw bytes.Buffer
 	encoder := json.NewEncoder(&raw)
@@ -181,15 +217,7 @@ func gzipJSON(value any) ([]byte, error) {
 	return compressed.Bytes(), nil
 }
 
-func archiveAdsbLolPolls(ctx context.Context, conn *pgx.Conn, archivedAt time.Time, polls []adsblolAirportPoll) (string, error) {
-	archiveCfg, enabled, err := readR2ArchiveConfig()
-	if err != nil {
-		return "", err
-	}
-	if !enabled || len(polls) == 0 {
-		return "", nil
-	}
-
+func buildAdsbLolArchiveBody(archivedAt time.Time, polls []adsblolAirportPoll) ([]byte, error) {
 	records := make([]adsblolArchiveAirportRecord, 0, len(polls))
 	for _, poll := range polls {
 		records = append(records, adsblolArchiveAirportRecord{
@@ -208,9 +236,72 @@ func archiveAdsbLolPolls(ctx context.Context, conn *pgx.Conn, archivedAt time.Ti
 		Polls:      records,
 	}
 
-	body, err := gzipJSON(payload)
+	return gzipJSON(payload)
+}
+
+func isDefaultMonitoredAirport(ident string) bool {
+	normalized := strings.ToUpper(strings.TrimSpace(ident))
+	for _, airport := range defaultMonitoredAirports {
+		if airport.Ident == normalized {
+			return true
+		}
+	}
+	return false
+}
+
+func filterArchivePollsToDefaultAirports(polls []adsblolAirportPoll) []adsblolAirportPoll {
+	filtered := make([]adsblolAirportPoll, 0, len(polls))
+	for _, poll := range polls {
+		if isDefaultMonitoredAirport(poll.Airport.Ident) {
+			filtered = append(filtered, poll)
+		}
+	}
+	return filtered
+}
+
+func archiveAdsbLolPolls(ctx context.Context, conn *pgx.Conn, archivedAt time.Time, polls []adsblolAirportPoll) (string, error) {
+	archiveCfg, enabled, err := readR2ArchiveConfig()
+	if err != nil {
+		return "", err
+	}
+	if !enabled || len(polls) == 0 {
+		return "", nil
+	}
+
+	body, err := buildAdsbLolArchiveBody(archivedAt, polls)
 	if err != nil {
 		return "", fmt.Errorf("encode adsblol archive: %w", err)
+	}
+	originalBodyBytes := len(body)
+	if archiveCfg.MaxBytesPerObject > 0 && int64(len(body)) > archiveCfg.MaxBytesPerObject {
+		defaultPolls := filterArchivePollsToDefaultAirports(polls)
+		if len(defaultPolls) == 0 {
+			log.Printf(
+				"[cron/adsblol] skipped R2 archive upload because payload size %d exceeded object cap %d and no always-on airports were present",
+				len(body),
+				archiveCfg.MaxBytesPerObject,
+			)
+			return "", nil
+		}
+
+		body, err = buildAdsbLolArchiveBody(archivedAt, defaultPolls)
+		if err != nil {
+			return "", fmt.Errorf("encode trimmed adsblol archive: %w", err)
+		}
+		if archiveCfg.MaxBytesPerObject > 0 && int64(len(body)) > archiveCfg.MaxBytesPerObject {
+			log.Printf(
+				"[cron/adsblol] skipped R2 archive upload because trimmed always-on payload size %d still exceeded object cap %d",
+				len(body),
+				archiveCfg.MaxBytesPerObject,
+			)
+			return "", nil
+		}
+
+		log.Printf(
+			"[cron/adsblol] trimmed R2 archive payload from %d to %d bytes by keeping always-on airports only",
+			originalBodyBytes,
+			len(body),
+		)
 	}
 
 	if conn != nil {
@@ -219,7 +310,7 @@ func archiveAdsbLolPolls(ctx context.Context, conn *pgx.Conn, archivedAt time.Ti
 			return "", err
 		}
 		if !allowed {
-			log.Printf("[cron/adsblol] skipped R2 archive upload because monthly cap would be exceeded")
+			log.Printf("[cron/adsblol] skipped R2 archive upload because the configured daily or monthly budget would be exceeded")
 			return "", nil
 		}
 	}
@@ -235,11 +326,10 @@ func archiveAdsbLolPolls(ctx context.Context, conn *pgx.Conn, archivedAt time.Ti
 
 	key := buildAdsbLolArchiveKey(archiveCfg.Prefix, archivedAt)
 	_, err = client.PutObject(ctx, &s3.PutObjectInput{
-		Bucket:          &archiveCfg.Bucket,
-		Key:             &key,
-		Body:            bytes.NewReader(body),
-		ContentType:     awsString("application/json"),
-		ContentEncoding: awsString("gzip"),
+		Bucket:      &archiveCfg.Bucket,
+		Key:         &key,
+		Body:        bytes.NewReader(body),
+		ContentType: awsString("application/gzip"),
 	})
 	if err != nil {
 		if conn != nil {
@@ -372,6 +462,11 @@ func monthStartUTC(value time.Time) time.Time {
 	return time.Date(utc.Year(), utc.Month(), 1, 0, 0, 0, 0, time.UTC)
 }
 
+func dayStartUTC(value time.Time) time.Time {
+	utc := value.UTC()
+	return time.Date(utc.Year(), utc.Month(), utc.Day(), 0, 0, 0, 0, time.UTC)
+}
+
 func ensureArchiveUsageTable(ctx context.Context, conn *pgx.Conn) error {
 	archiveUsageTableOnce.Do(func() {
 		_, archiveUsageTableErr = conn.Exec(ctx, `
@@ -382,6 +477,14 @@ func ensureArchiveUsageTable(ctx context.Context, conn *pgx.Conn) error {
 				total_bytes bigint NOT NULL DEFAULT 0,
 				updated_at timestamp with time zone NOT NULL DEFAULT now(),
 				PRIMARY KEY (source, month_start)
+			);
+			CREATE TABLE IF NOT EXISTS public.archive_usage_daily (
+				source text NOT NULL,
+				day_start timestamp with time zone NOT NULL,
+				object_count bigint NOT NULL DEFAULT 0,
+				total_bytes bigint NOT NULL DEFAULT 0,
+				updated_at timestamp with time zone NOT NULL DEFAULT now(),
+				PRIMARY KEY (source, day_start)
 			)
 		`)
 	})
@@ -390,7 +493,7 @@ func ensureArchiveUsageTable(ctx context.Context, conn *pgx.Conn) error {
 }
 
 func reserveArchiveBudget(ctx context.Context, conn *pgx.Conn, archiveCfg *r2ArchiveConfig, source string, archivedAt time.Time, objectBytes int64) (bool, error) {
-	if archiveCfg.MaxBytesPerMonth == 0 && archiveCfg.MaxObjectsPerMonth == 0 {
+	if archiveCfg.MaxBytesPerMonth == 0 && archiveCfg.MaxBytesPerDay == 0 && archiveCfg.MaxObjectsPerMonth == 0 {
 		return true, nil
 	}
 	if err := ensureArchiveUsageTable(ctx, conn); err != nil {
@@ -404,6 +507,7 @@ func reserveArchiveBudget(ctx context.Context, conn *pgx.Conn, archiveCfg *r2Arc
 	defer tx.Rollback(ctx)
 
 	monthStart := monthStartUTC(archivedAt)
+	dayStart := dayStartUTC(archivedAt)
 	if _, err := tx.Exec(ctx, `
 		INSERT INTO public.archive_usage_monthly (source, month_start, object_count, total_bytes, updated_at)
 		VALUES ($1, $2, 0, 0, now())
@@ -411,24 +515,44 @@ func reserveArchiveBudget(ctx context.Context, conn *pgx.Conn, archiveCfg *r2Arc
 	`, source, monthStart); err != nil {
 		return false, fmt.Errorf("seed archive usage row: %w", err)
 	}
+	if _, err := tx.Exec(ctx, `
+		INSERT INTO public.archive_usage_daily (source, day_start, object_count, total_bytes, updated_at)
+		VALUES ($1, $2, 0, 0, now())
+		ON CONFLICT (source, day_start) DO NOTHING
+	`, source, dayStart); err != nil {
+		return false, fmt.Errorf("seed daily archive usage row: %w", err)
+	}
 
 	var currentObjects int64
-	var currentBytes int64
+	var currentMonthBytes int64
 	if err := tx.QueryRow(ctx, `
 		SELECT object_count, total_bytes
 		FROM public.archive_usage_monthly
 		WHERE source = $1 AND month_start = $2
 		FOR UPDATE
-	`, source, monthStart).Scan(&currentObjects, &currentBytes); err != nil {
+	`, source, monthStart).Scan(&currentObjects, &currentMonthBytes); err != nil {
 		return false, fmt.Errorf("lock archive usage row: %w", err)
+	}
+	var currentDayBytes int64
+	if err := tx.QueryRow(ctx, `
+		SELECT total_bytes
+		FROM public.archive_usage_daily
+		WHERE source = $1 AND day_start = $2
+		FOR UPDATE
+	`, source, dayStart).Scan(&currentDayBytes); err != nil {
+		return false, fmt.Errorf("lock daily archive usage row: %w", err)
 	}
 
 	nextObjects := currentObjects + 1
-	nextBytes := currentBytes + objectBytes
+	nextMonthBytes := currentMonthBytes + objectBytes
+	nextDayBytes := currentDayBytes + objectBytes
 	if archiveCfg.MaxObjectsPerMonth > 0 && nextObjects > archiveCfg.MaxObjectsPerMonth {
 		return false, nil
 	}
-	if archiveCfg.MaxBytesPerMonth > 0 && nextBytes > archiveCfg.MaxBytesPerMonth {
+	if archiveCfg.MaxBytesPerMonth > 0 && nextMonthBytes > archiveCfg.MaxBytesPerMonth {
+		return false, nil
+	}
+	if archiveCfg.MaxBytesPerDay > 0 && nextDayBytes > archiveCfg.MaxBytesPerDay {
 		return false, nil
 	}
 
@@ -438,8 +562,17 @@ func reserveArchiveBudget(ctx context.Context, conn *pgx.Conn, archiveCfg *r2Arc
 		    total_bytes = $4,
 		    updated_at = now()
 		WHERE source = $1 AND month_start = $2
-	`, source, monthStart, nextObjects, nextBytes); err != nil {
+	`, source, monthStart, nextObjects, nextMonthBytes); err != nil {
 		return false, fmt.Errorf("reserve archive budget: %w", err)
+	}
+	if _, err := tx.Exec(ctx, `
+		UPDATE public.archive_usage_daily
+		SET object_count = object_count + 1,
+		    total_bytes = $3,
+		    updated_at = now()
+		WHERE source = $1 AND day_start = $2
+	`, source, dayStart, nextDayBytes); err != nil {
+		return false, fmt.Errorf("reserve daily archive budget: %w", err)
 	}
 
 	if err := tx.Commit(ctx); err != nil {
@@ -455,6 +588,7 @@ func releaseArchiveBudget(ctx context.Context, conn *pgx.Conn, source string, ar
 	}
 
 	monthStart := monthStartUTC(archivedAt)
+	dayStart := dayStartUTC(archivedAt)
 	_, err := conn.Exec(ctx, `
 		UPDATE public.archive_usage_monthly
 		SET object_count = GREATEST(object_count - 1, 0),
@@ -464,6 +598,16 @@ func releaseArchiveBudget(ctx context.Context, conn *pgx.Conn, source string, ar
 	`, source, monthStart, objectBytes)
 	if err != nil {
 		return fmt.Errorf("release archive budget: %w", err)
+	}
+	_, err = conn.Exec(ctx, `
+		UPDATE public.archive_usage_daily
+		SET object_count = GREATEST(object_count - 1, 0),
+		    total_bytes = GREATEST(total_bytes - $3, 0),
+		    updated_at = now()
+		WHERE source = $1 AND day_start = $2
+	`, source, dayStart, objectBytes)
+	if err != nil {
+		return fmt.Errorf("release daily archive budget: %w", err)
 	}
 
 	return nil

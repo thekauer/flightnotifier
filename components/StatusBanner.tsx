@@ -3,6 +3,7 @@
 import NumberFlow from '@number-flow/react';
 import { useEffect, useState } from 'react';
 import type { FlightState } from '@/lib/types';
+import { formatSelectedRunwayLabel } from '@/lib/runwaySelection';
 import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
 
 const WAITING_FOR_DATA_WINDOW_MS = 2 * 60_000;
@@ -17,11 +18,18 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
   const approachCount = state.approachingFlights.length;
   const totalCount = state.allFlights.length;
   const airborneCount = state.allFlights.filter((f) => !f.onGround).length;
+  const selectedRunways = useSelectedAirportsStore((store) => store.selectedRunways);
   const selectedAirportChangedAt = useSelectedAirportsStore((store) => store.selectedAirportChangedAt);
   const [nowMs, setNowMs] = useState(() => Date.now());
   const notificationsGranted =
     typeof Notification !== 'undefined' && Notification.permission === 'granted';
-  const activityLabel = state.focusAirportIdent === 'EHAM' ? 'RWY 09/27' : 'Approach';
+  const selectedRunwaysForAirport = selectedRunways.filter(
+    (runway) => runway.airportIdent === state.focusAirportIdent,
+  );
+  const activityLabel =
+    selectedRunwaysForAirport.length > 0
+      ? selectedRunwaysForAirport.map(formatSelectedRunwayLabel).join(', ')
+      : 'Approach';
   const isWaitingForData =
     connected &&
     totalCount === 0 &&

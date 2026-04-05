@@ -89,7 +89,7 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 
 	polledAt := time.Now().UTC()
 	if _, err := archiveAdsbLolPolls(ctx, conn, polledAt, polls); err != nil {
-		return nil, err
+		log.Printf("[cron/adsblol] archive upload failed; continuing with DB ingest: %v", err)
 	}
 
 	tx, err := conn.Begin(ctx)

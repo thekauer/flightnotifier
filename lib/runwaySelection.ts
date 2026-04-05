@@ -6,6 +6,22 @@ export interface SelectedRunwayRecord {
   coneKey?: string;
 }
 
+export function getSelectedRunwayIdent(runway: SelectedRunwayRecord): string {
+  if (runway.coneKey?.includes('-le-')) {
+    return runway.leIdent;
+  }
+
+  if (runway.coneKey?.includes('-he-')) {
+    return runway.heIdent;
+  }
+
+  return `${runway.leIdent}/${runway.heIdent}`;
+}
+
+export function formatSelectedRunwayLabel(runway: SelectedRunwayRecord): string {
+  return `RWY ${getSelectedRunwayIdent(runway)}`;
+}
+
 export function runwayMatchesSelection(
   runway: { key?: string; leIdent: string; heIdent: string },
   selectedRunways: SelectedRunwayRecord[],

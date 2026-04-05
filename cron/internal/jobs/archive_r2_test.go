@@ -85,6 +85,27 @@ func TestMonthStartUTC(t *testing.T) {
 	}
 }
 
+func TestDayStartUTC(t *testing.T) {
+	value := time.Date(2026, time.April, 5, 10, 18, 24, 0, time.FixedZone("CEST", 2*60*60))
+	got := dayStartUTC(value)
+
+	expected := time.Date(2026, time.April, 5, 0, 0, 0, 0, time.UTC)
+	if !got.Equal(expected) {
+		t.Fatalf("expected %s, got %s", expected, got)
+	}
+}
+
+func TestDeriveDailyArchiveBudget(t *testing.T) {
+	monthlyBudget := int64(7 * 1024 * 1024 * 1024)
+	day := time.Date(2026, time.February, 12, 10, 0, 0, 0, time.UTC)
+	got := deriveDailyArchiveBudget(day, monthlyBudget)
+
+	expected := (monthlyBudget + 27) / 28
+	if got != expected {
+		t.Fatalf("expected %d, got %d", expected, got)
+	}
+}
+
 func TestReadInt64Env(t *testing.T) {
 	t.Setenv("R2_ARCHIVE_MAX_BYTES_PER_MONTH", "123")
 	value, err := readInt64Env("R2_ARCHIVE_MAX_BYTES_PER_MONTH", 0)
@@ -119,5 +140,51 @@ func TestReadInt64EnvRejectsInvalidValues(t *testing.T) {
 	_ = os.Setenv(key, "-1")
 	if _, err := readInt64Env(key, 0); err == nil {
 		t.Fatalf("expected invalid negative value to fail")
+	}
+}
+
+func TestReadR2ArchiveConfigDefaultsToSevenGiBMonthlyAndDerivedDailyCap(t *testing.T) {
+	t.Setenv("R2_ARCHIVE_ENABLED", "true")
+	t.Setenv("R2_ACCOUNT_ID", "account")
+	t.Setenv("R2_ACCESS_KEY_ID", "access")
+	t.Setenv("R2_SECRET_ACCESS_KEY", "secret")
+	t.Setenv("R2_BUCKET", "bucket")
+	t.Setenv("R2_PREFIX", "prefix")
+	t.Setenv("R2_ARCHIVE_MAX_BYTES_PER_MONTH", "")
+	t.Setenv("R2_ARCHIVE_MAX_BYTES_PER_DAY", "")
+	t.Setenv("R2_ARCHIVE_MAX_OBJECT_BYTES", "")
+
+	cfg, enabled, err := readR2ArchiveConfig()
+	if err != nil {
+		t.Fatalf("readR2ArchiveConfig returned error: %v", err)
+	}
+	if !enabled {
+		t.Fatalf("expected archiving to be enabled")
+	}
+	if cfg.MaxBytesPerMonth != defaultArchiveMaxBytesPerMonth {
+		t.Fatalf("expected default monthly budget %d, got %d", defaultArchiveMaxBytesPerMonth, cfg.MaxBytesPerMonth)
+	}
+	expectedDaily := deriveDailyArchiveBudget(time.Now().UTC(), defaultArchiveMaxBytesPerMonth)
+	if cfg.MaxBytesPerDay != expectedDaily {
+		t.Fatalf("expected derived daily budget %d, got %d", expectedDaily, cfg.MaxBytesPerDay)
+	}
+	if cfg.MaxBytesPerObject != expectedDaily {
+		t.Fatalf("expected object cap to default to daily budget %d, got %d", expectedDaily, cfg.MaxBytesPerObject)
+	}
+}
+
+func TestFilterArchivePollsToDefaultAirports(t *testing.T) {
+	polls := []adsblolAirportPoll{
+		{Airport: adsblolAirportConfig{Ident: "EHAM"}},
+		{Airport: adsblolAirportConfig{Ident: "KPDX"}},
+		{Airport: adsblolAirportConfig{Ident: "KJFK"}},
+	}
+
+	filtered := filterArchivePollsToDefaultAirports(polls)
+	if len(filtered) != 2 {
+		t.Fatalf("expected 2 always-on airport polls, got %d", len(filtered))
+	}
+	if filtered[0].Airport.Ident != "EHAM" || filtered[1].Airport.Ident != "KJFK" {
+		t.Fatalf("unexpected filtered airports: %#v", filtered)
 	}
 }
