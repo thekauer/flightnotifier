@@ -64,7 +64,9 @@ function getFlightNotificationTitle(flight: Flight): string {
 }
 
 function getFlightNotificationBody(flight: Flight): string {
-  return flight.callsign || flight.id;
+  const aircraftType = flight.aircraftType ?? 'Unknown aircraft';
+  const callsign = flight.callsign || flight.id;
+  return `${aircraftType} · ${callsign}`;
 }
 
 function getSelectedRunwayNotificationLabel(
@@ -167,8 +169,8 @@ function notifySelectedRunwayActive(flights: Flight[], title: string): void {
 
 function notifyNewApproach(flight: Flight): void {
   const image = getFlightNotificationImage(flight);
-  void showAppNotification(`Approach · ${getFlightNotificationTitle(flight)}`, {
-    body: `On approach: ${getFlightNotificationBody(flight)}`,
+  void showAppNotification('On Approach', {
+    body: getFlightNotificationBody(flight),
     ...(image ? { icon: image, image } : {}),
     tag: `approach-${flight.id}`,
   });
@@ -176,8 +178,8 @@ function notifyNewApproach(flight: Flight): void {
 
 function notifyZoneEntry(flight: Flight): void {
   const image = getFlightNotificationImage(flight);
-  void showAppNotification(`Visible Now · ${getFlightNotificationTitle(flight)}`, {
-    body: `Visible now: ${getFlightNotificationBody(flight)}`,
+  void showAppNotification('Visible Now', {
+    body: getFlightNotificationBody(flight),
     ...(image ? { icon: image, image } : {}),
     tag: `zone-entry-${flight.id}-${Date.now()}`,
   });
