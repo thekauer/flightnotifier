@@ -1,28 +1,14 @@
 import type { FlightState, StateChangeEvent } from '@/lib/types';
+import { parseZoneBounds } from '@/lib/geoBounds';
 import type { ZoneBounds, VisibilityPrediction } from '@/server/visibility/types';
 import { predictAll } from '@/server/visibility/predictor';
 import { getDbSchedule, getDbState } from './dbStateService';
 
+export { parseZoneBounds } from '@/lib/geoBounds';
+
 const STATE_EVENTS_INTERVAL_MS = 30_000;
 const WEATHER_EVENTS_INTERVAL_MS = 60_000;
 const SCHEDULE_EVENTS_INTERVAL_MS = 30_000;
-
-export function parseZoneBounds(url: URL): ZoneBounds | null {
-  const south = parseFloat(url.searchParams.get('south') ?? '');
-  const west = parseFloat(url.searchParams.get('west') ?? '');
-  const north = parseFloat(url.searchParams.get('north') ?? '');
-  const east = parseFloat(url.searchParams.get('east') ?? '');
-
-  if (isNaN(south) || isNaN(west) || isNaN(north) || isNaN(east)) {
-    return null;
-  }
-
-  if (south >= north || west >= east) {
-    return null;
-  }
-
-  return { south, west, north, east };
-}
 
 function buildVisibilityEvent(state: FlightState, zoneBounds: ZoneBounds): StateChangeEvent {
   const predictions: VisibilityPrediction[] = predictAll(

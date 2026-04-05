@@ -175,6 +175,13 @@ function filterFlightsForAirport(flights: Flight[], airportIdent: string): Fligh
 }
 
 function filterStateForAirport(state: FlightState, airportIdent: string): FlightState {
+  // `/api/state` and `/api/events` already return airport-scoped payloads for the
+  // requested airport. Re-filtering those client-side by origin/destination drops
+  // valid nearby flights for airports where route metadata is sparse (for example KLAX).
+  if (state.focusAirportIdent === airportIdent) {
+    return state;
+  }
+
   const allFlights = filterFlightsForAirport(state.allFlights, airportIdent);
   const approachingFlights =
     state.focusAirportIdent === airportIdent

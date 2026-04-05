@@ -15,6 +15,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
   const airborneCount = state.allFlights.filter((f) => !f.onGround).length;
   const notificationsGranted =
     typeof Notification !== 'undefined' && Notification.permission === 'granted';
+  const activityLabel = state.focusAirportIdent === 'EHAM' ? 'RWY 09/27' : 'Approach';
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-card px-2 py-2 mb-1 text-xs sm:px-6 sm:py-2.5 sm:mb-2">
@@ -39,7 +40,7 @@ export function StatusBanner({ state, connected, onEnableNotifications }: Status
       
       {/* Buitenveldertbaan */}
       <div className="flex items-center gap-1.5">
-        <span className="text-muted-foreground">RWY 09/27</span>
+        <span className="text-muted-foreground">{activityLabel}</span>
         {state.buitenveldertbaanActive ? (
           <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />

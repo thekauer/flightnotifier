@@ -1,11 +1,7 @@
 import type { VisibilityLevel } from '@/lib/api/weather';
+import type { ZoneBounds } from '@/lib/geoBounds';
 
-export interface ZoneBounds {
-  south: number;
-  west: number;
-  north: number;
-  east: number;
-}
+export type { ZoneBounds } from '@/lib/geoBounds';
 
 export interface VisibilityPrediction {
   flightId: string;

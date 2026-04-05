@@ -53,7 +53,12 @@ func RunMetar(ctx context.Context) (any, error) {
 	}
 	defer conn.Close(ctx)
 
-	items, err := fetchMetars(ctx, client)
+	airports, err := resolveMonitoredAirports(ctx, conn)
+	if err != nil {
+		return nil, fmt.Errorf("resolve monitored airports: %w", err)
+	}
+
+	items, err := fetchMetars(ctx, client, airports)
 	if err != nil {
 		return nil, err
 	}
@@ -127,9 +132,9 @@ type metarFetchResult struct {
 	Data    *aviationWeatherResponse
 }
 
-func fetchMetars(ctx context.Context, client *http.Client) ([]metarFetchResult, error) {
-	airports := make([]monitoredAirport, 0, len(monitoredAirports))
-	for _, airport := range monitoredAirports {
+func fetchMetars(ctx context.Context, client *http.Client, monitored []monitoredAirport) ([]metarFetchResult, error) {
+	airports := make([]monitoredAirport, 0, len(monitored))
+	for _, airport := range monitored {
 		if airport.MetarStation != "" {
 			airports = append(airports, airport)
 		}

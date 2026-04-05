@@ -41,7 +41,12 @@ func RunFlighty(ctx context.Context) (any, error) {
 	}
 	defer conn.Close(ctx)
 
-	rows, err := fetchFlightyRows(ctx, client)
+	airports, err := resolveMonitoredAirports(ctx, conn)
+	if err != nil {
+		return nil, fmt.Errorf("resolve monitored airports: %w", err)
+	}
+
+	rows, err := fetchFlightyRows(ctx, client, airports)
 	if err != nil {
 		return nil, err
 	}
@@ -111,9 +116,9 @@ func RunFlighty(ctx context.Context) (any, error) {
 	return flightyResult{Inserted: len(rows)}, nil
 }
 
-func fetchFlightyRows(ctx context.Context, client *http.Client) ([]flightyArrivalRow, error) {
+func fetchFlightyRows(ctx context.Context, client *http.Client, airports []monitoredAirport) ([]flightyArrivalRow, error) {
 	flightyURL := ""
-	for _, airport := range monitoredAirports {
+	for _, airport := range airports {
 		if airport.FlightyArrivalsURL != "" {
 			flightyURL = airport.FlightyArrivalsURL
 			break

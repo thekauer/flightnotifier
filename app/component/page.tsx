@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { AdsbLandingTracksExplorer } from '@/components/AdsbLandingTracksExplorer';
 import { AircraftSpottingGrid } from '@/components/ui/aircraft-spotting-grid';
 import { AIRCRAFT_SPOTTING_TRAITS } from '@/lib/aircraftSpottingTraits';
 
@@ -16,9 +17,21 @@ export default function ComponentPage() {
               Aircraft Spotting Grid
             </p>
             <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">Dev component preview</h1>
-            <p className="max-w-2xl text-sm text-muted-foreground">
-              Apple-style six-slot spotting cards with per-cell highlighting for aircraft recognition traits.
+            <p className="max-w-3xl text-sm text-muted-foreground">
+              Experimental UI space for aircraft components plus a real-data map of Amsterdam arrivals built from our
+              stored ADSB-Lol points.
             </p>
+          </div>
+
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg font-medium">Amsterdam Landing Tracks</h2>
+              <p className="max-w-3xl text-sm text-muted-foreground">
+                ADSB-Lol replay grouped by aircraft, with a UTC date selector so we can inspect any day directly from
+                the database across airports.
+              </p>
+            </div>
+            <AdsbLandingTracksExplorer />
           </div>
 
           <div className="grid gap-6 xl:grid-cols-2">

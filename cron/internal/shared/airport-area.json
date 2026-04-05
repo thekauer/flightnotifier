@@ -1,0 +1,13 @@
+{
+  "referenceAirport": {
+    "ident": "EHAM",
+    "latitude": 52.3086013793945,
+    "longitude": 4.763889789581299
+  },
+  "referenceBounds": {
+    "south": 52.08534965515137,
+    "west": 4.3840274477005,
+    "north": 52.572849655151366,
+    "east": 5.359027447700499
+  }
+}

@@ -14,6 +14,7 @@ import (
 	"sync"
 	"time"
 
+	"flightnotifier/cron/internal/shared"
 	"github.com/jackc/pgx/v5"
 )
 
@@ -69,16 +70,21 @@ type adsblolResult struct {
 
 func RunAdsbLol(ctx context.Context) (any, error) {
 	client := newAdsbLolHTTPClient()
-	polls, err := fetchAdsbLolAirportPolls(ctx, client)
-	if err != nil {
-		return nil, fmt.Errorf("adsblol airport pulls failed: %w", err)
-	}
-
 	conn, err := openDB(ctx)
 	if err != nil {
 		return nil, err
 	}
 	defer conn.Close(ctx)
+
+	airports, err := resolveMonitoredAirports(ctx, conn)
+	if err != nil {
+		return nil, fmt.Errorf("resolve monitored airports: %w", err)
+	}
+
+	polls, err := fetchAdsbLolAirportPolls(ctx, client, airports)
+	if err != nil {
+		return nil, fmt.Errorf("adsblol airport pulls failed: %w", err)
+	}
 
 	tx, err := conn.Begin(ctx)
 	if err != nil {
@@ -105,32 +111,36 @@ func RunAdsbLol(ctx context.Context) (any, error) {
 	return adsblolResult{Inserted: totalInserted, Airports: airportResults}, nil
 }
 
-var adsblolAirports = func() []adsblolAirportConfig {
-	airports := make([]adsblolAirportConfig, 0, len(monitoredAirports))
-	for _, airport := range monitoredAirports {
-		airports = append(airports, adsblolAirportConfig{
+var adsblolReferenceBoundsOffset = func() adsblolBoundsOffset {
+	offset := shared.AirportAreaOffset()
+	return adsblolBoundsOffset{
+		South: offset.South,
+		West:  offset.West,
+		North: offset.North,
+		East:  offset.East,
+	}
+}()
+
+func toAdsbLolAirports(airports []monitoredAirport) []adsblolAirportConfig {
+	result := make([]adsblolAirportConfig, 0, len(airports))
+	for _, airport := range airports {
+		result = append(result, adsblolAirportConfig{
 			Ident:     airport.Ident,
 			Name:      airport.Name,
 			Latitude:  airport.Latitude,
 			Longitude: airport.Longitude,
 		})
 	}
-	return airports
-}()
-
-var adsblolReferenceBoundsOffset = adsblolBoundsOffset{
-	South: adsblolAirports[0].Latitude - approachBounds.LAMin,
-	West:  adsblolAirports[0].Longitude - approachBounds.LOMin,
-	North: approachBounds.LAMax - adsblolAirports[0].Latitude,
-	East:  approachBounds.LOMax - adsblolAirports[0].Longitude,
+	return result
 }
 
-func fetchAdsbLolAirportPolls(ctx context.Context, client *http.Client) ([]adsblolAirportPoll, error) {
-	polls := make([]adsblolAirportPoll, len(adsblolAirports))
-	errs := make([]error, len(adsblolAirports))
+func fetchAdsbLolAirportPolls(ctx context.Context, client *http.Client, monitored []monitoredAirport) ([]adsblolAirportPoll, error) {
+	airports := toAdsbLolAirports(monitored)
+	polls := make([]adsblolAirportPoll, len(airports))
+	errs := make([]error, len(airports))
 
 	var wg sync.WaitGroup
-	for i, airport := range adsblolAirports {
+	for i, airport := range airports {
 		wg.Add(1)
 		go func(index int, airport adsblolAirportConfig) {
 			defer wg.Done()

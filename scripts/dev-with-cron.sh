@@ -79,7 +79,7 @@ go run -C "$ROOT_DIR/cron" ./cmd/local all --watch &
 cron_pid=$!
 
 cd "$ROOT_DIR"
-NODE_ENV=development node server.mjs &
+next dev --turbopack &
 web_pid=$!
 
 set +e

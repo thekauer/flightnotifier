@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { NotificationZoneProvider } from '@/lib/notificationZoneContext';
 import { VisibilitySettingsProvider } from '@/lib/visibilitySettingsContext';
 import { PredictionHorizonProvider } from '@/lib/predictionHorizonContext';
@@ -12,13 +13,18 @@ import { SelectedFlightProvider } from '@/lib/selectedFlightContext';
 import { EtaFormatProvider } from '@/lib/etaFormatContext';
 import { AnimateProvider } from '@/lib/animateContext';
 import { FlightEventsProvider } from '@/lib/flightEventsContext';
-import { AirportPresenceBridge } from '@/components/AirportPresenceBridge';
+import { AirportActivityBridge } from '@/components/AirportActivityBridge';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
+  const pathname = usePathname();
+  const enableLiveShell = pathname !== '/component';
+
+  const content = enableLiveShell ? <FlightEventsProvider>{children}</FlightEventsProvider> : <>{children}</>;
+
   return (
     <QueryClientProvider client={queryClient}>
-      <AirportPresenceBridge />
+      {enableLiveShell ? <AirportActivityBridge /> : null}
       <SpottingModeProvider>
         <StaggerProvider>
           <NotificationZoneProvider>
@@ -28,7 +34,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
                   <EtaFormatProvider>
                     <AnimateProvider>
                       <SelectedFlightProvider>
-                        <FlightEventsProvider>{children}</FlightEventsProvider>
+                        {content}
                       </SelectedFlightProvider>
                     </AnimateProvider>
                   </EtaFormatProvider>

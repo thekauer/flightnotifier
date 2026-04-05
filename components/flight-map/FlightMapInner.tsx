@@ -1,15 +1,19 @@
 'use client';
 
-import React, { useMemo, useCallback, useRef, useState, useSyncExternalStore } from 'react';
+import React, { useEffect, useMemo, useCallback, useRef, useState, useSyncExternalStore } from 'react';
 import { MapContainer, TileLayer, Polygon, Rectangle, Tooltip, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import type { Flight } from '@/lib/types';
 import { useNotificationZone, type ZoneBounds } from '@/lib/notificationZoneContext';
+import { getAirportAreaBounds } from '@/lib/airportArea';
 import { useAnimate } from '@/lib/animateContext';
 import { buildConePolygon } from '@/lib/buildConePolygon';
 import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 import { useSelectedFlight } from '@/lib/selectedFlightContext';
 import { useSelectedAirportsStore } from '@/lib/stores/selectedAirportsStore';
+import { useDashboardCorridors } from '@/hooks/useDashboardCorridors';
+import type { FlightHistoryPoint, LiveFlightCorridorGuidance } from '@/lib/liveCorridorPrediction';
+import { matchFlightToCorridor } from '@/lib/liveCorridorPrediction';
 import { coneMatchesSelection, runwayMatchesSelection } from '@/lib/runwaySelection';
 import { useRunways, type Runway } from '@/hooks/useRunways';
 import {
@@ -149,15 +153,13 @@ function buildAirportBounds(
   runways: RunwayPolygonData[],
   cones: ConeData[],
 ): L.LatLngBoundsExpression {
-  const points = [...runways.flatMap((runway) => runway.corners), ...cones.flatMap((cone) => cone.polygon)];
-  if (points.length === 0) {
-    const lat = airport.latitude;
-    const lon = airport.longitude;
-    return [
-      [lat - 0.12, lon - 0.18],
-      [lat + 0.12, lon + 0.18],
-    ];
-  }
+  const areaBounds = getAirportAreaBounds(airport);
+  const points = [
+    ...runways.flatMap((runway) => runway.corners),
+    ...cones.flatMap((cone) => cone.polygon),
+    [areaBounds.south, areaBounds.west] as [number, number],
+    [areaBounds.north, areaBounds.east] as [number, number],
+  ];
 
   const lats = points.map((point) => point[0]);
   const lons = points.map((point) => point[1]);
@@ -184,6 +186,9 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
   const focusedAirport = useSelectedAirportsStore((state) => state.selectedAirports[0] ?? DEFAULT_AIRPORT);
   const selectedRunways = useSelectedAirportsStore((state) => state.selectedRunways);
   const { data: runways = [] } = useRunways(focusedAirport.ident);
+  const { data: dashboardCorridors } = useDashboardCorridors(focusedAirport.ident, 60);
+  const flightHistoryRef = useRef<Map<string, FlightHistoryPoint[]>>(new Map());
+  const [historyVersion, setHistoryVersion] = useState(0);
 
   // --- Label mode toggle (persisted to localStorage) ---
   const LABEL_MODE_KEY = 'flightnotifier-label-mode';
@@ -384,7 +389,63 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
     () => buildAirportBounds(focusedAirport, visibleRunwayPolygons, visibleRunwayCones),
     [focusedAirport, visibleRunwayCones, visibleRunwayPolygons],
   );
-  const showAreaForAirport = showArea && focusedAirport.ident === 'EHAM';
+  const airportAreaBounds = useMemo(
+    () => getAirportAreaBounds(focusedAirport),
+    [focusedAirport],
+  );
+  const corridorGuidanceByFlight = useMemo(() => {
+    if (!dashboardCorridors) {
+      return new Map<string, LiveFlightCorridorGuidance>();
+    }
+
+    const airportCenter: [number, number] = [focusedAirport.latitude, focusedAirport.longitude];
+    const guidance = new Map<string, LiveFlightCorridorGuidance>();
+
+    for (const flight of airborneFlights) {
+      const history = flightHistoryRef.current.get(flight.id) ?? [];
+      const match = matchFlightToCorridor({
+        airportIdent: focusedAirport.ident,
+        airportCenter,
+        flight,
+        history,
+        arrivals: dashboardCorridors.arrival.corridors,
+        departures: dashboardCorridors.departure.corridors,
+      });
+
+      if (match) {
+        guidance.set(flight.id, match);
+      }
+    }
+
+    return guidance;
+  }, [airborneFlights, dashboardCorridors, focusedAirport.ident, focusedAirport.latitude, focusedAirport.longitude, historyVersion]);
+
+  useEffect(() => {
+    const next = new Map<string, FlightHistoryPoint[]>();
+
+    for (const flight of airborneFlights) {
+      const previous = flightHistoryRef.current.get(flight.id) ?? [];
+      const latest = previous[previous.length - 1];
+      const point = {
+        lat: flight.lat,
+        lon: flight.lon,
+        timestamp: flight.timestamp,
+      };
+
+      const updated =
+        latest &&
+        latest.lat === point.lat &&
+        latest.lon === point.lon &&
+        latest.timestamp === point.timestamp
+          ? previous
+          : [...previous, point].slice(-8);
+
+      next.set(flight.id, updated);
+    }
+
+    flightHistoryRef.current = next;
+    setHistoryVersion((value) => value + 1);
+  }, [airborneFlights]);
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -458,11 +519,11 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
             attribution={TILE_ATTRIBUTION}
             url={isDark ? TILE_DARK : TILE_LIGHT}
           />
-          {showAreaForAirport && (
+          {showArea && (
             <Rectangle
               bounds={[
-                [52.13, 4.46],
-                [52.52, 5.24],
+                [airportAreaBounds.south, airportAreaBounds.west],
+                [airportAreaBounds.north, airportAreaBounds.east],
               ]}
               pathOptions={{
                 color: '#9ca3af',
@@ -605,6 +666,7 @@ export default function FlightMapInner({ airborneFlights, approachingIds, weathe
               onSelect={handleSelectFlight}
               isInZone={!!zone && isInZone(flight.lat, flight.lon)}
               checkInZone={zone ? isInZone : noZone}
+              corridorGuidance={corridorGuidanceByFlight.get(flight.id) ?? null}
             />
           ))}
         </MapContainer>

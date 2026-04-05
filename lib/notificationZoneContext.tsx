@@ -1,13 +1,9 @@
 'use client';
 
 import { createContext, useContext, useCallback, useRef, useState, type ReactNode } from 'react';
+import type { ZoneBounds } from '@/lib/geoBounds';
 
-export interface ZoneBounds {
-  south: number;
-  west: number;
-  north: number;
-  east: number;
-}
+export type { ZoneBounds } from '@/lib/geoBounds';
 
 interface NotificationZoneContextValue {
   zone: ZoneBounds | null;

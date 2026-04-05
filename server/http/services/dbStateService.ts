@@ -10,6 +10,7 @@ import {
   isCanceledOrDiverted,
 } from '@/server/arrivals/flightRow';
 import { resolveIcaoFromIata } from '@/lib/airports';
+import { getAirportAreaBounds } from '@/lib/airportArea';
 import { DEFAULT_AIRPORT } from '@/lib/defaultAirport';
 import { findAirportByIdent } from '@/lib/server/airportCatalog';
 import { callsignMatchesFlighty } from '@/lib/callsignMatch';
@@ -18,25 +19,12 @@ import { buildSchedule } from '@/server/opensky/schedule';
 import { predictRunways } from '@/server/runway/predictor';
 import { getRunwayHistoryStore } from '@/server/singleton';
 import type { Flight } from '@/server/opensky/types';
+import { isPointInBounds } from '@/lib/geoBounds';
 
 const SCHIPHOL_LAT = 52.3105;
 const SCHIPHOL_LON = 4.7683;
 const DB_STATE_CACHE_TTL_MS = 30_000;
 const DB_SCHEDULE_CACHE_TTL_MS = 30_000;
-const APPROACH_BOUNDS = {
-  south: 52.13,
-  west: 4.46,
-  north: 52.52,
-  east: 5.24,
-};
-
-const APPROACH_BOUNDS_OFFSET = {
-  south: DEFAULT_AIRPORT.latitude - APPROACH_BOUNDS.south,
-  west: DEFAULT_AIRPORT.longitude - APPROACH_BOUNDS.west,
-  north: APPROACH_BOUNDS.north - DEFAULT_AIRPORT.latitude,
-  east: APPROACH_BOUNDS.east - DEFAULT_AIRPORT.longitude,
-};
-
 type AdsbLolSnapshotRow = {
   polled_at: string | Date;
   icao24: string;
@@ -160,21 +148,11 @@ function haversineKm(lat1: number, lon1: number, lat2: number, lon2: number): nu
 
 function getAirportBounds(airportIdent: string) {
   const airport = findAirportByIdent(airportIdent) ?? DEFAULT_AIRPORT;
-  return {
-    south: airport.latitude - APPROACH_BOUNDS_OFFSET.south,
-    west: airport.longitude - APPROACH_BOUNDS_OFFSET.west,
-    north: airport.latitude + APPROACH_BOUNDS_OFFSET.north,
-    east: airport.longitude + APPROACH_BOUNDS_OFFSET.east,
-  };
+  return getAirportAreaBounds(airport);
 }
 
 function isFlightWithinBounds(flight: Flight, bounds: { south: number; west: number; north: number; east: number }): boolean {
-  return (
-    flight.lat >= bounds.south &&
-    flight.lat <= bounds.north &&
-    flight.lon >= bounds.west &&
-    flight.lon <= bounds.east
-  );
+  return isPointInBounds(flight.lat, flight.lon, bounds);
 }
 
 function countryFromFlagPath(flag?: string): string {
@@ -289,12 +267,29 @@ function normalizeFlightyRows(rows: FlightyRow[]): FlightyArrivalRow[] {
     }));
 }
 
-async function queryLatestAdsbLolSnapshot(): Promise<Flight[]> {
+const ADSBLOL_RECENT_WINDOW_MINUTES = 30;
+
+async function queryLatestAdsbLolSnapshot(bounds?: { south: number; west: number; north: number; east: number }): Promise<Flight[]> {
   try {
     const result = await db.execute(sql`
-      WITH latest_poll AS (
-        SELECT max(polled_at) AS polled_at
-        FROM ingest.adsblol_state_vectors
+      WITH
+      recent_vectors AS (
+        SELECT
+          sv.*,
+          row_number() OVER (
+            PARTITION BY sv.icao24
+            ORDER BY sv.polled_at DESC
+          ) AS row_num
+        FROM ingest.adsblol_state_vectors sv
+        WHERE sv.polled_at >= now() - interval '${sql.raw(String(ADSBLOL_RECENT_WINDOW_MINUTES))} minutes'
+          AND sv.latitude IS NOT NULL
+          AND sv.longitude IS NOT NULL
+          ${bounds
+            ? sql`
+          AND sv.latitude BETWEEN ${bounds.south} AND ${bounds.north}
+          AND sv.longitude BETWEEN ${bounds.west} AND ${bounds.east}
+          `
+            : sql``}
       )
       SELECT
         sv.polled_at,
@@ -317,11 +312,9 @@ async function queryLatestAdsbLolSnapshot(): Promise<Flight[]> {
         a.manufacturer,
         a.icao_type AS aircraft_icao_type,
         a.registration AS aircraft_registration
-      FROM ingest.adsblol_state_vectors sv
-      JOIN latest_poll lp ON sv.polled_at = lp.polled_at
+      FROM recent_vectors sv
       LEFT JOIN public.aircraft a ON a.icao24 = sv.icao24
-      WHERE sv.latitude IS NOT NULL
-        AND sv.longitude IS NOT NULL
+      WHERE sv.row_num = 1
     `);
 
     const rows = result.rows as AdsbLolSnapshotRow[];
@@ -412,11 +405,8 @@ async function queryLatestOpenSkySnapshot(): Promise<Flight[]> {
 }
 
 export async function getLatestDbFlights(airportIdent: string = DEFAULT_AIRPORT.ident): Promise<Flight[]> {
-  const adsbLolFlights = await queryLatestAdsbLolSnapshot();
   const bounds = getAirportBounds(airportIdent);
-  return adsbLolFlights.filter(
-    (flight) => isFlightWithinBounds(flight, bounds),
-  );
+  return queryLatestAdsbLolSnapshot(bounds);
 }
 
 export async function getLatestDbWeather(station: string): Promise<MetarData | null> {
