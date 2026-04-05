@@ -41,7 +41,7 @@ func RunFlighty(ctx context.Context) (any, error) {
 	}
 	defer conn.Close(ctx)
 
-	airports, err := resolveMonitoredAirports(ctx, conn)
+	airports, err := resolveMonitoredAirports(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("resolve monitored airports: %w", err)
 	}

@@ -239,14 +239,20 @@ func buildAdsbLolArchiveBody(archivedAt time.Time, polls []adsblolAirportPoll) (
 	return gzipJSON(payload)
 }
 
+// permanentAirportIdents is the set of airports always monitored regardless of user activity.
+// Mirrors the permanent airports seeded into DynamoDB (no TTL).
+var permanentAirportIdents = map[string]struct{}{
+	"EHAM": {}, "LHBP": {}, "KATL": {}, "OMDB": {}, "KDFW": {},
+	"RJTT": {}, "EGLL": {}, "KDEN": {}, "LTFM": {}, "KORD": {},
+	"VIDP": {}, "ZSPD": {}, "KLAX": {}, "ZGGG": {}, "RKSI": {},
+	"LFPG": {}, "WSSS": {}, "ZBAA": {}, "LEMD": {}, "KJFK": {},
+	"VTBS": {},
+}
+
 func isDefaultMonitoredAirport(ident string) bool {
 	normalized := strings.ToUpper(strings.TrimSpace(ident))
-	for _, airport := range defaultMonitoredAirports {
-		if airport.Ident == normalized {
-			return true
-		}
-	}
-	return false
+	_, ok := permanentAirportIdents[normalized]
+	return ok
 }
 
 func filterArchivePollsToDefaultAirports(polls []adsblolAirportPoll) []adsblolAirportPoll {

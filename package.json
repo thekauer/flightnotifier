@@ -28,6 +28,8 @@
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^8.5.0",
+    "@aws-sdk/client-dynamodb": "^3.1024.0",
+    "@aws-sdk/lib-dynamodb": "^3.1024.0",
     "@neondatabase/serverless": "^1.0.2",
     "@number-flow/react": "^0.6.0",
     "@radix-ui/react-collapsible": "^1.1.0",

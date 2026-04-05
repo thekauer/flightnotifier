@@ -46,13 +46,3 @@ export const flightRoutes = pgTable('flight_routes', {
   index('flight_routes_updated_at_idx').on(table.updatedAt),
 ]);
 
-export const activeAirports = pgTable('active_airports', {
-  airportIdent: text('airport_ident').primaryKey(),
-  iata: text('iata'),
-  name: text('name').notNull(),
-  latitude: doublePrecision('latitude').notNull(),
-  longitude: doublePrecision('longitude').notNull(),
-  touchedAt: timestamp('touched_at', { withTimezone: true }).notNull().defaultNow(),
-}, (table) => [
-  index('active_airports_touched_at_idx').on(table.touchedAt),
-]);

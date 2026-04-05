@@ -16,12 +16,23 @@ provider:
   memorySize: 128
   timeout: 8
   logRetentionInDays: 7
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Scan
+            - dynamodb:PutItem
+            - dynamodb:GetItem
+            - dynamodb:DeleteItem
+          Resource: !GetAtt ActiveAirportsTable.Arn
   environment:
     APP_ENV: ${sls:stage}
     LOG_LEVEL: info
     OPENSKY_CLIENT_ID: ${env:OPENSKY_CLIENT_ID, ''}
     OPENSKY_CLIENT_SECRET: ${env:OPENSKY_CLIENT_SECRET, ''}
     DATABASE_URL: ${env:DATABASE_URL, ''}
+    DYNAMODB_TABLE_ACTIVE_AIRPORTS: !Ref ActiveAirportsTable
     R2_ARCHIVE_ENABLED: ${env:R2_ARCHIVE_ENABLED, self:custom.r2ArchiveEnabledByStage.${sls:stage}, 'false'}
     R2_ACCOUNT_ID: ${env:R2_ACCOUNT_ID, ''}
     R2_ACCESS_KEY_ID: ${env:R2_ACCESS_KEY_ID, ''}
@@ -76,6 +87,26 @@ resources:
         - ${env:AWS_ENABLE_BUDGET_ALERTS, 'false'}
         - 'true'
   Resources:
+    ActiveAirportsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-${sls:stage}-active-airports
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: airport_ident
+            AttributeType: S
+        KeySchema:
+          - AttributeName: airport_ident
+            KeyType: HASH
+        TimeToLiveSpecification:
+          AttributeName: ttl
+          Enabled: true
+        Tags:
+          - Key: project
+            Value: flightnotifier
+          - Key: managed-by
+            Value: serverless
+
     CronMonthlyBudget:
       Type: AWS::Budgets::Budget
       Condition: CreateCronBudget

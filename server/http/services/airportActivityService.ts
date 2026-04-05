@@ -1,82 +1,30 @@
-import { desc, eq, gt, sql } from 'drizzle-orm';
-import { db } from '@/drizzle/db';
-import { activeAirports } from '@/drizzle/schema/public';
+import { GetCommand, PutCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { docClient, activeAirportsTableName } from '@/server/lib/dynamodb';
 import type { AirportSearchRecord } from '@/lib/airport-catalog';
 
-export const ACTIVE_AIRPORT_WINDOW_MS = 5 * 60_000;
+const ACTIVE_AIRPORT_TTL_SECONDS = 5 * 60;
 
-type PgLikeError = {
-  code?: string;
-  message?: string;
-};
+export const ACTIVE_AIRPORT_WINDOW_MS = ACTIVE_AIRPORT_TTL_SECONDS * 1000;
 
-function asPgError(error: unknown): PgLikeError | null {
-  if (!error || typeof error !== 'object') {
-    return null;
-  }
+export async function touchActiveAirport(
+  airport: Pick<AirportSearchRecord, 'ident' | 'iata' | 'name' | 'latitude' | 'longitude'>,
+): Promise<void> {
+  const ttl = Math.floor(Date.now() / 1000) + ACTIVE_AIRPORT_TTL_SECONDS;
 
-  return error as PgLikeError;
-}
-
-function isMissingDbObjectError(error: unknown): boolean {
-  const pgError = asPgError(error);
-  return pgError?.code === '42P01' || pgError?.code === '42703';
-}
-
-function logMissingDbObject(context: string, error: unknown): void {
-  const pgError = asPgError(error);
-  console.warn(`[airport-activity] ${context}: ${pgError?.message ?? 'missing database object'}`);
-}
-
-export async function touchActiveAirport(airport: Pick<AirportSearchRecord, 'ident' | 'iata' | 'name' | 'latitude' | 'longitude'>): Promise<void> {
-  try {
-    await db
-      .insert(activeAirports)
-      .values({
-        airportIdent: airport.ident,
-        iata: airport.iata,
+  await docClient.send(
+    new PutCommand({
+      TableName: activeAirportsTableName(),
+      Item: {
+        airport_ident: airport.ident,
+        iata: airport.iata ?? null,
         name: airport.name,
         latitude: airport.latitude,
         longitude: airport.longitude,
-        touchedAt: new Date(),
-      })
-      .onConflictDoUpdate({
-        target: activeAirports.airportIdent,
-        set: {
-          iata: airport.iata,
-          name: airport.name,
-          latitude: airport.latitude,
-          longitude: airport.longitude,
-          touchedAt: sql`now()`,
-        },
-      });
-  } catch (error) {
-    if (isMissingDbObjectError(error)) {
-      logMissingDbObject('touch skipped', error);
-      return;
-    }
-
-    throw error;
-  }
-}
-
-export async function getActiveAirportIdents(): Promise<string[]> {
-  try {
-    const rows = await db
-      .select({ airportIdent: activeAirports.airportIdent })
-      .from(activeAirports)
-      .where(gt(activeAirports.touchedAt, new Date(Date.now() - ACTIVE_AIRPORT_WINDOW_MS)))
-      .orderBy(desc(activeAirports.touchedAt));
-
-    return rows.map((row) => row.airportIdent);
-  } catch (error) {
-    if (isMissingDbObjectError(error)) {
-      logMissingDbObject('active airport query skipped', error);
-      return [];
-    }
-
-    throw error;
-  }
+        touched_at: new Date().toISOString(),
+        ttl,
+      },
+    }),
+  );
 }
 
 export interface ActiveAirportRecord {
@@ -89,44 +37,42 @@ export interface ActiveAirportRecord {
 }
 
 export async function getActiveAirports(): Promise<ActiveAirportRecord[]> {
-  try {
-    return await db
-      .select({
-        airportIdent: activeAirports.airportIdent,
-        iata: activeAirports.iata,
-        name: activeAirports.name,
-        latitude: activeAirports.latitude,
-        longitude: activeAirports.longitude,
-        touchedAt: activeAirports.touchedAt,
-      })
-      .from(activeAirports)
-      .where(gt(activeAirports.touchedAt, new Date(Date.now() - ACTIVE_AIRPORT_WINDOW_MS)))
-      .orderBy(desc(activeAirports.touchedAt));
-  } catch (error) {
-    if (isMissingDbObjectError(error)) {
-      logMissingDbObject('active airport records query skipped', error);
-      return [];
-    }
+  const result = await docClient.send(
+    new ScanCommand({
+      TableName: activeAirportsTableName(),
+    }),
+  );
 
-    throw error;
-  }
+  return (result.Items ?? []).map((item) => ({
+    airportIdent: item['airport_ident'] as string,
+    iata: (item['iata'] as string | null) ?? null,
+    name: item['name'] as string,
+    latitude: item['latitude'] as number,
+    longitude: item['longitude'] as number,
+    touchedAt: new Date(item['touched_at'] as string),
+  }));
+}
+
+export async function getActiveAirportIdents(): Promise<string[]> {
+  const result = await docClient.send(
+    new ScanCommand({
+      TableName: activeAirportsTableName(),
+      ProjectionExpression: 'airport_ident',
+    }),
+  );
+
+  return (result.Items ?? []).map((item) => item['airport_ident'] as string);
 }
 
 export async function getActiveAirportTouchedAt(airportIdent: string): Promise<Date | null> {
-  try {
-    const rows = await db
-      .select({ touchedAt: activeAirports.touchedAt })
-      .from(activeAirports)
-      .where(eq(activeAirports.airportIdent, airportIdent))
-      .limit(1);
+  const result = await docClient.send(
+    new GetCommand({
+      TableName: activeAirportsTableName(),
+      Key: { airport_ident: airportIdent },
+      ProjectionExpression: 'touched_at',
+    }),
+  );
 
-    return rows[0]?.touchedAt ?? null;
-  } catch (error) {
-    if (isMissingDbObjectError(error)) {
-      logMissingDbObject('airport touch lookup skipped', error);
-      return null;
-    }
-
-    throw error;
-  }
+  if (!result.Item) return null;
+  return new Date(result.Item['touched_at'] as string);
 }

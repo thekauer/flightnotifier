@@ -10,7 +10,8 @@ func almostEqual(a, b float64) bool {
 }
 
 func TestAdsbLolBoundsForAirportMatchesAmsterdamReference(t *testing.T) {
-	airports := toAdsbLolAirports(defaultMonitoredAirports)
+	eham := monitoredAirport{Ident: "EHAM", IATA: "AMS", Name: "Amsterdam Airport Schiphol", Latitude: 52.308601, Longitude: 4.76389, MetarStation: "EHAM"}
+	airports := toAdsbLolAirports([]monitoredAirport{eham})
 	bounds := adsblolBoundsForAirport(airports[0])
 
 	if !almostEqual(bounds.LAMin, approachBounds.LAMin) {
@@ -28,7 +29,9 @@ func TestAdsbLolBoundsForAirportMatchesAmsterdamReference(t *testing.T) {
 }
 
 func TestFilterAdsbLolAircraftUsesBoundingBox(t *testing.T) {
-	airports := toAdsbLolAirports(defaultMonitoredAirports)
+	eham := monitoredAirport{Ident: "EHAM", IATA: "AMS", Name: "Amsterdam Airport Schiphol", Latitude: 52.308601, Longitude: 4.76389, MetarStation: "EHAM"}
+	lhbp := monitoredAirport{Ident: "LHBP", IATA: "BUD", Name: "Budapest Liszt Ferenc International Airport", Latitude: 47.43018, Longitude: 19.262393, MetarStation: "LHBP"}
+	airports := toAdsbLolAirports([]monitoredAirport{eham, lhbp})
 	bounds := adsblolBoundsForAirport(airports[1])
 	aircraft := []map[string]interface{}{
 		{"hex": "inside", "lat": airports[1].Latitude, "lon": airports[1].Longitude},
