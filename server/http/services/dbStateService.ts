@@ -20,6 +20,7 @@ import { predictRunways } from '@/server/runway/predictor';
 import { getRunwayHistoryStore } from '@/server/singleton';
 import type { Flight } from '@/server/opensky/types';
 import { isPointInBounds } from '@/lib/geoBounds';
+import { fetchLiveFlights, fetchLiveWeather } from '@/server/http/services/bootstrapAirportData';
 
 const SCHIPHOL_LAT = 52.3105;
 const SCHIPHOL_LON = 4.7683;
@@ -585,10 +586,22 @@ export async function enrichFlightsFromDb(flights: Flight[]): Promise<Flight[]> 
 
 async function loadDbState(airportIdent: string): Promise<FlightState> {
   const weatherStation = airportIdent.trim().toUpperCase() || DEFAULT_AIRPORT.ident;
-  const [rawFlights, weather] = await Promise.all([
+  let [rawFlights, weather] = await Promise.all([
     getLatestDbFlights(weatherStation),
     getLatestDbWeather(weatherStation),
   ]);
+
+  if (rawFlights.length === 0 || !weather) {
+    const airport = findAirportByIdent(weatherStation);
+    if (airport) {
+      const [liveFlights, liveWeather] = await Promise.all([
+        rawFlights.length === 0 ? fetchLiveFlights(airport.latitude, airport.longitude) : Promise.resolve(rawFlights),
+        !weather ? fetchLiveWeather(weatherStation) : Promise.resolve(weather),
+      ]);
+      rawFlights = liveFlights;
+      weather = liveWeather;
+    }
+  }
 
   const allFlights = await enrichFlightsFromDb(rawFlights);
   const approachingFlights = allFlights.filter(isBuitenveldertbaanApproach);
